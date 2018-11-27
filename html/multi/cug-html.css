@@ -6,12 +6,9 @@
 .cmr-17{font-size:170%;}
 .cmr-12{font-size:120%;}
 .cmr-8{font-size:80%;}
-.cmbx-12x-x-120{font-size:144%; font-weight: bold;}
-.cmbx-12x-x-120{ font-weight: bold;}
 .pcrr7t-{font-family: monospace;}
 .cmti-10{ font-style: italic;}
 .cmr-9{font-size:90%;}
-.cmbx-10{ font-weight: bold;}
 .cmbx-10{ font-weight: bold;}
 .cmti-7{font-size:70%; font-style: italic;}
 .pcrb7t-{ font-family: monospace; font-weight: bold;}
@@ -133,6 +130,7 @@ div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
 div.abstract {width:100%;}
 .subsectionToc, .likesubsectionToc {margin-left:2em;}
 .subsubsectionToc, .likesubsubsectionToc {margin-left:4em;}
+.framedenv{border: 1px solid black;}
 .lstlisting .label{margin-right:0.5em; }
 div.lstlisting{font-family: monospace; white-space: nowrap; margin-top:0.5em; margin-bottom:0.5em; }
 div.lstinputlisting{ font-family: monospace; white-space: nowrap; }
@@ -141,7 +139,7 @@ div.lstinputlisting{ font-family: monospace; white-space: nowrap; }
 .equation-star td{text-align:center; }
 table.equation-star { width:100%; }
 table.equation { width:100%; }
-table.align, table.alignat, table.xalignat, table.xxalignat, table.flalign {width:100%; margin-left:5%; white-space: nowrap;}
+table.align, table.alignat, table.xalignat, table.xxalignat, table.flalign {width:95%; margin-left:5%; white-space: nowrap;}
 table.align-star, table.alignat-star, table.xalignat-star, table.flalign-star {margin-left:auto; margin-right:auto; white-space: nowrap;}
 td.align-label { width:5%; text-align:center; }
 td.align-odd { text-align:right; padding-right:0.3em;}
@@ -164,9 +162,10 @@ div#colorbox8{background-color:#FFFF00;}
 div#colorbox9{background-color:#FFFF00;}
 div#colorbox10{background-color:#FFFF00;}
 div#colorbox11{background-color:#FFFF00;}
-span#colorbox12{background-color:#FFFF00;}
+div#colorbox12{background-color:#FFFF00;}
 span#colorbox13{background-color:#FFFF00;}
 span#colorbox14{background-color:#FFFF00;}
-div#colorbox15{background-color:#FFFF00;}
+span#colorbox15{background-color:#FFFF00;}
+div#colorbox16{background-color:#FFFF00;}
 /* end css.sty */
 

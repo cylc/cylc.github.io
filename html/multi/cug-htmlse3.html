@@ -3,11 +3,10 @@
 <html > 
 <head><title>Installation</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
-<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
-<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
 <!-- html,fn-in,2,next --> 
 <meta name="src" content="cug-html.tex"> 
-<meta name="date" content="2018-07-27 23:19:00"> 
 <link rel="stylesheet" type="text/css" href="cug-html.css"> 
 </head><body 
 >
@@ -18,28 +17,28 @@ href="cug-htmlse2.html#tailcug-htmlse2.html" >prev-tail</a>] [<a
 href="#tailcug-htmlse3.html">tail</a>] [<a 
 href="cug-html.html#cug-htmlse3.html" >up</a>] </p></div>
 <!--l. 381--><p class="noindent" > <h3 id="3" class="sectionHead"><span class="titlemark"> <a href="#3">3</a>  <a 
- id="x4-90003"></a>Installation </span></h3> <div class="sectionTOCS">
+ id="x5-100003"></a>Installation </span></h3> <div class="sectionTOCS">
 &#x00A0;<span class="subsectionToc" >3.1 <a 
-href="#x4-100003.1">Third-Party Software Packages</a></span>
+href="#x5-110003.1">Third-Party Software Packages</a></span>
 <br />&#x00A0;<span class="subsectionToc" >3.2 <a 
-href="#x4-110003.2">Software Bundled With Cylc</a></span>
+href="#x5-120003.2">Software Bundled With Cylc</a></span>
 <br />&#x00A0;<span class="subsectionToc" >3.3 <a 
-href="#x4-120003.3">Installing Cylc</a></span>
+href="#x5-130003.3">Installing Cylc</a></span>
 <br />&#x00A0;<span class="subsectionToc" >3.4 <a 
-href="#x4-160003.4">Automated Tests</a></span>
+href="#x5-170003.4">Automated Tests</a></span>
 </div>
 <!--l. 384--><p class="noindent" >Cylc runs on Linux. It is tested quite thoroughly on modern RHEL and Ubuntu distros. Some users have also
 managed to make it work on other Unix variants including Apple OS X, but they are not officially tested and
 supported.
 <!--l. 388--><p class="noindent" >
 <!--l. 388--><p class="noindent" > <h4 id="3.1" class="subsectionHead"> <span class="titlemark"> <a href="#3.1"> 3.1</a>  <a 
- id="x4-100003.1"></a>Third-Party Software Packages </span></h4>
+ id="x5-110003.1"></a>Third-Party Software Packages </span></h4>
 <!--l. 390--><p class="noindent" ><span 
-class="cmbx-10">Python 2 </span><span class="lstinline"><span 
-class="pcrb7t-">&#x003E;=</span></span> <span 
+class="cmbx-10">Python 2 </span><span class="lstinline"></span><span 
+class="pcrb7t-">&#x003E;=</span> <span 
 class="cmbx-10">2.6 </span>is required. <span 
-class="cmbx-10">Python 2 </span><span class="lstinline"><span 
-class="pcrb7t-">&#x003E;=</span></span> <span 
+class="cmbx-10">Python 2 </span><span class="lstinline"></span><span 
+class="pcrb7t-">&#x003E;=</span> <span 
 class="cmbx-10">2.7.9 </span>is recommended for the best security. Python 2 should already
 be installed in your Linux system. <a 
 href="https://python.org/" class="url" ><span 
@@ -59,7 +58,7 @@ class="pcrr7t-">http://www.pyopenssl.org/</span></a>
      <li class="itemize"><span 
 class="cmbx-10">python-requests </span>- <a 
 href="http://docs.python-requests.org/" class="url" ><span 
-class="pcrr7t-">http://docs.python-_requests.org/</span></a>
+class="pcrr7t-">http://docs.python-requests.org/</span></a>
      </li>
      <li class="itemize">(<span 
 class="cmbx-10">python-urllib3 </span>- should be bundled with python-requests)</li></ul>
@@ -93,9 +92,17 @@ class="cmti-10">devel </span>packages too:
          </li>
          <li class="itemize">graphviz-devel</li></ul>
      </li></ul>
-<!--l. 422--><p class="noindent" >The User Guide is generated from <span class="LATEX">L<span class="A">A</span><span class="TEX">T<span 
-class="E">E</span>X</span></span>source files by running <span class="lstinline"><span 
-class="pcrr7t-">make</span></span> in the top level Cylc directory. The specific
+<!--l. 422--><p class="noindent" >The Cylc Review service does not need any further packages to those already required (Python 2) and bundled with
+Cylc (CherryPy and Jinja2).
+<!--l. 425--><p class="noindent" >The following packages are necessary for running all the tests in Cylc:
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmbx-10">mock </span>- <a 
+href="https://mock.readthedocs.io" class="url" ><span 
+class="pcrr7t-">https://mock.readthedocs.io</span></a></li></ul>
+<!--l. 431--><p class="noindent" >The User Guide is generated from <span class="LATEX">L<span class="A">A</span><span class="TEX">T<span 
+class="E">E</span>X</span></span>source files by running <span class="lstinline"></span><span 
+class="pcrr7t-">make</span> in the top level Cylc directory. The specific
 packages required may vary by distribution, e.g.:
      <ul class="itemize1">
      <li class="itemize">texlive
@@ -104,26 +111,26 @@ packages required may vary by distribution, e.g.:
      </li>
      <li class="itemize">texlive-framed
      </li>
-     <li class="itemize">texlive-preprint (for <span class="lstinline"><span 
+     <li class="itemize">texlive-preprint (for <span class="lstinline"></span><span 
 class="pcrr7t-">fullpage</span><span 
 class="pcrr7t-">.</span><span 
-class="pcrr7t-">sty</span></span>)
+class="pcrr7t-">sty</span>)
      </li>
      <li class="itemize">texlive-tex4ht
      </li>
-     <li class="itemize">texlive-generic-extra (for <span class="lstinline"><span 
+     <li class="itemize">texlive-generic-extra (for <span class="lstinline"></span><span 
 class="pcrr7t-">dirtree</span><span 
 class="pcrr7t-">.</span><span 
-class="pcrr7t-">sty</span></span>)</li></ul>
-<!--l. 435--><p class="noindent" >To generate the HTML User Guide <span 
+class="pcrr7t-">sty</span>)</li></ul>
+<!--l. 444--><p class="noindent" >To generate the HTML User Guide <span 
 class="cmbx-10">ImageMagick </span>is also needed.
-<!--l. 437--><p class="noindent" >In most modern Linux distributions all of the software above can be installed via the system package manager.
+<!--l. 446--><p class="noindent" >In most modern Linux distributions all of the software above can be installed via the system package manager.
 Otherwise download packages manually and follow their native installation instructions. To check that all (non
 <span class="LATEX">L<span class="A">A</span><span class="TEX">T<span 
 class="E">E</span>X</span></span>packages) are installed properly:
-<!--l. 443-->
+<!--l. 452-->
 <div class="lstlisting" id="listing-1"><span class="label"><a 
- id="x4-10001r1"></a></span><span 
+ id="x5-11001r1"></a></span><span 
 class="pcrr8c-">$</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">cylc</span><span 
@@ -132,7 +139,7 @@ class="pcrr7t-">check</span><span
 class="pcrr7t-">-</span><span 
 class="pcrr7t-">software</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10002r2"></a></span><span 
+ id="x5-11002r2"></a></span><span 
 class="pcrr7t-">Checking</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">your</span><span 
@@ -140,18 +147,18 @@ class="pcrr7t-">&#x00A0;</span><span
 class="pcrr7t-">software</span><span 
 class="pcrr7t-">...</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10003r3"></a></span><span 
+ id="x5-11003r3"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10004r4"></a></span><span 
+ id="x5-11004r4"></a></span><span 
 class="pcrr7t-">Individual</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">results</span><span 
 class="pcrr7t-">:</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10005r5"></a></span><span 
+ id="x5-11005r5"></a></span><span 
 class="pcrr7t-">=============================================================================</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10006r6"></a></span><span 
+ id="x5-11006r6"></a></span><span 
 class="pcrr7t-">Package</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">(</span><span 
@@ -191,10 +198,10 @@ class="pcrr7t-">&#x00A0;</span><span
 class="pcrr7t-">found</span><span 
 class="pcrr7t-">)</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10007r7"></a></span><span 
+ id="x5-11007r7"></a></span><span 
 class="pcrr7t-">=============================================================================</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10008r8"></a></span><span 
+ id="x5-11008r8"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
@@ -229,7 +236,7 @@ class="pcrr7t-">&#x00A0;</span><span
 class="pcrr7t-">SOFTWARE</span><span 
 class="pcrr7t-">&#x22C6;</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10009r9"></a></span><span 
+ id="x5-11009r9"></a></span><span 
 class="pcrr7t-">Python</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">(2.6+,</span><span 
@@ -250,9 +257,9 @@ class="pcrr7t-">(2.7.12.</span><span
 class="pcrr7t-">final</span><span 
 class="pcrr7t-">.0)</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10010r10"></a></span><span 
+ id="x5-11010r10"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10011r11"></a></span><span 
+ id="x5-11011r11"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x22C6;</span><span 
@@ -275,7 +282,7 @@ class="pcrr7t-">&#x00A0;</span><span
 class="pcrr7t-">visualisation</span><span 
 class="pcrr7t-">&#x22C6;</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10012r12"></a></span><span 
+ id="x5-11012r12"></a></span><span 
 class="pcrr7t-">Python</span><span 
 class="pcrr7t-">:</span><span 
 class="pcrr7t-">pygtk</span><span 
@@ -294,7 +301,7 @@ class="pcrr7t-">MET</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">(2.24.0)</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10013r13"></a></span><span 
+ id="x5-11013r13"></a></span><span 
 class="pcrr7t-">graphviz</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">(</span><span 
@@ -304,7 +311,7 @@ class="pcrr7t-">FOUND</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">(2.38.0)</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10014r14"></a></span><span 
+ id="x5-11014r14"></a></span><span 
 class="pcrr7t-">Python</span><span 
 class="pcrr7t-">:</span><span 
 class="pcrr7t-">pygraphviz</span><span 
@@ -316,9 +323,9 @@ class="pcrr7t-">FOUND</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">(1.3.1)</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10015r15"></a></span><span 
+ id="x5-11015r15"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10016r16"></a></span><span 
+ id="x5-11016r16"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
@@ -351,7 +358,7 @@ class="pcrr7t-">&#x00A0;</span><span
 class="pcrr7t-">Guide</span><span 
 class="pcrr7t-">&#x22C6;</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10017r17"></a></span><span 
+ id="x5-11017r17"></a></span><span 
 class="pcrr7t-">ImageMagick</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">(</span><span 
@@ -361,9 +368,9 @@ class="pcrr7t-">FOUND</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">(6.8.9-9)</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10018r18"></a></span><span 
+ id="x5-11018r18"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10019r19"></a></span><span 
+ id="x5-11019r19"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
@@ -391,7 +398,7 @@ class="pcrr7t-">&#x00A0;</span><span
 class="pcrr7t-">layer</span><span 
 class="pcrr7t-">&#x22C6;</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10020r20"></a></span><span 
+ id="x5-11020r20"></a></span><span 
 class="pcrr7t-">Python</span><span 
 class="pcrr7t-">:</span><span 
 class="pcrr7t-">urllib3</span><span 
@@ -403,7 +410,7 @@ class="pcrr7t-">FOUND</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">(1.13.1)</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10021r21"></a></span><span 
+ id="x5-11021r21"></a></span><span 
 class="pcrr7t-">Python</span><span 
 class="pcrr7t-">:</span><span 
 class="pcrr7t-">OpenSSL</span><span 
@@ -415,7 +422,7 @@ class="pcrr7t-">FOUND</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">(17.2.0)</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10022r22"></a></span><span 
+ id="x5-11022r22"></a></span><span 
 class="pcrr7t-">Python</span><span 
 class="pcrr7t-">:</span><span 
 class="pcrr7t-">requests</span><span 
@@ -434,9 +441,9 @@ class="pcrr7t-">MET</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">(2.9.1)</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10023r23"></a></span><span 
+ id="x5-11023r23"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10024r24"></a></span><span 
+ id="x5-11024r24"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
@@ -469,7 +476,7 @@ class="pcrr7t-">&#x00A0;</span><span
 class="pcrr7t-">Guide</span><span 
 class="pcrr7t-">&#x22C6;</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10025r25"></a></span><span 
+ id="x5-11025r25"></a></span><span 
 class="pcrr7t-">TeX</span><span 
 class="pcrr7t-">:</span><span 
 class="pcrr7t-">framed</span><span 
@@ -485,7 +492,7 @@ class="pcrr7t-">/</span><span
 class="pcrr7t-">a</span><span 
 class="pcrr7t-">)</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10026r26"></a></span><span 
+ id="x5-11026r26"></a></span><span 
 class="pcrr7t-">TeX</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">(3.0+)..............................</span><span 
@@ -502,7 +509,7 @@ class="pcrr7t-">MET</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">(3.14159265)</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10027r27"></a></span><span 
+ id="x5-11027r27"></a></span><span 
 class="pcrr7t-">TeX</span><span 
 class="pcrr7t-">:</span><span 
 class="pcrr7t-">preprint</span><span 
@@ -518,7 +525,7 @@ class="pcrr7t-">/</span><span
 class="pcrr7t-">a</span><span 
 class="pcrr7t-">)</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10028r28"></a></span><span 
+ id="x5-11028r28"></a></span><span 
 class="pcrr7t-">TeX</span><span 
 class="pcrr7t-">:</span><span 
 class="pcrr7t-">tex4ht</span><span 
@@ -534,7 +541,7 @@ class="pcrr7t-">/</span><span
 class="pcrr7t-">a</span><span 
 class="pcrr7t-">)</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10029r29"></a></span><span 
+ id="x5-11029r29"></a></span><span 
 class="pcrr7t-">TeX</span><span 
 class="pcrr7t-">:</span><span 
 class="pcrr7t-">tocloft</span><span 
@@ -550,7 +557,7 @@ class="pcrr7t-">/</span><span
 class="pcrr7t-">a</span><span 
 class="pcrr7t-">)</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10030r30"></a></span><span 
+ id="x5-11030r30"></a></span><span 
 class="pcrr7t-">TeX</span><span 
 class="pcrr7t-">:</span><span 
 class="pcrr7t-">texlive</span><span 
@@ -566,16 +573,16 @@ class="pcrr7t-">/</span><span
 class="pcrr7t-">a</span><span 
 class="pcrr7t-">)</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10031r31"></a></span><span 
+ id="x5-11031r31"></a></span><span 
 class="pcrr7t-">=============================================================================</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10032r32"></a></span><span 
+ id="x5-11032r32"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10033r33"></a></span><span 
+ id="x5-11033r33"></a></span><span 
 class="pcrr7t-">Summary</span><span 
 class="pcrr7t-">:</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10034r34"></a></span><span 
+ id="x5-11034r34"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
@@ -602,7 +609,7 @@ class="pcrr7t-">&#x00A0;</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10035r35"></a></span><span 
+ id="x5-11035r35"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
@@ -637,7 +644,7 @@ class="pcrr7t-">:</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">ok</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10036r36"></a></span><span 
+ id="x5-11036r36"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
@@ -672,7 +679,7 @@ class="pcrr7t-">:</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">ok</span><span 
 class="pcrr7t-">&#x00A0;</span><br /><span class="label"><a 
- id="x4-10037r37"></a></span><span 
+ id="x5-11037r37"></a></span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
@@ -699,22 +706,47 @@ class="pcrr7t-">&#x00A0;</span><span
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;&#x22C6;</span>
 </div>
-<!--l. 483--><p class="noindent" >If errors are reported then the packages concerned are either not installed or not in your Python search path. (Note
-that <span class="lstinline"><span 
+<!--l. 492--><p class="noindent" >If errors are reported then the packages concerned are either not installed or not in your Python search path. (Note
+that <span class="lstinline"></span><span 
 class="pcrr7t-">cylc</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">check</span><span 
 class="pcrr7t-">-</span><span 
-class="pcrr7t-">software</span></span> has become quite trivial as we&#8217;ve removed or bundled some former dependencies, but
+class="pcrr7t-">software</span> has become quite trivial as we&#8217;ve removed or bundled some former dependencies, but
 in future we intend to make it print a comprehensive list of library versions etc.&#x00A0;to include in with bug
 reports.)
-<!--l. 489--><p class="noindent" >
-<!--l. 489--><p class="noindent" > <h4 id="3.2" class="subsectionHead"> <span class="titlemark"> <a href="#3.2"> 3.2</a>  <a 
- id="x4-110003.2"></a>Software Bundled With Cylc </span></h4>
-<!--l. 491--><p class="noindent" >Cylc bundles several third party packages which do not need to be installed separately.
+<!--l. 498--><p class="noindent" >To check for specific packages only, supply these as arguments to the <span class="lstinline"></span><span 
+class="pcrr7t-">check</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">software</span> command, either in the
+form used in the output of the bare command, without any parent package prefix and colon, or alternatively all in
+lower-case, should the given form contain capitals. For example:
                                                                                          
 
                                                                                          
+<!--l. 504-->
+<div class="lstlisting" id="listing-2"><span class="label"><a 
+ id="x5-11038r1"></a></span><span 
+class="pcrr8c-">$</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">cylc</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">check</span><span 
+class="pcrr7t-">-</span><span 
+class="pcrr7t-">software</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">Python</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">graphviz</span><span 
+class="pcrr7t-">&#x00A0;</span><span 
+class="pcrr7t-">imagemagick</span>
+</div>
+<!--l. 508--><p class="noindent" >With arguments, check-software provides an exit status indicating a collective pass (zero) or a failure of that number
+of packages to satisfy the requirements (non-zero integer).
+<!--l. 512--><p class="noindent" >
+<!--l. 512--><p class="noindent" > <h4 id="3.2" class="subsectionHead"> <span class="titlemark"> <a href="#3.2"> 3.2</a>  <a 
+ id="x5-120003.2"></a>Software Bundled With Cylc </span></h4>
+<!--l. 514--><p class="noindent" >Cylc bundles several third party packages which do not need to be installed separately.
      <ul class="itemize1">
      <li class="itemize"><span 
 class="cmbx-10">cherrypy 6.0.2 </span>(slightly modified): a pure Python HTTP framework that we use as a web server
@@ -728,7 +760,7 @@ href="http://www.cherrypy.org/" class="url" ><span
 class="pcrr7t-">http://www.cherrypy.org/</span></a> <br 
 class="newline" /><a 
 href="http://docs.python-requests.org/" class="url" ><span 
-class="pcrr7t-">http://docs.python-_requests.org/</span></a>
+class="pcrr7t-">http://docs.python-requests.org/</span></a>
      </li>
      <li class="itemize"><span 
 class="cmbx-10">Jinja2 2.10</span>: a full featured template engine for Python, and its dependency <span 
@@ -746,39 +778,39 @@ class="cmbx-10">xdot </span>graph viewer (modified), LGPL licensed: <br
 class="newline" /><a 
 href="https://github.com/jrfonseca/xdot.py" class="url" ><span 
 class="pcrr7t-">https://github.com/jrfonseca/xdot.py</span></a></li></ul>
-<!--l. 510--><p class="noindent" >
-<!--l. 510--><p class="noindent" > <h4 id="3.3" class="subsectionHead"> <span class="titlemark"> <a href="#3.3"> 3.3</a>  <a 
- id="x4-120003.3"></a>Installing Cylc </span></h4>
-<!--l. 513--><p class="noindent" >Cylc releases can be downloaded from <a 
+<!--l. 533--><p class="noindent" >
+<!--l. 533--><p class="noindent" > <h4 id="3.3" class="subsectionHead"> <span class="titlemark"> <a href="#3.3"> 3.3</a>  <a 
+ id="x5-130003.3"></a>Installing Cylc </span></h4>
+<!--l. 536--><p class="noindent" >Cylc releases can be downloaded from <a 
 href="https://cylc.github.io/cylc" class="url" ><span 
 class="pcrr7t-">https://cylc.github.io/cylc</span></a>.
-<!--l. 515--><p class="noindent" >The wrapper script <span class="lstinline"><span 
+<!--l. 538--><p class="noindent" >The wrapper script <span class="lstinline"></span><span 
 class="pcrr7t-">usr</span><span 
 class="pcrr7t-">/</span><span 
 class="pcrr7t-">bin</span><span 
 class="pcrr7t-">/</span><span 
-class="pcrr7t-">cylc</span></span> should be installed to the system executable search path
-(e.g.&#x00A0;<span class="lstinline"><span 
+class="pcrr7t-">cylc</span> should be installed to the system executable search path
+(e.g.&#x00A0;<span class="lstinline"></span><span 
 class="pcrr7t-">/</span><span 
 class="pcrr7t-">usr</span><span 
 class="pcrr7t-">/</span><span 
 class="pcrr7t-">local</span><span 
 class="pcrr7t-">/</span><span 
 class="pcrr7t-">bin</span><span 
-class="pcrr7t-">/</span></span>) and modified slightly to point to a location such as <span class="lstinline"><span 
+class="pcrr7t-">/</span>) and modified slightly to point to a location such as <span class="lstinline"></span><span 
 class="pcrr7t-">/</span><span 
-class="pcrr7t-">opt</span></span> where successive Cylc releases
+class="pcrr7t-">opt</span> where successive Cylc releases
 will be unpacked side by side.
-<!--l. 520--><p class="noindent" >To install Cylc, unpack the release tarball in the right location, e.g.&#x00A0;<span class="lstinline"><span 
+<!--l. 543--><p class="noindent" >To install Cylc, unpack the release tarball in the right location, e.g.&#x00A0;<span class="lstinline"></span><span 
 class="pcrr7t-">/</span><span 
 class="pcrr7t-">opt</span><span 
 class="pcrr7t-">/</span><span 
 class="pcrr7t-">cylc</span><span 
-class="pcrr7t-">-7.7.0</span></span>, type <span class="lstinline"><span 
-class="pcrr7t-">make</span></span> inside the
+class="pcrr7t-">-7.7.0</span>, type <span class="lstinline"></span><span 
+class="pcrr7t-">make</span> inside the
 release directory, and set site defaults - if necessary - in a site global config file (below).
-<!--l. 525--><p class="noindent" >Make a symbolic link from <span class="lstinline"><span 
-class="pcrr7t-">cylc</span></span> to the latest installed version: <span class="lstinline"><span 
+<!--l. 548--><p class="noindent" >Make a symbolic link from <span class="lstinline"></span><span 
+class="pcrr7t-">cylc</span> to the latest installed version: <span class="lstinline"></span><span 
 class="pcrr7t-">ln</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">-</span><span 
@@ -793,64 +825,64 @@ class="pcrr7t-">&#x00A0;</span><span
 class="pcrr7t-">/</span><span 
 class="pcrr7t-">opt</span><span 
 class="pcrr7t-">/</span><span 
-class="pcrr7t-">cylc</span></span>. This will
+class="pcrr7t-">cylc</span>. This will
 be invoked by the central wrapper if a specific version is not requested. Otherwise, the wrapper will attempt to
-invoke the Cylc version specified in <span class="lstinline"><span 
+invoke the Cylc version specified in <span class="lstinline"></span><span 
 class="pcrr8c-">$</span><span 
-class="pcrr7t-">CYLC_VERSION</span></span>, e.g.&#x00A0;<span class="lstinline"><span 
+class="pcrr7t-">CYLC_VERSION</span>, e.g.&#x00A0;<span class="lstinline"></span><span 
 class="pcrr7t-">CYLC_VERSION</span><span 
-class="pcrr7t-">=7.7.0</span></span>. This variable is
+class="pcrr7t-">=7.7.0</span>. This variable is
 automatically set in task job scripts to ensure that jobs use the same Cylc version as their parent suite
 server program. It can also be set by users, manually or in login scripts, to fix the Cylc version in their
+                                                                                         
+
+                                                                                         
 environment.
-<!--l. 534--><p class="noindent" >Installing subsequent releases is just a matter of unpacking the new tarballs next to the previous releases,
-running <span class="lstinline"><span 
-class="pcrr7t-">make</span></span> in them, and copying in (possibly with modifications) the previous site global config
+<!--l. 557--><p class="noindent" >Installing subsequent releases is just a matter of unpacking the new tarballs next to the previous releases,
+running <span class="lstinline"></span><span 
+class="pcrr7t-">make</span> in them, and copying in (possibly with modifications) the previous site global config
 file.
-<!--l. 538--><p class="noindent" >
-<!--l. 538--><p class="noindent" > <h4 id="3.3.1" class="subsubsectionHead"><span class="titlemark"> <a href="#3.3.1"> 3.3.1</a>  <a 
- id="x4-130003.3.1"></a>Local User Installation </span></h4>
-<!--l. 541--><p class="noindent" >It is easy to install Cylc under your own user account if you don&#8217;t have root or sudo access to the system: just put
-the central Cylc wrapper in <span class="lstinline"><span 
+<!--l. 561--><p class="noindent" >
+<!--l. 561--><p class="noindent" > <h4 id="3.3.1" class="subsubsectionHead"><span class="titlemark"> <a href="#3.3.1"> 3.3.1</a>  <a 
+ id="x5-140003.3.1"></a>Local User Installation </span></h4>
+<!--l. 564--><p class="noindent" >It is easy to install Cylc under your own user account if you don&#8217;t have root or sudo access to the system: just put
+the central Cylc wrapper in <span class="lstinline"></span><span 
 class="pcrr8c-">$</span><span 
 class="pcrr7t-">HOME</span><span 
 class="pcrr7t-">/</span><span 
 class="pcrr7t-">bin</span><span 
-class="pcrr7t-">/</span></span> (making sure that is in your <span class="lstinline"><span 
+class="pcrr7t-">/</span> (making sure that is in your <span class="lstinline"></span><span 
 class="pcrr8c-">$</span><span 
-class="pcrr7t-">PATH</span></span>) and modify it to point to a directory
-such as <span class="lstinline"><span 
+class="pcrr7t-">PATH</span>) and modify it to point to a directory
+such as <span class="lstinline"></span><span 
 class="pcrr8c-">$</span><span 
 class="pcrr7t-">HOME</span><span 
 class="pcrr7t-">/</span><span 
 class="pcrr7t-">cylc</span><span 
-class="pcrr7t-">/</span></span> where you will unpack and install release tarballs. Local installation of third party
+class="pcrr7t-">/</span> where you will unpack and install release tarballs. Local installation of third party
 dependencies like Graphviz is also possible, but that depends on the particular installation methods used and is
 outside of the scope of this document.
-                                                                                         
-
-                                                                                         
-<!--l. 549--><p class="noindent" >
-<!--l. 549--><p class="noindent" > <h4 id="3.3.2" class="subsubsectionHead"><span class="titlemark"> <a href="#3.3.2"> 3.3.2</a>  <a 
- id="x4-140003.3.2"></a>Create A Site Config File </span></h4>
-<!--l. 551--><p class="noindent" >Site and user global config files define some important parameters that affect all suites, some of which may need to
+<!--l. 572--><p class="noindent" >
+<!--l. 572--><p class="noindent" > <h4 id="3.3.2" class="subsubsectionHead"><span class="titlemark"> <a href="#3.3.2"> 3.3.2</a>  <a 
+ id="x5-150003.3.2"></a>Create A Site Config File </span></h4>
+<!--l. 574--><p class="noindent" >Site and user global config files define some important parameters that affect all suites, some of which may need to
 be customized for your site. See&#x00A0;<a 
-href="cug-htmlse6.html#x7-240006">6<!--tex4ht:ref: SiteAndUserConfiguration --></a> for how to generate an initial site file and where to install it. All legal site and
+href="cug-htmlse6.html#x8-250006">6<!--tex4ht:ref: SiteAndUserConfiguration --></a> for how to generate an initial site file and where to install it. All legal site and
 user global config items are defined in&#x00A0;<a 
-href="cug-htmlse15.html#x16-403000B">B<!--tex4ht:ref: SiteRCReference --></a>.
-<!--l. 557--><p class="noindent" >
-<!--l. 557--><p class="noindent" > <h4 id="3.3.3" class="subsubsectionHead"><span class="titlemark"> <a href="#3.3.3"> 3.3.3</a>  <a 
- id="x4-150003.3.3"></a>Configure Site Environment on Job Hosts </span></h4>
-<!--l. 560--><p class="noindent" >If your users submit task jobs to hosts other than the hosts they use to run their suites, you should ensure that the
+href="cug-htmlse16.html#x18-426000B">B<!--tex4ht:ref: SiteRCReference --></a>.
+<!--l. 580--><p class="noindent" >
+<!--l. 580--><p class="noindent" > <h4 id="3.3.3" class="subsubsectionHead"><span class="titlemark"> <a href="#3.3.3"> 3.3.3</a>  <a 
+ id="x5-160003.3.3"></a>Configure Site Environment on Job Hosts </span></h4>
+<!--l. 583--><p class="noindent" >If your users submit task jobs to hosts other than the hosts they use to run their suites, you should ensure that the
 job hosts have the correct environment for running cylc. A cylc suite generates task job scripts that normally invoke
-<span class="lstinline"><span 
+<span class="lstinline"></span><span 
 class="pcrr7t-">bash</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">-</span><span 
-class="pcrr7t-">l</span></span>, i.e. it will invoke bash as a login shell to run the job script. Users and sites should ensure that
+class="pcrr7t-">l</span>, i.e. it will invoke bash as a login shell to run the job script. Users and sites should ensure that
 their bash login profiles are able to set up the correct environment for running cylc and their task
 jobs.
-<!--l. 567--><p class="noindent" >Your site administrator may customise the environment for all task jobs by adding a <span class="lstinline"><span 
+<!--l. 590--><p class="noindent" >Your site administrator may customise the environment for all task jobs by adding a <span class="lstinline"></span><span 
 class="pcrr7t-">&#x003C;</span><span 
 class="pcrr7t-">cylc</span><span 
 class="pcrr7t-">-</span><span 
@@ -864,9 +896,9 @@ class="pcrr7t-">init</span><span
 class="pcrr7t-">-</span><span 
 class="pcrr7t-">env</span><span 
 class="pcrr7t-">.</span><span 
-class="pcrr7t-">sh</span></span>
+class="pcrr7t-">sh</span>
 file and populate it with the appropriate contents. If customisation is still required, you can add your own
-<span class="lstinline"><span 
+<span class="lstinline"></span><span 
 class="pcrr8c-">$</span><span 
 class="pcrr7t-">{</span><span 
 class="pcrr7t-">HOME</span><span 
@@ -879,9 +911,9 @@ class="pcrr7t-">init</span><span
 class="pcrr7t-">-</span><span 
 class="pcrr7t-">env</span><span 
 class="pcrr7t-">.</span><span 
-class="pcrr7t-">sh</span></span> file and populate it with the appropriate contents.
+class="pcrr7t-">sh</span> file and populate it with the appropriate contents.
      <ul class="itemize1">
-     <li class="itemize"><span class="lstinline"><span 
+     <li class="itemize"><span class="lstinline"></span><span 
 class="pcrr8c-">$</span><span 
 class="pcrr7t-">{</span><span 
 class="pcrr7t-">HOME</span><span 
@@ -894,9 +926,9 @@ class="pcrr7t-">init</span><span
 class="pcrr7t-">-</span><span 
 class="pcrr7t-">env</span><span 
 class="pcrr7t-">.</span><span 
-class="pcrr7t-">sh</span></span>
+class="pcrr7t-">sh</span>
      </li>
-     <li class="itemize"><span class="lstinline"><span 
+     <li class="itemize"><span class="lstinline"></span><span 
 class="pcrr7t-">&#x003C;</span><span 
 class="pcrr7t-">cylc</span><span 
 class="pcrr7t-">-</span><span 
@@ -910,14 +942,17 @@ class="pcrr7t-">init</span><span
 class="pcrr7t-">-</span><span 
 class="pcrr7t-">env</span><span 
 class="pcrr7t-">.</span><span 
-class="pcrr7t-">sh</span></span></li></ul>
-<!--l. 578--><p class="noindent" >The job will attempt to source the first of these files it finds to set up its environment.
-<!--l. 581--><p class="noindent" >
-<!--l. 581--><p class="noindent" > <h4 id="3.4" class="subsectionHead"> <span class="titlemark"> <a href="#3.4"> 3.4</a>  <a 
- id="x4-160003.4"></a>Automated Tests </span></h4>
-<!--l. 584--><p class="noindent" >The cylc test battery is primarily intended for developers to check that changes to the source code don&#8217;t break
+class="pcrr7t-">sh</span></li></ul>
+<!--l. 601--><p class="noindent" >The job will attempt to source the first of these files it finds to set up its environment.
+                                                                                         
+
+                                                                                         
+<!--l. 604--><p class="noindent" >
+<!--l. 604--><p class="noindent" > <h4 id="3.4" class="subsectionHead"> <span class="titlemark"> <a href="#3.4"> 3.4</a>  <a 
+ id="x5-170003.4"></a>Automated Tests </span></h4>
+<!--l. 607--><p class="noindent" >The cylc test battery is primarily intended for developers to check that changes to the source code don&#8217;t break
 existing functionality. Note that some test failures can be expected to result from suites timing out, even if nothing
-is wrong, if you run too many tests in parallel. See <span class="lstinline"><span 
+is wrong, if you run too many tests in parallel. See <span class="lstinline"></span><span 
 class="pcrr7t-">cylc</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">test</span><span 
@@ -925,16 +960,16 @@ class="pcrr7t-">-</span><span
 class="pcrr7t-">battery</span><span 
 class="pcrr7t-">&#x00A0;</span><span 
 class="pcrr7t-">--</span><span 
-class="pcrr7t-">help</span></span>.
+class="pcrr7t-">help</span>.
                                                                                          
 
                                                                                          
-<!--l. 590--><div class="crosslinks"><p class="noindent">[<a 
+<!--l. 613--><div class="crosslinks"><p class="noindent">[<a 
 href="cug-htmlse4.html" >next</a>] [<a 
 href="cug-htmlse2.html" >prev</a>] [<a 
 href="cug-htmlse2.html#tailcug-htmlse2.html" >prev-tail</a>] [<a 
 href="cug-htmlse3.html" >front</a>] [<a 
 href="cug-html.html#cug-htmlse3.html" >up</a>] </p></div>
-<!--l. 590--><p class="noindent" ><a 
+<!--l. 613--><p class="noindent" ><a 
  id="tailcug-htmlse3.html"></a>  
 </body></html> 

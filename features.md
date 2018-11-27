@@ -16,7 +16,8 @@ title: features
 * *Edit Run* - edit job scripts on the fly just before submission.
 * ISO 8601 compliant *date-time cycling* workflows.
 * Integer cycling workflows.
-* *Broadcast* information to tasks (including inter-task communication).
+* *Broadcast* task runtime settings (including environment variables) to
+  tasks or groups of tasks, at runtime.
 * Implement special behaviour at start-up, shut-down, and anywhere between.
 * *Inter-suite dependence* - robust triggering off tasks in other suites.
 * *Restart* from previous state - even recovers orphaned remote jobs.

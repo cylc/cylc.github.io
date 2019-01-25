@@ -18,17 +18,8 @@ title: documentation
 If you have access to cylc already, type `cylc doc` or use the GUI "Help" menu
 to view the User Guide.  Otherwise, an online copy is available here:
 
-_Warning: the auto-generated HTML version of the user guide is quite ugly and
-has some formatting issues; we plan to reformulate the Cylc documentation using
-Sphinx in due course, which will fix this problem._
-
-* [Cylc User Guide - PDF ~3.5MB](doc/cylc-user-guide.pdf)
-* [Cylc User Guide - HTML single page](html/single/cug-html.html)
-* [Cylc User Guide - HTML multi page](html/multi/cug-html.html)
-
-### Suite Design Guide
-
-* [Suite Design Guide - PDF ~0.5MB](doc/suite-design-guide.pdf)
+* [Cylc User Guide](doc/built-sphinx/index.html)
+(This includes the formerly-separate Suite Design Guide).
 
 ### Presentations
 

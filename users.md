@@ -7,7 +7,7 @@ title: Cylc Users
 
 Known users include:
 
-  * [National Centre for Water and Atmospheric Reserach
+  * [National Institute of Water and Atmospheric Research
     (NIWA)](http://www.niwa.co.nz) - New Zealand
   * [Met Office](http://www.metoffice.gov.uk) - UK
   * [Max-Planck-Institut f&uuml;r

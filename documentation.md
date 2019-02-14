@@ -69,7 +69,7 @@ like to address the following points.*
 
 ## A Cycling Workflow Example
 
-The following example is intended to convey something of cylc's basic
+The following example is intended to convey something of basic Cylc
 functionality.  However, it barely scratches the surface; to understand more,
 read the User Guide!
 
@@ -78,6 +78,7 @@ read the User Guide!
     $ mkdir -p ~/suites/test/
     $ vim ~/suites/test/suite.rc
 
+    # suite.rc:
     title = A first Cylc suite.
 
     [cylc]
@@ -110,7 +111,7 @@ read the User Guide!
             model = "fillcolor=#00b4fd"
             post = "fillcolor=#ff5966"
 
-### Register It
+### Register
 
     $ cylc register my.suite ~/suites/test
     REGISTER my.suite: /home/bob/suites/test
@@ -122,20 +123,20 @@ read the User Guide!
 
     $ cylc help  # See other commands!
 
-### Validate It
+### Validate
 
     $ cylc validate my.suite
     Valid for cylc-6.10.1
 
 
-### Visualize It
+### Visualize
 
     $ cylc graph my.suite &
 
 ![img/cylc-graph.png](img/cylc-graph.png)
 
 
-### Run It
+### Run
 
     $ cylc run my.suite
         # OR

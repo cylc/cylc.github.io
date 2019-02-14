@@ -113,42 +113,42 @@ read the User Guide!
 
 ### Register
 
-    $ cylc register my.suite ~/suites/test
-    REGISTER my.suite: /home/bob/suites/test
+    $ cylc register test1 ~/suites/test
+    REGISTER test1: /home/bob/suites/test
 
-    $ cylc print my.suite
-    my.suite | A first test suite | ~/suites/test
+    $ cylc print test1
+    test1 | A first test suite | ~/suites/test
 
-    $ cylc edit my.suite  # Open the suite in your editor again.
+    $ cylc edit test1  # Open the suite in your editor again.
 
     $ cylc help  # See other commands!
 
 ### Validate
 
-    $ cylc validate my.suite
-    Valid for cylc-6.10.1
+    $ cylc validate test1
+    Valid for cylc-7.8.1
 
 
 ### Visualize
 
-    $ cylc graph my.suite &
+    $ cylc graph test1 &
 
 ![img/cylc-graph.png](img/cylc-graph.png)
 
 
 ### Run
 
-    $ cylc run my.suite
+    $ cylc run test1
         # OR
-    $ gcylc my.suite &  # (and run it from the GUI)
+    $ gcylc test1 &  # (and run it from the GUI)
 
 ![img/gcylc-example.png](img/gcylc-example.png)
 
 ### View Task Job Output
 
-    $ cylc log -o my.suite model.2021
+    $ cylc log -o test1 model.2021
 
-    Suite    : my.suite
+    Suite    : test1
     Task Job : 2021/model/01 (try 1)
     User@Host: bob@hpc-1.niwa.co.nz
 

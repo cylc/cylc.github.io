@@ -151,7 +151,7 @@ read the User Guide!
 
 ### View Task Job Output
 
-    $ cylc log -o test1 model.2021
+    $ cylc log -m cat -f o test1 model.2021
 
     Suite    : test1
     Task Job : 2021/model/01 (try 1)

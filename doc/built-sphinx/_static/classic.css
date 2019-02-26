@@ -4,7 +4,7 @@
  *
  * Sphinx stylesheet -- classic theme.
  *
- * :copyright: Copyright 2007-2018 by the Sphinx team, see AUTHORS.
+ * :copyright: Copyright 2007-2019 by the Sphinx team, see AUTHORS.
  * :license: BSD, see LICENSE for details.
  *
  */
@@ -121,11 +121,11 @@ div.sphinxsidebar ul {
 }
 
 div.sphinxsidebar a {
-    color: #00B3FD;
+    color: #0000EE;;
 }
 
 div.sphinxsidebar input {
-    border: 1px solid #00B3FD;
+    border: 1px solid #0000EE;;
     font-family: sans-serif;
     font-size: 1em;
 }
@@ -135,12 +135,12 @@ div.sphinxsidebar input {
 /* -- hyperlink styles ------------------------------------------------------ */
 
 a {
-    color: #00C697;
+    color: #0000EE;;
     text-decoration: none;
 }
 
 a:visited {
-    color: #00C697;
+    color: #551A8B;;
     text-decoration: none;
 }
 
@@ -175,14 +175,14 @@ div.body h5 { font-size: 110%; }
 div.body h6 { font-size: 100%; }
 
 a.headerlink {
-    color: #00C697;
+    color: #0000EE;;
     font-size: 0.8em;
     padding: 0 4px 0 4px;
     text-decoration: none;
 }
 
 a.headerlink:hover {
-    background-color: #00C697;
+    background-color: #0000EE;;
     color: white;
 }
 

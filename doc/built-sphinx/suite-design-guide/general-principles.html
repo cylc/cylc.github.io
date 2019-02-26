@@ -4,30 +4,24 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>16.3. Basic Principles &#8212; The Cylc Suite Engine 7.8.1 documentation</title>
+    <title>16.3. Basic Principles &#8212; The Cylc Suite Engine 7.8.1-7-g33a4a documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '7.8.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    
     <link rel="shortcut icon" href="../_static/cylc-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="16.4. Efficiency And Maintainability" href="efficiency.html" />
     <link rel="prev" title="16.2. Style Guidelines" href="style-guide.html" /> 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -40,7 +34,7 @@
         <li class="right" >
           <a href="style-guide.html" title="16.2. Style Guidelines"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.1-7-g33a4a documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="suite-design-guide-master.html" accesskey="U">16. Suite Design Guide</a> &#187;</li> 
       </ul>
     </div>  
@@ -61,7 +55,7 @@ writing any suite. More advanced topics are covered later:
 UTC mode to avoid problems at the transition between local standard time and
 daylight saving time, and to enable the same suite to run the same way in
 different timezones.</p>
-<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[cylc]</span>
+<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[cylc]</span>
     <span class="nv">UTC mode </span><span class="o">=</span><span class="s"> True</span>
 </pre></div>
 </div>
@@ -77,7 +71,7 @@ what failed without repeating anything unnecessarily.</p>
 <h3>16.3.2.1. rose bunch<a class="headerlink" href="#rose-bunch" title="Permalink to this headline">¶</a></h3>
 <p>One caveat to our fine-graining advice is that submitting a large number of
 small tasks at once may be a problem on some platforms. If you have many
-similar concurrent jobs you can use <code class="docutils literal"><span class="pre">rose</span> <span class="pre">bunch</span></code> to pack them into a
+similar concurrent jobs you can use <code class="docutils literal notranslate"><span class="pre">rose</span> <span class="pre">bunch</span></code> to pack them into a
 single task with incremental rerun capability: retriggering the task will rerun
 just the component jobs that did not successfully complete earlier.</p>
 </div>
@@ -90,7 +84,7 @@ constructing a more modular system of smaller suites that depend on each other
 through inter-suite triggering. Each approach has its pros and cons, depending
 on your requirements and preferences with respect to the complexity and
 manageability of the resulting system.</p>
-<p>The <code class="docutils literal"><span class="pre">cylc</span> <span class="pre">gscan</span></code> GUI lets you monitor multiple suites at a time, and
+<p>The <code class="docutils literal notranslate"><span class="pre">cylc</span> <span class="pre">gscan</span></code> GUI lets you monitor multiple suites at a time, and
 you can define virtual groups of suites that collapse into a single state
 summary.</p>
 <div class="section" id="inter-suite-triggering">
@@ -101,7 +95,7 @@ message triggers. Remote triggering involves repeatedly querying (“polling”)
 the remote suite run database, not the suite server program, so it works even
 if the other suite is down at the time.</p>
 <p>There is special graph syntax to support triggering off of a task in another
-suite, or you can call the underlying <code class="docutils literal"><span class="pre">cylc</span> <span class="pre">suite-state</span></code> command
+suite, or you can call the underlying <code class="docutils literal notranslate"><span class="pre">cylc</span> <span class="pre">suite-state</span></code> command
 directly in task scripting.</p>
 <p>In real time suites you may want to use clock-triggers to delay the onset of
 inter-suite polling until roughly the expected completion time of the remote
@@ -111,7 +105,7 @@ task.</p>
 <div class="section" id="self-contained-suites">
 <span id="id3"></span><h2>16.3.4. Self-Contained Suites<a class="headerlink" href="#self-contained-suites" title="Permalink to this headline">¶</a></h2>
 <p>All files generated by Cylc during a suite run are confined to the <em>suite
-run directory</em> <code class="docutils literal"><span class="pre">$HOME/cylc-run/&lt;SUITE&gt;</span></code>. However, Cylc has no control
+run directory</em> <code class="docutils literal notranslate"><span class="pre">$HOME/cylc-run/&lt;SUITE&gt;</span></code>. However, Cylc has no control
 over the locations of the programs, scripts, and files, that are executed,
 read, or generated by your tasks at runtime. It is up to you to ensure that
 all of this is confined to the suite run directory too, as far as possible.</p>
@@ -130,7 +124,7 @@ files they need are more robust.</p>
 </div>
 <div class="section" id="installing-files-at-start-up">
 <h3>16.3.4.2. Installing Files At Start-up<a class="headerlink" href="#installing-files-at-start-up" title="Permalink to this headline">¶</a></h3>
-<p>Use <code class="docutils literal"><span class="pre">rose</span> <span class="pre">suite-run</span></code> <em>file creation mode</em> or <code class="docutils literal"><span class="pre">R1</span></code>
+<p>Use <code class="docutils literal notranslate"><span class="pre">rose</span> <span class="pre">suite-run</span></code> <em>file creation mode</em> or <code class="docutils literal notranslate"><span class="pre">R1</span></code>
 install tasks to copy files to the self-contained suite run directory at
 start-up.  Install tasks are preferred for time-consuming installations because
 they don’t slow the suite start-up process, they can be monitored in the GUI,
@@ -145,9 +139,9 @@ installation in a rose app.</p>
 <p>Output files should be confined to the suite run directory tree. Then all
 output is easy to find, multiple instances of the same suite can run
 concurrently without interference, and other users should be able to copy and
-run your suite with few modifications. Cylc provides a <code class="docutils literal"><span class="pre">share</span></code>
+run your suite with few modifications. Cylc provides a <code class="docutils literal notranslate"><span class="pre">share</span></code>
 directory for generated files that are used by several tasks in a suite
-(see <a class="reference internal" href="#shared-task-io-paths"><span class="std std-ref">Shared Task IO Paths</span></a>). Archiving tasks can use <code class="docutils literal"><span class="pre">rose</span> <span class="pre">arch</span></code>
+(see <a class="reference internal" href="#shared-task-io-paths"><span class="std std-ref">Shared Task IO Paths</span></a>). Archiving tasks can use <code class="docutils literal notranslate"><span class="pre">rose</span> <span class="pre">arch</span></code>
 to copy or move selected files to external locations as needed (see
 <a class="reference internal" href="#suite-housekeeping"><span class="std std-ref">Suite Housekeeping</span></a>).</p>
 </div>
@@ -155,11 +149,11 @@ to copy or move selected files to external locations as needed (see
 <div class="section" id="task-host-selection">
 <h2>16.3.5. Task Host Selection<a class="headerlink" href="#task-host-selection" title="Permalink to this headline">¶</a></h2>
 <p>At sites with multiple task hosts to choose from, use
-<code class="docutils literal"><span class="pre">rose</span> <span class="pre">host-select</span></code> to dynamically select appropriate task hosts
+<code class="docutils literal notranslate"><span class="pre">rose</span> <span class="pre">host-select</span></code> to dynamically select appropriate task hosts
 rather than hard coding particular hostnames. This enables your suite to
 adapt to particular machines being down or heavily overloaded by selecting
 from a group of hosts based on a series of criteria.
-<code class="docutils literal"><span class="pre">rose</span> <span class="pre">host-select</span></code> will only return hosts that can be contacted by
+<code class="docutils literal notranslate"><span class="pre">rose</span> <span class="pre">host-select</span></code> will only return hosts that can be contacted by
 non-interactive SSH.</p>
 </div>
 <div class="section" id="task-scripting">
@@ -186,26 +180,26 @@ Bash</a></li>
 suite and its tasks, all task scripts should:</p>
 <ul class="simple">
 <li>Print clear usage information if invoked incorrectly (and via the
-standard options <code class="docutils literal"><span class="pre">-h,</span> <span class="pre">--help</span></code>).</li>
+standard options <code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code>).</li>
 <li>Print useful diagnostic messages in case of error. For example, if a
 file was not found, the error message should contain the full path to the
 expected location.</li>
 <li>Always return correct shell exit status - zero for success, non-zero
 for failure. This is used by Cylc job wrapper code to detect success and
 failure and report it back to the suite server program.</li>
-<li>In shell scripts use <code class="docutils literal"><span class="pre">set</span> <span class="pre">-u</span></code> to abort on any reference to
+<li>In shell scripts use <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-u</span></code> to abort on any reference to
 an undefined variable. If you really need an undefined variable to evaluate
-to an empty string, make it explicit: <code class="docutils literal"><span class="pre">FOO=${FOO:-}</span></code>.</li>
-<li>In shell scripts use <code class="docutils literal"><span class="pre">set</span> <span class="pre">-e</span></code> to abort on any error without
+to an empty string, make it explicit: <code class="docutils literal notranslate"><span class="pre">FOO=${FOO:-}</span></code>.</li>
+<li>In shell scripts use <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-e</span></code> to abort on any error without
 having to failure-check each command explicitly.</li>
-<li>In shell scripts use <code class="docutils literal"><span class="pre">set</span> <span class="pre">-o</span> <span class="pre">pipefail</span></code> to abort on any error
+<li>In shell scripts use <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-o</span> <span class="pre">pipefail</span></code> to abort on any error
 within a pipe line. Note that all commands in the pipe line will still
 run, it will just exit with the right most non-zero exit status.</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Examples and more details <a class="reference external" href="https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/">are available</a>
-for the above three <code class="docutils literal"><span class="pre">set</span></code> commands.</p>
+for the above three <code class="docutils literal notranslate"><span class="pre">set</span></code> commands.</p>
 </div>
 </div>
 </div>
@@ -214,15 +208,15 @@ for the above three <code class="docutils literal"><span class="pre">set</span><
 <p>Rose apps allow all non-shared task configuration - which is not relevant to
 workflow automation - to be moved from the suite definition into app config
 files. This makes suites tidier and easier to understand, and it allows
-<code class="docutils literal"><span class="pre">rose</span> <span class="pre">edit</span></code> to provide a unified metadata-enhanced view of the suite
+<code class="docutils literal notranslate"><span class="pre">rose</span> <span class="pre">edit</span></code> to provide a unified metadata-enhanced view of the suite
 and its apps (see <a class="reference internal" href="#rose-metadata-compliance"><span class="std std-ref">Rose Metadata Compliance</span></a>).</p>
 <p>Rose apps are a clear winner for tasks with complex configuration requirements.
 It matters less for those with little configuration, but for consistency and to
-take full advantage of <code class="docutils literal"><span class="pre">rose</span> <span class="pre">edit</span></code> it makes sense to use Rose apps
+take full advantage of <code class="docutils literal notranslate"><span class="pre">rose</span> <span class="pre">edit</span></code> it makes sense to use Rose apps
 for most tasks.</p>
 <p>When most tasks are Rose apps, set the app-run command as a root-level default,
 and override it for the occasional non Rose app task:</p>
-<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
+<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
     <span class="nt">[[root]]</span>
         <span class="nv">script </span><span class="o">=</span><span class="s"> rose task-run -v</span>
     <span class="nt">[[rose-app1]]</span>
@@ -236,12 +230,12 @@ and override it for the occasional non Rose app task:</p>
 </div>
 <div class="section" id="rose-metadata-compliance">
 <span id="id4"></span><h2>16.3.8. Rose Metadata Compliance<a class="headerlink" href="#rose-metadata-compliance" title="Permalink to this headline">¶</a></h2>
-<p>Rose metadata drives page layout and sort order in <code class="docutils literal"><span class="pre">rose</span> <span class="pre">edit</span></code>, plus
+<p>Rose metadata drives page layout and sort order in <code class="docutils literal notranslate"><span class="pre">rose</span> <span class="pre">edit</span></code>, plus
 help information, input validity checking, macros for advanced checking and app
 version upgrades, and more.</p>
 <p>To ensure the suite and its constituent applications are being run as intended
 it should be valid against any provided metadata: launch the
-<code class="docutils literal"><span class="pre">rose</span> <span class="pre">edit</span></code> GUI or run <code class="docutils literal"><span class="pre">rose</span> <span class="pre">macro</span> <span class="pre">--validate</span></code> on the
+<code class="docutils literal notranslate"><span class="pre">rose</span> <span class="pre">edit</span></code> GUI or run <code class="docutils literal notranslate"><span class="pre">rose</span> <span class="pre">macro</span> <span class="pre">--validate</span></code> on the
 command line to highlight any errors, and correct them prior to use. If errors
 are flagged incorrectly you should endeavour to fix the metadata.</p>
 <p>When writing a new suite or application, consider creating metadata to
@@ -260,7 +254,7 @@ development and testing.</p>
 <span id="id5"></span><h2>16.3.10. Clock-Triggered Tasks<a class="headerlink" href="#clock-triggered-tasks" title="Permalink to this headline">¶</a></h2>
 <p>Tasks that wait on real time data should use clock-triggers to delay job
 submission until the expected data arrival time:</p>
-<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[scheduling]</span>
+<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[scheduling]</span>
     <span class="nv">initial cycle point </span><span class="o">=</span><span class="s"> now</span>
     <span class="nt">[[special tasks]]</span>
         <span class="c1"># Trigger 5 min after wall-clock time is equal to cycle point.</span>
@@ -283,7 +277,7 @@ the data (see <a class="reference internal" href="#rose-app-file-polling"><span 
 <div class="section" id="rose-app-file-polling">
 <span id="id6"></span><h2>16.3.11. Rose App File Polling<a class="headerlink" href="#rose-app-file-polling" title="Permalink to this headline">¶</a></h2>
 <p>Rose apps have built-in polling functionality to check repeatedly for the
-existence of files before executing the main app. See the <code class="docutils literal"><span class="pre">[poll]</span></code>
+existence of files before executing the main app. See the <code class="docutils literal notranslate"><span class="pre">[poll]</span></code>
 section in Rose app config documentation. This is a good way to implement
 check-and-wait functionality in clock-triggered tasks
 (<a class="reference internal" href="#clock-triggered-tasks"><span class="std std-ref">Clock-Triggered Tasks</span></a>), for example.</p>
@@ -293,10 +287,10 @@ so be sure to configure a reasonable interval between polls.</p>
 <div class="section" id="task-execution-time-limits">
 <h2>16.3.12. Task Execution Time Limits<a class="headerlink" href="#task-execution-time-limits" title="Permalink to this headline">¶</a></h2>
 <p>Instead of setting job wall clock limits directly in batch scheduler
-directives, use the <code class="docutils literal"><span class="pre">execution</span> <span class="pre">time</span> <span class="pre">limit</span></code> suite config item.
+directives, use the <code class="docutils literal notranslate"><span class="pre">execution</span> <span class="pre">time</span> <span class="pre">limit</span></code> suite config item.
 Cylc automatically derives the correct batch scheduler directives from this,
-and it is also used to run <code class="docutils literal"><span class="pre">background</span></code> and <code class="docutils literal"><span class="pre">at</span></code> jobs via
-the <code class="docutils literal"><span class="pre">timeout</span></code> command, and to poll tasks that haven’t reported in
+and it is also used to run <code class="docutils literal notranslate"><span class="pre">background</span></code> and <code class="docutils literal notranslate"><span class="pre">at</span></code> jobs via
+the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> command, and to poll tasks that haven’t reported in
 finished by the configured time limit.</p>
 </div>
 <div class="section" id="restricting-suite-activity">
@@ -317,7 +311,7 @@ queues</em>, respectively.</p>
 <span id="id8"></span><h3>16.3.13.1. Runahead Limiting<a class="headerlink" href="#runahead-limiting" title="Permalink to this headline">¶</a></h3>
 <p>By default Cylc allows a maximum of three cycle points to be active at the same
 time, but this value is configurable:</p>
-<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[scheduling]</span>
+<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[scheduling]</span>
     <span class="nv">initial cycle point </span><span class="o">=</span><span class="s"> 2020-01-01T00</span>
     <span class="c1"># Don&#39;t allow any cycle interleaving:</span>
     <span class="nv">max active cycle points </span><span class="o">=</span><span class="s"> 1</span>
@@ -328,7 +322,7 @@ time, but this value is configurable:</p>
 <h3>16.3.13.2. Internal Queues<a class="headerlink" href="#internal-queues" title="Permalink to this headline">¶</a></h3>
 <p>Tasks can be assigned to named internal queues that limit the number of members
 that can be active (i.e. submitted or running) at the same time:</p>
-<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[scheduling]</span>
+<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[scheduling]</span>
     <span class="nv">initial cycle point </span><span class="o">=</span><span class="s"> 2020-01-01T00</span>
     <span class="nt">[[queues]]</span>
         <span class="c1"># Allow only 2 members of BIG_JOBS to run at once:</span>
@@ -353,7 +347,7 @@ so regular housekeeping is very important. Special housekeeping tasks,
 typically the last tasks in each cycle, should be included to archive selected
 important files and then delete everything at some offset from the current
 cycle point.</p>
-<p>The Rose built-in apps <code class="docutils literal"><span class="pre">rose_arch</span></code> and <code class="docutils literal"><span class="pre">rose_prune</span></code>
+<p>The Rose built-in apps <code class="docutils literal notranslate"><span class="pre">rose_arch</span></code> and <code class="docutils literal notranslate"><span class="pre">rose_prune</span></code>
 provide an easy way to do this. They can be configured easily with
 file-matching patterns and cycle point offsets to perform various housekeeping
 operations on matched files.</p>
@@ -383,7 +377,7 @@ places at once.</p>
 <h3>16.3.16.1. Jinja2 Variables<a class="headerlink" href="#jinja2-variables" title="Permalink to this headline">¶</a></h3>
 <p>In simple cases you can share by passing a Jinja2 variable to all the tasks
 that need it:</p>
-<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="cp">{% set JOB_VERSION = &#39;A23&#39; %}</span>
+<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="cp">{% set JOB_VERSION = &#39;A23&#39; %}</span>
 <span class="nt">[runtime]</span>
     <span class="nt">[[foo]]</span>
         <span class="nv">script </span><span class="o">=</span><span class="s"> run-foo --version=</span><span class="cp">{{JOB_VERSION}}</span>
@@ -397,17 +391,17 @@ that need it:</p>
 <p>Sharing by inheritance of task families is recommended when more than a few
 configuration items are involved.</p>
 <p>The simplest application of inheritance is to set global defaults in the
-<code class="docutils literal"><span class="pre">[[runtime]][root]</span></code> namespace that is inherited by all tasks.
+<code class="docutils literal notranslate"><span class="pre">[[runtime]][root]</span></code> namespace that is inherited by all tasks.
 However, this should only be done for settings that really are used
 by the vast majority of tasks. Over-sharing of via root, particularly of
 environment variables, is a maintenance risk because it can be very
 difficult to be sure which tasks are <em>using</em> which global variables.</p>
-<p>Any <code class="docutils literal"><span class="pre">[runtime]</span></code> settings can be shared - scripting, host
+<p>Any <code class="docutils literal notranslate"><span class="pre">[runtime]</span></code> settings can be shared - scripting, host
 and batch scheduler configuration, environment variables, and so on - from
 single items up to complete task or app configurations.  At the latter extreme,
 it is quite common to have several tasks that inherit the same complete
 job configuration followed by minor task-specific additions:</p>
-<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
+<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
     <span class="nt">[[FILE-CONVERT]]</span>
         <span class="nv">script </span><span class="o">=</span><span class="s"> convert-netcdf</span>
         <span class="c1">#...</span>
@@ -433,36 +427,36 @@ to other shared configuration items, but there are some additional aspects
 of usage worth addressing here.</p>
 <p>Primarily, for self-containment (see <a class="reference internal" href="#self-contained-suites"><span class="std std-ref">Self-Contained Suites</span></a>) shared IO
 paths should be under the <em>suite share directory</em>, the location of which is
-passed to all tasks as <code class="docutils literal"><span class="pre">$CYLC_SUITE_SHARE_PATH</span></code>.</p>
-<p>The <code class="docutils literal"><span class="pre">rose</span> <span class="pre">task-env</span></code> utility can provide additional environment
+passed to all tasks as <code class="docutils literal notranslate"><span class="pre">$CYLC_SUITE_SHARE_PATH</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rose</span> <span class="pre">task-env</span></code> utility can provide additional environment
 variables that refer to static and cyclepoint-specific locations under the
 suite share directory.</p>
-<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
+<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
     <span class="nt">[[my-task]]</span>
         <span class="nv">env-script </span><span class="o">=</span><span class="s"> $(eval rose task-env -T P1D -T P2D)</span>
 </pre></div>
 </div>
-<p>For a current cycle point of <code class="docutils literal"><span class="pre">20170105</span></code> this will make the following
+<p>For a current cycle point of <code class="docutils literal notranslate"><span class="pre">20170105</span></code> this will make the following
 variables available to tasks:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">ROSE_DATA</span><span class="o">=</span><span class="nv">$CYLC_SUITE_SHARE_PATH</span>/data
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">ROSE_DATA</span><span class="o">=</span><span class="nv">$CYLC_SUITE_SHARE_PATH</span>/data
 <span class="nv">ROSE_DATAC</span><span class="o">=</span><span class="nv">$CYLC_SUITE_SHARE_PATH</span>/cycle/20170105
 <span class="nv">ROSE_DATACP1D</span><span class="o">=</span><span class="nv">$CYLC_SUITE_SHARE_PATH</span>/cycle/20170104
 <span class="nv">ROSE_DATACP2D</span><span class="o">=</span><span class="nv">$CYLC_SUITE_SHARE_PATH</span>/cycle/20170103
 </pre></div>
 </div>
-<p>Subdirectories of <code class="docutils literal"><span class="pre">$ROSE_DATAC</span></code> etc. should be agreed between
+<p>Subdirectories of <code class="docutils literal notranslate"><span class="pre">$ROSE_DATAC</span></code> etc. should be agreed between
 different sub-systems of the suite; typically they are named for the
 file-generating tasks, and the file-consuming tasks should know to look there.</p>
 <p>The share-not-duplicate rule can be relaxed for shared files whose names are
 agreed by convention, so long as their locations under the share directory are
 proper shared suite variables. For instance the Unified Model uses a large
-number of files whose conventional names (<code class="docutils literal"><span class="pre">glu_snow</span></code>, for example)
+number of files whose conventional names (<code class="docutils literal notranslate"><span class="pre">glu_snow</span></code>, for example)
 can reasonably be expected not to change, so they are typically hardwired into
-app configurations (as <code class="docutils literal"><span class="pre">$ROSE_DATA/glu_snow</span></code>, for example) to avoid
+app configurations (as <code class="docutils literal notranslate"><span class="pre">$ROSE_DATA/glu_snow</span></code>, for example) to avoid
 cluttering the suite definition.</p>
 <p>Here two tasks share a workspace under the suite share directory
 by inheritance:</p>
-<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="c1"># Sharing an I/O location via inheritance.</span>
+<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sharing an I/O location via inheritance.</span>
 <span class="nt">[scheduling]</span>
     <span class="nt">[[dependencies]]</span>
         <span class="nv">graph</span><span class="s"> </span><span class="o">=</span> <span class="kd">write_data</span> <span class="o">=&gt;</span> <span class="kd">read_data</span>
@@ -484,7 +478,7 @@ by inheritance:</p>
 </div>
 <p>In simple cases where an appropriate family does not already exist paths can
 be shared via Jinja variables:</p>
-<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="c1"># Sharing an I/O location with Jinja2.</span>
+<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sharing an I/O location with Jinja2.</span>
 <span class="cp">{% set DATA_DIR = &#39;$ROSE_DATA/stuff&#39; %}</span>
 <span class="nt">[scheduling]</span>
     <span class="nt">[[dependencies]]</span>
@@ -499,15 +493,15 @@ be shared via Jinja variables:</p>
 </pre></div>
 </div>
 <p>For completeness we note that it is also possible to configure multiple tasks
-to use the same work directory so they can all share files in <code class="docutils literal"><span class="pre">$PWD</span></code>.
+to use the same work directory so they can all share files in <code class="docutils literal notranslate"><span class="pre">$PWD</span></code>.
 (Cylc executes task jobs in special work directories that by default are unique
 to each task). This may simplify the suite slightly, and it may be useful if
 you are unfortunate enough to have executables that are designed for IO in
-<code class="docutils literal"><span class="pre">$PWD</span></code>, <em>but it is not recommended</em>. There is a higher risk
-of interference between tasks; it will break <code class="docutils literal"><span class="pre">rose</span> <span class="pre">task-run</span></code>
-incremental file creation mode; and <code class="docutils literal"><span class="pre">rose</span> <span class="pre">task-run</span> <span class="pre">--new</span></code> will in
+<code class="docutils literal notranslate"><span class="pre">$PWD</span></code>, <em>but it is not recommended</em>. There is a higher risk
+of interference between tasks; it will break <code class="docutils literal notranslate"><span class="pre">rose</span> <span class="pre">task-run</span></code>
+incremental file creation mode; and <code class="docutils literal notranslate"><span class="pre">rose</span> <span class="pre">task-run</span> <span class="pre">--new</span></code> will in
 effect delete the work directories of tasks other than its intended target.</p>
-<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="c1"># Shared work directory: tasks can read and write in $PWD - use with caution!</span>
+<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shared work directory: tasks can read and write in $PWD - use with caution!</span>
 <span class="nt">[scheduling]</span>
     <span class="nv">initial cycle point </span><span class="o">=</span><span class="s"> 2018</span>
     <span class="nt">[[dependencies]]</span>
@@ -533,7 +527,7 @@ itself running at, but it is better to use different tasks (in different
 cycling sections) that inherit the same base job configuration. This results
 in a more transparent suite that can be understood just by inspecting the
 graph:</p>
-<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="c1"># Run the same job differently at different cycle points.</span>
+<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run the same job differently at different cycle points.</span>
 <span class="nt">[scheduling]</span>
     <span class="nv">initial cycle point </span><span class="o">=</span><span class="s"> 2020-01-01T00</span>
     <span class="nt">[[dependencies]]</span>
@@ -558,14 +552,14 @@ graph:</p>
             <span class="nv">RUN_LEN </span><span class="o">=</span><span class="s"> PT12H</span>
 </pre></div>
 </div>
-<p>The few differences between <code class="docutils literal"><span class="pre">short_fc</span></code> and <code class="docutils literal"><span class="pre">long_fc</span></code>,
+<p>The few differences between <code class="docutils literal notranslate"><span class="pre">short_fc</span></code> and <code class="docutils literal notranslate"><span class="pre">long_fc</span></code>,
 including batch scheduler resource requests, can be configured after common
 settings are inherited.</p>
 </div>
 <div class="section" id="at-start-up">
 <h3>16.3.16.5. At Start-Up<a class="headerlink" href="#at-start-up" title="Permalink to this headline">¶</a></h3>
 <p>Similarly, if a cycling job needs special behaviour at the initial (or any
-other) cycle point, just use a different logical task in an <code class="docutils literal"><span class="pre">R1</span></code> graph and
+other) cycle point, just use a different logical task in an <code class="docutils literal notranslate"><span class="pre">R1</span></code> graph and
 have it inherit the same job as the general cycling task, not a single task
 with scripting that behaves differently if it finds itself running at the
 initial cycle point.</p>
@@ -579,11 +573,11 @@ initial cycle point.</p>
 automatically resubmit tasks in the event of network outages. Note this is
 distinct from job retries for job execution failure (just below).</p>
 <p>Job submission retries should normally be host (or host-group for
-<code class="docutils literal"><span class="pre">rose</span> <span class="pre">host-select</span></code>) specific, not task-specific, so configure them in
+<code class="docutils literal notranslate"><span class="pre">rose</span> <span class="pre">host-select</span></code>) specific, not task-specific, so configure them in
 a host (or host-group) specific family. The following suite.rc fragment
 configures all HPC jobs to retry on job submission failure up to 10
 times at 1 minute intervals, then another 5 times at 1 hour intervals:</p>
-<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
+<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
     <span class="nt">[[HPC]]</span>  <span class="c1"># Inherited by all jobs submitted to HPC.</span>
         <span class="nt">[[[job]]]</span>
             <span class="nv">submission retry delays </span><span class="o">=</span><span class="s"> 10*PT1M, 5*PT1H</span>
@@ -598,7 +592,7 @@ job host is known to be flaky, or if the job only ever fails for one known
 reason that can be fixed on a retry. For example, if a model fails occasionally
 with a numerical instability that can be remedied with a short timestep rerun,
 then an automatic retry may be appropriate:</p>
-<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
+<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
     <span class="nt">[[model]]</span>
         <span class="nv">script </span><span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">if [[ $CYLC_TASK_TRY_NUMBER &gt; 1 ]]; then</span>
@@ -629,7 +623,7 @@ path from the workflow:</p>
 </div>
 </div>
 <div class="caption docutils container">
-<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[scheduling]</span>
+<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[scheduling]</span>
     <span class="nt">[[dependencies]]</span>
         <span class="nv">graph</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
             <span class="kd">model</span> <span class="o">|</span> <span class="kd">model_short</span> <span class="o">=&gt;</span> <span class="kd">postproc</span>
@@ -647,21 +641,21 @@ path from the workflow:</p>
 <h2>16.3.18. Include Files<a class="headerlink" href="#include-files" title="Permalink to this headline">¶</a></h2>
 <p>Include-files should not be overused, but they can sometimes be useful
 (e.g. see <a class="reference internal" href="portable-suites.html#portable-suites-label"><span class="std std-ref">Portable Suites</span></a>):</p>
-<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="c1">#...</span>
+<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="c1">#...</span>
 <span class="cp">{% include &#39;inc/foo.rc&#39; %}</span>
 </pre></div>
 </div>
 <p>(Technically this inserts a Jinja2-rendered file template). Cylc also has a
 native include mechanism that pre-dates Jinja2 support and literally inlines
 the include-file:</p>
-<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="c1">#...</span>
+<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="c1">#...</span>
 <span class="o">%include</span> <span class="s">&#39;inc/foo.rc&#39;</span>
 </pre></div>
 </div>
 <p>The two methods normally produce the same result, but use the Jinja2 version if
 you need to construct an include-file name from a variable (because Cylc
 include-files get inlined before Jinja2 processing is done):</p>
-<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="c1">#...</span>
+<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="c1">#...</span>
 <span class="cp">{% include &#39;inc/&#39; ~ SITE ~ &#39;.rc&#39; %}</span>
 </pre></div>
 </div>
@@ -677,7 +671,7 @@ include-files get inlined before Jinja2 processing is done):</p>
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/cylc-logo.png" alt="Logo"/>
             </a></p>
-<h3><a href="../index.html">Table Of Contents</a></h3>
+<h3><a href="../index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction: How Cylc Works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../screenshots.html">2. Cylc Screenshots</a></li>
@@ -727,12 +721,14 @@ include-files get inlined before Jinja2 processing is done):</p>
 
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
   <div role="note" aria-label="source link">
@@ -758,13 +754,13 @@ include-files get inlined before Jinja2 processing is done):</p>
         <li class="right" >
           <a href="style-guide.html" title="16.2. Style Guidelines"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.1-7-g33a4a documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="suite-design-guide-master.html" >16. Suite Design Guide</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2008-2019 NIWA &amp; British Crown (Met Office) &amp; Contributors.
-      Last updated on Jan 26, 2019.
+      Last updated on Feb 27, 2019.
     </div>
   </body>
 </html>

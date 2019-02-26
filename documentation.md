@@ -20,7 +20,7 @@ to view the User Guide.  Otherwise, an online copy is available here:
 
 * [Multi-Page version](doc/built-sphinx/index.html) - with word search box
   (_NOTE: search result summaries are currently broken, but they link to the
-  right pages). 
+  right pages_).
 * [Single-Page version](doc/built-sphinx-single/index.html) - search with
   browser Ctrl-F
 

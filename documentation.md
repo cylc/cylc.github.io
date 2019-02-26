@@ -18,10 +18,10 @@ title: documentation
 If you have access to cylc already, type `cylc doc` or use the GUI "Help" menu
 to view the User Guide.  Otherwise, an online copy is available here:
 
-* [Multi-page version with search box](doc/built-sphinx/index.html)
-* [Single-page version (search with Ctrl-F)](doc/built-sphinx-single/index.html)
+* [Multi-Page with search box](doc/built-sphinx/index.html)
+* [Single-Page (search with Ctrl-F)](doc/built-sphinx-single/index.html)
 
-(This includes the formerly-separate Suite Design Guide).
+(Includes the formerly-separate Suite Design Guide).
 
 ### Presentations
 

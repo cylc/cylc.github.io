@@ -2,7 +2,8 @@
 # used by Github Pages.
 
 repository: cylc/cylc
-gems: ['jekyll-github-metadata']
+plugins:
+ - "jekyll-github-metadata"
 
 # Jekyll treats directories beginning with underscores as having special meaning
 # and omits them from the build. This can be overridden by manually including

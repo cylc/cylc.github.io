@@ -16,7 +16,7 @@
 body {
     font-family: sans-serif;
     font-size: 100%;
-    background-color: black;
+    background-color: white;
     color: #000;
     margin: 0;
     padding: 0;
@@ -42,7 +42,7 @@ div.body {
 }
 
 div.footer {
-    color: #ffffff;
+    color: black;
     width: 100%;
     padding: 9px 0 9px 0;
     text-align: center;
@@ -50,7 +50,7 @@ div.footer {
 }
 
 div.footer a {
-    color: #ffffff;
+    color: black;
     text-decoration: underline;
 }
 

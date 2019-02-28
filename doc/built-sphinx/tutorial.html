@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>7. Tutorial &#8212; The Cylc Suite Engine 7.8.1-10-g3ff61 documentation</title>
+    <title>7. Tutorial &#8212; The Cylc Suite Engine 7.8.1-39-gf3b0d documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="global-site-user-conf.html" title="6. Global (Site, User) Configuration Files"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.1-10-g3ff61 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.1-39-gf3b0d documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -175,7 +175,7 @@ tut/cycling/three  <span class="p">|</span> /tmp/cylc-examples/7.0.0/tutorial/cy
 <p>Suite configurations can be validated to detect syntax (and other) errors:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># pass:</span>
 $ cylc validate tut/oneoff/basic
-Valid <span class="k">for</span> cylc-6.0.0
+Valid <span class="k">for</span> cylc-7.8.1
 $ <span class="nb">echo</span> <span class="nv">$?</span>
 <span class="m">0</span>
 <span class="c1"># fail:</span>
@@ -1157,7 +1157,7 @@ of a logical switch; and iteratively generating dependencies and runtime
 configuration for groups of related tasks:</p>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="ch">#!jinja2</span>
 
-<span class="cp">{% set MULTI = True %}</span>
+<span class="cp">{% set MULTI = MULTI | default( &#39;True&#39; ) %}</span>
 <span class="cp">{% set N_GOODBYES = 3 %}</span>
 
 <span class="nt">[meta]</span>
@@ -1184,8 +1184,9 @@ configuration for groups of related tasks:</p>
 </pre></div>
 </div>
 <p>To view the result of Jinja2 processing with the Jinja2 flag
-<code class="docutils literal notranslate"><span class="pre">MULTI</span></code> set to <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cylc view --jinja2 --stdout tut/oneoff/jinja2
+<code class="docutils literal notranslate"><span class="pre">MULTI</span></code> set to an empty variable, so the <code class="docutils literal notranslate"><span class="pre">{%</span> <span class="pre">if</span> <span class="pre">MULTI</span> <span class="pre">%}</span></code> statement
+evaluates to <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cylc view --set<span class="o">=</span><span class="nv">MULTI</span><span class="o">=</span> --jinja2 --stdout tut/oneoff/jinja2
 </pre></div>
 </div>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[meta]</span>
@@ -1198,7 +1199,7 @@ configuration for groups of related tasks:</p>
         <span class="nv">script </span><span class="o">=</span><span class="s"> &quot;sleep 10; echo Hello World!&quot;</span>
 </pre></div>
 </div>
-<p>And with <code class="docutils literal notranslate"><span class="pre">MULTI</span></code> set to <code class="docutils literal notranslate"><span class="pre">True</span></code>:</p>
+<p>And without setting <code class="docutils literal notranslate"><span class="pre">MULTI</span></code>, so it assumes the default value of <code class="docutils literal notranslate"><span class="pre">True</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cylc view --jinja2 --stdout tut/oneoff/jinja2
 </pre></div>
 </div>
@@ -1301,7 +1302,7 @@ with <code class="docutils literal notranslate"><span class="pre">cylc</span> <s
 <li>Use an <em>internal queue</em> to prevent more than an alotted number
 of tasks from running at once even though they are ready -
 see <a class="reference internal" href="running-suites.html#internalqueues"><span class="std std-ref">Limiting Activity With Internal Queues</span></a>.</li>
-<li>Configure task event hooks to send an email, or shut the suite down,
+<li>Configure task events to send an email, or shut the suite down,
 on task failure.</li>
 </ul>
 </div>
@@ -1422,12 +1423,12 @@ on task failure.</li>
         <li class="right" >
           <a href="global-site-user-conf.html" title="6. Global (Site, User) Configuration Files"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.1-10-g3ff61 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.1-39-gf3b0d documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2008-2019 NIWA &amp; British Crown (Met Office) &amp; Contributors.
-      Last updated on Feb 28, 2019.
+      Last updated on Mar 01, 2019.
     </div>
   </body>
 </html>

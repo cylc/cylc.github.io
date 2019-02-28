@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>9. Suite Configuration &#8212; The Cylc Suite Engine 7.8.1-10-g3ff61 documentation</title>
+    <title>9. Suite Configuration &#8212; The Cylc Suite Engine 7.8.1-39-gf3b0d documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="suite-name-reg.html" title="8. Suite Name Registration"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.1-10-g3ff61 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.1-39-gf3b0d documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -1631,10 +1631,9 @@ will infer that <code class="docutils literal notranslate"><span class="pre">bar
 task exists at these cycle points but has no prerequisites - although other
 prerequisites may be defined for it in other parts of the graph).</p>
 <p><em>Cylc does not infer the existence of the upstream task in offset
-triggers</em> like <code class="docutils literal notranslate"><span class="pre">foo[-P1D]</span> <span class="pre">=&gt;</span> <span class="pre">bar</span></code> because, as explained in
-<a class="reference internal" href="appendices/cylc-6-migration-ref.html#cylc-6-migration-implicit-cycling"><span class="std std-ref">No Implicit Creation of Tasks by Offset Triggers</span></a>, a typo in the offset interval
-should generate an error rather than silently creating tasks on an erroneous
-cycling sequence.</p>
+triggers</em> like <code class="docutils literal notranslate"><span class="pre">foo[-P1D]</span> <span class="pre">=&gt;</span> <span class="pre">bar</span></code> because a typo in the offset
+interval should generate an error rather than silently creating
+tasks on an erroneous cycling sequence.</p>
 <p>As a result you need to be careful not to define inter-cycle dependencies that
 cannot be satisfied at run time. Suite validation catches this kind of error if
 the existence of the cycle offset task is not defined anywhere at all:</p>
@@ -3028,28 +3027,22 @@ Here’s an example, from <code class="docutils literal notranslate"><span class
 line rather than hardwired in the suite configuration.
 Here’s an example, from <code class="docutils literal notranslate"><span class="pre">&lt;cylc-dir&gt;/etc/examples/jinja2/defaults</span></code>:</p>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="ch">#!Jinja2</span>
-
 <span class="nt">[meta]</span>
-
     <span class="nv">title </span><span class="o">=</span><span class="s"> &quot;Jinja2 example: use of defaults and external input&quot;</span>
 
     <span class="nv">description </span><span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">The template variable FIRST_TASK must be given on the cylc command line</span>
-<span class="s2">using --set or --set-file=FILE; two other variables, LAST_TASK and</span>
-<span class="s2">N_MEMBERS can be set similarly, but if not they have default values.&quot;&quot;&quot;</span>
+<span class="s2">The template variable N_MEMBERS can be set on the command line with</span>
+<span class="s2">--set or --set-file=FILE; but if not a default values is supplied.&quot;&quot;&quot;</span> 
 
-<span class="cp">{% set LAST_TASK = LAST_TASK | default( &#39;baz&#39; ) %}</span>
 <span class="cp">{% set N_MEMBERS = N_MEMBERS | default( 3 ) | int %}</span>
-
-<span class="c c-Multi">{# input of FIRST_TASK is required - no default #}</span>
 
 <span class="nt">[scheduling]</span>
     <span class="nv">initial cycle point </span><span class="o">=</span><span class="s"> 20100808T00</span>
     <span class="nv">final cycle point   </span><span class="o">=</span><span class="s"> 20100816T00</span>
     <span class="nt">[[dependencies]]</span>
-        <span class="nt">[[[0]]]</span>
-            <span class="nv">graph</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="cp">{{ FIRST_TASK }}</span> <span class="o">=&gt;</span> <span class="kd">ENS</span>
-                 <span class="kd">ENS</span><span class="c">:</span><span class="kd">succeed</span><span class="c">-</span><span class="kd">all</span> <span class="o">=&gt;</span> <span class="cp">{{ LAST_TASK }}</span><span class="s2">&quot;&quot;&quot;</span>
+        <span class="nt">[[[T00]]]</span>
+            <span class="nv">graph</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="kd">foo</span> <span class="o">=&gt;</span> <span class="kd">ENS</span>
+                 <span class="kd">ENS</span><span class="c">:</span><span class="kd">succeed</span><span class="c">-</span><span class="kd">all</span> <span class="o">=&gt;</span> <span class="kd">bar</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="nt">[runtime]</span>
     <span class="nt">[[ENS]]</span>
 <span class="cp">{% for I in range( 0, N_MEMBERS ) %}</span>
@@ -3062,23 +3055,23 @@ Here’s an example, from <code class="docutils literal notranslate"><span class
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cylc list SUITE
 Jinja2 Template Error
 <span class="s1">&#39;FIRST_TASK&#39;</span> is undefined
-cylc-list foo  failed:  <span class="m">1</span>
+cylc-list SUITE  failed:  <span class="m">1</span>
 
-$ cylc list --set <span class="nv">FIRST_TASK</span><span class="o">=</span>bob foo
+$ cylc list --set <span class="nv">FIRST_TASK</span><span class="o">=</span>bob SUITE
 bob
 baz
 mem_2
 mem_1
 mem_0
 
-$ cylc list --set <span class="nv">FIRST_TASK</span><span class="o">=</span>bob --set <span class="nv">LAST_TASK</span><span class="o">=</span>alice foo
+$ cylc list --set <span class="nv">FIRST_TASK</span><span class="o">=</span>bob --set <span class="nv">LAST_TASK</span><span class="o">=</span>alice SUITE
 bob
 alice
 mem_2
 mem_1
 mem_0
 
-$ cylc list --set <span class="nv">FIRST_TASK</span><span class="o">=</span>bob --set <span class="nv">N_MEMBERS</span><span class="o">=</span><span class="m">10</span> foo
+$ cylc list --set <span class="nv">FIRST_TASK</span><span class="o">=</span>bob --set <span class="nv">N_MEMBERS</span><span class="o">=</span><span class="m">10</span> SUITE
 mem_9
 mem_8
 mem_7
@@ -3475,12 +3468,12 @@ depend on model background fields generated by the previous forecast.</td></tr>
         <li class="right" >
           <a href="suite-name-reg.html" title="8. Suite Name Registration"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.1-10-g3ff61 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.1-39-gf3b0d documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2008-2019 NIWA &amp; British Crown (Met Office) &amp; Contributors.
-      Last updated on Feb 28, 2019.
+      Last updated on Mar 01, 2019.
     </div>
   </body>
 </html>

@@ -5,12 +5,10 @@
     <div style="margin-top:10px">
     <a href="http://www.metoffice.gov.uk"><img src="css/mo-logo-cut.jpg"></a>
     </div>
-    {% assign latest_release = site.github.releases | first %}
-    {% assign pubdate = latest_release.published_at %}
     <p>
-    <a class="button" href="{{ site.github.releases_url }}/latest">
-        Download {{latest_release.name}}<br />
-        <small>Released <time datetime="{{ pubdate }}">{{ pubdate }}</time></small>
+    <a class="button" href="https://github.com/cylc/cylc/releases/latest">
+        Download <span id="latest-release-name"></span><br />
+        <small>Released <time id="latest-release-pubdate-time" datetime=""><span id="latest-release-pubdate-text"></span></time></small>
     </a>
     </p>
     <p><a class="button" href="https://github.com/cylc/cylc">Clone cylc on GitHub</a></p>

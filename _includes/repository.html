@@ -27,13 +27,6 @@
         <div id="progress">0%</div>
     </div>
     </p>
-    {% for release in site.github.releases limit: 4 %}
-    <p><a href="{{ site.github.releases_url }}/tag/{{ release.tag_name }}">
-        {{ release.name }}</a>,
-        {% include time.html date=release.published_at %}
-    </p>
-    <small>
-        {{ release.body | truncatewords: 15 }}
-    </small>
-    {% endfor %}
+
+    <div id="repository-releases">retrieving repository data...</div>
 </div>

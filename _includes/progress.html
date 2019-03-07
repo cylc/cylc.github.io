@@ -129,6 +129,24 @@ function createReleaseElement(name, link, publishedAt, body) {
 }
 
 /**
+ * Populate HTML elements with information about the latest release.
+ *
+ * @param name: name of the release
+ * @param publishedAt: raw text date as returned from the API
+ */
+function populateLatestReleaseInformation(name, publishedAt) {
+
+    var latestReleaseName = document.getElementById("latest-release-name");
+    latestReleaseName.innerHTML = name;
+
+    var latestReleaseDateTime = document.getElementById("latest-release-pubdate-time");
+    latestReleaseDateTime.setAttribute("datetime", publishedAt);
+
+    var latestReleaseDateText = document.getElementById("latest-release-pubdate-text");
+    latestReleaseDateText.innerHTML = publishedAt;
+}
+
+/**
  * Retrieve the releases of the project.
  *
  * @param url: GitHub API project releases URL
@@ -153,6 +171,11 @@ function retrieveReleases(url, linkBaseUrl) {
                 var link = linkBaseUrl + release.tag_name;
                 var releaseElement = createReleaseElement(name, link, publishedAt, body);
                 releasesContainer.appendChild(releaseElement);
+
+                // we also display the latest release metadata
+                if (i == 0) {
+                    populateLatestReleaseInformation(name, publishedAt);
+                }
             }
         };
         xhr.onerror = reject(xhr.statusText);

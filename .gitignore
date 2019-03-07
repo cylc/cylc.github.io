@@ -1,3 +1,9 @@
+
+# Jekyll files
+_site/
+
+# File extensions
+
 *.dvi
 *.tex
 *.log

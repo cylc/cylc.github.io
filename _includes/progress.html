@@ -105,12 +105,12 @@ function truncate(text, maxWords) {
 function createReleaseElement(name, link, publishedAt, body) {
     var div = document.createElement("div");
 
-    var link = document.createElement("a");
-    link.setAttribute("href", link);
-    link.innerHTML = name;
+    var linkElement = document.createElement("a");
+    linkElement.setAttribute("href", link);
+    linkElement.innerHTML = name;
 
     var paragraph = document.createElement("p");
-    paragraph.appendChild(link);
+    paragraph.appendChild(linkElement);
     var d = new Date(publishedAt),
         month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),

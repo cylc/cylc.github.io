@@ -19,6 +19,6 @@ tracker](https://github.com/cylc/cylc/issues) bug reports and feature requests.
 
 If you are in Europe you may be eligible for cylc support from the [Centre of
 Excellence in Simulation of Weather and Climate in
-Europe](https://verc.enes.org/esiwace/services/sup_cylc).
+Europe](https://www.esiwace.eu/services-1/support/overview).
 
 

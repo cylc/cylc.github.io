@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>The Cylc Suite Engine 7.8.1-10-g3ff61 documentation</title>
+    <title>The Cylc Suite Engine 7.8.2 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -23,7 +23,7 @@
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
-        <li class="nav-item nav-item-0"><a href="index.html#document-index">The Cylc Suite Engine 7.8.1-10-g3ff61 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html#document-index">The Cylc Suite Engine 7.8.2 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -35,7 +35,7 @@
   <div class="section" id="cylc-documentation">
 <h1>Cylc documentation<a class="headerlink" href="#cylc-documentation" title="Permalink to this headline">¶</a></h1>
 <p><strong>The Cylc Suite Engine</strong></p>
-<p>Current release: 7.8.1-10-g3ff61</p>
+<p>Current release: 7.8.2</p>
 <p><em>Released Under the GNU GPL v3.0 Software License</em></p>
 <p><em>Copyright (C) 2008-2019 NIWA &amp; British Crown (Met Office) &amp; Contributors.</em></p>
 <hr class="docutils" />
@@ -497,14 +497,14 @@ the system executable search path (e.g. <code class="docutils literal notranslat
 modified slightly to point to a location such as <code class="docutils literal notranslate"><span class="pre">/opt</span></code> where
 successive Cylc releases will be unpacked side by side.</p>
 <p>To install Cylc, unpack the release tarball in the right location, e.g.
-<code class="docutils literal notranslate"><span class="pre">/opt/cylc-7.7.0</span></code>, type <code class="docutils literal notranslate"><span class="pre">make</span></code> inside the release
+<code class="docutils literal notranslate"><span class="pre">/opt/cylc-7.8.2</span></code>, type <code class="docutils literal notranslate"><span class="pre">make</span></code> inside the release
 directory, and set site defaults - if necessary - in a site global config file
 (below).</p>
 <p>Make a symbolic link from <code class="docutils literal notranslate"><span class="pre">cylc</span></code> to the latest installed version:
-<code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">/opt/cylc-7.7.0</span> <span class="pre">/opt/cylc</span></code>. This will be invoked by the
+<code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">/opt/cylc-7.8.2</span> <span class="pre">/opt/cylc</span></code>. This will be invoked by the
 central wrapper if a specific version is not requested. Otherwise, the
 wrapper will attempt to invoke the Cylc version specified in
-<code class="docutils literal notranslate"><span class="pre">$CYLC_VERSION</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">CYLC_VERSION=7.7.0</span></code>. This variable
+<code class="docutils literal notranslate"><span class="pre">$CYLC_VERSION</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">CYLC_VERSION=7.8.2</span></code>. This variable
 is automatically set in task job scripts to ensure that jobs use the same Cylc
 version as their parent suite server program.  It can also be set by users,
 manually or in login scripts, to fix the Cylc version in their environment.</p>
@@ -585,8 +585,9 @@ of all Cylc users.</p>
 <p>Use the web server log, e.g. <code class="docutils literal notranslate"><span class="pre">/var/log/httpd/</span></code> or <code class="docutils literal notranslate"><span class="pre">/var/log/apache2/</span></code>, to
 debug problems.</p>
 </div>
+</div>
 <div class="section" id="automated-tests">
-<span id="rtast"></span><h4>3.3.5. Automated Tests<a class="headerlink" href="#automated-tests" title="Permalink to this headline">¶</a></h4>
+<span id="rtast"></span><h3>3.4. Automated Tests<a class="headerlink" href="#automated-tests" title="Permalink to this headline">¶</a></h3>
 <p>The cylc test battery is primarily intended for developers to check that
 changes to the source code don’t break existing functionality.</p>
 <div class="admonition note">
@@ -594,7 +595,6 @@ changes to the source code don’t break existing functionality.</p>
 <p class="last">Some test failures can be expected to result from suites timing out,
 even if nothing is wrong, if you run too many tests in parallel. See
 <code class="docutils literal notranslate"><span class="pre">cylc</span> <span class="pre">test-battery</span> <span class="pre">--help</span></code>.</p>
-</div>
 </div>
 </div>
 </div>
@@ -693,7 +693,7 @@ documented in (<a class="reference internal" href="index.html#sitercreference"><
 <p>Others, such as the preferred text editor for suite configurations,
 can be overridden by users,</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># cylc user global config file</span>
-~/.cylc/<span class="k">$(</span>cylc --version<span class="k">)</span>/global.rc  <span class="c1"># e.g. ~/.cylc/7.7.0/global.rc</span>
+~/.cylc/<span class="k">$(</span>cylc --version<span class="k">)</span>/global.rc  <span class="c1"># e.g. ~/.cylc/7.8.2/global.rc</span>
 </pre></div>
 </div>
 <p>The file <code class="docutils literal notranslate"><span class="pre">&lt;cylc-dir&gt;/etc/global.rc.eg</span></code> contains instructions on how
@@ -717,7 +717,7 @@ to generate and install site and user global config files:</p>
 # you may unwittingly override future changes to system defaults).
 #
 # The SITE FILE LOCATION is [cylc-dir]/etc/global.rc, where [cylc-dir] is your
-# install location, e.g. /opt/cylc/cylc-7.7.0.
+# install location, e.g. /opt/cylc/cylc-7.8.2.
 #
 # FORWARD COMPATIBILITY: The site global.rc file must be kept in the source
 # installation (i.e. it is version specific) because older versions of Cylc
@@ -729,7 +729,7 @@ to generate and install site and user global config files:</p>
 # you may unwittingly override future changes to site or system defaults).
 #
 # The USER FILE LOCATIONS are:
-#   1) ~/.cylc/&lt;CYLC-VERSION&gt;/global.rc  # e.g. ~/.cylc/7.7.0/global.rc
+#   1) ~/.cylc/&lt;CYLC-VERSION&gt;/global.rc  # e.g. ~/.cylc/7.8.2/global.rc
 #   2) ~/.cylc/global.rc
 # If the first lcoation is not found, the second will be checked.
 # 
@@ -1045,10 +1045,10 @@ $ cylc gscan <span class="p">&amp;</span>
 it opens gcylc.</p>
 </div>
 <div class="section" id="task-identifiers">
-<h3>7.14. Task Identifiers<a class="headerlink" href="#task-identifiers" title="Permalink to this headline">¶</a></h3>
-<p>At run time, task instances are identified by <em>name</em>, which is
-determined entirely by the suite configuration, and a <em>cycle point</em> which is
-usually a date-time or an integer:</p>
+<span id="taskidentifiers"></span><h3>7.14. Task Identifiers<a class="headerlink" href="#task-identifiers" title="Permalink to this headline">¶</a></h3>
+<p>At run time, task instances are identified by their <em>name</em> (see
+<a class="reference internal" href="index.html#tasknames"><span class="std std-ref">Task and Namespace Names</span></a>), which is determined entirely by the suite configuration,
+and a <em>cycle point</em> which is usually a date-time or an integer:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>foo.20100808T00Z   <span class="c1"># a task with a date-time cycle point</span>
 bar.1              <span class="c1"># a task with an integer cycle point (could be non-cycling)</span>
 </pre></div>
@@ -2006,6 +2006,8 @@ on task failure.</li>
 </div>
 <span id="document-suite-name-reg"></span><div class="section" id="suite-name-registration">
 <span id="suiteregistration"></span><h2>8. Suite Name Registration<a class="headerlink" href="#suite-name-registration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="suite-registration">
+<h3>8.1. Suite Registration<a class="headerlink" href="#suite-registration" title="Permalink to this headline">¶</a></h3>
 <p>Cylc commands target suites via their names, which are relative path names
 under the suite run directory (<code class="docutils literal notranslate"><span class="pre">~/cylc-run/</span></code> by default). Suites can
 be grouped together under sub-directories. E.g.:</p>
@@ -2021,6 +2023,22 @@ nwp
 <p>Suite names can be pre-registered with the <code class="docutils literal notranslate"><span class="pre">cylc</span> <span class="pre">register</span></code> command,
 which creates the suite run directory structure and some service files
 underneath it. Otherwise, <code class="docutils literal notranslate"><span class="pre">cylc</span> <span class="pre">run</span></code> will do this at suite start up.</p>
+</div>
+<div class="section" id="suite-names">
+<span id="suitenames"></span><h3>8.2. Suite Names<a class="headerlink" href="#suite-names" title="Permalink to this headline">¶</a></h3>
+<p>Suite names are not validated. Names for suites can be anything that is a
+<a class="reference external" href="https://en.wikipedia.org/wiki/Filename#Comparison_of_filename_limitations">valid filename</a> within your operating system’s file system, which includes
+restrictions on name length (as described under <a class="reference internal" href="index.html#tasknames"><span class="std std-ref">Task and Namespace Names</span></a>), with the
+exceptions of:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">/</span></code>, which is not supported for general filenames on e.g. Linux systems
+but is allowed for suite names to generate hierarchical suites
+(see <a class="reference internal" href="index.html#command-register"><span class="std std-ref">register</span></a>);</li>
+<li>while possible in filenames on many systems, it is strongly advised that
+suite names do not contain any whitespace characters (e.g. as
+in <code class="docutils literal notranslate"><span class="pre">my</span> <span class="pre">suite</span></code>).</li>
+</ul>
+</div>
 </div>
 <span id="document-suite-config"></span><div class="section" id="suite-configuration">
 <span id="suitedefinition"></span><h2>9. Suite Configuration<a class="headerlink" href="#suite-configuration" title="Permalink to this headline">¶</a></h2>
@@ -3711,9 +3729,45 @@ progressively expanded and collapsed in the dependency graph viewer, and
 in the gcylc graph and text views. Only the first parent of each
 namespace (as for single-inheritance) is used for suite visualization
 purposes.</p>
-<div class="section" id="namespace-names">
-<h4>9.4.1. Namespace Names<a class="headerlink" href="#namespace-names" title="Permalink to this headline">¶</a></h4>
-<p>Namespace names may contain letters, digits, underscores, and hyphens.</p>
+<div class="section" id="task-and-namespace-names">
+<span id="tasknames"></span><h4>9.4.1. Task and Namespace Names<a class="headerlink" href="#task-and-namespace-names" title="Permalink to this headline">¶</a></h4>
+<p>There are restrictions on names that can be used for tasks and namespaces
+to ensure all tasks are processed and implemented correctly. Valid names
+must:</p>
+<ol class="arabic simple">
+<li><em>begin with</em> (or consist only of, as single-character task names are
+allowed) either:<ul>
+<li>an alphanumeric character, i.e. a letter in either upper or lower case
+(<code class="docutils literal notranslate"><span class="pre">a-z</span></code> or <code class="docutils literal notranslate"><span class="pre">A-Z</span></code>), or a digit (<code class="docutils literal notranslate"><span class="pre">0-9</span></code>);</li>
+<li>an underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>).</li>
+</ul>
+</li>
+<li><em>otherwise</em> contain <em>only</em> characters from the following options:<ul>
+<li>alphanumeric characters or underscores (as above);</li>
+<li>any of these additional character symbols:<ul>
+<li>hyphens (<code class="docutils literal notranslate"><span class="pre">-</span></code>);</li>
+<li>plus characters (<code class="docutils literal notranslate"><span class="pre">+</span></code>);</li>
+<li>percent signs (<code class="docutils literal notranslate"><span class="pre">%</span></code>);</li>
+<li>“at” signs (<code class="docutils literal notranslate"><span class="pre">&#64;</span></code>).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>not be so long, typically over <code class="docutils literal notranslate"><span class="pre">255</span></code> characters, as to raise errors
+from exceeding maximum filename length on the operating system for
+generated outputs e.g. directories named (in part) after the task they
+concern.</li>
+</ol>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Task and namespace names may not contain colons (<code class="docutils literal notranslate"><span class="pre">:</span></code>), which would
+preclude use of directory paths involving the registration name in
+<code class="docutils literal notranslate"><span class="pre">$PATH</span></code> variables). They also may not contain the dot (<code class="docutils literal notranslate"><span class="pre">.</span></code>) character,
+as it will be interpreted as the delimiter separating the task name from
+an appended cycle point (see <a class="reference internal" href="index.html#taskidentifiers"><span class="std std-ref">Task Identifiers</span></a>).</p>
+</div>
+<p>Invalid names for tasks or namespaces will be raised as errors
+by <code class="docutils literal notranslate"><span class="pre">cylc</span> <span class="pre">validate</span></code>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last"><em>Task names need not be hardwired into task implementations</em>
@@ -4209,8 +4263,9 @@ collapsed (top left) through to all expanded (bottom right). This
 can also be done by right-clicking on tasks in the gcylc graph view.</span></p>
 </div>
 </div>
+</div>
 <div class="section" id="parameterized-tasks">
-<span id="parameterized-tasks-label"></span><h4>9.5.2. Parameterized Tasks<a class="headerlink" href="#parameterized-tasks" title="Permalink to this headline">¶</a></h4>
+<span id="parameterized-tasks-label"></span><h3>9.6. Parameterized Tasks<a class="headerlink" href="#parameterized-tasks" title="Permalink to this headline">¶</a></h3>
 <p>Cylc can automatically generate tasks and dependencies by expanding
 parameterized task names over lists of parameter values. Uses for this
 include:</p>
@@ -4227,9 +4282,8 @@ include:</p>
 but parameterization is much cleaner (nested loops can seriously reduce
 the clarity of a suite configuration).*</p>
 </div>
-</div>
 <div class="section" id="parameter-expansion">
-<h4>9.5.3. Parameter Expansion<a class="headerlink" href="#parameter-expansion" title="Permalink to this headline">¶</a></h4>
+<h4>9.6.1. Parameter Expansion<a class="headerlink" href="#parameter-expansion" title="Permalink to this headline">¶</a></h4>
 <p>Parameter values can be lists of strings, or lists of integers and
 integer ranges (with inclusive bounds). Numeric values in a list of strings are
 considered strings. It is not possible to mix strings with integer ranges.</p>
@@ -4345,7 +4399,7 @@ model_run2_ship, model_run2_buoy, model_run2_plane
 <p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">Parameter expansion example.</span></p>
 </div>
 <div class="section" id="zero-padded-integer-values">
-<h5>9.5.3.1. Zero-Padded Integer Values<a class="headerlink" href="#zero-padded-integer-values" title="Permalink to this headline">¶</a></h5>
+<h5>9.6.1.1. Zero-Padded Integer Values<a class="headerlink" href="#zero-padded-integer-values" title="Permalink to this headline">¶</a></h5>
 <p>Integer parameter values are given a default template for generating task
 suffixes that are zero-padded according to the longest size of their values.
 For example, the default template for <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">9..10</span></code> would be
@@ -4368,7 +4422,7 @@ For example, the default template for <code class="docutils literal notranslate"
 </div>
 </div>
 <div class="section" id="parameters-as-full-task-names">
-<h5>9.5.3.2. Parameters as Full Task Names<a class="headerlink" href="#parameters-as-full-task-names" title="Permalink to this headline">¶</a></h5>
+<h5>9.6.1.2. Parameters as Full Task Names<a class="headerlink" href="#parameters-as-full-task-names" title="Permalink to this headline">¶</a></h5>
 <p>Parameter values can be used as full task names, but the default template
 should be overridden to remove the initial underscore. For example:</p>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[cylc]</span>
@@ -4389,7 +4443,7 @@ should be overridden to remove the initial underscore. For example:</p>
 </div>
 </div>
 <div class="section" id="passing-parameter-values-to-tasks">
-<h4>9.5.4. Passing Parameter Values To Tasks<a class="headerlink" href="#passing-parameter-values-to-tasks" title="Permalink to this headline">¶</a></h4>
+<h4>9.6.2. Passing Parameter Values To Tasks<a class="headerlink" href="#passing-parameter-values-to-tasks" title="Permalink to this headline">¶</a></h4>
 <p>Parameter values are passed as environment variables to tasks generated by
 parameter expansion. For example, if we have:</p>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[cylc]</span>
@@ -4428,7 +4482,7 @@ environment variables:</p>
 </div>
 </div>
 <div class="section" id="selecting-specific-parameter-values">
-<h4>9.5.5. Selecting Specific Parameter Values<a class="headerlink" href="#selecting-specific-parameter-values" title="Permalink to this headline">¶</a></h4>
+<h4>9.6.3. Selecting Specific Parameter Values<a class="headerlink" href="#selecting-specific-parameter-values" title="Permalink to this headline">¶</a></h4>
 <p>Specific parameter values can be singled out in the graph and under
 <code class="docutils literal notranslate"><span class="pre">[runtime]</span></code> with the notation <code class="docutils literal notranslate"><span class="pre">&lt;p=5&gt;</span></code> (for example).
 Here’s how to make a special task trigger off just the first of a
@@ -4450,7 +4504,7 @@ set of model runs:</p>
 </div>
 </div>
 <div class="section" id="selecting-partial-parameter-ranges">
-<h4>9.5.6. Selecting Partial Parameter Ranges<a class="headerlink" href="#selecting-partial-parameter-ranges" title="Permalink to this headline">¶</a></h4>
+<h4>9.6.4. Selecting Partial Parameter Ranges<a class="headerlink" href="#selecting-partial-parameter-ranges" title="Permalink to this headline">¶</a></h4>
 <p>The parameter notation does not currently support partial range selection such
 as <code class="docutils literal notranslate"><span class="pre">foo&lt;p=5..10&gt;</span></code>, but you can achieve the same result by defining a
 second parameter that covers the partial range and giving it the same expansion
@@ -4474,7 +4528,7 @@ template as the full-range parameter. For example:</p>
 </div>
 </div>
 <div class="section" id="parameter-offsets-in-the-graph">
-<h4>9.5.7. Parameter Offsets In The Graph<a class="headerlink" href="#parameter-offsets-in-the-graph" title="Permalink to this headline">¶</a></h4>
+<h4>9.6.5. Parameter Offsets In The Graph<a class="headerlink" href="#parameter-offsets-in-the-graph" title="Permalink to this headline">¶</a></h4>
 <p>A negative offset notation <code class="docutils literal notranslate"><span class="pre">&lt;NAME-1&gt;</span></code> is interpreted as the previous
 value in the ordered list of parameter values, while a positive offset is
 interpreted as the next value. For example, to split a model run into multiple
@@ -4527,7 +4581,7 @@ graph.</p>
 </div>
 </div>
 <div class="section" id="task-families-and-parameterization">
-<h4>9.5.8. Task Families And Parameterization<a class="headerlink" href="#task-families-and-parameterization" title="Permalink to this headline">¶</a></h4>
+<h4>9.6.6. Task Families And Parameterization<a class="headerlink" href="#task-families-and-parameterization" title="Permalink to this headline">¶</a></h4>
 <p>Task family members can be generated by parameter expansion:</p>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
     <span class="nt">[[FAM]]</span>
@@ -4591,7 +4645,7 @@ get_plane =&gt; proc_plane
 </div>
 </div>
 <div class="section" id="parameterized-cycling">
-<span id="id8"></span><h4>9.5.9. Parameterized Cycling<a class="headerlink" href="#parameterized-cycling" title="Permalink to this headline">¶</a></h4>
+<span id="id8"></span><h4>9.6.7. Parameterized Cycling<a class="headerlink" href="#parameterized-cycling" title="Permalink to this headline">¶</a></h4>
 <p>Two ways of constructing cycling systems are described and contrasted in
 <a class="reference internal" href="index.html#workflows-for-cycling-systems"><span class="std std-ref">Workflows For Cycling Systems</span></a>.  For most purposes use of
 a proper <em>cycling workflow</em> is recommended, wherein cylc incrementally
@@ -4682,7 +4736,7 @@ some supported platforms. This could be handled without changing the cycling
 structure of the suite by splitting the run (at each cycle point) into a
 variable number of shorter steps, using more steps on less powerful hosts.</p>
 <div class="section" id="cycle-point-and-parameter-offsets-at-start-up">
-<h5>9.5.9.1. Cycle Point And Parameter Offsets At Start-Up<a class="headerlink" href="#cycle-point-and-parameter-offsets-at-start-up" title="Permalink to this headline">¶</a></h5>
+<h5>9.6.7.1. Cycle Point And Parameter Offsets At Start-Up<a class="headerlink" href="#cycle-point-and-parameter-offsets-at-start-up" title="Permalink to this headline">¶</a></h5>
 <p>In cycling workflows cylc ignores anything earlier than the suite initial
 cycle point. So this graph:</p>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nv">graph</span><span class="s"> </span><span class="o">=</span> <span class="c">&quot;</span><span class="kd">model</span>[<span class="nb">-P1D</span>] <span class="o">=&gt;</span> <span class="kd">model</span><span class="c">&quot;</span>
@@ -4716,7 +4770,7 @@ sometimes need to trigger off earlier cycling tasks.</p>
 </div>
 </div>
 <div class="section" id="jinja">
-<span id="id9"></span><h3>9.6. Jinja2<a class="headerlink" href="#jinja" title="Permalink to this headline">¶</a></h3>
+<span id="id9"></span><h3>9.7. Jinja2<a class="headerlink" href="#jinja" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">This section needs to be revised - the Parameterized Task feature
@@ -4853,7 +4907,7 @@ with the New York City task family expanded, in
 New York City task family expanded.</span></p>
 </div>
 <div class="section" id="accessing-environment-variables-with-jinja2">
-<h4>9.6.1. Accessing Environment Variables With Jinja2<a class="headerlink" href="#accessing-environment-variables-with-jinja2" title="Permalink to this headline">¶</a></h4>
+<h4>9.7.1. Accessing Environment Variables With Jinja2<a class="headerlink" href="#accessing-environment-variables-with-jinja2" title="Permalink to this headline">¶</a></h4>
 <p>This functionality is not provided by Jinja2 by default, but cylc
 automatically imports the user environment to template’s global namespace
 (see <a class="reference internal" href="#customjinja2filters"><span class="std std-ref">Custom Jinja2 Filters, Tests and Globals</span></a>) in a dictionary structure called
@@ -4866,12 +4920,35 @@ automatically imports the user environment to template’s global namespace
             <span class="nv">SUITE_OWNER_HOME_DIR_ON_SUITE_HOST </span><span class="o">=</span><span class="s"> </span><span class="cp">{{environ[&#39;HOME&#39;]}}</span>
 </pre></div>
 </div>
-<p>This example is emphasizes that <em>the environment is read on the suite
-host at the time the suite configuration is parsed</em> - it is not, for
-instance, read at task run time on the task host.</p>
+<p>In addition, the following variables are exported to this environment
+prior to configuration parsing to provide suite context:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>CYLC_DEBUG                      <span class="c1"># Debug mode, true or not defined</span>
+CYLC_DIR                        <span class="c1"># Location of cylc installation used</span>
+CYLC_VERBOSE                    <span class="c1"># Verbose mode, True or False</span>
+CYLC_VERSION                    <span class="c1"># Version of cylc installation used</span>
+
+CYLC_SUITE_NAME                 <span class="c1"># Suite name</span>
+
+CYLC_SUITE_DEF_PATH             <span class="c1"># Location of the suite configuration</span>
+                                <span class="c1"># source path on suite host,</span>
+                                <span class="c1"># e.g. ~/cylc-run/foo</span>
+CYLC_SUITE_LOG_DIR              <span class="c1"># Suite log directory.</span>
+CYLC_SUITE_RUN_DIR              <span class="c1"># Location of the suite run directory in</span>
+                                <span class="c1"># suite host, e.g. ~/cylc-run/foo</span>
+CYLC_SUITE_SHARE_DIR            <span class="c1"># Suite (or task post parsing!)</span>
+                                <span class="c1"># shared directory.</span>
+CYLC_SUITE_WORK_DIR             <span class="c1"># Suite work directory.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The example above emphasizes that <em>the environment - including the suite
+context variables - is read on the suite host when the suite configuration
+is parsed</em>, not at task run time on job hosts.</p>
+</div>
 </div>
 <div class="section" id="custom-jinja2-filters-tests-and-globals">
-<span id="customjinja2filters"></span><h4>9.6.2. Custom Jinja2 Filters, Tests and Globals<a class="headerlink" href="#custom-jinja2-filters-tests-and-globals" title="Permalink to this headline">¶</a></h4>
+<span id="customjinja2filters"></span><h4>9.7.2. Custom Jinja2 Filters, Tests and Globals<a class="headerlink" href="#custom-jinja2-filters-tests-and-globals" title="Permalink to this headline">¶</a></h4>
 <p>Jinja2 has three different namespaces used to separate “globals”,
 “filters” and “tests”. Globals are template-wide accessible variables
 and functions. Cylc extends this namespace with “environ” dictionary and
@@ -4903,7 +4980,7 @@ the variable value to be “filtered” or “tested”, respectively, and
 subsequent arguments can be whatever else is needed. Currently there are three
 custom filters:</p>
 <div class="section" id="pad">
-<h5>9.6.2.1. pad<a class="headerlink" href="#pad" title="Permalink to this headline">¶</a></h5>
+<h5>9.7.2.1. pad<a class="headerlink" href="#pad" title="Permalink to this headline">¶</a></h5>
 <p>The “pad” filter is for padding string values to some
 constant length with a fill character - useful for generating task names
 and related values in ensemble suites:</p>
@@ -4915,7 +4992,7 @@ and related values in ensemble suites:</p>
 </div>
 </div>
 <div class="section" id="strftime">
-<h5>9.6.2.2. strftime<a class="headerlink" href="#strftime" title="Permalink to this headline">¶</a></h5>
+<h5>9.7.2.2. strftime<a class="headerlink" href="#strftime" title="Permalink to this headline">¶</a></h5>
 <p>The “strftime” filter can be used to format ISO8601 date-time strings using
 an strftime string.</p>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="cp">{% set START_CYCLE = &#39;10661004T08+01&#39; %}</span>
@@ -4938,7 +5015,7 @@ strptime string as the second argument.</p>
 </ul>
 </div>
 <div class="section" id="duration-as">
-<h5>9.6.2.3. duration_as<a class="headerlink" href="#duration-as" title="Permalink to this headline">¶</a></h5>
+<h5>9.7.2.3. duration_as<a class="headerlink" href="#duration-as" title="Permalink to this headline">¶</a></h5>
 <p>The “duration_as” filter can be used to format ISO8601 duration
 strings as a floating-point number of several different units.  Units
 for the conversion can be specified in a case-insensitive short or long
@@ -4973,7 +5050,7 @@ it.  This is accomplished by chaining filters:</p>
 </div>
 </div>
 <div class="section" id="associative-arrays-in-jinja2">
-<h4>9.6.3. Associative Arrays In Jinja2<a class="headerlink" href="#associative-arrays-in-jinja2" title="Permalink to this headline">¶</a></h4>
+<h4>9.7.3. Associative Arrays In Jinja2<a class="headerlink" href="#associative-arrays-in-jinja2" title="Permalink to this headline">¶</a></h4>
 <p>Associative arrays (<em>dicts</em> in Python) can be very useful.
 Here’s an example, from <code class="docutils literal notranslate"><span class="pre">&lt;cylc-dir&gt;/etc/examples/jinja2/dict</span></code>:</p>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="ch">#!Jinja2</span>
@@ -5002,7 +5079,7 @@ Here’s an example, from <code class="docutils literal notranslate"><span class
 </div>
 </div>
 <div class="section" id="jinja2-default-values-and-template-inputs">
-<h4>9.6.4. Jinja2 Default Values And Template Inputs<a class="headerlink" href="#jinja2-default-values-and-template-inputs" title="Permalink to this headline">¶</a></h4>
+<h4>9.7.4. Jinja2 Default Values And Template Inputs<a class="headerlink" href="#jinja2-default-values-and-template-inputs" title="Permalink to this headline">¶</a></h4>
 <p>The values of Jinja2 variables can be passed in from the cylc command
 line rather than hardwired in the suite configuration.
 Here’s an example, from <code class="docutils literal notranslate"><span class="pre">&lt;cylc-dir&gt;/etc/examples/jinja2/defaults</span></code>:</p>
@@ -5083,7 +5160,7 @@ be overridden.</p>
 </div>
 </div>
 <div class="section" id="jinja2-variable-scope">
-<h4>9.6.5. Jinja2 Variable Scope<a class="headerlink" href="#jinja2-variable-scope" title="Permalink to this headline">¶</a></h4>
+<h4>9.7.5. Jinja2 Variable Scope<a class="headerlink" href="#jinja2-variable-scope" title="Permalink to this headline">¶</a></h4>
 <p>Jinja2 variable scoping rules may be surprising. Variables set inside a
 <em>for loop</em> block, for instance, are not accessible outside of the block,
 so the following will print <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">FOO</span> <span class="pre">is</span> <span class="pre">0</span></code>, not <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">FOO</span> <span class="pre">is</span> <span class="pre">9</span></code>:</p>
@@ -5114,7 +5191,7 @@ across scopes:</p>
 Assignments</a></p>
 </div>
 <div class="section" id="raising-exceptions">
-<span id="jinja2raisingexceptions"></span><h4>9.6.6. Raising Exceptions<a class="headerlink" href="#raising-exceptions" title="Permalink to this headline">¶</a></h4>
+<span id="jinja2raisingexceptions"></span><h4>9.7.6. Raising Exceptions<a class="headerlink" href="#raising-exceptions" title="Permalink to this headline">¶</a></h4>
 <p>Cylc provides two functions for raising exceptions using Jinja2. These
 exceptions are raised when the suite.rc file is loaded and will prevent a suite
 from running.</p>
@@ -5124,7 +5201,7 @@ from running.</p>
 blocks as opposed to <code class="docutils literal notranslate"><span class="pre">{%</span></code> blocks.</p>
 </div>
 <div class="section" id="raise">
-<h5>9.6.6.1. Raise<a class="headerlink" href="#raise" title="Permalink to this headline">¶</a></h5>
+<h5>9.7.6.1. Raise<a class="headerlink" href="#raise" title="Permalink to this headline">¶</a></h5>
 <p>The “raise” function will result in an error containing the provided text.</p>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="cp">{% if not VARIABLE is defined %}</span>
     <span class="cp">{{ raise(&#39;VARIABLE must be defined for this suite.&#39;) }}</span>
@@ -5133,7 +5210,7 @@ blocks as opposed to <code class="docutils literal notranslate"><span class="pre
 </div>
 </div>
 <div class="section" id="assert">
-<h5>9.6.6.2. Assert<a class="headerlink" href="#assert" title="Permalink to this headline">¶</a></h5>
+<h5>9.7.6.2. Assert<a class="headerlink" href="#assert" title="Permalink to this headline">¶</a></h5>
 <p>The “assert” function will raise an exception containing the text provided in
 the second argument providing that the first argument evaluates as False. The
 following example is equivalent to the “raise” example above.</p>
@@ -5143,7 +5220,7 @@ following example is equivalent to the “raise” example above.</p>
 </div>
 </div>
 <div class="section" id="importing-additional-python-modules">
-<h4>9.6.7. Importing additional Python modules<a class="headerlink" href="#importing-additional-python-modules" title="Permalink to this headline">¶</a></h4>
+<h4>9.7.7. Importing additional Python modules<a class="headerlink" href="#importing-additional-python-modules" title="Permalink to this headline">¶</a></h4>
 <p>Jinja2 allows to gather variable and macro definitions in a separate template
 that can be imported into (and thus shared among) other templates.</p>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="cp">{% import &quot;suite-utils.rc&quot; as utils %}</span>
@@ -5165,8 +5242,9 @@ that can be imported into (and thus shared among) other templates.</p>
 </pre></div>
 </div>
 </div>
+</div>
 <div class="section" id="empylabel">
-<span id="id10"></span><h4>9.6.8. EmPy<a class="headerlink" href="#empylabel" title="Permalink to this headline">¶</a></h4>
+<span id="id10"></span><h3>9.8. EmPy<a class="headerlink" href="#empylabel" title="Permalink to this headline">¶</a></h3>
 <p>In addition to Jinja2, Cylc supports EmPy template processor in suite
 configurations. Similarly to Jinja2, EmPy provides variables, mathematical
 expressions, loop control structures, conditional logic, etc., that are
@@ -5267,7 +5345,7 @@ packages in a seamless manner.</li>
 </ul>
 </div>
 <div class="section" id="omitting-tasks-at-runtime">
-<h4>9.6.9. Omitting Tasks At Runtime<a class="headerlink" href="#omitting-tasks-at-runtime" title="Permalink to this headline">¶</a></h4>
+<h3>9.9. Omitting Tasks At Runtime<a class="headerlink" href="#omitting-tasks-at-runtime" title="Permalink to this headline">¶</a></h3>
 <p>It is sometimes convenient to omit certain tasks from the suite at
 runtime without actually deleting their definitions from the suite.</p>
 <p>Defining <code class="docutils literal notranslate"><span class="pre">[runtime]</span></code> properties for tasks that do not appear in the suite
@@ -5291,9 +5369,8 @@ suite structure by including or excluding tasks from the <code class="docutils l
 and <code class="docutils literal notranslate"><span class="pre">[runtime]</span></code> sections according to the value of a single logical flag
 defined at the top of the suite.</p>
 </div>
-</div>
 <div class="section" id="naked-dummy-tasks-and-strict-validation">
-<h3>9.7. Naked Dummy Tasks And Strict Validation<a class="headerlink" href="#naked-dummy-tasks-and-strict-validation" title="Permalink to this headline">¶</a></h3>
+<h3>9.10. Naked Dummy Tasks And Strict Validation<a class="headerlink" href="#naked-dummy-tasks-and-strict-validation" title="Permalink to this headline">¶</a></h3>
 <p>A <em>naked dummy task</em> appears in the suite graph but has no
 explicit runtime configuration section. Such tasks automatically
 inherit the default “dummy task” configuration from the root
@@ -5339,10 +5416,22 @@ for failure - and do not spawn detaching processes internally
 (see <a class="reference internal" href="#detachingjobs"><span class="std std-ref">Avoid Detaching Processes</span></a>).</p>
 <div class="section" id="task-job-scripts">
 <span id="jobscripts"></span><h3>10.1. Task Job Scripts<a class="headerlink" href="#task-job-scripts" title="Permalink to this headline">¶</a></h3>
-<p>When the suite dameon determines that a task is ready to run it generates a
-<em>job script</em> that embodies the task runtime configuration in the suite.rc
-file, and submits it to the configured job host and batch system
-(see <a class="reference internal" href="index.html#taskjobsubmission"><span class="std std-ref">Task Job Submission and Management</span></a>).</p>
+<p>When the suite server program determines that a task is ready to run it
+generates a <em>job script</em> for the task, and submits it to run (see
+<a class="reference internal" href="index.html#taskjobsubmission"><span class="std std-ref">Task Job Submission and Management</span></a>).</p>
+<p>Job scripts encapsulate configured task runtime settings: <code class="docutils literal notranslate"><span class="pre">script</span></code> and
+<code class="docutils literal notranslate"><span class="pre">environment</span></code> items, if defined, are just concatenated in the order shown in
+<a class="reference internal" href="#fig-anatomy-of-a-job-script"><span class="std std-numref">Fig. 36</span></a>, to make the job script. Everything
+executes in the same shell, so each part of the script can potentially affect
+the environment of subsequent parts.</p>
+<div class="figure align-center" id="id1">
+<span id="fig-anatomy-of-a-job-script"></span><img alt="_images/anatomy-of-a-job-script.png" src="_images/anatomy-of-a-job-script.png" />
+<p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text">The order in which task runtime script and environment configuration items
+are combined, in the same shell, to create a task job script. <code class="docutils literal notranslate"><span class="pre">cylc-env</span></code>
+represents Cylc-defined environment variables, and <code class="docutils literal notranslate"><span class="pre">user-env</span></code> user-defined
+variables from the task <code class="docutils literal notranslate"><span class="pre">[environment]</span></code> section. (Note this is not a suite
+dependency graph).</span></p>
+</div>
 <p>Task job scripts are written to the suite’s job log directory. They can be
 printed with <code class="docutils literal notranslate"><span class="pre">cylc</span> <span class="pre">cat-log</span></code> or generated and printed with
 <code class="docutils literal notranslate"><span class="pre">cylc</span> <span class="pre">jobscript</span></code>.</p>
@@ -7593,8 +7682,8 @@ suite to finish and shut down.  Here’s the complete suite log for this run:</p
 2017-03-30T09:46:10Z INFO - Cold Start 2017-01-01T00Z
 2017-03-30T09:46:11Z INFO - [foo.2017-01-01T00Z] -submit_method_id=3507
 2017-03-30T09:46:11Z INFO - [foo.2017-01-01T00Z] -submission succeeded
-2017-03-30T09:46:11Z INFO - [foo.2017-01-01T00Z] -(current:submitted)&gt; started at 2017-03-30T09:46:10Z
-2017-03-30T09:46:41Z CRITICAL - [foo.2017-01-01T00Z] -(current:running)&gt; failed/EXIT at 2017-03-30T09:46:40Z
+2017-03-30T09:46:11Z INFO - [foo.2017-01-01T00Z] status=submitted: (received)started at 2017-03-30T09:46:10Z for job(01)
+2017-03-30T09:46:41Z CRITICAL - [foo.2017-01-01T00Z] status=running: (received)failed/EXIT at 2017-03-30T09:46:40Z for job(01)
 2017-03-30T09:46:42Z WARNING - suite stalled
 2017-03-30T09:46:42Z WARNING - Unmet prerequisites for bar.2017-01-01T00Z:
 2017-03-30T09:46:42Z WARNING -  * foo.2017-01-01T00Z succeeded
@@ -7603,8 +7692,8 @@ suite to finish and shut down.  Here’s the complete suite log for this run:</p
 2017-03-30T09:47:58Z INFO - Command succeeded: reset_task_states([u&#39;foo.2017&#39;], state=succeeded)
 2017-03-30T09:47:59Z INFO - [bar.2017-01-01T00Z] -submit_method_id=3565
 2017-03-30T09:47:59Z INFO - [bar.2017-01-01T00Z] -submission succeeded
-2017-03-30T09:47:59Z INFO - [bar.2017-01-01T00Z] -(current:submitted)&gt; started at 2017-03-30T09:47:58Z
-2017-03-30T09:48:29Z INFO - [bar.2017-01-01T00Z] -(current:running)&gt; succeeded at 2017-03-30T09:48:28Z
+2017-03-30T09:47:59Z INFO - [bar.2017-01-01T00Z] status=submitted: (received)started at 2017-03-30T09:47:58Z for job(01)
+2017-03-30T09:48:29Z INFO - [bar.2017-01-01T00Z] status=running: (received)succeeded at 2017-03-30T09:48:28Z for job(01)
 2017-03-30T09:48:30Z INFO - Waiting for the command process pool to empty for shutdown
 2017-03-30T09:48:30Z INFO - Suite shutting down - AUTOMATIC
 </pre></div>
@@ -8133,6 +8222,7 @@ following EVENTs occurs:</p>
 <ul class="simple">
 <li><strong>startup</strong>  - the suite has started running</li>
 <li><strong>shutdown</strong> - the suite is shutting down</li>
+<li><strong>aborted</strong> - the suite is shutting down due to unexpected/unrecoverable error</li>
 <li><strong>timeout</strong>  - the suite has timed out</li>
 <li><strong>stalled</strong> - the suite has stalled</li>
 <li><strong>inactivity</strong> - the suite is inactive</li>
@@ -8946,10 +9036,10 @@ hierarchies. For details and examples see <a class="reference internal" href="in
 <div class="section" id="runtime-name">
 <h5>15.1.5.1. [runtime] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[__NAME__]]<a class="headerlink" href="#runtime-name" title="Permalink to this headline">¶</a></h5>
 <p>Replace <code class="docutils literal notranslate"><span class="pre">\_\_NAME\_\_</span></code> with a namespace name, or a comma-separated list of
-names, and repeat as needed to define all tasks in the suite. Names may
-contain letters, digits, underscores, and hyphens. A namespace
-represents a group or family of tasks if other namespaces inherit from
-it, or a task if no others inherit from it.</p>
+names, and repeat as needed to define all tasks in the suite. Names must
+be valid according to the restrictions outlined in <a class="reference internal" href="index.html#tasknames"><span class="std std-ref">Task and Namespace Names</span></a>.</p>
+<p>A namespace represents a group or family of tasks if other namespaces
+inherit from it, or a task if no others inherit from it.</p>
 <ul class="simple">
 <li><em>legal values</em>:
 - <code class="docutils literal notranslate"><span class="pre">[[foo]]</span></code>
@@ -8989,8 +9079,8 @@ environment variables. It can be an external command or script, or inlined
 scripting. The original intention for this item was to allow remote tasks to
 source login scripts to configure their access to cylc, but this should no
 longer be necessary (see <a class="reference internal" href="index.html#howtasksgetaccesstocylc"><span class="std std-ref">Task Job Access To Cylc</span></a>). See also
-<code class="docutils literal notranslate"><span class="pre">env-script</span></code>, <code class="docutils literal notranslate"><span class="pre">err-script</span></code>, <code class="docutils literal notranslate"><span class="pre">exit-script</span></code>,
-<code class="docutils literal notranslate"><span class="pre">pre-script</span></code>, <code class="docutils literal notranslate"><span class="pre">script</span></code>, and <code class="docutils literal notranslate"><span class="pre">post-script</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">env-script</span></code>, <code class="docutils literal notranslate"><span class="pre">pre-script</span></code>, <code class="docutils literal notranslate"><span class="pre">script</span></code>,
+<code class="docutils literal notranslate"><span class="pre">post-script</span></code>, <code class="docutils literal notranslate"><span class="pre">err-script</span></code>, <code class="docutils literal notranslate"><span class="pre">exit-script</span></code>.</p>
 <ul class="simple">
 <li><em>type</em>: string</li>
 <li><em>default</em>: (none)</li>
@@ -9004,52 +9094,21 @@ longer be necessary (see <a class="reference internal" href="index.html#howtasks
 so it has access to the cylc environment (and the task environment has
 access to variables defined by this scripting). It can be an external command
 or script, or inlined scripting. See also <code class="docutils literal notranslate"><span class="pre">init-script</span></code>,
-<code class="docutils literal notranslate"><span class="pre">err-script</span></code>, <code class="docutils literal notranslate"><span class="pre">exit-script</span></code>, <code class="docutils literal notranslate"><span class="pre">pre-script</span></code>,
-<code class="docutils literal notranslate"><span class="pre">script</span></code>, and <code class="docutils literal notranslate"><span class="pre">post-script</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">pre-script</span></code>, <code class="docutils literal notranslate"><span class="pre">script</span></code>, <code class="docutils literal notranslate"><span class="pre">post-script</span></code>,
+<code class="docutils literal notranslate"><span class="pre">err-script</span></code>, and <code class="docutils literal notranslate"><span class="pre">exit-script</span></code>.</p>
 <ul class="simple">
 <li><em>type</em>: string</li>
 <li><em>default</em>: (none)</li>
 <li><em>example</em>: <code class="docutils literal notranslate"><span class="pre">env-script</span> <span class="pre">=</span> <span class="pre">&quot;echo</span> <span class="pre">Hello</span> <span class="pre">World&quot;</span></code></li>
 </ul>
 </div>
-<div class="section" id="runtime-name-exit-script">
-<h6>15.1.5.1.5. [runtime] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[__NAME__]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> exit-script<a class="headerlink" href="#runtime-name-exit-script" title="Permalink to this headline">¶</a></h6>
-<p>Custom script invoked at the very end of <em>successful</em> job execution, just
-before the job script exits. It should execute very quickly. Companion of
-<code class="docutils literal notranslate"><span class="pre">err-script</span></code>, which is executed on job failure. It can be an external
-command or script, or inlined scripting. See also <code class="docutils literal notranslate"><span class="pre">init-script</span></code>,
-<code class="docutils literal notranslate"><span class="pre">env-script</span></code>, <code class="docutils literal notranslate"><span class="pre">exit-script</span></code>, <code class="docutils literal notranslate"><span class="pre">pre-script</span></code>,
-<code class="docutils literal notranslate"><span class="pre">script</span></code>, and <code class="docutils literal notranslate"><span class="pre">post-script</span></code>.</p>
-<ul class="simple">
-<li><em>type</em>: string</li>
-<li><em>default</em>: (none)</li>
-<li><em>example</em>: <code class="docutils literal notranslate"><span class="pre">exit-script</span> <span class="pre">=</span> <span class="pre">&quot;rm</span> <span class="pre">-f</span> <span class="pre">$TMP_FILES&quot;</span></code></li>
-</ul>
-</div>
-<div class="section" id="runtime-name-err-script">
-<h6>15.1.5.1.6. [runtime] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[__NAME__]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> err-script<a class="headerlink" href="#runtime-name-err-script" title="Permalink to this headline">¶</a></h6>
-<p>Custom script to be invoked at the end of the error trap, which is triggered
-due to failure of a command in the task job script or trapable job kill. The
-output of this will always be sent to STDERR and <code class="docutils literal notranslate"><span class="pre">$1</span></code> is set to the
-name of the signal caught by the error trap. The script should be fast and use
-very little system resource to ensure that the error trap can return quickly.
-Companion of <code class="docutils literal notranslate"><span class="pre">exit-script</span></code>, which is executed on job success.
-It can be an external command or script, or inlined scripting. See also
-<code class="docutils literal notranslate"><span class="pre">init-script</span></code>, <code class="docutils literal notranslate"><span class="pre">env-script</span></code>, <code class="docutils literal notranslate"><span class="pre">exit-script</span></code>,
-<code class="docutils literal notranslate"><span class="pre">pre-script</span></code>, <code class="docutils literal notranslate"><span class="pre">script</span></code>, and <code class="docutils literal notranslate"><span class="pre">post-script</span></code>.</p>
-<ul class="simple">
-<li><em>type</em>: string</li>
-<li><em>default</em>: (none)</li>
-<li><em>example</em>: <code class="docutils literal notranslate"><span class="pre">err-script</span> <span class="pre">=</span> <span class="pre">&quot;printenv</span> <span class="pre">FOO&quot;</span></code></li>
-</ul>
-</div>
 <div class="section" id="runtime-name-pre-script">
-<h6>15.1.5.1.7. [runtime] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[__NAME__]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> pre-script<a class="headerlink" href="#runtime-name-pre-script" title="Permalink to this headline">¶</a></h6>
+<h6>15.1.5.1.5. [runtime] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[__NAME__]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> pre-script<a class="headerlink" href="#runtime-name-pre-script" title="Permalink to this headline">¶</a></h6>
 <p>Custom script invoked by the task job script immediately before the <code class="docutils literal notranslate"><span class="pre">script</span></code>
 item (just below). It can be an external command or script, or inlined scripting.
 See also <code class="docutils literal notranslate"><span class="pre">init-script</span></code>, <code class="docutils literal notranslate"><span class="pre">env-script</span></code>,
-<code class="docutils literal notranslate"><span class="pre">err-script</span></code>, <code class="docutils literal notranslate"><span class="pre">exit-script</span></code>, <code class="docutils literal notranslate"><span class="pre">script</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">post-script</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">script</span></code>, <code class="docutils literal notranslate"><span class="pre">post-script</span></code>, <code class="docutils literal notranslate"><span class="pre">err-script</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">exit-script</span></code>.</p>
 <ul>
 <li><p class="first"><em>type</em>: string</p>
 </li>
@@ -9065,26 +9124,57 @@ See also <code class="docutils literal notranslate"><span class="pre">init-scrip
 </ul>
 </div>
 <div class="section" id="runtime-name-script">
-<span id="scriptitem"></span><h6>15.1.5.1.8. [runtime] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[__NAME__]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> script<a class="headerlink" href="#runtime-name-script" title="Permalink to this headline">¶</a></h6>
+<h6>15.1.5.1.6. [runtime] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[__NAME__]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> script<a class="headerlink" href="#runtime-name-script" title="Permalink to this headline">¶</a></h6>
 <p>The main custom script invoked from the task job script. It can be an
 external command or script, or inlined scripting. See also
-<code class="docutils literal notranslate"><span class="pre">init-script</span></code>, <code class="docutils literal notranslate"><span class="pre">env-script</span></code>, <code class="docutils literal notranslate"><span class="pre">err-script</span></code>,
-<code class="docutils literal notranslate"><span class="pre">exit-script</span></code>, <code class="docutils literal notranslate"><span class="pre">pre-script</span></code>, and <code class="docutils literal notranslate"><span class="pre">post-script</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">init-script</span></code>, <code class="docutils literal notranslate"><span class="pre">env-script</span></code>, <code class="docutils literal notranslate"><span class="pre">pre-script</span></code>,
+<code class="docutils literal notranslate"><span class="pre">post-script</span></code>, <code class="docutils literal notranslate"><span class="pre">err-script</span></code>, and <code class="docutils literal notranslate"><span class="pre">exit-script</span></code>.</p>
 <ul class="simple">
 <li><em>type</em>: string</li>
 <li><em>root default</em>: (none)</li>
 </ul>
 </div>
 <div class="section" id="runtime-name-post-script">
-<h6>15.1.5.1.9. [runtime] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[__NAME__]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> post-script<a class="headerlink" href="#runtime-name-post-script" title="Permalink to this headline">¶</a></h6>
+<h6>15.1.5.1.7. [runtime] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[__NAME__]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> post-script<a class="headerlink" href="#runtime-name-post-script" title="Permalink to this headline">¶</a></h6>
 <p>Custom script invoked by the task job script immediately after the
 <code class="docutils literal notranslate"><span class="pre">script</span></code> item (just above). It can be an external command or script,
 or inlined scripting.  See also
-<code class="docutils literal notranslate"><span class="pre">init-script</span></code>, <code class="docutils literal notranslate"><span class="pre">env-script</span></code>, <code class="docutils literal notranslate"><span class="pre">err-script</span></code>,
-<code class="docutils literal notranslate"><span class="pre">exit-script</span></code>, <code class="docutils literal notranslate"><span class="pre">pre-script</span></code>, and <code class="docutils literal notranslate"><span class="pre">script</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">init-script</span></code>, <code class="docutils literal notranslate"><span class="pre">env-script</span></code>, <code class="docutils literal notranslate"><span class="pre">pre-script</span></code>,
+<code class="docutils literal notranslate"><span class="pre">script</span></code>, <code class="docutils literal notranslate"><span class="pre">err-script</span></code>, and <code class="docutils literal notranslate"><span class="pre">exit-script</span></code>.</p>
 <ul class="simple">
 <li><em>type</em>: string</li>
 <li><em>default</em>: (none)</li>
+</ul>
+</div>
+<div class="section" id="runtime-name-err-script">
+<h6>15.1.5.1.8. [runtime] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[__NAME__]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> err-script<a class="headerlink" href="#runtime-name-err-script" title="Permalink to this headline">¶</a></h6>
+<p>Custom script to be invoked at the end of the error trap, which is triggered
+due to failure of a command in the task job script or trappable job kill. The
+output of this will always be sent to STDERR and <code class="docutils literal notranslate"><span class="pre">$1</span></code> is set to the
+name of the signal caught by the error trap. The script should be fast and use
+very little system resource to ensure that the error trap can return quickly.
+Companion of <code class="docutils literal notranslate"><span class="pre">exit-script</span></code>, which is executed on job success.
+It can be an external command or script, or inlined scripting. See also
+<code class="docutils literal notranslate"><span class="pre">init-script</span></code>, <code class="docutils literal notranslate"><span class="pre">env-script</span></code>, <code class="docutils literal notranslate"><span class="pre">pre-script</span></code>,
+<code class="docutils literal notranslate"><span class="pre">script</span></code>, <code class="docutils literal notranslate"><span class="pre">post-script</span></code>, and <code class="docutils literal notranslate"><span class="pre">exit-script</span></code>.</p>
+<ul class="simple">
+<li><em>type</em>: string</li>
+<li><em>default</em>: (none)</li>
+<li><em>example</em>: <code class="docutils literal notranslate"><span class="pre">err-script</span> <span class="pre">=</span> <span class="pre">&quot;printenv</span> <span class="pre">FOO&quot;</span></code></li>
+</ul>
+</div>
+<div class="section" id="runtime-name-exit-script">
+<h6>15.1.5.1.9. [runtime] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[__NAME__]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> exit-script<a class="headerlink" href="#runtime-name-exit-script" title="Permalink to this headline">¶</a></h6>
+<p>Custom script invoked at the very end of <em>successful</em> job execution, just
+before the job script exits. It should execute very quickly. Companion of
+<code class="docutils literal notranslate"><span class="pre">err-script</span></code>, which is executed on job failure. It can be an external
+command or script, or inlined scripting. See also <code class="docutils literal notranslate"><span class="pre">init-script</span></code>,
+<code class="docutils literal notranslate"><span class="pre">env-script</span></code>, <code class="docutils literal notranslate"><span class="pre">pre-script</span></code>, <code class="docutils literal notranslate"><span class="pre">script</span></code>,
+<code class="docutils literal notranslate"><span class="pre">post-script</span></code>, and <code class="docutils literal notranslate"><span class="pre">err-script</span></code>.</p>
+<ul class="simple">
+<li><em>type</em>: string</li>
+<li><em>default</em>: (none)</li>
+<li><em>example</em>: <code class="docutils literal notranslate"><span class="pre">exit-script</span> <span class="pre">=</span> <span class="pre">&quot;rm</span> <span class="pre">-f</span> <span class="pre">$TMP_FILES&quot;</span></code></li>
 </ul>
 </div>
 <div class="section" id="runtime-name-work-sub-directory">
@@ -11058,44 +11148,47 @@ of which can be found under <a class="reference internal" href="index.html#suite
 <div class="section" id="cylc-events-shutdown-handler">
 <h6>15.2.14.4.4. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> shutdown handler<a class="headerlink" href="#cylc-events-shutdown-handler" title="Permalink to this headline">¶</a></h6>
 </div>
+<div class="section" id="cylc-events-aborted-handler">
+<h6>15.2.14.4.5. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> aborted handler<a class="headerlink" href="#cylc-events-aborted-handler" title="Permalink to this headline">¶</a></h6>
+</div>
 <div class="section" id="cylc-events-mail-events">
-<h6>15.2.14.4.5. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail events<a class="headerlink" href="#cylc-events-mail-events" title="Permalink to this headline">¶</a></h6>
+<h6>15.2.14.4.6. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail events<a class="headerlink" href="#cylc-events-mail-events" title="Permalink to this headline">¶</a></h6>
 </div>
 <div class="section" id="cylc-events-mail-footer">
-<h6>15.2.14.4.6. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail footer<a class="headerlink" href="#cylc-events-mail-footer" title="Permalink to this headline">¶</a></h6>
+<h6>15.2.14.4.7. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail footer<a class="headerlink" href="#cylc-events-mail-footer" title="Permalink to this headline">¶</a></h6>
 </div>
 <div class="section" id="cylc-events-mail-from">
-<h6>15.2.14.4.7. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail from<a class="headerlink" href="#cylc-events-mail-from" title="Permalink to this headline">¶</a></h6>
+<h6>15.2.14.4.8. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail from<a class="headerlink" href="#cylc-events-mail-from" title="Permalink to this headline">¶</a></h6>
 </div>
 <div class="section" id="cylc-events-mail-smtp">
-<h6>15.2.14.4.8. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail smtp<a class="headerlink" href="#cylc-events-mail-smtp" title="Permalink to this headline">¶</a></h6>
+<h6>15.2.14.4.9. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail smtp<a class="headerlink" href="#cylc-events-mail-smtp" title="Permalink to this headline">¶</a></h6>
 </div>
 <div class="section" id="cylc-events-mail-to">
-<h6>15.2.14.4.9. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail to<a class="headerlink" href="#cylc-events-mail-to" title="Permalink to this headline">¶</a></h6>
+<h6>15.2.14.4.10. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail to<a class="headerlink" href="#cylc-events-mail-to" title="Permalink to this headline">¶</a></h6>
 </div>
 <div class="section" id="cylc-events-timeout-handler">
-<h6>15.2.14.4.10. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> timeout handler<a class="headerlink" href="#cylc-events-timeout-handler" title="Permalink to this headline">¶</a></h6>
+<h6>15.2.14.4.11. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> timeout handler<a class="headerlink" href="#cylc-events-timeout-handler" title="Permalink to this headline">¶</a></h6>
 </div>
 <div class="section" id="cylc-events-timeout">
-<h6>15.2.14.4.11. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> timeout<a class="headerlink" href="#cylc-events-timeout" title="Permalink to this headline">¶</a></h6>
+<h6>15.2.14.4.12. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> timeout<a class="headerlink" href="#cylc-events-timeout" title="Permalink to this headline">¶</a></h6>
 </div>
 <div class="section" id="cylc-events-abort-on-timeout">
-<h6>15.2.14.4.12. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> abort on timeout<a class="headerlink" href="#cylc-events-abort-on-timeout" title="Permalink to this headline">¶</a></h6>
+<h6>15.2.14.4.13. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> abort on timeout<a class="headerlink" href="#cylc-events-abort-on-timeout" title="Permalink to this headline">¶</a></h6>
 </div>
 <div class="section" id="cylc-events-stalled-handler">
-<h6>15.2.14.4.13. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> stalled handler<a class="headerlink" href="#cylc-events-stalled-handler" title="Permalink to this headline">¶</a></h6>
+<h6>15.2.14.4.14. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> stalled handler<a class="headerlink" href="#cylc-events-stalled-handler" title="Permalink to this headline">¶</a></h6>
 </div>
 <div class="section" id="cylc-events-abort-on-stalled">
-<h6>15.2.14.4.14. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> abort on stalled<a class="headerlink" href="#cylc-events-abort-on-stalled" title="Permalink to this headline">¶</a></h6>
+<h6>15.2.14.4.15. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> abort on stalled<a class="headerlink" href="#cylc-events-abort-on-stalled" title="Permalink to this headline">¶</a></h6>
 </div>
 <div class="section" id="cylc-events-inactivity-handler">
-<h6>15.2.14.4.15. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> inactivity handler<a class="headerlink" href="#cylc-events-inactivity-handler" title="Permalink to this headline">¶</a></h6>
+<h6>15.2.14.4.16. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> inactivity handler<a class="headerlink" href="#cylc-events-inactivity-handler" title="Permalink to this headline">¶</a></h6>
 </div>
 <div class="section" id="cylc-events-inactivity">
-<h6>15.2.14.4.16. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> inactivity<a class="headerlink" href="#cylc-events-inactivity" title="Permalink to this headline">¶</a></h6>
+<h6>15.2.14.4.17. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> inactivity<a class="headerlink" href="#cylc-events-inactivity" title="Permalink to this headline">¶</a></h6>
 </div>
 <div class="section" id="cylc-events-abort-on-inactivity">
-<h6>15.2.14.4.17. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> abort on inactivity<a class="headerlink" href="#cylc-events-abort-on-inactivity" title="Permalink to this headline">¶</a></h6>
+<h6>15.2.14.4.18. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> abort on inactivity<a class="headerlink" href="#cylc-events-abort-on-inactivity" title="Permalink to this headline">¶</a></h6>
 </div>
 </div>
 </div>
@@ -11810,7 +11903,7 @@ administration, and security.</td></tr>
 ordinary non-cycling workflows.
 For detailed documentation see the Cylc User Guide (cylc doc --help).
 
-Version 7.8.1-10-g3ff61
+Version 7.8.2
 
 The graphical user interface for cylc is &quot;gcylc&quot; (a.k.a. &quot;cylc gui&quot;).
 
@@ -11867,8 +11960,8 @@ Command CATEGORIES:
 <div class="section" id="command-categories">
 <h4>15.6.2. Command Categories<a class="headerlink" href="#command-categories" title="Permalink to this headline">¶</a></h4>
 <div class="section" id="admin">
-<h5>15.6.2.1. admin<a class="headerlink" href="#admin" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-cat-admin"><div class="highlight"><pre><span></span>   CATEGORY: admin - Cylc installation, testing, and example suites.
+<span id="command-cat-admin"></span><h5>15.6.2.1. admin<a class="headerlink" href="#admin" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: admin - Cylc installation, testing, and example suites.
 
 HELP: cylc [admin] COMMAND help,--help
   You can abbreviate admin and COMMAND.
@@ -11885,8 +11978,8 @@ COMMANDS:
 </div>
 </div>
 <div class="section" id="all">
-<h5>15.6.2.2. all<a class="headerlink" href="#all" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-cat-all"><div class="highlight"><pre><span></span>   CATEGORY: all - The complete command set.
+<span id="command-cat-all"></span><h5>15.6.2.2. all<a class="headerlink" href="#all" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: all - The complete command set.
 
 HELP: cylc [all] COMMAND help,--help
   You can abbreviate all and COMMAND.
@@ -11972,8 +12065,8 @@ COMMANDS:
 </div>
 </div>
 <div class="section" id="control">
-<h5>15.6.2.3. control<a class="headerlink" href="#control" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-cat-control"><div class="highlight"><pre><span></span>   CATEGORY: control - Suite start up, monitoring, and control.
+<span id="command-cat-control"></span><h5>15.6.2.3. control<a class="headerlink" href="#control" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: control - Suite start up, monitoring, and control.
 
 HELP: cylc [control] COMMAND help,--help
   You can abbreviate control and COMMAND.
@@ -12004,8 +12097,8 @@ COMMANDS:
 </div>
 </div>
 <div class="section" id="discovery">
-<h5>15.6.2.4. discovery<a class="headerlink" href="#discovery" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-cat-discovery"><div class="highlight"><pre><span></span>   CATEGORY: discovery - Detect running suites.
+<span id="command-cat-discovery"></span><h5>15.6.2.4. discovery<a class="headerlink" href="#discovery" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: discovery - Detect running suites.
 
 HELP: cylc [discovery] COMMAND help,--help
   You can abbreviate discovery and COMMAND.
@@ -12019,8 +12112,8 @@ COMMANDS:
 </div>
 </div>
 <div class="section" id="hook">
-<h5>15.6.2.5. hook<a class="headerlink" href="#hook" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-cat-hook"><div class="highlight"><pre><span></span>   CATEGORY: hook - Suite and task event hook scripts.
+<span id="command-cat-hook"></span><h5>15.6.2.5. hook<a class="headerlink" href="#hook" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: hook - Suite and task event hook scripts.
 
 HELP: cylc [hook] COMMAND help,--help
   You can abbreviate hook and COMMAND.
@@ -12034,8 +12127,8 @@ COMMANDS:
 </div>
 </div>
 <div class="section" id="information">
-<h5>15.6.2.6. information<a class="headerlink" href="#information" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-cat-information"><div class="highlight"><pre><span></span>   CATEGORY: information - Interrogate suite definitions and running suites.
+<span id="command-cat-information"></span><h5>15.6.2.6. information<a class="headerlink" href="#information" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: information - Interrogate suite definitions and running suites.
 
 HELP: cylc [information] COMMAND help,--help
   You can abbreviate information and COMMAND.
@@ -12063,8 +12156,8 @@ COMMANDS:
 </div>
 </div>
 <div class="section" id="license">
-<h5>15.6.2.7. license<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-cat-license"><div class="highlight"><pre><span></span>   CATEGORY: license|GPL - Software licensing information (GPL v3.0).
+<span id="command-cat-license"></span><h5>15.6.2.7. license<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: license|GPL - Software licensing information (GPL v3.0).
 
 HELP: cylc [license|GPL] COMMAND help,--help
   You can abbreviate license|GPL and COMMAND.
@@ -12077,8 +12170,8 @@ COMMANDS:
 </div>
 </div>
 <div class="section" id="preparation">
-<h5>15.6.2.8. preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-cat-preparation"><div class="highlight"><pre><span></span>   CATEGORY: preparation - Suite editing, validation, visualization, etc.
+<span id="command-cat-preparation"></span><h5>15.6.2.8. preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: preparation - Suite editing, validation, visualization, etc.
 
 HELP: cylc [preparation] COMMAND help,--help
   You can abbreviate preparation and COMMAND.
@@ -12102,8 +12195,8 @@ COMMANDS:
 </div>
 </div>
 <div class="section" id="task">
-<h5>15.6.2.9. task<a class="headerlink" href="#task" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-cat-task"><div class="highlight"><pre><span></span>   CATEGORY: task - The task messaging interface.
+<span id="command-cat-task"></span><h5>15.6.2.9. task<a class="headerlink" href="#task" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: task - The task messaging interface.
 
 HELP: cylc [task] COMMAND help,--help
   You can abbreviate task and COMMAND.
@@ -12121,8 +12214,8 @@ COMMANDS:
 </div>
 </div>
 <div class="section" id="utility">
-<h5>15.6.2.10. utility<a class="headerlink" href="#utility" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-cat-utility"><div class="highlight"><pre><span></span>   CATEGORY: utility - Cycle arithmetic and templating, etc.
+<span id="command-cat-utility"></span><h5>15.6.2.10. utility<a class="headerlink" href="#utility" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: utility - Cycle arithmetic and templating, etc.
 
 HELP: cylc [utility] COMMAND help,--help
   You can abbreviate utility and COMMAND.
@@ -12142,8 +12235,8 @@ COMMANDS:
 <div class="section" id="commands">
 <h4>15.6.3. Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h4>
 <div class="section" id="to6">
-<h5>15.6.3.1. 5to6<a class="headerlink" href="#to6" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-5to6"><div class="highlight"><pre><span></span>   Usage: cylc [prep] 5to6 FILE
+<span id="command-5to6"></span><h5>15.6.3.1. 5to6<a class="headerlink" href="#to6" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] 5to6 FILE
 
 Suggest changes to a cylc 5 suite file to make it more cylc 6 compatible.
 This may be a suite.rc file, an include file, or a suite.rc.processed file.
@@ -12190,8 +12283,8 @@ Options:
 </div>
 </div>
 <div class="section" id="broadcast">
-<h5>15.6.3.2. broadcast<a class="headerlink" href="#broadcast" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-broadcast"><div class="highlight"><pre><span></span>   Usage: cylc [control] broadcast|bcast [OPTIONS] REG
+<span id="command-broadcast"></span><h5>15.6.3.2. broadcast<a class="headerlink" href="#broadcast" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] broadcast|bcast [OPTIONS] REG
 
 Override [runtime] config in targeted namespaces in a running suite.
 
@@ -12317,8 +12410,8 @@ Options:
 </div>
 </div>
 <div class="section" id="cat-log">
-<h5>15.6.3.3. cat-log<a class="headerlink" href="#cat-log" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-cat-log"><div class="highlight"><pre><span></span>   Usage: cylc [info] cat-log|log [OPTIONS] REG [TASK-ID]
+<span id="command-cat-log"></span><h5>15.6.3.3. cat-log<a class="headerlink" href="#cat-log" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] cat-log|log [OPTIONS] REG [TASK-ID]
 
 Print, view-in-editor, or tail-follow content, print path, or list directory,
 of local or remote task job and suite server logs. Batch-system view commands
@@ -12377,8 +12470,8 @@ Options:
 </div>
 </div>
 <div class="section" id="cat-state">
-<h5>15.6.3.4. cat-state<a class="headerlink" href="#cat-state" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-cat-state"><div class="highlight"><pre><span></span>   Usage: cylc [info] cat-state [OPTIONS] REG
+<span id="command-cat-state"></span><h5>15.6.3.4. cat-state<a class="headerlink" href="#cat-state" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] cat-state [OPTIONS] REG
 
 Print the suite state in the old state dump file format to stdout.
 This command is deprecated; use &quot;cylc ls-checkpoints&quot; instead.
@@ -12399,8 +12492,8 @@ Options:
 </div>
 </div>
 <div class="section" id="check-software">
-<h5>15.6.3.5. check-software<a class="headerlink" href="#check-software" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-check-software"><div class="highlight"><pre><span></span>   cylc [admin] check-software [MODULES]
+<span id="command-check-software"></span><h5>15.6.3.5. check-software<a class="headerlink" href="#check-software" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   cylc [admin] check-software [MODULES]
 
 Check for Cylc external software dependencices, including minimum versions.
 
@@ -12418,8 +12511,8 @@ Arguments:
 </div>
 </div>
 <div class="section" id="check-triggering">
-<h5>15.6.3.6. check-triggering<a class="headerlink" href="#check-triggering" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-check-triggering"><div class="highlight"><pre><span></span>   cylc [hook] check-triggering ARGS
+<span id="command-check-triggering"></span><h5>15.6.3.6. check-triggering<a class="headerlink" href="#check-triggering" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   cylc [hook] check-triggering ARGS
 
 This is a cylc shutdown event handler that compares the newly generated
 suite log with a previously generated reference log &quot;reference.log&quot;
@@ -12451,8 +12544,8 @@ Reference tests can use any run mode:
 </div>
 </div>
 <div class="section" id="check-versions">
-<h5>15.6.3.7. check-versions<a class="headerlink" href="#check-versions" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-check-versions"><div class="highlight"><pre><span></span>   Usage: cylc [discovery] check-versions [OPTIONS] SUITE
+<span id="command-check-versions"></span><h5>15.6.3.7. check-versions<a class="headerlink" href="#check-versions" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [discovery] check-versions [OPTIONS] SUITE
 
 Check the version of cylc invoked on each of SUITE&#39;s task host accounts when
 CYLC_VERSION is set to *the version running this command line tool*.
@@ -12475,8 +12568,8 @@ Arguments:
 
 Options:
   -h, --help            show this help message and exit
-  -e, --error           Exit with error status if 7.8.1-10-g3ff61 is not
-                        available on all remote accounts.
+  -e, --error           Exit with error status if 7.8.2 is not available on
+                        all remote accounts.
   -v, --verbose         Verbose output mode.
   --debug               Output developer information and show exception
                         tracebacks.
@@ -12498,8 +12591,8 @@ Options:
 </div>
 </div>
 <div class="section" id="checkpoint">
-<h5>15.6.3.8. checkpoint<a class="headerlink" href="#checkpoint" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-checkpoint"><div class="highlight"><pre><span></span>   Usage: cylc [control] checkpoint [OPTIONS] REG CHECKPOINT-NAME
+<span id="command-checkpoint"></span><h5>15.6.3.8. checkpoint<a class="headerlink" href="#checkpoint" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] checkpoint [OPTIONS] REG CHECKPOINT-NAME
 
 Tell suite to checkpoint its current state.
 
@@ -12544,8 +12637,8 @@ Options:
 </div>
 </div>
 <div class="section" id="client">
-<h5>15.6.3.9. client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-client"><div class="highlight"><pre><span></span>   Usage: cylc client [OPTIONS] METHOD [REG]
+<span id="command-client"></span><h5>15.6.3.9. client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc client [OPTIONS] METHOD [REG]
 
 (This command is for internal use.)
 Invoke HTTP(S) client, expect JSON from STDIN for keyword arguments.
@@ -12593,8 +12686,8 @@ Options:
 </div>
 </div>
 <div class="section" id="conditions">
-<h5>15.6.3.10. conditions<a class="headerlink" href="#conditions" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-conditions"><div class="highlight"><pre><span></span>   Usage: cylc [license] warranty [--help]
+<span id="command-conditions"></span><h5>15.6.3.10. conditions<a class="headerlink" href="#conditions" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [license] warranty [--help]
 Cylc is release under the GNU General Public License v3.0
 This command prints the GPL v3.0 license in full.
 
@@ -12604,8 +12697,8 @@ Options:
 </div>
 </div>
 <div class="section" id="cycle-point">
-<h5>15.6.3.11. cycle-point<a class="headerlink" href="#cycle-point" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-cycle-point"><div class="highlight"><pre><span></span>   Usage: cylc [util] cycle-point [OPTIONS] [POINT]
+<span id="command-cycle-point"></span><h5>15.6.3.11. cycle-point<a class="headerlink" href="#cycle-point" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [util] cycle-point [OPTIONS] [POINT]
 
 Cycle point date-time offset computation, and filename templating.
 
@@ -12641,8 +12734,7 @@ Other examples:
   foo-2012-08.nc
 
 Arguments:
-   [POINT]  ISO 8601 date-time, e.g. 20140201T0000Z, default
-      $CYLC_TASK_CYCLE_POINT
+   [POINT]               ISO8601 date-time, default=$CYLC_TASK_CYCLE_POINT
 
 Options:
   -h, --help            show this help message and exit
@@ -12663,12 +12755,15 @@ Options:
   --print-month         Print only MM of result
   --print-day           Print only DD of result
   --print-hour          Print only hh of result
+  -v, --verbose         Verbose output mode.
+  --debug               Output developer information and show exception
+                        tracebacks.
 </pre></div>
 </div>
 </div>
 <div class="section" id="diff">
-<h5>15.6.3.12. diff<a class="headerlink" href="#diff" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-diff"><div class="highlight"><pre><span></span>   Usage: cylc [prep] diff|compare [OPTIONS] SUITE1 SUITE2
+<span id="command-diff"></span><h5>15.6.3.12. diff<a class="headerlink" href="#diff" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] diff|compare [OPTIONS] SUITE1 SUITE2
 
 Compare two suite definitions and display any differences.
 
@@ -12714,8 +12809,8 @@ Options:
 </div>
 </div>
 <div class="section" id="documentation">
-<h5>15.6.3.13. documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-documentation"><div class="highlight"><pre><span></span>   Usage: cylc [info] documentation|browse [OPTIONS] [SUITE]
+<span id="command-documentation"></span><h5>15.6.3.13. documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] documentation|browse [OPTIONS] [TARGET]
 
 View documentation in the browser, as per Cylc global config.
 
@@ -12724,11 +12819,11 @@ View documentation in the browser, as per Cylc global config.
 
 % cylc doc [-t TASK] SUITE
     View suite or task documentation, if URLs are specified in the suite. This
-parses the suite definition to extract the requested URL. Note that suite
-server programs also hold suite URLs for access from the Cylc GUI.
+    parses the suite definition to extract the requested URL. Note that suite
+    server programs also hold suite URLs for access from the Cylc GUI.
 
 Arguments:
-   [TARGET]    File, URL, or suite name
+   [TARGET]               File or suite name
 
 Options:
   -h, --help            show this help message and exit
@@ -12737,18 +12832,15 @@ Options:
   -t TASK_NAME, --task=TASK_NAME
                         Browse task documentation URLs.
   -s, --stdout          Just print the URL to stdout.
-  --user=USER           Other user account name. This results in command
-                        reinvocation on the remote account.
-  --host=HOST           Other host name. This results in command reinvocation
-                        on the remote account.
   --debug               Print exception traceback on error.
   --url=URL             URL to view in your configured browser.
+  -v, --verbose         Verbose output mode.
 </pre></div>
 </div>
 </div>
 <div class="section" id="dump">
-<h5>15.6.3.14. dump<a class="headerlink" href="#dump" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-dump"><div class="highlight"><pre><span></span>   Usage: cylc [info] dump [OPTIONS] REG
+<span id="command-dump"></span><h5>15.6.3.14. dump<a class="headerlink" href="#dump" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] dump [OPTIONS] REG
 
 Print state information (e.g. the state of each task) from a running
 suite. For small suites &#39;watch cylc [info] dump SUITE&#39; is an effective
@@ -12804,8 +12896,8 @@ Options:
 </div>
 </div>
 <div class="section" id="edit">
-<h5>15.6.3.15. edit<a class="headerlink" href="#edit" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-edit"><div class="highlight"><pre><span></span>   Usage: cylc [prep] edit [OPTIONS] SUITE
+<span id="command-edit"></span><h5>15.6.3.15. edit<a class="headerlink" href="#edit" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] edit [OPTIONS] SUITE
 
 Edit suite definitions without having to move to their directory
 locations, and with optional reversible inlining of include-files. Note
@@ -12866,8 +12958,8 @@ Options:
 </div>
 </div>
 <div class="section" id="email-suite">
-<h5>15.6.3.16. email-suite<a class="headerlink" href="#email-suite" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-email-suite"><div class="highlight"><pre><span></span>   Usage: cylc [hook] email-suite EVENT SUITE MESSAGE
+<span id="command-email-suite"></span><h5>15.6.3.16. email-suite<a class="headerlink" href="#email-suite" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [hook] email-suite EVENT SUITE MESSAGE
 
 THIS COMMAND IS OBSOLETE - use built-in email event hooks.
 
@@ -12889,8 +12981,8 @@ on suite and task event hooks and event handler scripts.
 </div>
 </div>
 <div class="section" id="email-task">
-<h5>15.6.3.17. email-task<a class="headerlink" href="#email-task" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-email-task"><div class="highlight"><pre><span></span>   Usage: cylc [hook] email-task EVENT SUITE TASKID MESSAGE
+<span id="command-email-task"></span><h5>15.6.3.17. email-task<a class="headerlink" href="#email-task" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [hook] email-task EVENT SUITE TASKID MESSAGE
 
 THIS COMMAND IS OBSOLETE - use built-in email event hooks.
 
@@ -12914,8 +13006,8 @@ on suite and task event hooks and event handler scripts.
 </div>
 </div>
 <div class="section" id="ext-trigger">
-<h5>15.6.3.18. ext-trigger<a class="headerlink" href="#ext-trigger" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-ext-trigger"><div class="highlight"><pre><span></span>   Usage: cylc [control] ext-trigger [OPTIONS] REG MSG ID
+<span id="command-ext-trigger"></span><h5>15.6.3.18. ext-trigger<a class="headerlink" href="#ext-trigger" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] ext-trigger [OPTIONS] REG MSG ID
 
 Report an external event message to a suite server program. It is expected that
 a task in the suite has registered the same message as an external trigger - a
@@ -12977,8 +13069,8 @@ Options:
 </div>
 </div>
 <div class="section" id="function-run">
-<h5>15.6.3.19. function-run<a class="headerlink" href="#function-run" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-function-run"><div class="highlight"><pre><span></span>   USAGE: cylc function-run &lt;name&gt; &lt;json-args&gt; &lt;json-kwargs&gt; &lt;src-dir&gt;
+<span id="command-function-run"></span><h5>15.6.3.19. function-run<a class="headerlink" href="#function-run" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   USAGE: cylc function-run &lt;name&gt; &lt;json-args&gt; &lt;json-kwargs&gt; &lt;src-dir&gt;
 
 INTERNAL USE (asynchronous external trigger function execution)
 
@@ -12990,8 +13082,8 @@ local xtrigger modules.
 </div>
 </div>
 <div class="section" id="get-directory">
-<h5>15.6.3.20. get-directory<a class="headerlink" href="#get-directory" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-get-directory"><div class="highlight"><pre><span></span>   Usage: cylc [prep] get-directory REG
+<span id="command-get-directory"></span><h5>15.6.3.20. get-directory<a class="headerlink" href="#get-directory" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] get-directory REG
 
 Retrieve and print the source directory location of suite REG.
 Here&#39;s an easy way to move to a suite source directory:
@@ -13014,8 +13106,8 @@ Options:
 </div>
 </div>
 <div class="section" id="get-gui-config">
-<h5>15.6.3.21. get-gui-config<a class="headerlink" href="#get-gui-config" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-get-gui-config"><div class="highlight"><pre><span></span>   Usage: cylc [admin] get-gui-config [OPTIONS]
+<span id="command-get-gui-config"></span><h5>15.6.3.21. get-gui-config<a class="headerlink" href="#get-gui-config" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [admin] get-gui-config [OPTIONS]
 
 Print gcylc configuration settings.
 
@@ -13026,18 +13118,19 @@ Multiple items can be specified at once.
 
 Options:
   -h, --help            show this help message and exit
-  -v, --verbose         Print extra information.
-  --debug               Show exception tracebacks.
   -i [SEC...]ITEM, --item=[SEC...]ITEM
                         Item or section to print (multiple use allowed).
   --sparse              Only print items explicitly set in the config files.
   -p, --python          Print native Python format.
+  -v, --verbose         Verbose output mode.
+  --debug               Output developer information and show exception
+                        tracebacks.
 </pre></div>
 </div>
 </div>
 <div class="section" id="get-host-metrics">
-<h5>15.6.3.22. get-host-metrics<a class="headerlink" href="#get-host-metrics" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-get-host-metrics"><div class="highlight"><pre><span></span>   Usage: cylc get-host-metrics [OPTIONS]
+<span id="command-get-host-metrics"></span><h5>15.6.3.22. get-host-metrics<a class="headerlink" href="#get-host-metrics" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc get-host-metrics [OPTIONS]
 
 Get metrics for localhost, in the form of a JSON structure with top-level
 keys as requested via the OPTIONS:
@@ -13067,8 +13160,8 @@ Options:
 </div>
 </div>
 <div class="section" id="get-site-config">
-<h5>15.6.3.23. get-site-config<a class="headerlink" href="#get-site-config" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-get-site-config"><div class="highlight"><pre><span></span>   Usage: cylc [admin] get-site-config [OPTIONS]
+<span id="command-get-site-config"></span><h5>15.6.3.23. get-site-config<a class="headerlink" href="#get-site-config" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [admin] get-site-config [OPTIONS]
 
 Print cylc site/user configuration settings.
 
@@ -13085,14 +13178,15 @@ Options:
   -p, --python          Print native Python format.
   --print-run-dir       Print the configured cylc run directory.
   --print-site-dir      Print the cylc site configuration directory location.
-  -v, --verbose         Print extra information.
-  --debug               Show exception tracebacks.
+  -v, --verbose         Verbose output mode.
+  --debug               Output developer information and show exception
+                        tracebacks.
 </pre></div>
 </div>
 </div>
 <div class="section" id="get-suite-config">
-<h5>15.6.3.24. get-suite-config<a class="headerlink" href="#get-suite-config" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-get-suite-config"><div class="highlight"><pre><span></span>   Usage: cylc [info] get-suite-config [OPTIONS] SUITE
+<span id="command-get-suite-config"></span><h5>15.6.3.24. get-suite-config<a class="headerlink" href="#get-suite-config" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] get-suite-config [OPTIONS] SUITE
 
 Print parsed suite configuration items, after runtime inheritance.
 
@@ -13174,8 +13268,8 @@ Options:
 </div>
 </div>
 <div class="section" id="get-suite-contact">
-<h5>15.6.3.25. get-suite-contact<a class="headerlink" href="#get-suite-contact" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-get-suite-contact"><div class="highlight"><pre><span></span>   Usage: cylc [info] get-suite-contact [OPTIONS] REG
+<span id="command-get-suite-contact"></span><h5>15.6.3.25. get-suite-contact<a class="headerlink" href="#get-suite-contact" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] get-suite-contact [OPTIONS] REG
 
 Print contact information of running suite REG.
 
@@ -13194,8 +13288,8 @@ Options:
 </div>
 </div>
 <div class="section" id="get-suite-version">
-<h5>15.6.3.26. get-suite-version<a class="headerlink" href="#get-suite-version" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-get-suite-version"><div class="highlight"><pre><span></span>   Usage: cylc [info] get-suite-version [OPTIONS] REG
+<span id="command-get-suite-version"></span><h5>15.6.3.26. get-suite-version<a class="headerlink" href="#get-suite-version" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] get-suite-version [OPTIONS] REG
 
 Interrogate running suite REG to find what version of cylc is running it.
 
@@ -13240,8 +13334,8 @@ Options:
 </div>
 </div>
 <div class="section" id="gpanel">
-<h5>15.6.3.27. gpanel<a class="headerlink" href="#gpanel" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-gpanel"><div class="highlight"><pre><span></span>   Usage: cylc gpanel [OPTIONS]
+<span id="command-gpanel"></span><h5>15.6.3.27. gpanel<a class="headerlink" href="#gpanel" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc gpanel [OPTIONS]
 
 This is a cylc scan panel applet for monitoring running suites on a set of
 hosts in GNOME 2.
@@ -13266,8 +13360,8 @@ Options:
 </div>
 </div>
 <div class="section" id="graph">
-<h5>15.6.3.28. graph<a class="headerlink" href="#graph" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-graph"><div class="highlight"><pre><span></span>   Usage: 1/ cylc [prep] graph [OPTIONS] SUITE [START[STOP]]
+<span id="command-graph"></span><h5>15.6.3.28. graph<a class="headerlink" href="#graph" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: 1/ cylc [prep] graph [OPTIONS] SUITE [START[STOP]]
      Plot the suite.rc dependency graph for SUITE.
        2/ cylc [prep] graph [OPTIONS] -f,--file FILE
      Plot the specified dot-language graph file.
@@ -13364,8 +13458,8 @@ Options:
 </div>
 </div>
 <div class="section" id="graph-diff">
-<h5>15.6.3.29. graph-diff<a class="headerlink" href="#graph-diff" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-graph-diff"><div class="highlight"><pre><span></span>   Usage: cylc graph-diff [OPTIONS] SUITE1 SUITE2 -- [GRAPH_OPTIONS_ARGS]
+<span id="command-graph-diff"></span><h5>15.6.3.29. graph-diff<a class="headerlink" href="#graph-diff" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc graph-diff [OPTIONS] SUITE1 SUITE2 -- [GRAPH_OPTIONS_ARGS]
 
 Difference &#39;cylc graph --reference&#39; output for SUITE1 and SUITE2.
 
@@ -13378,8 +13472,8 @@ GRAPH_OPTIONS_ARGS: Options and arguments passed directly to cylc graph.
 </div>
 </div>
 <div class="section" id="gscan">
-<h5>15.6.3.30. gscan<a class="headerlink" href="#gscan" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-gscan"><div class="highlight"><pre><span></span>   Usage: cylc gscan [OPTIONS]
+<span id="command-gscan"></span><h5>15.6.3.30. gscan<a class="headerlink" href="#gscan" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc gscan [OPTIONS]
 
 This is the cylc scan gui for monitoring running suites on a set of
 hosts.
@@ -13430,8 +13524,8 @@ Options:
 </div>
 </div>
 <div class="section" id="gui">
-<h5>15.6.3.31. gui<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-gui"><div class="highlight"><pre><span></span>   Usage: cylc gui [OPTIONS] [REG] [USER_AT_HOST]
+<span id="command-gui"></span><h5>15.6.3.31. gui<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc gui [OPTIONS] [REG] [USER_AT_HOST]
 gcylc [OPTIONS] [REG] [USER_AT_HOST]
 
 This is the cylc Graphical User Interface.
@@ -13507,8 +13601,8 @@ Options:
 </div>
 </div>
 <div class="section" id="hold">
-<h5>15.6.3.32. hold<a class="headerlink" href="#hold" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-hold"><div class="highlight"><pre><span></span>   Usage: cylc [control] hold [OPTIONS] REG [TASKID ...]
+<span id="command-hold"></span><h5>15.6.3.32. hold<a class="headerlink" href="#hold" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] hold [OPTIONS] REG [TASKID ...]
 
 Hold one or more waiting tasks (cylc hold REG TASKID ...), or
 a whole suite (cylc hold REG).
@@ -13583,8 +13677,8 @@ Options:
 </div>
 </div>
 <div class="section" id="import-examples">
-<h5>15.6.3.33. import-examples<a class="headerlink" href="#import-examples" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-import-examples"><div class="highlight"><pre><span></span>   Usage: cylc import-examples DIR
+<span id="command-import-examples"></span><h5>15.6.3.33. import-examples<a class="headerlink" href="#import-examples" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc import-examples DIR
 
 Copy the cylc example suites to DIR and register them for use under the GROUP
 suite name group.
@@ -13595,8 +13689,8 @@ Arguments:
 </div>
 </div>
 <div class="section" id="insert">
-<h5>15.6.3.34. insert<a class="headerlink" href="#insert" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-insert"><div class="highlight"><pre><span></span>   Usage: cylc [control] insert [OPTIONS] REG TASKID [...]
+<span id="command-insert"></span><h5>15.6.3.34. insert<a class="headerlink" href="#insert" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] insert [OPTIONS] REG TASKID [...]
 
 Insert task proxies into a running suite. Uses of insertion include:
  1) insert a task that was excluded by the suite definition at start-up.
@@ -13681,8 +13775,8 @@ Options:
 </div>
 </div>
 <div class="section" id="jobs-kill">
-<h5>15.6.3.35. jobs-kill<a class="headerlink" href="#jobs-kill" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-jobs-kill"><div class="highlight"><pre><span></span>   Usage: cylc [control] jobs-kill JOB-LOG-ROOT [JOB-LOG-DIR ...]
+<span id="command-jobs-kill"></span><h5>15.6.3.35. jobs-kill<a class="headerlink" href="#jobs-kill" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] jobs-kill JOB-LOG-ROOT [JOB-LOG-DIR ...]
 
 (This command is for internal use. Users should use &quot;cylc kill&quot;.) Read job
 status files to obtain the names of the batch systems and the job IDs in the
@@ -13707,8 +13801,8 @@ Options:
 </div>
 </div>
 <div class="section" id="jobs-poll">
-<h5>15.6.3.36. jobs-poll<a class="headerlink" href="#jobs-poll" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-jobs-poll"><div class="highlight"><pre><span></span>   Usage: cylc [control] jobs-poll JOB-LOG-ROOT [JOB-LOG-DIR ...]
+<span id="command-jobs-poll"></span><h5>15.6.3.36. jobs-poll<a class="headerlink" href="#jobs-poll" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] jobs-poll JOB-LOG-ROOT [JOB-LOG-DIR ...]
 
 (This command is for internal use. Users should use &quot;cylc poll&quot;.) Read job
 status files to obtain the statuses of the jobs. If necessary, Invoke the
@@ -13732,8 +13826,8 @@ Options:
 </div>
 </div>
 <div class="section" id="jobs-submit">
-<h5>15.6.3.37. jobs-submit<a class="headerlink" href="#jobs-submit" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-jobs-submit"><div class="highlight"><pre><span></span>   Usage: cylc [control] jobs-submit JOB-LOG-ROOT [JOB-LOG-DIR ...]
+<span id="command-jobs-submit"></span><h5>15.6.3.37. jobs-submit<a class="headerlink" href="#jobs-submit" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] jobs-submit JOB-LOG-ROOT [JOB-LOG-DIR ...]
 
 (This command is for internal use. Users should use &quot;cylc submit&quot;.) Submit task
 jobs to relevant batch systems. On a remote job host, this command reads the
@@ -13759,8 +13853,8 @@ Options:
 </div>
 </div>
 <div class="section" id="jobscript">
-<h5>15.6.3.38. jobscript<a class="headerlink" href="#jobscript" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-jobscript"><div class="highlight"><pre><span></span>   Usage: cylc [prep] jobscript [OPTIONS] REG TASK
+<span id="command-jobscript"></span><h5>15.6.3.38. jobscript<a class="headerlink" href="#jobscript" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] jobscript [OPTIONS] REG TASK
 
 Generate a task job script and print it to stdout.
 
@@ -13787,8 +13881,8 @@ Arguments:
 </div>
 </div>
 <div class="section" id="kill">
-<h5>15.6.3.39. kill<a class="headerlink" href="#kill" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-kill"><div class="highlight"><pre><span></span>   Usage: cylc [control] kill [OPTIONS] REG [TASKID ...]
+<span id="command-kill"></span><h5>15.6.3.39. kill<a class="headerlink" href="#kill" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] kill [OPTIONS] REG [TASKID ...]
 
 Kill jobs of active tasks and update their statuses accordingly.
 
@@ -13860,8 +13954,8 @@ Options:
 </div>
 </div>
 <div class="section" id="list">
-<h5>15.6.3.40. list<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-list"><div class="highlight"><pre><span></span>   Usage: cylc [info|prep] list|ls [OPTIONS] SUITE
+<span id="command-list"></span><h5>15.6.3.40. list<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info|prep] list|ls [OPTIONS] SUITE
 
 Print runtime namespace names (tasks and families), the first-parent
 inheritance graph, or actual tasks for a given cycle range.
@@ -13916,8 +14010,8 @@ Options:
 </div>
 </div>
 <div class="section" id="ls-checkpoints">
-<h5>15.6.3.41. ls-checkpoints<a class="headerlink" href="#ls-checkpoints" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-ls-checkpoints"><div class="highlight"><pre><span></span>   Usage: cylc [info] ls-checkpoints [OPTIONS] REG [ID ...]
+<span id="command-ls-checkpoints"></span><h5>15.6.3.41. ls-checkpoints<a class="headerlink" href="#ls-checkpoints" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] ls-checkpoints [OPTIONS] REG [ID ...]
 
 In the absence of arguments and the --all option, list checkpoint IDs, their
 time and events. Otherwise, display the latest and/or the checkpoints of suite
@@ -13941,8 +14035,8 @@ Options:
 </div>
 </div>
 <div class="section" id="make-docs">
-<h5>15.6.3.42. make-docs<a class="headerlink" href="#make-docs" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-make-docs"><div class="highlight"><pre><span></span>   Usage: cylc [admin] make-docs [--help]
+<span id="command-make-docs"></span><h5>15.6.3.42. make-docs<a class="headerlink" href="#make-docs" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [admin] make-docs [--help]
 Build the HTML User Guide, with Sphinx.
 
 Options:
@@ -13951,8 +14045,8 @@ Options:
 </div>
 </div>
 <div class="section" id="message">
-<h5>15.6.3.43. message<a class="headerlink" href="#message" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-message"><div class="highlight"><pre><span></span>   Usage: cylc [task] message [OPTIONS] -- [REG] [TASK-JOB] [[SEVERITY:]MESSAGE ...]
+<span id="command-message"></span><h5>15.6.3.43. message<a class="headerlink" href="#message" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [task] message [OPTIONS] -- [REG] [TASK-JOB] [[SEVERITY:]MESSAGE ...]
 
 Record task job messages.
 
@@ -14048,8 +14142,8 @@ Options:
 </div>
 </div>
 <div class="section" id="monitor">
-<h5>15.6.3.44. monitor<a class="headerlink" href="#monitor" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-monitor"><div class="highlight"><pre><span></span>   Usage: cylc [info] monitor [OPTIONS] REG [USER_AT_HOST]
+<span id="command-monitor"></span><h5>15.6.3.44. monitor<a class="headerlink" href="#monitor" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] monitor [OPTIONS] REG [USER_AT_HOST]
 
 A terminal-based live suite monitor.  Exit with &#39;Ctrl-C&#39;.
 
@@ -14108,8 +14202,8 @@ Options:
 </div>
 </div>
 <div class="section" id="nudge">
-<h5>15.6.3.45. nudge<a class="headerlink" href="#nudge" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-nudge"><div class="highlight"><pre><span></span>   Usage: cylc [control] nudge [OPTIONS] REG
+<span id="command-nudge"></span><h5>15.6.3.45. nudge<a class="headerlink" href="#nudge" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] nudge [OPTIONS] REG
 
 Cause the cylc task processing loop to be invoked in a running suite.
 
@@ -14161,8 +14255,8 @@ Options:
 </div>
 </div>
 <div class="section" id="ping">
-<h5>15.6.3.46. ping<a class="headerlink" href="#ping" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-ping"><div class="highlight"><pre><span></span>   Usage: cylc [discovery] ping [OPTIONS] REG [TASK]
+<span id="command-ping"></span><h5>15.6.3.46. ping<a class="headerlink" href="#ping" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [discovery] ping [OPTIONS] REG [TASK]
 
 If suite REG is running or TASK in suite REG is currently running,
 exit with success status, else exit with error status.
@@ -14207,8 +14301,8 @@ Options:
 </div>
 </div>
 <div class="section" id="poll">
-<h5>15.6.3.47. poll<a class="headerlink" href="#poll" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-poll"><div class="highlight"><pre><span></span>   Usage: cylc [control] poll [OPTIONS] REG [TASKID ...]
+<span id="command-poll"></span><h5>15.6.3.47. poll<a class="headerlink" href="#poll" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] poll [OPTIONS] REG [TASKID ...]
 
 Poll (query) task jobs to verify and update their statuses.
 
@@ -14281,8 +14375,8 @@ Options:
 </div>
 </div>
 <div class="section" id="print">
-<h5>15.6.3.48. print<a class="headerlink" href="#print" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-print"><div class="highlight"><pre><span></span>   Usage: cylc [prep] print [OPTIONS] [REGEX]
+<span id="command-print"></span><h5>15.6.3.48. print<a class="headerlink" href="#print" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] print [OPTIONS] [REGEX]
 
 Print registered (installed) suites.
 
@@ -14314,8 +14408,8 @@ Options:
 </div>
 </div>
 <div class="section" id="profile-battery">
-<h5>15.6.3.49. profile-battery<a class="headerlink" href="#profile-battery" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-profile-battery"><div class="highlight"><pre><span></span>   Usage: cylc profile-battery [-e [EXPERIMENT ...]] [-v [VERSION ...]]
+<span id="command-profile-battery"></span><h5>15.6.3.49. profile-battery<a class="headerlink" href="#profile-battery" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc profile-battery [-e [EXPERIMENT ...]] [-v [VERSION ...]]
 
 Run profiling experiments against different versions of cylc. A list of
 experiments can be specified after the -e flag, if not provided the experiment
@@ -14391,8 +14485,8 @@ Options:
 </div>
 </div>
 <div class="section" id="register">
-<h5>15.6.3.50. register<a class="headerlink" href="#register" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-register"><div class="highlight"><pre><span></span>   Usage: cylc [prep] register [OPTIONS] [REG] [PATH]
+<span id="command-register"></span><h5>15.6.3.50. register<a class="headerlink" href="#register" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] register [OPTIONS] [REG] [PATH]
 
 Register the name REG for the suite definition in PATH. The suite server
 program can then be started, stopped, and targeted by name REG. (Note that
@@ -14443,8 +14537,8 @@ Options:
 </div>
 </div>
 <div class="section" id="release">
-<h5>15.6.3.51. release<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-release"><div class="highlight"><pre><span></span>   Usage: cylc [control] release|unhold [OPTIONS] REG [TASKID ...]
+<span id="command-release"></span><h5>15.6.3.51. release<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] release|unhold [OPTIONS] REG [TASKID ...]
 
 Release one or more held tasks (cylc release REG TASKID)
 or the whole suite (cylc release REG). Held tasks do not
@@ -14517,8 +14611,8 @@ Options:
 </div>
 </div>
 <div class="section" id="reload">
-<h5>15.6.3.52. reload<a class="headerlink" href="#reload" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-reload"><div class="highlight"><pre><span></span>   Usage: cylc [control] reload [OPTIONS] REG
+<span id="command-reload"></span><h5>15.6.3.52. reload<a class="headerlink" href="#reload" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] reload [OPTIONS] REG
 
 Tell a suite to reload its definition at run time. All settings
 including task definitions, with the exception of suite log
@@ -14580,8 +14674,8 @@ Options:
 </div>
 </div>
 <div class="section" id="remote-init">
-<h5>15.6.3.53. remote-init<a class="headerlink" href="#remote-init" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-remote-init"><div class="highlight"><pre><span></span>   Usage: cylc [task] remote-init [--indirect-comm=ssh] UUID RUND
+<span id="command-remote-init"></span><h5>15.6.3.53. remote-init<a class="headerlink" href="#remote-init" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [task] remote-init [--indirect-comm=ssh] UUID RUND
 
 (This command is for internal use.)
 Install suite service files on a task remote (i.e. a [owner@]host):
@@ -14621,8 +14715,8 @@ Options:
 </div>
 </div>
 <div class="section" id="remote-tidy">
-<h5>15.6.3.54. remote-tidy<a class="headerlink" href="#remote-tidy" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-remote-tidy"><div class="highlight"><pre><span></span>   Usage: cylc [task] remote-tidy RUND
+<span id="command-remote-tidy"></span><h5>15.6.3.54. remote-tidy<a class="headerlink" href="#remote-tidy" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [task] remote-tidy RUND
 
 (This command is for internal use.)
 Remove &quot;.service/contact&quot; from a task remote (i.e. a [owner@]host).
@@ -14645,8 +14739,8 @@ Options:
 </div>
 </div>
 <div class="section" id="remove">
-<h5>15.6.3.55. remove<a class="headerlink" href="#remove" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-remove"><div class="highlight"><pre><span></span>   Usage: cylc [control] remove [OPTIONS] REG TASKID [...]
+<span id="command-remove"></span><h5>15.6.3.55. remove<a class="headerlink" href="#remove" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] remove [OPTIONS] REG TASKID [...]
 
 Remove one or more tasks (cylc remove REG TASKID), or all tasks with a
 given cycle point (cylc remove REG *.POINT) from a running suite.
@@ -14719,8 +14813,8 @@ Options:
 </div>
 </div>
 <div class="section" id="report-timings">
-<h5>15.6.3.56. report-timings<a class="headerlink" href="#report-timings" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-report-timings"><div class="highlight"><pre><span></span>   Usage: cylc [util] report-timings [OPTIONS] REG
+<span id="command-report-timings"></span><h5>15.6.3.56. report-timings<a class="headerlink" href="#report-timings" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [util] report-timings [OPTIONS] REG
 
 Retrieve suite timing information for wait and run time performance analysis.
 Raw output and summary output (in text or HTML format) are available.  Output
@@ -14773,8 +14867,8 @@ Options:
 </div>
 </div>
 <div class="section" id="reset">
-<h5>15.6.3.57. reset<a class="headerlink" href="#reset" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-reset"><div class="highlight"><pre><span></span>   Usage: cylc [control] reset [OPTIONS] REG [TASKID ...]
+<span id="command-reset"></span><h5>15.6.3.57. reset<a class="headerlink" href="#reset" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] reset [OPTIONS] REG [TASKID ...]
 
 Force tasks to a specified state, and modify their prerequisites and outputs
 accordingly.
@@ -14862,8 +14956,8 @@ Options:
 </div>
 </div>
 <div class="section" id="restart">
-<h5>15.6.3.58. restart<a class="headerlink" href="#restart" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-restart"><div class="highlight"><pre><span></span>   Usage: cylc [control] restart [OPTIONS] [REG]
+<span id="command-restart"></span><h5>15.6.3.58. restart<a class="headerlink" href="#restart" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] restart [OPTIONS] [REG]
 
 Start a suite run from the previous state. To start from scratch (cold or warm
 start) see the &#39;cylc run&#39; command.
@@ -14931,8 +15025,8 @@ Options:
 </div>
 </div>
 <div class="section" id="review">
-<h5>15.6.3.59. review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-review"><div class="highlight"><pre><span></span>   Usage: cylc [info] review [OPTIONS] [start [PORT]] [stop]
+<span id="command-review"></span><h5>15.6.3.59. review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] review [OPTIONS] [start [PORT]] [stop]
 
 Start/stop ad-hoc Cylc Review web service server for browsing users&#39; suite
 logs via an HTTP interface.
@@ -14956,8 +15050,8 @@ Options:
 </div>
 </div>
 <div class="section" id="run">
-<h5>15.6.3.60. run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-run"><div class="highlight"><pre><span></span>   Usage: cylc [control] run|start [OPTIONS] [[REG] [START_POINT] ]
+<span id="command-run"></span><h5>15.6.3.60. run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] run|start [OPTIONS] [[REG] [START_POINT] ]
 
 Start a suite run from scratch, ignoring dependence prior to the start point.
 
@@ -15037,8 +15131,8 @@ Options:
 </div>
 </div>
 <div class="section" id="scan">
-<h5>15.6.3.61. scan<a class="headerlink" href="#scan" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-scan"><div class="highlight"><pre><span></span>   Usage: cylc [discovery] scan [OPTIONS] [HOSTS ...]
+<span id="command-scan"></span><h5>15.6.3.61. scan<a class="headerlink" href="#scan" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [discovery] scan [OPTIONS] [HOSTS ...]
 
 Print information about running suites.
 
@@ -15117,8 +15211,8 @@ Options:
 </div>
 </div>
 <div class="section" id="scp-transfer">
-<h5>15.6.3.62. scp-transfer<a class="headerlink" href="#scp-transfer" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-scp-transfer"><div class="highlight"><pre><span></span>   Usage: cylc [util] scp-transfer [OPTIONS]
+<span id="command-scp-transfer"></span><h5>15.6.3.62. scp-transfer<a class="headerlink" href="#scp-transfer" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [util] scp-transfer [OPTIONS]
 
 An scp wrapper for transferring a list of files and/or directories
 at once. The source and target scp URLs can be local or remote (scp
@@ -15140,8 +15234,8 @@ Options:
 </div>
 </div>
 <div class="section" id="search">
-<h5>15.6.3.63. search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-search"><div class="highlight"><pre><span></span>   Usage: cylc [prep] search|grep [OPTIONS] SUITE PATTERN [PATTERN2...]
+<span id="command-search"></span><h5>15.6.3.63. search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] search|grep [OPTIONS] SUITE PATTERN [PATTERN2...]
 
 Search for pattern matches in suite definitions and any files in the
 suite bin directory. Matches are reported by line number and suite
@@ -15176,8 +15270,8 @@ Options:
 </div>
 </div>
 <div class="section" id="set-verbosity">
-<h5>15.6.3.64. set-verbosity<a class="headerlink" href="#set-verbosity" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-set-verbosity"><div class="highlight"><pre><span></span>   Usage: cylc [control] set-verbosity [OPTIONS] REG LEVEL
+<span id="command-set-verbosity"></span><h5>15.6.3.64. set-verbosity<a class="headerlink" href="#set-verbosity" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] set-verbosity [OPTIONS] REG LEVEL
 
 Change the logging severity level of a running suite.  Only messages at
 or above the chosen severity level will be logged; for example, if you
@@ -15223,8 +15317,8 @@ Options:
 </div>
 </div>
 <div class="section" id="show">
-<h5>15.6.3.65. show<a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-show"><div class="highlight"><pre><span></span>   Usage: cylc [info] show [OPTIONS] REG [TASKID ...]
+<span id="command-show"></span><h5>15.6.3.65. show<a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] show [OPTIONS] REG [TASKID ...]
 
 Interrogate a suite server program for the suite metadata; or for the metadata
 of one of its tasks; or for the current state of the prerequisites, outputs,
@@ -15292,8 +15386,8 @@ Options:
 </div>
 </div>
 <div class="section" id="spawn">
-<h5>15.6.3.66. spawn<a class="headerlink" href="#spawn" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-spawn"><div class="highlight"><pre><span></span>   Usage: cylc [control] spawn [OPTIONS] REG [TASKID ...]
+<span id="command-spawn"></span><h5>15.6.3.66. spawn<a class="headerlink" href="#spawn" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] spawn [OPTIONS] REG [TASKID ...]
 
 Force one or more task proxies to spawn successors at the next cycle point
 in their sequences.  This is useful if you need to run successive instances
@@ -15364,8 +15458,8 @@ Options:
 </div>
 </div>
 <div class="section" id="stop">
-<h5>15.6.3.67. stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-stop"><div class="highlight"><pre><span></span>   Usage: cylc [control] stop|shutdown [OPTIONS] REG [STOP]
+<span id="command-stop"></span><h5>15.6.3.67. stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] stop|shutdown [OPTIONS] REG [STOP]
 
 Tell a suite server program to shut down. In order to prevent failures going
 unnoticed, suites only shut down automatically at a final cycle point if no
@@ -15439,8 +15533,8 @@ Options:
 </div>
 </div>
 <div class="section" id="submit">
-<h5>15.6.3.68. submit<a class="headerlink" href="#submit" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-submit"><div class="highlight"><pre><span></span>   Usage: cylc [task] submit|single [OPTIONS] REG TASK [...]
+<span id="command-submit"></span><h5>15.6.3.68. submit<a class="headerlink" href="#submit" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [task] submit|single [OPTIONS] REG TASK [...]
 
 Submit a single task to run just as it would be submitted by its suite.  Task
 messaging commands will print to stdout but will not attempt to communicate
@@ -15487,8 +15581,8 @@ Options:
 </div>
 </div>
 <div class="section" id="suite-state">
-<h5>15.6.3.69. suite-state<a class="headerlink" href="#suite-state" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-suite-state"><div class="highlight"><pre><span></span>   Usage: cylc suite-state REG [OPTIONS]
+<span id="command-suite-state"></span><h5>15.6.3.69. suite-state<a class="headerlink" href="#suite-state" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc suite-state REG [OPTIONS]
 
 Print task states retrieved from a suite database; or (with --task,
 --point, and --status) poll until a given task reaches a given state; or (with
@@ -15561,19 +15655,19 @@ Options:
 </div>
 </div>
 <div class="section" id="test-battery">
-<h5>15.6.3.70. test-battery<a class="headerlink" href="#test-battery" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-test-battery"><div class="highlight"><pre><span></span>   cd &quot;/home/oliverh/cylc&quot;
+<span id="command-test-battery"></span><h5>15.6.3.70. test-battery<a class="headerlink" href="#test-battery" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   cd &quot;/home/oliverh/cylc-git/worktrees/7.8.x&quot;
 Usage: cylc test-battery [...]
 
 Run automated Cylc and Parsec tests, under (by default):
-   /home/oliverh/cylc/tests/.
+   /home/oliverh/cylc-git/worktrees/7.8.x/tests/.
 
 Options and arguments are appended to &quot;prove -j $NPROC -s -r ${@:-tests}&quot;.
 NPROC is the number of concurrent processes to run, which defaults to the
 global config &quot;process pool size&quot; setting.
 
 The tests ignore normal site/user global config and instead use the file:
-   /home/oliverh/cylc/etc/global-tests.rc
+   /home/oliverh/cylc-git/worktrees/7.8.x/etc/global-tests.rc
 This should specify test job hosts under the [test battery] section, plus any
 other critical settings settings, including [hosts] configuration for test job
 hosts (and special batchview commands like qcat if available). Additional
@@ -15589,15 +15683,15 @@ To change the test file comparision command from &quot;diff -u&quot; do (for exa
 
 Some test suites submit jobs to the &#39;at&#39; so atd must be up on the job hosts.
 
-Commits or Pull Requests to cylc/cylc on GitHub will trigger Travis CI to run
-generic (non platform-specific) tests - see /home/oliverh/cylc/.travis.yml.
+Commits or Pull Requests to cylc/cylc-flow on GitHub will trigger Travis CI to
+run generic (non platform-specific) tests - see /home/oliverh/cylc-git/worktrees/7.8.x/.travis.yml.
 
 By default all tests are executed.  To run just a subset of them:
   * list individual tests or test directories to run on the comand line
   * list individual tests or test directories to skip in $CYLC_TEST_SKIP
   * skip all generic tests with CYLC_TEST_RUN_GENERIC=false
   * skip all platform-specific tests with CYLC_TEST_RUN_PLATFORM=false
-  List specific tests relative to /home/oliverh/cylc (i.e. starting with &quot;test/&quot;).
+  List specific tests relative to /home/oliverh/cylc-git/worktrees/7.8.x (i.e. starting with &quot;test/&quot;).
 Some platform-specific tests are automatically skipped, depending on platform.
 
 Platform-specific tests must set &quot;CYLC_TEST_IS_GENERIC=false&quot; before sourcing
@@ -15641,8 +15735,8 @@ Re-run failed tests
 </div>
 </div>
 <div class="section" id="trigger">
-<h5>15.6.3.71. trigger<a class="headerlink" href="#trigger" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-trigger"><div class="highlight"><pre><span></span>   Usage: cylc [control] trigger [OPTIONS] REG [TASKID ...]
+<span id="command-trigger"></span><h5>15.6.3.71. trigger<a class="headerlink" href="#trigger" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] trigger [OPTIONS] REG [TASKID ...]
 
 Manually trigger one or more tasks. Waiting tasks will be queued (cylc internal
 queues) and will submit as normal when released by the queue; queued tasks will
@@ -15720,8 +15814,8 @@ Options:
 </div>
 </div>
 <div class="section" id="upgrade-run-dir">
-<h5>15.6.3.72. upgrade-run-dir<a class="headerlink" href="#upgrade-run-dir" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-upgrade-run-dir"><div class="highlight"><pre><span></span>   Usage: cylc [admin] upgrade-run-dir SUITE
+<span id="command-upgrade-run-dir"></span><h5>15.6.3.72. upgrade-run-dir<a class="headerlink" href="#upgrade-run-dir" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [admin] upgrade-run-dir SUITE
 
 For one-off conversion of a suite run directory to cylc-6 format.
 
@@ -15734,8 +15828,8 @@ Options:
 </div>
 </div>
 <div class="section" id="validate">
-<h5>15.6.3.73. validate<a class="headerlink" href="#validate" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-validate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] validate [OPTIONS] SUITE
+<span id="command-validate"></span><h5>15.6.3.73. validate<a class="headerlink" href="#validate" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] validate [OPTIONS] SUITE
 
 Validate a suite definition.
 
@@ -15785,8 +15879,8 @@ Options:
 </div>
 </div>
 <div class="section" id="view">
-<h5>15.6.3.74. view<a class="headerlink" href="#view" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-view"><div class="highlight"><pre><span></span>   Usage: cylc [prep] view [OPTIONS] SUITE
+<span id="command-view"></span><h5>15.6.3.74. view<a class="headerlink" href="#view" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] view [OPTIONS] SUITE
 
 View a read-only temporary copy of suite NAME&#39;s suite.rc file, in your
 editor, after optional include-file inlining and Jinja2 preprocessing.
@@ -15850,8 +15944,8 @@ Options:
 </div>
 </div>
 <div class="section" id="warranty">
-<h5>15.6.3.75. warranty<a class="headerlink" href="#warranty" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none notranslate" id="command-warranty"><div class="highlight"><pre><span></span>   Usage: cylc [license] warranty [--help]
+<span id="command-warranty"></span><h5>15.6.3.75. warranty<a class="headerlink" href="#warranty" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [license] warranty [--help]
    Cylc is released under the GNU General Public License v3.0
 This command prints the GPL v3.0 disclaimer of warranty.
 Options:
@@ -15900,8 +15994,8 @@ forecasting systems at [NIWA](https://www.niwa.co.nz). Cylc is a general
 workflow engine, however; it is not specialized to forecasting in any way.
 
 [Quick Installation](INSTALL.md) |
-[Web Site](https://cylc.github.io/cylc) |
-[Documentation](https://cylc.github.io/cylc/documentation) |
+[Web Site](https://cylc.github.io/) |
+[Documentation](https://cylc.github.io/documentation) |
 [Contributing](CONTRIBUTING.md)
 
 ### Copyright and Terms of Use
@@ -15920,7 +16014,7 @@ You should have received a copy of the GNU General Public License along with
 Cylc.  If not, see [GNU licenses](http://www.gnu.org/licenses/).
 
 ## Cylc Documentation
- * See [The Cylc Web Site](https://cylc.github.io/cylc)
+ * See [The Cylc Web Site](https://cylc.github.io/)
 
 ## Acknowledgement for non-Cylc Work
 
@@ -15932,11 +16026,22 @@ See [Acknowledgement for Non-Cylc Work](ACKNOWLEDGEMENT.md).
 <h3>15.9. Cylc INSTALL File<a class="headerlink" href="#cylc-install-file" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Cylc: Quick Installation Guide
 
-**See [The Cylc User Guide](https://cylc.github.io/cylc/documentation.html) for
+**See [The Cylc User Guide](https://cylc.github.io/documentation.html) for
 more detailed information.**
 
 Cylc must be installed on suite and task job hosts. Third-party dependencies
 (below) are not required on job hosts.
+
+### Python 2 or Python 3 ?
+
+Currently in the source code repository:
+- **master branch:** Python 3, ZeroMQ network layer, **no GUI** - Cylc-8 Work In Progress
+- **7.8.x branch:** Python 2, Cherrypy network layer, PyGTK GUI - Cylc-7 Maintenance
+
+The first official Cylc-8 release (with a new web UI) is not expected until late 2019.
+Until then we recommend the latest cylc-7.8 release for production use.
+
+**THIS IS THE 7.8.x (PYTHON 2) INSTALL.md**
 
 ### Third-party Software Packages
 
@@ -15946,31 +16051,27 @@ See also *Check Software Installation* below.
 ### Installing Cylc
 
 Download the latest tarball from [Cylc
-Releases](https://github.com/cylc/cylc/releases).
+Releases](https://github.com/cylc/cylc-flow/releases).
 
 Successive Cylc releases should be installed side-by-side under a location
 such as `/opt`:
 
 ```bash
 cd /opt
-tar xzf cylc-7.7.0.tar.gz
+tar xzf cylc-7.8.1.tar.gz
 # DO NOT CHANGE THE NAME OF THE UNPACKED CYLC SOURCE DIRECTORY.
-cd cylc-7.7.0
+cd cylc-7.8.1
 export PATH=$PWD/bin:$PATH
 make
 ```
 
 Then make (or update) a symlink to the latest installed version:
 ```bash
-ln -s /opt/cylc-7.7.0 /opt/cylc
+ln -s /opt/cylc-7.8.1 /opt/cylc
 ```
 
 When you type `make`:
-  * A file called VERSION is created, containing the Cylc version number
-    * The version number is taken from the name of the parent directory. DO
-      NOT CHANGE THE NAME OF THE UNPACKED CYLC SOURCE DIRECTORY
-  * The Cylc documentation is generated from source and put in doc/install/
-    (if you have pdflatex, tex4ht, and several other LateX packages installed).
+  * The Cylc User Guide is generated from source (if you have sphinx-doc installed).
 
 If this is the first installed version of Cylc, copy the wrapper script
 `usr/bin/cylc` to a location in the system executable path, such as
@@ -15978,7 +16079,7 @@ If this is the first installed version of Cylc, copy the wrapper script
 instructions - to point to the Cylc install location:
 
 ```bash
-cp /opt/cylc-7.7.0/usr/bin/cylc /usr/local/bin/
+cp /opt/cylc-7.8.1/usr/bin/cylc /usr/local/bin/
 # (and EDIT /usr/local/bin/cylc as instructed)
 ```
 
@@ -15993,47 +16094,7 @@ version.
 ```
 $ cylc check-software
 Checking your software...
-
-Individual results:
-===============================================================================
-Package (version requirements)                          Outcome (version found)
-===============================================================================
-                              *REQUIRED SOFTWARE*                              
-Python (2.6+, &lt;3).....................FOUND &amp; min. version MET (2.7.12.final.0)
-
-       *OPTIONAL SOFTWARE for the GUI &amp; dependency graph visualisation*       
-Python:pygtk (2.0+)...........................FOUND &amp; min. version MET (2.24.0)
-graphviz (any)...................................................FOUND (2.38.0)
-Python:pygraphviz (any)...........................................FOUND (1.3.1)
-
-                  *OPTIONAL SOFTWARE for the HTML User Guide*                  
-ImageMagick (any)...............................................FOUND (6.8.9-9)
-
-            *OPTIONAL SOFTWARE for the HTTPS communications layer*            
-Python:urllib3 (any).............................................FOUND (1.13.1)
-Python:OpenSSL (any).............................................FOUND (17.2.0)
-Python:requests (2.4.2+).......................FOUND &amp; min. version MET (2.9.1)
-
-                 *OPTIONAL SOFTWARE for the LaTeX User Guide*                 
-TeX:framed (any)....................................................FOUND (n/a)
-TeX (3.0+)................................FOUND &amp; min. version MET (3.14159265)
-TeX:preprint (any)..................................................FOUND (n/a)
-TeX:tex4ht (any)....................................................FOUND (n/a)
-TeX:tocloft (any)...................................................FOUND (n/a)
-TeX:texlive (any)...................................................FOUND (n/a)
-===============================================================================
-
-Summary:
-                         ****************************                         
-                             Core requirements: ok                             
-                            Full-functionality: ok                            
-                         ****************************  
-```
-
-### Installing The Documentation
-
-After running `make`, copy the `doc/install` directory to a location such as
-`/var/www/html/` and update your Cylc site config file to point to it.
+...
 </pre></div>
 </div>
 </div>
@@ -16348,7 +16409,7 @@ sequence.</p>
 <div class="section" id="current-known-issues">
 <span id="currentknownissues"></span><h4>15.12.1. Current Known Issues<a class="headerlink" href="#current-known-issues" title="Permalink to this headline">¶</a></h4>
 <p>The best place to find current known issues is on
-<a class="reference external" href="https://github.com/cylc/cylc/issues">GitHub</a>.</p>
+<a class="reference external" href="https://github.com/cylc/cylc-flow/issues">GitHub</a>.</p>
 </div>
 <div class="section" id="notable-known-issues">
 <span id="notableknownissues"></span><h4>15.12.2. Notable Known Issues<a class="headerlink" href="#notable-known-issues" title="Permalink to this headline">¶</a></h4>
@@ -16400,8 +16461,8 @@ suites), and end with some pointers to future developments.</p>
 <p>A good working knowledge of Cylc and Rose is assumed. For further details,
 please consult the:</p>
 <ul class="last simple">
-<li><a class="reference external" href="http://cylc.github.io/cylc/documentation.html">Cylc documentation</a></li>
-<li><a class="reference external" href="http://metomi.github.io/rose/doc/rose.html">Rose documentation</a></li>
+<li><a class="reference external" href="http://cylc.github.io/documentation.html">Cylc documentation</a></li>
+<li><a class="reference external" href="http://metomi.github.io/rose">Rose documentation</a></li>
 </ul>
 </div>
 <div class="admonition note">
@@ -18037,7 +18098,7 @@ without writing out the complete list of all clock-triggered tasks in the
 suite, which breaks the otherwise clean separation into core and site files.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">In the future we <a class="reference external" href="https://github.com/cylc/cylc/issues/1363">plan to</a>
+<p class="last">In the future we <a class="reference external" href="https://github.com/cylc/cylc-flow/issues/1363">plan to</a>
 support add, subtract, unset, and override semantics for all items.</p>
 </div>
 </div>
@@ -18126,12 +18187,12 @@ suites</em> connected by inter-suite triggering.</p>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
-        <li class="nav-item nav-item-0"><a href="index.html#document-index">The Cylc Suite Engine 7.8.1-10-g3ff61 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html#document-index">The Cylc Suite Engine 7.8.2 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2008-2019 NIWA &amp; British Crown (Met Office) &amp; Contributors.
-      Last updated on Feb 28, 2019.
+      Last updated on May 02, 2019.
     </div>
   </body>
 </html>

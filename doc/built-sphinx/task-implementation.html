@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>10. Task Implementation &#8212; The Cylc Suite Engine 7.8.1-39-gf3b0d documentation</title>
+    <title>10. Task Implementation &#8212; The Cylc Suite Engine 7.8.2 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="suite-config.html" title="9. Suite Configuration"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.1-39-gf3b0d documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.2 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -51,10 +51,22 @@ for failure - and do not spawn detaching processes internally
 (see <a class="reference internal" href="#detachingjobs"><span class="std std-ref">Avoid Detaching Processes</span></a>).</p>
 <div class="section" id="task-job-scripts">
 <span id="jobscripts"></span><h2>10.1. Task Job Scripts<a class="headerlink" href="#task-job-scripts" title="Permalink to this headline">¶</a></h2>
-<p>When the suite dameon determines that a task is ready to run it generates a
-<em>job script</em> that embodies the task runtime configuration in the suite.rc
-file, and submits it to the configured job host and batch system
-(see <a class="reference internal" href="task-job-submission.html#taskjobsubmission"><span class="std std-ref">Task Job Submission and Management</span></a>).</p>
+<p>When the suite server program determines that a task is ready to run it
+generates a <em>job script</em> for the task, and submits it to run (see
+<a class="reference internal" href="task-job-submission.html#taskjobsubmission"><span class="std std-ref">Task Job Submission and Management</span></a>).</p>
+<p>Job scripts encapsulate configured task runtime settings: <code class="docutils literal notranslate"><span class="pre">script</span></code> and
+<code class="docutils literal notranslate"><span class="pre">environment</span></code> items, if defined, are just concatenated in the order shown in
+<a class="reference internal" href="#fig-anatomy-of-a-job-script"><span class="std std-numref">Fig. 36</span></a>, to make the job script. Everything
+executes in the same shell, so each part of the script can potentially affect
+the environment of subsequent parts.</p>
+<div class="figure align-center" id="id1">
+<span id="fig-anatomy-of-a-job-script"></span><img alt="_images/anatomy-of-a-job-script.png" src="_images/anatomy-of-a-job-script.png" />
+<p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text">The order in which task runtime script and environment configuration items
+are combined, in the same shell, to create a task job script. <code class="docutils literal notranslate"><span class="pre">cylc-env</span></code>
+represents Cylc-defined environment variables, and <code class="docutils literal notranslate"><span class="pre">user-env</span></code> user-defined
+variables from the task <code class="docutils literal notranslate"><span class="pre">[environment]</span></code> section. (Note this is not a suite
+dependency graph).</span></p>
+</div>
 <p>Task job scripts are written to the suite’s job log directory. They can be
 printed with <code class="docutils literal notranslate"><span class="pre">cylc</span> <span class="pre">cat-log</span></code> or generated and printed with
 <code class="docutils literal notranslate"><span class="pre">cylc</span> <span class="pre">jobscript</span></code>.</p>
@@ -256,12 +268,12 @@ task to repeatedly poll for the results of the detached processes:</p>
         <li class="right" >
           <a href="suite-config.html" title="9. Suite Configuration"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.1-39-gf3b0d documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.2 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2008-2019 NIWA &amp; British Crown (Met Office) &amp; Contributors.
-      Last updated on Mar 01, 2019.
+      Last updated on May 02, 2019.
     </div>
   </body>
 </html>

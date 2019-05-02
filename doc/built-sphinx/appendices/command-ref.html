@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>15.6. Command Reference &#8212; The Cylc Suite Engine 7.8.1-39-gf3b0d documentation</title>
+    <title>15.6. Command Reference &#8212; The Cylc Suite Engine 7.8.2 documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="remote-job-management.html" title="15.5. Remote Job Management"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.1-39-gf3b0d documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="appendices-master.html" accesskey="U">15. Appendices</a> &#187;</li> 
       </ul>
     </div>  
@@ -53,7 +53,7 @@
 ordinary non-cycling workflows.
 For detailed documentation see the Cylc User Guide (cylc doc --help).
 
-Version 7.8.1-39-gf3b0d
+Version 7.8.2
 
 The graphical user interface for cylc is &quot;gcylc&quot; (a.k.a. &quot;cylc gui&quot;).
 
@@ -110,8 +110,8 @@ Command CATEGORIES:
 <div class="section" id="command-categories">
 <h2>15.6.2. Command Categories<a class="headerlink" href="#command-categories" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="admin">
-<h3>15.6.2.1. admin<a class="headerlink" href="#admin" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-cat-admin"><div class="highlight"><pre><span></span>   CATEGORY: admin - Cylc installation, testing, and example suites.
+<span id="command-cat-admin"></span><h3>15.6.2.1. admin<a class="headerlink" href="#admin" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: admin - Cylc installation, testing, and example suites.
 
 HELP: cylc [admin] COMMAND help,--help
   You can abbreviate admin and COMMAND.
@@ -123,18 +123,20 @@ COMMANDS:
   make-docs ......... Build the HTML documentation with Sphinx.
   profile-battery ... Run a battery of profiling tests
   test-battery ...... Run a battery of self-diagnosing test suites
+  upgrade-run-dir ... Upgrade a pre-cylc-6 suite run directory
 </pre></div>
 </div>
 </div>
 <div class="section" id="all">
-<h3>15.6.2.2. all<a class="headerlink" href="#all" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-cat-all"><div class="highlight"><pre><span></span>   CATEGORY: all - The complete command set.
+<span id="command-cat-all"></span><h3>15.6.2.2. all<a class="headerlink" href="#all" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: all - The complete command set.
 
 HELP: cylc [all] COMMAND help,--help
   You can abbreviate all and COMMAND.
   The category all may be omitted.
 
 COMMANDS:
+  5to6 ........................................ Improve the cylc 6 compatibility of a cylc 5 suite file
   broadcast|bcast ............................. Change suite [runtime] settings on the fly
   cat-log|log ................................. Print various suite and task log files
   cat-state ................................... Print the state of tasks from the state dump
@@ -149,6 +151,8 @@ COMMANDS:
   documentation|browse ........................ Display cylc documentation (User Guide etc.)
   dump ........................................ Print the state of tasks in a running suite
   edit ........................................ Edit suite definitions, optionally inlined
+  email-suite ................................. A suite event hook script that sends email alerts
+  email-task .................................. A task event hook script that sends email alerts
   ext-trigger|external-trigger ................ Report an external trigger event to a suite
   function-run ................................ (Internal) Run a function in the process pool
   get-directory ............................... Retrieve suite source directory paths
@@ -203,6 +207,7 @@ COMMANDS:
   suite-state ................................. Query the task states in a suite
   test-battery ................................ Run a battery of self-diagnosing test suites
   trigger ..................................... Manually trigger or re-trigger a task
+  upgrade-run-dir ............................. Upgrade a pre-cylc-6 suite run directory
   validate .................................... Parse and validate suite definitions
   view ........................................ View suite definitions, inlined and Jinja2 processed
   warranty .................................... Print the GPLv3 disclaimer of warranty
@@ -210,8 +215,8 @@ COMMANDS:
 </div>
 </div>
 <div class="section" id="control">
-<h3>15.6.2.3. control<a class="headerlink" href="#control" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-cat-control"><div class="highlight"><pre><span></span>   CATEGORY: control - Suite start up, monitoring, and control.
+<span id="command-cat-control"></span><h3>15.6.2.3. control<a class="headerlink" href="#control" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: control - Suite start up, monitoring, and control.
 
 HELP: cylc [control] COMMAND help,--help
   You can abbreviate control and COMMAND.
@@ -242,8 +247,8 @@ COMMANDS:
 </div>
 </div>
 <div class="section" id="discovery">
-<h3>15.6.2.4. discovery<a class="headerlink" href="#discovery" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-cat-discovery"><div class="highlight"><pre><span></span>   CATEGORY: discovery - Detect running suites.
+<span id="command-cat-discovery"></span><h3>15.6.2.4. discovery<a class="headerlink" href="#discovery" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: discovery - Detect running suites.
 
 HELP: cylc [discovery] COMMAND help,--help
   You can abbreviate discovery and COMMAND.
@@ -257,8 +262,8 @@ COMMANDS:
 </div>
 </div>
 <div class="section" id="hook">
-<h3>15.6.2.5. hook<a class="headerlink" href="#hook" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-cat-hook"><div class="highlight"><pre><span></span>   CATEGORY: hook - Suite and task event hook scripts.
+<span id="command-cat-hook"></span><h3>15.6.2.5. hook<a class="headerlink" href="#hook" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: hook - Suite and task event hook scripts.
 
 HELP: cylc [hook] COMMAND help,--help
   You can abbreviate hook and COMMAND.
@@ -266,12 +271,14 @@ HELP: cylc [hook] COMMAND help,--help
 
 COMMANDS:
   check-triggering ... A suite shutdown event hook for cylc testing
+  email-suite ........ A suite event hook script that sends email alerts
+  email-task ......... A task event hook script that sends email alerts
 </pre></div>
 </div>
 </div>
 <div class="section" id="information">
-<h3>15.6.2.6. information<a class="headerlink" href="#information" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-cat-information"><div class="highlight"><pre><span></span>   CATEGORY: information - Interrogate suite definitions and running suites.
+<span id="command-cat-information"></span><h3>15.6.2.6. information<a class="headerlink" href="#information" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: information - Interrogate suite definitions and running suites.
 
 HELP: cylc [information] COMMAND help,--help
   You can abbreviate information and COMMAND.
@@ -299,8 +306,8 @@ COMMANDS:
 </div>
 </div>
 <div class="section" id="license">
-<h3>15.6.2.7. license<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-cat-license"><div class="highlight"><pre><span></span>   CATEGORY: license|GPL - Software licensing information (GPL v3.0).
+<span id="command-cat-license"></span><h3>15.6.2.7. license<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: license|GPL - Software licensing information (GPL v3.0).
 
 HELP: cylc [license|GPL] COMMAND help,--help
   You can abbreviate license|GPL and COMMAND.
@@ -313,14 +320,15 @@ COMMANDS:
 </div>
 </div>
 <div class="section" id="preparation">
-<h3>15.6.2.8. preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-cat-preparation"><div class="highlight"><pre><span></span>   CATEGORY: preparation - Suite editing, validation, visualization, etc.
+<span id="command-cat-preparation"></span><h3>15.6.2.8. preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: preparation - Suite editing, validation, visualization, etc.
 
 HELP: cylc [preparation] COMMAND help,--help
   You can abbreviate preparation and COMMAND.
   The category preparation may be omitted.
 
 COMMANDS:
+  5to6 ............ Improve the cylc 6 compatibility of a cylc 5 suite file
   diff|compare .... Compare two suite definitions and print differences
   edit ............ Edit suite definitions, optionally inlined
   get-directory ... Retrieve suite source directory paths
@@ -337,8 +345,8 @@ COMMANDS:
 </div>
 </div>
 <div class="section" id="task">
-<h3>15.6.2.9. task<a class="headerlink" href="#task" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-cat-task"><div class="highlight"><pre><span></span>   CATEGORY: task - The task messaging interface.
+<span id="command-cat-task"></span><h3>15.6.2.9. task<a class="headerlink" href="#task" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: task - The task messaging interface.
 
 HELP: cylc [task] COMMAND help,--help
   You can abbreviate task and COMMAND.
@@ -356,8 +364,8 @@ COMMANDS:
 </div>
 </div>
 <div class="section" id="utility">
-<h3>15.6.2.10. utility<a class="headerlink" href="#utility" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-cat-utility"><div class="highlight"><pre><span></span>   CATEGORY: utility - Cycle arithmetic and templating, etc.
+<span id="command-cat-utility"></span><h3>15.6.2.10. utility<a class="headerlink" href="#utility" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: utility - Cycle arithmetic and templating, etc.
 
 HELP: cylc [utility] COMMAND help,--help
   You can abbreviate utility and COMMAND.
@@ -376,9 +384,57 @@ COMMANDS:
 </div>
 <div class="section" id="commands">
 <h2>15.6.3. Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="to6">
+<span id="command-5to6"></span><h3>15.6.3.1. 5to6<a class="headerlink" href="#to6" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] 5to6 FILE
+
+Suggest changes to a cylc 5 suite file to make it more cylc 6 compatible.
+This may be a suite.rc file, an include file, or a suite.rc.processed file.
+
+By default, print the changed file to stdout. Lines that have been changed
+are marked with &#39;# UPGRADE&#39;. These marker comments are purely for your own
+information and should not be included in any changes you make. In
+particular, they may break continuation lines.
+
+Lines with &#39;# UPGRADE CHANGE&#39; have been altered.
+Lines with &#39;# UPGRADE ... INFO&#39; indicate that manual change is needed.
+
+As of cylc 7, &#39;cylc validate&#39; will no longer print out automatic dependency
+section translations. At cylc 6 versions of cylc, &#39;cylc validate&#39; will show
+start-up/mixed async replacement R1* section(s). The validity of these can
+be highly dependent on the initial cycle point choice (e.g. whether it is
+T00 or T12).
+
+This command works best for hour-based cycling - it will always convert
+e.g. &#39;foo[T-6]&#39; to &#39;foo[-PT6H]&#39;, even where this is in a monthly or yearly
+cycling section graph.
+
+This command is an aid, and is not an auto-upgrader or a substitute for
+reading the documentation. The suggested changes must be understood and
+checked by hand.
+
+Example usage:
+
+# Print out a file path (FILE) with suggested changes to stdout.
+cylc 5to6 FILE
+
+# Replace the file with the suggested changes file.
+cylc 5to6 FILE &gt; FILE
+
+# Save a copy of the changed file.
+cylc 5to6 FILE &gt; FILE.5to6
+
+# Show the diff of the changed file vs the original file.
+diff - &lt;(cylc 5to6 FILE) &lt;FILE
+
+Options:
+  -h, --help   Print this help message and exit.
+</pre></div>
+</div>
+</div>
 <div class="section" id="broadcast">
-<h3>15.6.3.1. broadcast<a class="headerlink" href="#broadcast" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-broadcast"><div class="highlight"><pre><span></span>   Usage: cylc [control] broadcast|bcast [OPTIONS] REG
+<span id="command-broadcast"></span><h3>15.6.3.2. broadcast<a class="headerlink" href="#broadcast" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] broadcast|bcast [OPTIONS] REG
 
 Override [runtime] config in targeted namespaces in a running suite.
 
@@ -504,8 +560,8 @@ Options:
 </div>
 </div>
 <div class="section" id="cat-log">
-<h3>15.6.3.2. cat-log<a class="headerlink" href="#cat-log" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-cat-log"><div class="highlight"><pre><span></span>   Usage: cylc [info] cat-log|log [OPTIONS] REG [TASK-ID]
+<span id="command-cat-log"></span><h3>15.6.3.3. cat-log<a class="headerlink" href="#cat-log" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] cat-log|log [OPTIONS] REG [TASK-ID]
 
 Print, view-in-editor, or tail-follow content, print path, or list directory,
 of local or remote task job and suite server logs. Batch-system view commands
@@ -564,8 +620,8 @@ Options:
 </div>
 </div>
 <div class="section" id="cat-state">
-<h3>15.6.3.3. cat-state<a class="headerlink" href="#cat-state" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-cat-state"><div class="highlight"><pre><span></span>   Usage: cylc [info] cat-state [OPTIONS] REG
+<span id="command-cat-state"></span><h3>15.6.3.4. cat-state<a class="headerlink" href="#cat-state" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] cat-state [OPTIONS] REG
 
 Print the suite state in the old state dump file format to stdout.
 This command is deprecated; use &quot;cylc ls-checkpoints&quot; instead.
@@ -586,8 +642,8 @@ Options:
 </div>
 </div>
 <div class="section" id="check-software">
-<h3>15.6.3.4. check-software<a class="headerlink" href="#check-software" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-check-software"><div class="highlight"><pre><span></span>   cylc [admin] check-software [MODULES]
+<span id="command-check-software"></span><h3>15.6.3.5. check-software<a class="headerlink" href="#check-software" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   cylc [admin] check-software [MODULES]
 
 Check for Cylc external software dependencices, including minimum versions.
 
@@ -605,8 +661,8 @@ Arguments:
 </div>
 </div>
 <div class="section" id="check-triggering">
-<h3>15.6.3.5. check-triggering<a class="headerlink" href="#check-triggering" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-check-triggering"><div class="highlight"><pre><span></span>   cylc [hook] check-triggering ARGS
+<span id="command-check-triggering"></span><h3>15.6.3.6. check-triggering<a class="headerlink" href="#check-triggering" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   cylc [hook] check-triggering ARGS
 
 This is a cylc shutdown event handler that compares the newly generated
 suite log with a previously generated reference log &quot;reference.log&quot;
@@ -638,8 +694,8 @@ Reference tests can use any run mode:
 </div>
 </div>
 <div class="section" id="check-versions">
-<h3>15.6.3.6. check-versions<a class="headerlink" href="#check-versions" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-check-versions"><div class="highlight"><pre><span></span>   Usage: cylc [discovery] check-versions [OPTIONS] SUITE
+<span id="command-check-versions"></span><h3>15.6.3.7. check-versions<a class="headerlink" href="#check-versions" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [discovery] check-versions [OPTIONS] SUITE
 
 Check the version of cylc invoked on each of SUITE&#39;s task host accounts when
 CYLC_VERSION is set to *the version running this command line tool*.
@@ -662,8 +718,8 @@ Arguments:
 
 Options:
   -h, --help            show this help message and exit
-  -e, --error           Exit with error status if 7.8.1-39-gf3b0d is not
-                        available on all remote accounts.
+  -e, --error           Exit with error status if 7.8.2 is not available on
+                        all remote accounts.
   -v, --verbose         Verbose output mode.
   --debug               Output developer information and show exception
                         tracebacks.
@@ -685,8 +741,8 @@ Options:
 </div>
 </div>
 <div class="section" id="checkpoint">
-<h3>15.6.3.7. checkpoint<a class="headerlink" href="#checkpoint" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-checkpoint"><div class="highlight"><pre><span></span>   Usage: cylc [control] checkpoint [OPTIONS] REG CHECKPOINT-NAME
+<span id="command-checkpoint"></span><h3>15.6.3.8. checkpoint<a class="headerlink" href="#checkpoint" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] checkpoint [OPTIONS] REG CHECKPOINT-NAME
 
 Tell suite to checkpoint its current state.
 
@@ -731,8 +787,8 @@ Options:
 </div>
 </div>
 <div class="section" id="client">
-<h3>15.6.3.8. client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-client"><div class="highlight"><pre><span></span>   Usage: cylc client [OPTIONS] METHOD [REG]
+<span id="command-client"></span><h3>15.6.3.9. client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc client [OPTIONS] METHOD [REG]
 
 (This command is for internal use.)
 Invoke HTTP(S) client, expect JSON from STDIN for keyword arguments.
@@ -780,8 +836,8 @@ Options:
 </div>
 </div>
 <div class="section" id="conditions">
-<h3>15.6.3.9. conditions<a class="headerlink" href="#conditions" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-conditions"><div class="highlight"><pre><span></span>   Usage: cylc [license] warranty [--help]
+<span id="command-conditions"></span><h3>15.6.3.10. conditions<a class="headerlink" href="#conditions" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [license] warranty [--help]
 Cylc is release under the GNU General Public License v3.0
 This command prints the GPL v3.0 license in full.
 
@@ -791,8 +847,8 @@ Options:
 </div>
 </div>
 <div class="section" id="cycle-point">
-<h3>15.6.3.10. cycle-point<a class="headerlink" href="#cycle-point" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-cycle-point"><div class="highlight"><pre><span></span>   Usage: cylc [util] cycle-point [OPTIONS] [POINT]
+<span id="command-cycle-point"></span><h3>15.6.3.11. cycle-point<a class="headerlink" href="#cycle-point" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [util] cycle-point [OPTIONS] [POINT]
 
 Cycle point date-time offset computation, and filename templating.
 
@@ -856,8 +912,8 @@ Options:
 </div>
 </div>
 <div class="section" id="diff">
-<h3>15.6.3.11. diff<a class="headerlink" href="#diff" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-diff"><div class="highlight"><pre><span></span>   Usage: cylc [prep] diff|compare [OPTIONS] SUITE1 SUITE2
+<span id="command-diff"></span><h3>15.6.3.12. diff<a class="headerlink" href="#diff" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] diff|compare [OPTIONS] SUITE1 SUITE2
 
 Compare two suite definitions and display any differences.
 
@@ -903,13 +959,14 @@ Options:
 </div>
 </div>
 <div class="section" id="documentation">
-<h3>15.6.3.12. documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-documentation"><div class="highlight"><pre><span></span>   Usage: cylc [info] documentation|browse [OPTIONS] [TARGET]
+<span id="command-documentation"></span><h3>15.6.3.13. documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] documentation|browse [OPTIONS] [TARGET]
 
 View documentation in the browser, as per Cylc global config.
 
-% cylc doc [--local] [OPTIONS]
-    Open the Cylc documentation.
+% cylc doc [OPTIONS]
+   View local or internet [--www] Cylc documentation URLs.
+
 % cylc doc [-t TASK] SUITE
     View suite or task documentation, if URLs are specified in the suite. This
     parses the suite definition to extract the requested URL. Note that suite
@@ -920,19 +977,20 @@ Arguments:
 
 Options:
   -h, --help            show this help message and exit
-  --local               Open the local documentation (if it has been built,
-                        see cylc make-docs).
+  -g, --guides          Open the HTML (User &amp; Suite Design) Guides directly.
+  -w, --www             Open the cylc internet homepage
   -t TASK_NAME, --task=TASK_NAME
                         Browse task documentation URLs.
   -s, --stdout          Just print the URL to stdout.
   --debug               Print exception traceback on error.
+  --url=URL             URL to view in your configured browser.
   -v, --verbose         Verbose output mode.
 </pre></div>
 </div>
 </div>
 <div class="section" id="dump">
-<h3>15.6.3.13. dump<a class="headerlink" href="#dump" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-dump"><div class="highlight"><pre><span></span>   Usage: cylc [info] dump [OPTIONS] REG
+<span id="command-dump"></span><h3>15.6.3.14. dump<a class="headerlink" href="#dump" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] dump [OPTIONS] REG
 
 Print state information (e.g. the state of each task) from a running
 suite. For small suites &#39;watch cylc [info] dump SUITE&#39; is an effective
@@ -988,8 +1046,8 @@ Options:
 </div>
 </div>
 <div class="section" id="edit">
-<h3>15.6.3.14. edit<a class="headerlink" href="#edit" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-edit"><div class="highlight"><pre><span></span>   Usage: cylc [prep] edit [OPTIONS] SUITE
+<span id="command-edit"></span><h3>15.6.3.15. edit<a class="headerlink" href="#edit" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] edit [OPTIONS] SUITE
 
 Edit suite definitions without having to move to their directory
 locations, and with optional reversible inlining of include-files. Note
@@ -1049,9 +1107,57 @@ Options:
 </pre></div>
 </div>
 </div>
+<div class="section" id="email-suite">
+<span id="command-email-suite"></span><h3>15.6.3.16. email-suite<a class="headerlink" href="#email-suite" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [hook] email-suite EVENT SUITE MESSAGE
+
+THIS COMMAND IS OBSOLETE - use built-in email event hooks.
+
+This is a simple suite event hook script that sends an email.
+The command line arguments are supplied automatically by cylc.
+
+For example, to get an email alert when a suite shuts down:
+
+# SUITE.RC
+[cylc]
+   [[environment]]
+      MAIL_ADDRESS = foo@bar.baz.waz
+   [[events]]
+      shutdown handler = cylc email-suite
+
+See the Suite.rc Reference (Cylc User Guide) for more information
+on suite and task event hooks and event handler scripts.
+</pre></div>
+</div>
+</div>
+<div class="section" id="email-task">
+<span id="command-email-task"></span><h3>15.6.3.17. email-task<a class="headerlink" href="#email-task" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [hook] email-task EVENT SUITE TASKID MESSAGE
+
+THIS COMMAND IS OBSOLETE - use built-in email event hooks.
+
+A simple task event hook handler script that sends an email.
+The command line arguments are supplied automatically by cylc.
+
+For example, to get an email alert whenever any task fails:
+
+# SUITE.RC
+[cylc]
+   [[environment]]
+      MAIL_ADDRESS = foo@bar.baz.waz
+[runtime]
+   [[root]]
+      [[[events]]]
+         failed handler = cylc email-task
+
+See the Suite.rc Reference (Cylc User Guide) for more information
+on suite and task event hooks and event handler scripts.
+</pre></div>
+</div>
+</div>
 <div class="section" id="ext-trigger">
-<h3>15.6.3.15. ext-trigger<a class="headerlink" href="#ext-trigger" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-ext-trigger"><div class="highlight"><pre><span></span>   Usage: cylc [control] ext-trigger [OPTIONS] REG MSG ID
+<span id="command-ext-trigger"></span><h3>15.6.3.18. ext-trigger<a class="headerlink" href="#ext-trigger" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] ext-trigger [OPTIONS] REG MSG ID
 
 Report an external event message to a suite server program. It is expected that
 a task in the suite has registered the same message as an external trigger - a
@@ -1113,8 +1219,8 @@ Options:
 </div>
 </div>
 <div class="section" id="function-run">
-<h3>15.6.3.16. function-run<a class="headerlink" href="#function-run" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-function-run"><div class="highlight"><pre><span></span>   USAGE: cylc function-run &lt;name&gt; &lt;json-args&gt; &lt;json-kwargs&gt; &lt;src-dir&gt;
+<span id="command-function-run"></span><h3>15.6.3.19. function-run<a class="headerlink" href="#function-run" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   USAGE: cylc function-run &lt;name&gt; &lt;json-args&gt; &lt;json-kwargs&gt; &lt;src-dir&gt;
 
 INTERNAL USE (asynchronous external trigger function execution)
 
@@ -1126,8 +1232,8 @@ local xtrigger modules.
 </div>
 </div>
 <div class="section" id="get-directory">
-<h3>15.6.3.17. get-directory<a class="headerlink" href="#get-directory" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-get-directory"><div class="highlight"><pre><span></span>   Usage: cylc [prep] get-directory REG
+<span id="command-get-directory"></span><h3>15.6.3.20. get-directory<a class="headerlink" href="#get-directory" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] get-directory REG
 
 Retrieve and print the source directory location of suite REG.
 Here&#39;s an easy way to move to a suite source directory:
@@ -1150,8 +1256,8 @@ Options:
 </div>
 </div>
 <div class="section" id="get-gui-config">
-<h3>15.6.3.18. get-gui-config<a class="headerlink" href="#get-gui-config" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-get-gui-config"><div class="highlight"><pre><span></span>   Usage: cylc [admin] get-gui-config [OPTIONS]
+<span id="command-get-gui-config"></span><h3>15.6.3.21. get-gui-config<a class="headerlink" href="#get-gui-config" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [admin] get-gui-config [OPTIONS]
 
 Print gcylc configuration settings.
 
@@ -1173,8 +1279,8 @@ Options:
 </div>
 </div>
 <div class="section" id="get-host-metrics">
-<h3>15.6.3.19. get-host-metrics<a class="headerlink" href="#get-host-metrics" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-get-host-metrics"><div class="highlight"><pre><span></span>   Usage: cylc get-host-metrics [OPTIONS]
+<span id="command-get-host-metrics"></span><h3>15.6.3.22. get-host-metrics<a class="headerlink" href="#get-host-metrics" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc get-host-metrics [OPTIONS]
 
 Get metrics for localhost, in the form of a JSON structure with top-level
 keys as requested via the OPTIONS:
@@ -1204,8 +1310,8 @@ Options:
 </div>
 </div>
 <div class="section" id="get-site-config">
-<h3>15.6.3.20. get-site-config<a class="headerlink" href="#get-site-config" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-get-site-config"><div class="highlight"><pre><span></span>   Usage: cylc [admin] get-site-config [OPTIONS]
+<span id="command-get-site-config"></span><h3>15.6.3.23. get-site-config<a class="headerlink" href="#get-site-config" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [admin] get-site-config [OPTIONS]
 
 Print cylc site/user configuration settings.
 
@@ -1229,8 +1335,8 @@ Options:
 </div>
 </div>
 <div class="section" id="get-suite-config">
-<h3>15.6.3.21. get-suite-config<a class="headerlink" href="#get-suite-config" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-get-suite-config"><div class="highlight"><pre><span></span>   Usage: cylc [info] get-suite-config [OPTIONS] SUITE
+<span id="command-get-suite-config"></span><h3>15.6.3.24. get-suite-config<a class="headerlink" href="#get-suite-config" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] get-suite-config [OPTIONS] SUITE
 
 Print parsed suite configuration items, after runtime inheritance.
 
@@ -1312,8 +1418,8 @@ Options:
 </div>
 </div>
 <div class="section" id="get-suite-contact">
-<h3>15.6.3.22. get-suite-contact<a class="headerlink" href="#get-suite-contact" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-get-suite-contact"><div class="highlight"><pre><span></span>   Usage: cylc [info] get-suite-contact [OPTIONS] REG
+<span id="command-get-suite-contact"></span><h3>15.6.3.25. get-suite-contact<a class="headerlink" href="#get-suite-contact" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] get-suite-contact [OPTIONS] REG
 
 Print contact information of running suite REG.
 
@@ -1332,8 +1438,8 @@ Options:
 </div>
 </div>
 <div class="section" id="get-suite-version">
-<h3>15.6.3.23. get-suite-version<a class="headerlink" href="#get-suite-version" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-get-suite-version"><div class="highlight"><pre><span></span>   Usage: cylc [info] get-suite-version [OPTIONS] REG
+<span id="command-get-suite-version"></span><h3>15.6.3.26. get-suite-version<a class="headerlink" href="#get-suite-version" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] get-suite-version [OPTIONS] REG
 
 Interrogate running suite REG to find what version of cylc is running it.
 
@@ -1378,8 +1484,8 @@ Options:
 </div>
 </div>
 <div class="section" id="gpanel">
-<h3>15.6.3.24. gpanel<a class="headerlink" href="#gpanel" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-gpanel"><div class="highlight"><pre><span></span>   Usage: cylc gpanel [OPTIONS]
+<span id="command-gpanel"></span><h3>15.6.3.27. gpanel<a class="headerlink" href="#gpanel" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc gpanel [OPTIONS]
 
 This is a cylc scan panel applet for monitoring running suites on a set of
 hosts in GNOME 2.
@@ -1404,8 +1510,8 @@ Options:
 </div>
 </div>
 <div class="section" id="graph">
-<h3>15.6.3.25. graph<a class="headerlink" href="#graph" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-graph"><div class="highlight"><pre><span></span>   Usage: 1/ cylc [prep] graph [OPTIONS] SUITE [START[STOP]]
+<span id="command-graph"></span><h3>15.6.3.28. graph<a class="headerlink" href="#graph" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: 1/ cylc [prep] graph [OPTIONS] SUITE [START[STOP]]
      Plot the suite.rc dependency graph for SUITE.
        2/ cylc [prep] graph [OPTIONS] -f,--file FILE
      Plot the specified dot-language graph file.
@@ -1502,8 +1608,8 @@ Options:
 </div>
 </div>
 <div class="section" id="graph-diff">
-<h3>15.6.3.26. graph-diff<a class="headerlink" href="#graph-diff" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-graph-diff"><div class="highlight"><pre><span></span>   Usage: cylc graph-diff [OPTIONS] SUITE1 SUITE2 -- [GRAPH_OPTIONS_ARGS]
+<span id="command-graph-diff"></span><h3>15.6.3.29. graph-diff<a class="headerlink" href="#graph-diff" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc graph-diff [OPTIONS] SUITE1 SUITE2 -- [GRAPH_OPTIONS_ARGS]
 
 Difference &#39;cylc graph --reference&#39; output for SUITE1 and SUITE2.
 
@@ -1516,8 +1622,8 @@ GRAPH_OPTIONS_ARGS: Options and arguments passed directly to cylc graph.
 </div>
 </div>
 <div class="section" id="gscan">
-<h3>15.6.3.27. gscan<a class="headerlink" href="#gscan" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-gscan"><div class="highlight"><pre><span></span>   Usage: cylc gscan [OPTIONS]
+<span id="command-gscan"></span><h3>15.6.3.30. gscan<a class="headerlink" href="#gscan" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc gscan [OPTIONS]
 
 This is the cylc scan gui for monitoring running suites on a set of
 hosts.
@@ -1568,8 +1674,8 @@ Options:
 </div>
 </div>
 <div class="section" id="gui">
-<h3>15.6.3.28. gui<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-gui"><div class="highlight"><pre><span></span>   Usage: cylc gui [OPTIONS] [REG] [USER_AT_HOST]
+<span id="command-gui"></span><h3>15.6.3.31. gui<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc gui [OPTIONS] [REG] [USER_AT_HOST]
 gcylc [OPTIONS] [REG] [USER_AT_HOST]
 
 This is the cylc Graphical User Interface.
@@ -1645,8 +1751,8 @@ Options:
 </div>
 </div>
 <div class="section" id="hold">
-<h3>15.6.3.29. hold<a class="headerlink" href="#hold" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-hold"><div class="highlight"><pre><span></span>   Usage: cylc [control] hold [OPTIONS] REG [TASKID ...]
+<span id="command-hold"></span><h3>15.6.3.32. hold<a class="headerlink" href="#hold" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] hold [OPTIONS] REG [TASKID ...]
 
 Hold one or more waiting tasks (cylc hold REG TASKID ...), or
 a whole suite (cylc hold REG).
@@ -1721,8 +1827,8 @@ Options:
 </div>
 </div>
 <div class="section" id="import-examples">
-<h3>15.6.3.30. import-examples<a class="headerlink" href="#import-examples" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-import-examples"><div class="highlight"><pre><span></span>   Usage: cylc import-examples DIR
+<span id="command-import-examples"></span><h3>15.6.3.33. import-examples<a class="headerlink" href="#import-examples" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc import-examples DIR
 
 Copy the cylc example suites to DIR and register them for use under the GROUP
 suite name group.
@@ -1733,8 +1839,8 @@ Arguments:
 </div>
 </div>
 <div class="section" id="insert">
-<h3>15.6.3.31. insert<a class="headerlink" href="#insert" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-insert"><div class="highlight"><pre><span></span>   Usage: cylc [control] insert [OPTIONS] REG TASKID [...]
+<span id="command-insert"></span><h3>15.6.3.34. insert<a class="headerlink" href="#insert" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] insert [OPTIONS] REG TASKID [...]
 
 Insert task proxies into a running suite. Uses of insertion include:
  1) insert a task that was excluded by the suite definition at start-up.
@@ -1819,8 +1925,8 @@ Options:
 </div>
 </div>
 <div class="section" id="jobs-kill">
-<h3>15.6.3.32. jobs-kill<a class="headerlink" href="#jobs-kill" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-jobs-kill"><div class="highlight"><pre><span></span>   Usage: cylc [control] jobs-kill JOB-LOG-ROOT [JOB-LOG-DIR ...]
+<span id="command-jobs-kill"></span><h3>15.6.3.35. jobs-kill<a class="headerlink" href="#jobs-kill" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] jobs-kill JOB-LOG-ROOT [JOB-LOG-DIR ...]
 
 (This command is for internal use. Users should use &quot;cylc kill&quot;.) Read job
 status files to obtain the names of the batch systems and the job IDs in the
@@ -1845,8 +1951,8 @@ Options:
 </div>
 </div>
 <div class="section" id="jobs-poll">
-<h3>15.6.3.33. jobs-poll<a class="headerlink" href="#jobs-poll" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-jobs-poll"><div class="highlight"><pre><span></span>   Usage: cylc [control] jobs-poll JOB-LOG-ROOT [JOB-LOG-DIR ...]
+<span id="command-jobs-poll"></span><h3>15.6.3.36. jobs-poll<a class="headerlink" href="#jobs-poll" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] jobs-poll JOB-LOG-ROOT [JOB-LOG-DIR ...]
 
 (This command is for internal use. Users should use &quot;cylc poll&quot;.) Read job
 status files to obtain the statuses of the jobs. If necessary, Invoke the
@@ -1870,8 +1976,8 @@ Options:
 </div>
 </div>
 <div class="section" id="jobs-submit">
-<h3>15.6.3.34. jobs-submit<a class="headerlink" href="#jobs-submit" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-jobs-submit"><div class="highlight"><pre><span></span>   Usage: cylc [control] jobs-submit JOB-LOG-ROOT [JOB-LOG-DIR ...]
+<span id="command-jobs-submit"></span><h3>15.6.3.37. jobs-submit<a class="headerlink" href="#jobs-submit" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] jobs-submit JOB-LOG-ROOT [JOB-LOG-DIR ...]
 
 (This command is for internal use. Users should use &quot;cylc submit&quot;.) Submit task
 jobs to relevant batch systems. On a remote job host, this command reads the
@@ -1897,8 +2003,8 @@ Options:
 </div>
 </div>
 <div class="section" id="jobscript">
-<h3>15.6.3.35. jobscript<a class="headerlink" href="#jobscript" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-jobscript"><div class="highlight"><pre><span></span>   Usage: cylc [prep] jobscript [OPTIONS] REG TASK
+<span id="command-jobscript"></span><h3>15.6.3.38. jobscript<a class="headerlink" href="#jobscript" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] jobscript [OPTIONS] REG TASK
 
 Generate a task job script and print it to stdout.
 
@@ -1925,8 +2031,8 @@ Arguments:
 </div>
 </div>
 <div class="section" id="kill">
-<h3>15.6.3.36. kill<a class="headerlink" href="#kill" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-kill"><div class="highlight"><pre><span></span>   Usage: cylc [control] kill [OPTIONS] REG [TASKID ...]
+<span id="command-kill"></span><h3>15.6.3.39. kill<a class="headerlink" href="#kill" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] kill [OPTIONS] REG [TASKID ...]
 
 Kill jobs of active tasks and update their statuses accordingly.
 
@@ -1998,8 +2104,8 @@ Options:
 </div>
 </div>
 <div class="section" id="list">
-<h3>15.6.3.37. list<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-list"><div class="highlight"><pre><span></span>   Usage: cylc [info|prep] list|ls [OPTIONS] SUITE
+<span id="command-list"></span><h3>15.6.3.40. list<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info|prep] list|ls [OPTIONS] SUITE
 
 Print runtime namespace names (tasks and families), the first-parent
 inheritance graph, or actual tasks for a given cycle range.
@@ -2054,8 +2160,8 @@ Options:
 </div>
 </div>
 <div class="section" id="ls-checkpoints">
-<h3>15.6.3.38. ls-checkpoints<a class="headerlink" href="#ls-checkpoints" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-ls-checkpoints"><div class="highlight"><pre><span></span>   Usage: cylc [info] ls-checkpoints [OPTIONS] REG [ID ...]
+<span id="command-ls-checkpoints"></span><h3>15.6.3.41. ls-checkpoints<a class="headerlink" href="#ls-checkpoints" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] ls-checkpoints [OPTIONS] REG [ID ...]
 
 In the absence of arguments and the --all option, list checkpoint IDs, their
 time and events. Otherwise, display the latest and/or the checkpoints of suite
@@ -2079,8 +2185,8 @@ Options:
 </div>
 </div>
 <div class="section" id="make-docs">
-<h3>15.6.3.39. make-docs<a class="headerlink" href="#make-docs" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-make-docs"><div class="highlight"><pre><span></span>   Usage: cylc [admin] make-docs [--help]
+<span id="command-make-docs"></span><h3>15.6.3.42. make-docs<a class="headerlink" href="#make-docs" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [admin] make-docs [--help]
 Build the HTML User Guide, with Sphinx.
 
 Options:
@@ -2089,8 +2195,8 @@ Options:
 </div>
 </div>
 <div class="section" id="message">
-<h3>15.6.3.40. message<a class="headerlink" href="#message" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-message"><div class="highlight"><pre><span></span>   Usage: cylc [task] message [OPTIONS] -- [REG] [TASK-JOB] [[SEVERITY:]MESSAGE ...]
+<span id="command-message"></span><h3>15.6.3.43. message<a class="headerlink" href="#message" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [task] message [OPTIONS] -- [REG] [TASK-JOB] [[SEVERITY:]MESSAGE ...]
 
 Record task job messages.
 
@@ -2186,8 +2292,8 @@ Options:
 </div>
 </div>
 <div class="section" id="monitor">
-<h3>15.6.3.41. monitor<a class="headerlink" href="#monitor" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-monitor"><div class="highlight"><pre><span></span>   Usage: cylc [info] monitor [OPTIONS] REG [USER_AT_HOST]
+<span id="command-monitor"></span><h3>15.6.3.44. monitor<a class="headerlink" href="#monitor" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] monitor [OPTIONS] REG [USER_AT_HOST]
 
 A terminal-based live suite monitor.  Exit with &#39;Ctrl-C&#39;.
 
@@ -2246,8 +2352,8 @@ Options:
 </div>
 </div>
 <div class="section" id="nudge">
-<h3>15.6.3.42. nudge<a class="headerlink" href="#nudge" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-nudge"><div class="highlight"><pre><span></span>   Usage: cylc [control] nudge [OPTIONS] REG
+<span id="command-nudge"></span><h3>15.6.3.45. nudge<a class="headerlink" href="#nudge" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] nudge [OPTIONS] REG
 
 Cause the cylc task processing loop to be invoked in a running suite.
 
@@ -2299,8 +2405,8 @@ Options:
 </div>
 </div>
 <div class="section" id="ping">
-<h3>15.6.3.43. ping<a class="headerlink" href="#ping" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-ping"><div class="highlight"><pre><span></span>   Usage: cylc [discovery] ping [OPTIONS] REG [TASK]
+<span id="command-ping"></span><h3>15.6.3.46. ping<a class="headerlink" href="#ping" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [discovery] ping [OPTIONS] REG [TASK]
 
 If suite REG is running or TASK in suite REG is currently running,
 exit with success status, else exit with error status.
@@ -2345,8 +2451,8 @@ Options:
 </div>
 </div>
 <div class="section" id="poll">
-<h3>15.6.3.44. poll<a class="headerlink" href="#poll" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-poll"><div class="highlight"><pre><span></span>   Usage: cylc [control] poll [OPTIONS] REG [TASKID ...]
+<span id="command-poll"></span><h3>15.6.3.47. poll<a class="headerlink" href="#poll" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] poll [OPTIONS] REG [TASKID ...]
 
 Poll (query) task jobs to verify and update their statuses.
 
@@ -2419,8 +2525,8 @@ Options:
 </div>
 </div>
 <div class="section" id="print">
-<h3>15.6.3.45. print<a class="headerlink" href="#print" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-print"><div class="highlight"><pre><span></span>   Usage: cylc [prep] print [OPTIONS] [REGEX]
+<span id="command-print"></span><h3>15.6.3.48. print<a class="headerlink" href="#print" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] print [OPTIONS] [REGEX]
 
 Print registered (installed) suites.
 
@@ -2452,8 +2558,8 @@ Options:
 </div>
 </div>
 <div class="section" id="profile-battery">
-<h3>15.6.3.46. profile-battery<a class="headerlink" href="#profile-battery" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-profile-battery"><div class="highlight"><pre><span></span>   Usage: cylc profile-battery [-e [EXPERIMENT ...]] [-v [VERSION ...]]
+<span id="command-profile-battery"></span><h3>15.6.3.49. profile-battery<a class="headerlink" href="#profile-battery" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc profile-battery [-e [EXPERIMENT ...]] [-v [VERSION ...]]
 
 Run profiling experiments against different versions of cylc. A list of
 experiments can be specified after the -e flag, if not provided the experiment
@@ -2529,8 +2635,8 @@ Options:
 </div>
 </div>
 <div class="section" id="register">
-<h3>15.6.3.47. register<a class="headerlink" href="#register" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-register"><div class="highlight"><pre><span></span>   Usage: cylc [prep] register [OPTIONS] [REG] [PATH]
+<span id="command-register"></span><h3>15.6.3.50. register<a class="headerlink" href="#register" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] register [OPTIONS] [REG] [PATH]
 
 Register the name REG for the suite definition in PATH. The suite server
 program can then be started, stopped, and targeted by name REG. (Note that
@@ -2581,8 +2687,8 @@ Options:
 </div>
 </div>
 <div class="section" id="release">
-<h3>15.6.3.48. release<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-release"><div class="highlight"><pre><span></span>   Usage: cylc [control] release|unhold [OPTIONS] REG [TASKID ...]
+<span id="command-release"></span><h3>15.6.3.51. release<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] release|unhold [OPTIONS] REG [TASKID ...]
 
 Release one or more held tasks (cylc release REG TASKID)
 or the whole suite (cylc release REG). Held tasks do not
@@ -2655,8 +2761,8 @@ Options:
 </div>
 </div>
 <div class="section" id="reload">
-<h3>15.6.3.49. reload<a class="headerlink" href="#reload" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-reload"><div class="highlight"><pre><span></span>   Usage: cylc [control] reload [OPTIONS] REG
+<span id="command-reload"></span><h3>15.6.3.52. reload<a class="headerlink" href="#reload" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] reload [OPTIONS] REG
 
 Tell a suite to reload its definition at run time. All settings
 including task definitions, with the exception of suite log
@@ -2718,8 +2824,8 @@ Options:
 </div>
 </div>
 <div class="section" id="remote-init">
-<h3>15.6.3.50. remote-init<a class="headerlink" href="#remote-init" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-remote-init"><div class="highlight"><pre><span></span>   Usage: cylc [task] remote-init [--indirect-comm=ssh] UUID RUND
+<span id="command-remote-init"></span><h3>15.6.3.53. remote-init<a class="headerlink" href="#remote-init" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [task] remote-init [--indirect-comm=ssh] UUID RUND
 
 (This command is for internal use.)
 Install suite service files on a task remote (i.e. a [owner@]host):
@@ -2759,8 +2865,8 @@ Options:
 </div>
 </div>
 <div class="section" id="remote-tidy">
-<h3>15.6.3.51. remote-tidy<a class="headerlink" href="#remote-tidy" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-remote-tidy"><div class="highlight"><pre><span></span>   Usage: cylc [task] remote-tidy RUND
+<span id="command-remote-tidy"></span><h3>15.6.3.54. remote-tidy<a class="headerlink" href="#remote-tidy" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [task] remote-tidy RUND
 
 (This command is for internal use.)
 Remove &quot;.service/contact&quot; from a task remote (i.e. a [owner@]host).
@@ -2783,8 +2889,8 @@ Options:
 </div>
 </div>
 <div class="section" id="remove">
-<h3>15.6.3.52. remove<a class="headerlink" href="#remove" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-remove"><div class="highlight"><pre><span></span>   Usage: cylc [control] remove [OPTIONS] REG TASKID [...]
+<span id="command-remove"></span><h3>15.6.3.55. remove<a class="headerlink" href="#remove" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] remove [OPTIONS] REG TASKID [...]
 
 Remove one or more tasks (cylc remove REG TASKID), or all tasks with a
 given cycle point (cylc remove REG *.POINT) from a running suite.
@@ -2857,8 +2963,8 @@ Options:
 </div>
 </div>
 <div class="section" id="report-timings">
-<h3>15.6.3.53. report-timings<a class="headerlink" href="#report-timings" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-report-timings"><div class="highlight"><pre><span></span>   Usage: cylc [util] report-timings [OPTIONS] REG
+<span id="command-report-timings"></span><h3>15.6.3.56. report-timings<a class="headerlink" href="#report-timings" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [util] report-timings [OPTIONS] REG
 
 Retrieve suite timing information for wait and run time performance analysis.
 Raw output and summary output (in text or HTML format) are available.  Output
@@ -2911,8 +3017,8 @@ Options:
 </div>
 </div>
 <div class="section" id="reset">
-<h3>15.6.3.54. reset<a class="headerlink" href="#reset" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-reset"><div class="highlight"><pre><span></span>   Usage: cylc [control] reset [OPTIONS] REG [TASKID ...]
+<span id="command-reset"></span><h3>15.6.3.57. reset<a class="headerlink" href="#reset" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] reset [OPTIONS] REG [TASKID ...]
 
 Force tasks to a specified state, and modify their prerequisites and outputs
 accordingly.
@@ -3000,8 +3106,8 @@ Options:
 </div>
 </div>
 <div class="section" id="restart">
-<h3>15.6.3.55. restart<a class="headerlink" href="#restart" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-restart"><div class="highlight"><pre><span></span>   Usage: cylc [control] restart [OPTIONS] [REG]
+<span id="command-restart"></span><h3>15.6.3.58. restart<a class="headerlink" href="#restart" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] restart [OPTIONS] [REG]
 
 Start a suite run from the previous state. To start from scratch (cold or warm
 start) see the &#39;cylc run&#39; command.
@@ -3069,8 +3175,8 @@ Options:
 </div>
 </div>
 <div class="section" id="review">
-<h3>15.6.3.56. review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-review"><div class="highlight"><pre><span></span>   Usage: cylc [info] review [OPTIONS] [start [PORT]] [stop]
+<span id="command-review"></span><h3>15.6.3.59. review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] review [OPTIONS] [start [PORT]] [stop]
 
 Start/stop ad-hoc Cylc Review web service server for browsing users&#39; suite
 logs via an HTTP interface.
@@ -3094,8 +3200,8 @@ Options:
 </div>
 </div>
 <div class="section" id="run">
-<h3>15.6.3.57. run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-run"><div class="highlight"><pre><span></span>   Usage: cylc [control] run|start [OPTIONS] [[REG] [START_POINT] ]
+<span id="command-run"></span><h3>15.6.3.60. run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] run|start [OPTIONS] [[REG] [START_POINT] ]
 
 Start a suite run from scratch, ignoring dependence prior to the start point.
 
@@ -3175,8 +3281,8 @@ Options:
 </div>
 </div>
 <div class="section" id="scan">
-<h3>15.6.3.58. scan<a class="headerlink" href="#scan" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-scan"><div class="highlight"><pre><span></span>   Usage: cylc [discovery] scan [OPTIONS] [HOSTS ...]
+<span id="command-scan"></span><h3>15.6.3.61. scan<a class="headerlink" href="#scan" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [discovery] scan [OPTIONS] [HOSTS ...]
 
 Print information about running suites.
 
@@ -3255,8 +3361,8 @@ Options:
 </div>
 </div>
 <div class="section" id="scp-transfer">
-<h3>15.6.3.59. scp-transfer<a class="headerlink" href="#scp-transfer" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-scp-transfer"><div class="highlight"><pre><span></span>   Usage: cylc [util] scp-transfer [OPTIONS]
+<span id="command-scp-transfer"></span><h3>15.6.3.62. scp-transfer<a class="headerlink" href="#scp-transfer" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [util] scp-transfer [OPTIONS]
 
 An scp wrapper for transferring a list of files and/or directories
 at once. The source and target scp URLs can be local or remote (scp
@@ -3278,8 +3384,8 @@ Options:
 </div>
 </div>
 <div class="section" id="search">
-<h3>15.6.3.60. search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-search"><div class="highlight"><pre><span></span>   Usage: cylc [prep] search|grep [OPTIONS] SUITE PATTERN [PATTERN2...]
+<span id="command-search"></span><h3>15.6.3.63. search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] search|grep [OPTIONS] SUITE PATTERN [PATTERN2...]
 
 Search for pattern matches in suite definitions and any files in the
 suite bin directory. Matches are reported by line number and suite
@@ -3314,8 +3420,8 @@ Options:
 </div>
 </div>
 <div class="section" id="set-verbosity">
-<h3>15.6.3.61. set-verbosity<a class="headerlink" href="#set-verbosity" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-set-verbosity"><div class="highlight"><pre><span></span>   Usage: cylc [control] set-verbosity [OPTIONS] REG LEVEL
+<span id="command-set-verbosity"></span><h3>15.6.3.64. set-verbosity<a class="headerlink" href="#set-verbosity" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] set-verbosity [OPTIONS] REG LEVEL
 
 Change the logging severity level of a running suite.  Only messages at
 or above the chosen severity level will be logged; for example, if you
@@ -3361,8 +3467,8 @@ Options:
 </div>
 </div>
 <div class="section" id="show">
-<h3>15.6.3.62. show<a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-show"><div class="highlight"><pre><span></span>   Usage: cylc [info] show [OPTIONS] REG [TASKID ...]
+<span id="command-show"></span><h3>15.6.3.65. show<a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] show [OPTIONS] REG [TASKID ...]
 
 Interrogate a suite server program for the suite metadata; or for the metadata
 of one of its tasks; or for the current state of the prerequisites, outputs,
@@ -3430,8 +3536,8 @@ Options:
 </div>
 </div>
 <div class="section" id="spawn">
-<h3>15.6.3.63. spawn<a class="headerlink" href="#spawn" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-spawn"><div class="highlight"><pre><span></span>   Usage: cylc [control] spawn [OPTIONS] REG [TASKID ...]
+<span id="command-spawn"></span><h3>15.6.3.66. spawn<a class="headerlink" href="#spawn" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] spawn [OPTIONS] REG [TASKID ...]
 
 Force one or more task proxies to spawn successors at the next cycle point
 in their sequences.  This is useful if you need to run successive instances
@@ -3502,8 +3608,8 @@ Options:
 </div>
 </div>
 <div class="section" id="stop">
-<h3>15.6.3.64. stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-stop"><div class="highlight"><pre><span></span>   Usage: cylc [control] stop|shutdown [OPTIONS] REG [STOP]
+<span id="command-stop"></span><h3>15.6.3.67. stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] stop|shutdown [OPTIONS] REG [STOP]
 
 Tell a suite server program to shut down. In order to prevent failures going
 unnoticed, suites only shut down automatically at a final cycle point if no
@@ -3577,8 +3683,8 @@ Options:
 </div>
 </div>
 <div class="section" id="submit">
-<h3>15.6.3.65. submit<a class="headerlink" href="#submit" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-submit"><div class="highlight"><pre><span></span>   Usage: cylc [task] submit|single [OPTIONS] REG TASK [...]
+<span id="command-submit"></span><h3>15.6.3.68. submit<a class="headerlink" href="#submit" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [task] submit|single [OPTIONS] REG TASK [...]
 
 Submit a single task to run just as it would be submitted by its suite.  Task
 messaging commands will print to stdout but will not attempt to communicate
@@ -3625,8 +3731,8 @@ Options:
 </div>
 </div>
 <div class="section" id="suite-state">
-<h3>15.6.3.66. suite-state<a class="headerlink" href="#suite-state" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-suite-state"><div class="highlight"><pre><span></span>   Usage: cylc suite-state REG [OPTIONS]
+<span id="command-suite-state"></span><h3>15.6.3.69. suite-state<a class="headerlink" href="#suite-state" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc suite-state REG [OPTIONS]
 
 Print task states retrieved from a suite database; or (with --task,
 --point, and --status) poll until a given task reaches a given state; or (with
@@ -3699,19 +3805,19 @@ Options:
 </div>
 </div>
 <div class="section" id="test-battery">
-<h3>15.6.3.67. test-battery<a class="headerlink" href="#test-battery" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-test-battery"><div class="highlight"><pre><span></span>   cd &quot;/home/kinow/Development/python/workspace/cylc&quot;
+<span id="command-test-battery"></span><h3>15.6.3.70. test-battery<a class="headerlink" href="#test-battery" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   cd &quot;/home/oliverh/cylc-git/worktrees/7.8.x&quot;
 Usage: cylc test-battery [...]
 
 Run automated Cylc and Parsec tests, under (by default):
-   /home/kinow/Development/python/workspace/cylc/tests/.
+   /home/oliverh/cylc-git/worktrees/7.8.x/tests/.
 
 Options and arguments are appended to &quot;prove -j $NPROC -s -r ${@:-tests}&quot;.
 NPROC is the number of concurrent processes to run, which defaults to the
 global config &quot;process pool size&quot; setting.
 
 The tests ignore normal site/user global config and instead use the file:
-   /home/kinow/Development/python/workspace/cylc/etc/global-tests.rc
+   /home/oliverh/cylc-git/worktrees/7.8.x/etc/global-tests.rc
 This should specify test job hosts under the [test battery] section, plus any
 other critical settings settings, including [hosts] configuration for test job
 hosts (and special batchview commands like qcat if available). Additional
@@ -3727,15 +3833,15 @@ To change the test file comparision command from &quot;diff -u&quot; do (for exa
 
 Some test suites submit jobs to the &#39;at&#39; so atd must be up on the job hosts.
 
-Commits or Pull Requests to cylc/cylc on GitHub will trigger Travis CI to run
-generic (non platform-specific) tests - see /home/kinow/Development/python/workspace/cylc/.travis.yml.
+Commits or Pull Requests to cylc/cylc-flow on GitHub will trigger Travis CI to
+run generic (non platform-specific) tests - see /home/oliverh/cylc-git/worktrees/7.8.x/.travis.yml.
 
 By default all tests are executed.  To run just a subset of them:
   * list individual tests or test directories to run on the comand line
   * list individual tests or test directories to skip in $CYLC_TEST_SKIP
   * skip all generic tests with CYLC_TEST_RUN_GENERIC=false
   * skip all platform-specific tests with CYLC_TEST_RUN_PLATFORM=false
-  List specific tests relative to /home/kinow/Development/python/workspace/cylc (i.e. starting with &quot;test/&quot;).
+  List specific tests relative to /home/oliverh/cylc-git/worktrees/7.8.x (i.e. starting with &quot;test/&quot;).
 Some platform-specific tests are automatically skipped, depending on platform.
 
 Platform-specific tests must set &quot;CYLC_TEST_IS_GENERIC=false&quot; before sourcing
@@ -3779,8 +3885,8 @@ Re-run failed tests
 </div>
 </div>
 <div class="section" id="trigger">
-<h3>15.6.3.68. trigger<a class="headerlink" href="#trigger" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-trigger"><div class="highlight"><pre><span></span>   Usage: cylc [control] trigger [OPTIONS] REG [TASKID ...]
+<span id="command-trigger"></span><h3>15.6.3.71. trigger<a class="headerlink" href="#trigger" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] trigger [OPTIONS] REG [TASKID ...]
 
 Manually trigger one or more tasks. Waiting tasks will be queued (cylc internal
 queues) and will submit as normal when released by the queue; queued tasks will
@@ -3857,9 +3963,23 @@ Options:
 </pre></div>
 </div>
 </div>
+<div class="section" id="upgrade-run-dir">
+<span id="command-upgrade-run-dir"></span><h3>15.6.3.72. upgrade-run-dir<a class="headerlink" href="#upgrade-run-dir" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [admin] upgrade-run-dir SUITE
+
+For one-off conversion of a suite run directory to cylc-6 format.
+
+Arguments:
+     SUITE    suite name or run directory path
+
+Options:
+  -h, --help  show this help message and exit
+</pre></div>
+</div>
+</div>
 <div class="section" id="validate">
-<h3>15.6.3.69. validate<a class="headerlink" href="#validate" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-validate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] validate [OPTIONS] SUITE
+<span id="command-validate"></span><h3>15.6.3.73. validate<a class="headerlink" href="#validate" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] validate [OPTIONS] SUITE
 
 Validate a suite definition.
 
@@ -3909,8 +4029,8 @@ Options:
 </div>
 </div>
 <div class="section" id="view">
-<h3>15.6.3.70. view<a class="headerlink" href="#view" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-view"><div class="highlight"><pre><span></span>   Usage: cylc [prep] view [OPTIONS] SUITE
+<span id="command-view"></span><h3>15.6.3.74. view<a class="headerlink" href="#view" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] view [OPTIONS] SUITE
 
 View a read-only temporary copy of suite NAME&#39;s suite.rc file, in your
 editor, after optional include-file inlining and Jinja2 preprocessing.
@@ -3974,8 +4094,8 @@ Options:
 </div>
 </div>
 <div class="section" id="warranty">
-<h3>15.6.3.71. warranty<a class="headerlink" href="#warranty" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate" id="command-warranty"><div class="highlight"><pre><span></span>   Usage: cylc [license] warranty [--help]
+<span id="command-warranty"></span><h3>15.6.3.75. warranty<a class="headerlink" href="#warranty" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [license] warranty [--help]
    Cylc is released under the GNU General Public License v3.0
 This command prints the GPL v3.0 disclaimer of warranty.
 Options:
@@ -4027,8 +4147,9 @@ Options:
 <li class="toctree-l2"><a class="reference internal" href="readme-file.html">15.8. Cylc README File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install-file.html">15.9. Cylc INSTALL File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dev-history-major-changes.html">15.10. Cylc Development History - Major Changes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="known-issues.html">15.11. Known Issues</a></li>
-<li class="toctree-l2"><a class="reference internal" href="licensing.html">15.12. GNU GENERAL PUBLIC LICENSE v3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cylc-6-migration-ref.html">15.11. Cylc 6 Migration Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="known-issues.html">15.12. Known Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="licensing.html">15.13. GNU GENERAL PUBLIC LICENSE v3.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../suite-design-guide/suite-design-guide-master.html">16. Suite Design Guide</a></li>
@@ -4069,13 +4190,13 @@ Options:
         <li class="right" >
           <a href="remote-job-management.html" title="15.5. Remote Job Management"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.1-39-gf3b0d documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="appendices-master.html" >15. Appendices</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2008-2019 NIWA &amp; British Crown (Met Office) &amp; Contributors.
-      Last updated on Mar 01, 2019.
+      Last updated on May 02, 2019.
     </div>
   </body>
 </html>

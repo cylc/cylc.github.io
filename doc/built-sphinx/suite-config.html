@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>9. Suite Configuration &#8212; The Cylc Suite Engine 7.8.1-39-gf3b0d documentation</title>
+    <title>9. Suite Configuration &#8212; The Cylc Suite Engine 7.8.2 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="suite-name-reg.html" title="8. Suite Name Registration"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.1-39-gf3b0d documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.2 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -1631,9 +1631,10 @@ will infer that <code class="docutils literal notranslate"><span class="pre">bar
 task exists at these cycle points but has no prerequisites - although other
 prerequisites may be defined for it in other parts of the graph).</p>
 <p><em>Cylc does not infer the existence of the upstream task in offset
-triggers</em> like <code class="docutils literal notranslate"><span class="pre">foo[-P1D]</span> <span class="pre">=&gt;</span> <span class="pre">bar</span></code> because a typo in the offset
-interval should generate an error rather than silently creating
-tasks on an erroneous cycling sequence.</p>
+triggers</em> like <code class="docutils literal notranslate"><span class="pre">foo[-P1D]</span> <span class="pre">=&gt;</span> <span class="pre">bar</span></code> because, as explained in
+<a class="reference internal" href="appendices/cylc-6-migration-ref.html#cylc-6-migration-implicit-cycling"><span class="std std-ref">No Implicit Creation of Tasks by Offset Triggers</span></a>, a typo in the offset interval
+should generate an error rather than silently creating tasks on an erroneous
+cycling sequence.</p>
 <p>As a result you need to be careful not to define inter-cycle dependencies that
 cannot be satisfied at run time. Suite validation catches this kind of error if
 the existence of the cycle offset task is not defined anywhere at all:</p>
@@ -1731,9 +1732,45 @@ progressively expanded and collapsed in the dependency graph viewer, and
 in the gcylc graph and text views. Only the first parent of each
 namespace (as for single-inheritance) is used for suite visualization
 purposes.</p>
-<div class="section" id="namespace-names">
-<h3>9.4.1. Namespace Names<a class="headerlink" href="#namespace-names" title="Permalink to this headline">¶</a></h3>
-<p>Namespace names may contain letters, digits, underscores, and hyphens.</p>
+<div class="section" id="task-and-namespace-names">
+<span id="tasknames"></span><h3>9.4.1. Task and Namespace Names<a class="headerlink" href="#task-and-namespace-names" title="Permalink to this headline">¶</a></h3>
+<p>There are restrictions on names that can be used for tasks and namespaces
+to ensure all tasks are processed and implemented correctly. Valid names
+must:</p>
+<ol class="arabic simple">
+<li><em>begin with</em> (or consist only of, as single-character task names are
+allowed) either:<ul>
+<li>an alphanumeric character, i.e. a letter in either upper or lower case
+(<code class="docutils literal notranslate"><span class="pre">a-z</span></code> or <code class="docutils literal notranslate"><span class="pre">A-Z</span></code>), or a digit (<code class="docutils literal notranslate"><span class="pre">0-9</span></code>);</li>
+<li>an underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>).</li>
+</ul>
+</li>
+<li><em>otherwise</em> contain <em>only</em> characters from the following options:<ul>
+<li>alphanumeric characters or underscores (as above);</li>
+<li>any of these additional character symbols:<ul>
+<li>hyphens (<code class="docutils literal notranslate"><span class="pre">-</span></code>);</li>
+<li>plus characters (<code class="docutils literal notranslate"><span class="pre">+</span></code>);</li>
+<li>percent signs (<code class="docutils literal notranslate"><span class="pre">%</span></code>);</li>
+<li>“at” signs (<code class="docutils literal notranslate"><span class="pre">&#64;</span></code>).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>not be so long, typically over <code class="docutils literal notranslate"><span class="pre">255</span></code> characters, as to raise errors
+from exceeding maximum filename length on the operating system for
+generated outputs e.g. directories named (in part) after the task they
+concern.</li>
+</ol>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Task and namespace names may not contain colons (<code class="docutils literal notranslate"><span class="pre">:</span></code>), which would
+preclude use of directory paths involving the registration name in
+<code class="docutils literal notranslate"><span class="pre">$PATH</span></code> variables). They also may not contain the dot (<code class="docutils literal notranslate"><span class="pre">.</span></code>) character,
+as it will be interpreted as the delimiter separating the task name from
+an appended cycle point (see <a class="reference internal" href="tutorial.html#taskidentifiers"><span class="std std-ref">Task Identifiers</span></a>).</p>
+</div>
+<p>Invalid names for tasks or namespaces will be raised as errors
+by <code class="docutils literal notranslate"><span class="pre">cylc</span> <span class="pre">validate</span></code>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last"><em>Task names need not be hardwired into task implementations</em>
@@ -2229,8 +2266,9 @@ collapsed (top left) through to all expanded (bottom right). This
 can also be done by right-clicking on tasks in the gcylc graph view.</span></p>
 </div>
 </div>
+</div>
 <div class="section" id="parameterized-tasks">
-<span id="parameterized-tasks-label"></span><h3>9.5.2. Parameterized Tasks<a class="headerlink" href="#parameterized-tasks" title="Permalink to this headline">¶</a></h3>
+<span id="parameterized-tasks-label"></span><h2>9.6. Parameterized Tasks<a class="headerlink" href="#parameterized-tasks" title="Permalink to this headline">¶</a></h2>
 <p>Cylc can automatically generate tasks and dependencies by expanding
 parameterized task names over lists of parameter values. Uses for this
 include:</p>
@@ -2247,9 +2285,8 @@ include:</p>
 but parameterization is much cleaner (nested loops can seriously reduce
 the clarity of a suite configuration).*</p>
 </div>
-</div>
 <div class="section" id="parameter-expansion">
-<h3>9.5.3. Parameter Expansion<a class="headerlink" href="#parameter-expansion" title="Permalink to this headline">¶</a></h3>
+<h3>9.6.1. Parameter Expansion<a class="headerlink" href="#parameter-expansion" title="Permalink to this headline">¶</a></h3>
 <p>Parameter values can be lists of strings, or lists of integers and
 integer ranges (with inclusive bounds). Numeric values in a list of strings are
 considered strings. It is not possible to mix strings with integer ranges.</p>
@@ -2365,7 +2402,7 @@ model_run2_ship, model_run2_buoy, model_run2_plane
 <p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">Parameter expansion example.</span></p>
 </div>
 <div class="section" id="zero-padded-integer-values">
-<h4>9.5.3.1. Zero-Padded Integer Values<a class="headerlink" href="#zero-padded-integer-values" title="Permalink to this headline">¶</a></h4>
+<h4>9.6.1.1. Zero-Padded Integer Values<a class="headerlink" href="#zero-padded-integer-values" title="Permalink to this headline">¶</a></h4>
 <p>Integer parameter values are given a default template for generating task
 suffixes that are zero-padded according to the longest size of their values.
 For example, the default template for <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">9..10</span></code> would be
@@ -2388,7 +2425,7 @@ For example, the default template for <code class="docutils literal notranslate"
 </div>
 </div>
 <div class="section" id="parameters-as-full-task-names">
-<h4>9.5.3.2. Parameters as Full Task Names<a class="headerlink" href="#parameters-as-full-task-names" title="Permalink to this headline">¶</a></h4>
+<h4>9.6.1.2. Parameters as Full Task Names<a class="headerlink" href="#parameters-as-full-task-names" title="Permalink to this headline">¶</a></h4>
 <p>Parameter values can be used as full task names, but the default template
 should be overridden to remove the initial underscore. For example:</p>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[cylc]</span>
@@ -2409,7 +2446,7 @@ should be overridden to remove the initial underscore. For example:</p>
 </div>
 </div>
 <div class="section" id="passing-parameter-values-to-tasks">
-<h3>9.5.4. Passing Parameter Values To Tasks<a class="headerlink" href="#passing-parameter-values-to-tasks" title="Permalink to this headline">¶</a></h3>
+<h3>9.6.2. Passing Parameter Values To Tasks<a class="headerlink" href="#passing-parameter-values-to-tasks" title="Permalink to this headline">¶</a></h3>
 <p>Parameter values are passed as environment variables to tasks generated by
 parameter expansion. For example, if we have:</p>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[cylc]</span>
@@ -2448,7 +2485,7 @@ environment variables:</p>
 </div>
 </div>
 <div class="section" id="selecting-specific-parameter-values">
-<h3>9.5.5. Selecting Specific Parameter Values<a class="headerlink" href="#selecting-specific-parameter-values" title="Permalink to this headline">¶</a></h3>
+<h3>9.6.3. Selecting Specific Parameter Values<a class="headerlink" href="#selecting-specific-parameter-values" title="Permalink to this headline">¶</a></h3>
 <p>Specific parameter values can be singled out in the graph and under
 <code class="docutils literal notranslate"><span class="pre">[runtime]</span></code> with the notation <code class="docutils literal notranslate"><span class="pre">&lt;p=5&gt;</span></code> (for example).
 Here’s how to make a special task trigger off just the first of a
@@ -2470,7 +2507,7 @@ set of model runs:</p>
 </div>
 </div>
 <div class="section" id="selecting-partial-parameter-ranges">
-<h3>9.5.6. Selecting Partial Parameter Ranges<a class="headerlink" href="#selecting-partial-parameter-ranges" title="Permalink to this headline">¶</a></h3>
+<h3>9.6.4. Selecting Partial Parameter Ranges<a class="headerlink" href="#selecting-partial-parameter-ranges" title="Permalink to this headline">¶</a></h3>
 <p>The parameter notation does not currently support partial range selection such
 as <code class="docutils literal notranslate"><span class="pre">foo&lt;p=5..10&gt;</span></code>, but you can achieve the same result by defining a
 second parameter that covers the partial range and giving it the same expansion
@@ -2494,7 +2531,7 @@ template as the full-range parameter. For example:</p>
 </div>
 </div>
 <div class="section" id="parameter-offsets-in-the-graph">
-<h3>9.5.7. Parameter Offsets In The Graph<a class="headerlink" href="#parameter-offsets-in-the-graph" title="Permalink to this headline">¶</a></h3>
+<h3>9.6.5. Parameter Offsets In The Graph<a class="headerlink" href="#parameter-offsets-in-the-graph" title="Permalink to this headline">¶</a></h3>
 <p>A negative offset notation <code class="docutils literal notranslate"><span class="pre">&lt;NAME-1&gt;</span></code> is interpreted as the previous
 value in the ordered list of parameter values, while a positive offset is
 interpreted as the next value. For example, to split a model run into multiple
@@ -2547,7 +2584,7 @@ graph.</p>
 </div>
 </div>
 <div class="section" id="task-families-and-parameterization">
-<h3>9.5.8. Task Families And Parameterization<a class="headerlink" href="#task-families-and-parameterization" title="Permalink to this headline">¶</a></h3>
+<h3>9.6.6. Task Families And Parameterization<a class="headerlink" href="#task-families-and-parameterization" title="Permalink to this headline">¶</a></h3>
 <p>Task family members can be generated by parameter expansion:</p>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
     <span class="nt">[[FAM]]</span>
@@ -2611,7 +2648,7 @@ get_plane =&gt; proc_plane
 </div>
 </div>
 <div class="section" id="parameterized-cycling">
-<span id="id8"></span><h3>9.5.9. Parameterized Cycling<a class="headerlink" href="#parameterized-cycling" title="Permalink to this headline">¶</a></h3>
+<span id="id8"></span><h3>9.6.7. Parameterized Cycling<a class="headerlink" href="#parameterized-cycling" title="Permalink to this headline">¶</a></h3>
 <p>Two ways of constructing cycling systems are described and contrasted in
 <a class="reference internal" href="workflows.html#workflows-for-cycling-systems"><span class="std std-ref">Workflows For Cycling Systems</span></a>.  For most purposes use of
 a proper <em>cycling workflow</em> is recommended, wherein cylc incrementally
@@ -2702,7 +2739,7 @@ some supported platforms. This could be handled without changing the cycling
 structure of the suite by splitting the run (at each cycle point) into a
 variable number of shorter steps, using more steps on less powerful hosts.</p>
 <div class="section" id="cycle-point-and-parameter-offsets-at-start-up">
-<h4>9.5.9.1. Cycle Point And Parameter Offsets At Start-Up<a class="headerlink" href="#cycle-point-and-parameter-offsets-at-start-up" title="Permalink to this headline">¶</a></h4>
+<h4>9.6.7.1. Cycle Point And Parameter Offsets At Start-Up<a class="headerlink" href="#cycle-point-and-parameter-offsets-at-start-up" title="Permalink to this headline">¶</a></h4>
 <p>In cycling workflows cylc ignores anything earlier than the suite initial
 cycle point. So this graph:</p>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nv">graph</span><span class="s"> </span><span class="o">=</span> <span class="c">&quot;</span><span class="kd">model</span>[<span class="nb">-P1D</span>] <span class="o">=&gt;</span> <span class="kd">model</span><span class="c">&quot;</span>
@@ -2736,7 +2773,7 @@ sometimes need to trigger off earlier cycling tasks.</p>
 </div>
 </div>
 <div class="section" id="jinja">
-<span id="id9"></span><h2>9.6. Jinja2<a class="headerlink" href="#jinja" title="Permalink to this headline">¶</a></h2>
+<span id="id9"></span><h2>9.7. Jinja2<a class="headerlink" href="#jinja" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">This section needs to be revised - the Parameterized Task feature
@@ -2873,7 +2910,7 @@ with the New York City task family expanded, in
 New York City task family expanded.</span></p>
 </div>
 <div class="section" id="accessing-environment-variables-with-jinja2">
-<h3>9.6.1. Accessing Environment Variables With Jinja2<a class="headerlink" href="#accessing-environment-variables-with-jinja2" title="Permalink to this headline">¶</a></h3>
+<h3>9.7.1. Accessing Environment Variables With Jinja2<a class="headerlink" href="#accessing-environment-variables-with-jinja2" title="Permalink to this headline">¶</a></h3>
 <p>This functionality is not provided by Jinja2 by default, but cylc
 automatically imports the user environment to template’s global namespace
 (see <a class="reference internal" href="#customjinja2filters"><span class="std std-ref">Custom Jinja2 Filters, Tests and Globals</span></a>) in a dictionary structure called
@@ -2886,12 +2923,35 @@ automatically imports the user environment to template’s global namespace
             <span class="nv">SUITE_OWNER_HOME_DIR_ON_SUITE_HOST </span><span class="o">=</span><span class="s"> </span><span class="cp">{{environ[&#39;HOME&#39;]}}</span>
 </pre></div>
 </div>
-<p>This example is emphasizes that <em>the environment is read on the suite
-host at the time the suite configuration is parsed</em> - it is not, for
-instance, read at task run time on the task host.</p>
+<p>In addition, the following variables are exported to this environment
+prior to configuration parsing to provide suite context:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>CYLC_DEBUG                      <span class="c1"># Debug mode, true or not defined</span>
+CYLC_DIR                        <span class="c1"># Location of cylc installation used</span>
+CYLC_VERBOSE                    <span class="c1"># Verbose mode, True or False</span>
+CYLC_VERSION                    <span class="c1"># Version of cylc installation used</span>
+
+CYLC_SUITE_NAME                 <span class="c1"># Suite name</span>
+
+CYLC_SUITE_DEF_PATH             <span class="c1"># Location of the suite configuration</span>
+                                <span class="c1"># source path on suite host,</span>
+                                <span class="c1"># e.g. ~/cylc-run/foo</span>
+CYLC_SUITE_LOG_DIR              <span class="c1"># Suite log directory.</span>
+CYLC_SUITE_RUN_DIR              <span class="c1"># Location of the suite run directory in</span>
+                                <span class="c1"># suite host, e.g. ~/cylc-run/foo</span>
+CYLC_SUITE_SHARE_DIR            <span class="c1"># Suite (or task post parsing!)</span>
+                                <span class="c1"># shared directory.</span>
+CYLC_SUITE_WORK_DIR             <span class="c1"># Suite work directory.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The example above emphasizes that <em>the environment - including the suite
+context variables - is read on the suite host when the suite configuration
+is parsed</em>, not at task run time on job hosts.</p>
+</div>
 </div>
 <div class="section" id="custom-jinja2-filters-tests-and-globals">
-<span id="customjinja2filters"></span><h3>9.6.2. Custom Jinja2 Filters, Tests and Globals<a class="headerlink" href="#custom-jinja2-filters-tests-and-globals" title="Permalink to this headline">¶</a></h3>
+<span id="customjinja2filters"></span><h3>9.7.2. Custom Jinja2 Filters, Tests and Globals<a class="headerlink" href="#custom-jinja2-filters-tests-and-globals" title="Permalink to this headline">¶</a></h3>
 <p>Jinja2 has three different namespaces used to separate “globals”,
 “filters” and “tests”. Globals are template-wide accessible variables
 and functions. Cylc extends this namespace with “environ” dictionary and
@@ -2923,7 +2983,7 @@ the variable value to be “filtered” or “tested”, respectively, and
 subsequent arguments can be whatever else is needed. Currently there are three
 custom filters:</p>
 <div class="section" id="pad">
-<h4>9.6.2.1. pad<a class="headerlink" href="#pad" title="Permalink to this headline">¶</a></h4>
+<h4>9.7.2.1. pad<a class="headerlink" href="#pad" title="Permalink to this headline">¶</a></h4>
 <p>The “pad” filter is for padding string values to some
 constant length with a fill character - useful for generating task names
 and related values in ensemble suites:</p>
@@ -2935,7 +2995,7 @@ and related values in ensemble suites:</p>
 </div>
 </div>
 <div class="section" id="strftime">
-<h4>9.6.2.2. strftime<a class="headerlink" href="#strftime" title="Permalink to this headline">¶</a></h4>
+<h4>9.7.2.2. strftime<a class="headerlink" href="#strftime" title="Permalink to this headline">¶</a></h4>
 <p>The “strftime” filter can be used to format ISO8601 date-time strings using
 an strftime string.</p>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="cp">{% set START_CYCLE = &#39;10661004T08+01&#39; %}</span>
@@ -2958,7 +3018,7 @@ strptime string as the second argument.</p>
 </ul>
 </div>
 <div class="section" id="duration-as">
-<h4>9.6.2.3. duration_as<a class="headerlink" href="#duration-as" title="Permalink to this headline">¶</a></h4>
+<h4>9.7.2.3. duration_as<a class="headerlink" href="#duration-as" title="Permalink to this headline">¶</a></h4>
 <p>The “duration_as” filter can be used to format ISO8601 duration
 strings as a floating-point number of several different units.  Units
 for the conversion can be specified in a case-insensitive short or long
@@ -2993,7 +3053,7 @@ it.  This is accomplished by chaining filters:</p>
 </div>
 </div>
 <div class="section" id="associative-arrays-in-jinja2">
-<h3>9.6.3. Associative Arrays In Jinja2<a class="headerlink" href="#associative-arrays-in-jinja2" title="Permalink to this headline">¶</a></h3>
+<h3>9.7.3. Associative Arrays In Jinja2<a class="headerlink" href="#associative-arrays-in-jinja2" title="Permalink to this headline">¶</a></h3>
 <p>Associative arrays (<em>dicts</em> in Python) can be very useful.
 Here’s an example, from <code class="docutils literal notranslate"><span class="pre">&lt;cylc-dir&gt;/etc/examples/jinja2/dict</span></code>:</p>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="ch">#!Jinja2</span>
@@ -3022,27 +3082,33 @@ Here’s an example, from <code class="docutils literal notranslate"><span class
 </div>
 </div>
 <div class="section" id="jinja2-default-values-and-template-inputs">
-<h3>9.6.4. Jinja2 Default Values And Template Inputs<a class="headerlink" href="#jinja2-default-values-and-template-inputs" title="Permalink to this headline">¶</a></h3>
+<h3>9.7.4. Jinja2 Default Values And Template Inputs<a class="headerlink" href="#jinja2-default-values-and-template-inputs" title="Permalink to this headline">¶</a></h3>
 <p>The values of Jinja2 variables can be passed in from the cylc command
 line rather than hardwired in the suite configuration.
 Here’s an example, from <code class="docutils literal notranslate"><span class="pre">&lt;cylc-dir&gt;/etc/examples/jinja2/defaults</span></code>:</p>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="ch">#!Jinja2</span>
+
 <span class="nt">[meta]</span>
+
     <span class="nv">title </span><span class="o">=</span><span class="s"> &quot;Jinja2 example: use of defaults and external input&quot;</span>
 
     <span class="nv">description </span><span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">The template variable N_MEMBERS can be set on the command line with</span>
-<span class="s2">--set or --set-file=FILE; but if not a default values is supplied.&quot;&quot;&quot;</span> 
+<span class="s2">The template variable FIRST_TASK must be given on the cylc command line</span>
+<span class="s2">using --set or --set-file=FILE; two other variables, LAST_TASK and</span>
+<span class="s2">N_MEMBERS can be set similarly, but if not they have default values.&quot;&quot;&quot;</span>
 
+<span class="cp">{% set LAST_TASK = LAST_TASK | default( &#39;baz&#39; ) %}</span>
 <span class="cp">{% set N_MEMBERS = N_MEMBERS | default( 3 ) | int %}</span>
+
+<span class="c c-Multi">{# input of FIRST_TASK is required - no default #}</span>
 
 <span class="nt">[scheduling]</span>
     <span class="nv">initial cycle point </span><span class="o">=</span><span class="s"> 20100808T00</span>
     <span class="nv">final cycle point   </span><span class="o">=</span><span class="s"> 20100816T00</span>
     <span class="nt">[[dependencies]]</span>
-        <span class="nt">[[[T00]]]</span>
-            <span class="nv">graph</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="kd">foo</span> <span class="o">=&gt;</span> <span class="kd">ENS</span>
-                 <span class="kd">ENS</span><span class="c">:</span><span class="kd">succeed</span><span class="c">-</span><span class="kd">all</span> <span class="o">=&gt;</span> <span class="kd">bar</span><span class="s2">&quot;&quot;&quot;</span>
+        <span class="nt">[[[0]]]</span>
+            <span class="nv">graph</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="cp">{{ FIRST_TASK }}</span> <span class="o">=&gt;</span> <span class="kd">ENS</span>
+                 <span class="kd">ENS</span><span class="c">:</span><span class="kd">succeed</span><span class="c">-</span><span class="kd">all</span> <span class="o">=&gt;</span> <span class="cp">{{ LAST_TASK }}</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="nt">[runtime]</span>
     <span class="nt">[[ENS]]</span>
 <span class="cp">{% for I in range( 0, N_MEMBERS ) %}</span>
@@ -3055,23 +3121,23 @@ Here’s an example, from <code class="docutils literal notranslate"><span class
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cylc list SUITE
 Jinja2 Template Error
 <span class="s1">&#39;FIRST_TASK&#39;</span> is undefined
-cylc-list SUITE  failed:  <span class="m">1</span>
+cylc-list foo  failed:  <span class="m">1</span>
 
-$ cylc list --set <span class="nv">FIRST_TASK</span><span class="o">=</span>bob SUITE
+$ cylc list --set <span class="nv">FIRST_TASK</span><span class="o">=</span>bob foo
 bob
 baz
 mem_2
 mem_1
 mem_0
 
-$ cylc list --set <span class="nv">FIRST_TASK</span><span class="o">=</span>bob --set <span class="nv">LAST_TASK</span><span class="o">=</span>alice SUITE
+$ cylc list --set <span class="nv">FIRST_TASK</span><span class="o">=</span>bob --set <span class="nv">LAST_TASK</span><span class="o">=</span>alice foo
 bob
 alice
 mem_2
 mem_1
 mem_0
 
-$ cylc list --set <span class="nv">FIRST_TASK</span><span class="o">=</span>bob --set <span class="nv">N_MEMBERS</span><span class="o">=</span><span class="m">10</span> SUITE
+$ cylc list --set <span class="nv">FIRST_TASK</span><span class="o">=</span>bob --set <span class="nv">N_MEMBERS</span><span class="o">=</span><span class="m">10</span> foo
 mem_9
 mem_8
 mem_7
@@ -3097,7 +3163,7 @@ be overridden.</p>
 </div>
 </div>
 <div class="section" id="jinja2-variable-scope">
-<h3>9.6.5. Jinja2 Variable Scope<a class="headerlink" href="#jinja2-variable-scope" title="Permalink to this headline">¶</a></h3>
+<h3>9.7.5. Jinja2 Variable Scope<a class="headerlink" href="#jinja2-variable-scope" title="Permalink to this headline">¶</a></h3>
 <p>Jinja2 variable scoping rules may be surprising. Variables set inside a
 <em>for loop</em> block, for instance, are not accessible outside of the block,
 so the following will print <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">FOO</span> <span class="pre">is</span> <span class="pre">0</span></code>, not <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">FOO</span> <span class="pre">is</span> <span class="pre">9</span></code>:</p>
@@ -3128,7 +3194,7 @@ across scopes:</p>
 Assignments</a></p>
 </div>
 <div class="section" id="raising-exceptions">
-<span id="jinja2raisingexceptions"></span><h3>9.6.6. Raising Exceptions<a class="headerlink" href="#raising-exceptions" title="Permalink to this headline">¶</a></h3>
+<span id="jinja2raisingexceptions"></span><h3>9.7.6. Raising Exceptions<a class="headerlink" href="#raising-exceptions" title="Permalink to this headline">¶</a></h3>
 <p>Cylc provides two functions for raising exceptions using Jinja2. These
 exceptions are raised when the suite.rc file is loaded and will prevent a suite
 from running.</p>
@@ -3138,7 +3204,7 @@ from running.</p>
 blocks as opposed to <code class="docutils literal notranslate"><span class="pre">{%</span></code> blocks.</p>
 </div>
 <div class="section" id="raise">
-<h4>9.6.6.1. Raise<a class="headerlink" href="#raise" title="Permalink to this headline">¶</a></h4>
+<h4>9.7.6.1. Raise<a class="headerlink" href="#raise" title="Permalink to this headline">¶</a></h4>
 <p>The “raise” function will result in an error containing the provided text.</p>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="cp">{% if not VARIABLE is defined %}</span>
     <span class="cp">{{ raise(&#39;VARIABLE must be defined for this suite.&#39;) }}</span>
@@ -3147,7 +3213,7 @@ blocks as opposed to <code class="docutils literal notranslate"><span class="pre
 </div>
 </div>
 <div class="section" id="assert">
-<h4>9.6.6.2. Assert<a class="headerlink" href="#assert" title="Permalink to this headline">¶</a></h4>
+<h4>9.7.6.2. Assert<a class="headerlink" href="#assert" title="Permalink to this headline">¶</a></h4>
 <p>The “assert” function will raise an exception containing the text provided in
 the second argument providing that the first argument evaluates as False. The
 following example is equivalent to the “raise” example above.</p>
@@ -3157,7 +3223,7 @@ following example is equivalent to the “raise” example above.</p>
 </div>
 </div>
 <div class="section" id="importing-additional-python-modules">
-<h3>9.6.7. Importing additional Python modules<a class="headerlink" href="#importing-additional-python-modules" title="Permalink to this headline">¶</a></h3>
+<h3>9.7.7. Importing additional Python modules<a class="headerlink" href="#importing-additional-python-modules" title="Permalink to this headline">¶</a></h3>
 <p>Jinja2 allows to gather variable and macro definitions in a separate template
 that can be imported into (and thus shared among) other templates.</p>
 <div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="cp">{% import &quot;suite-utils.rc&quot; as utils %}</span>
@@ -3179,8 +3245,9 @@ that can be imported into (and thus shared among) other templates.</p>
 </pre></div>
 </div>
 </div>
+</div>
 <div class="section" id="empylabel">
-<span id="id10"></span><h3>9.6.8. EmPy<a class="headerlink" href="#empylabel" title="Permalink to this headline">¶</a></h3>
+<span id="id10"></span><h2>9.8. EmPy<a class="headerlink" href="#empylabel" title="Permalink to this headline">¶</a></h2>
 <p>In addition to Jinja2, Cylc supports EmPy template processor in suite
 configurations. Similarly to Jinja2, EmPy provides variables, mathematical
 expressions, loop control structures, conditional logic, etc., that are
@@ -3281,7 +3348,7 @@ packages in a seamless manner.</li>
 </ul>
 </div>
 <div class="section" id="omitting-tasks-at-runtime">
-<h3>9.6.9. Omitting Tasks At Runtime<a class="headerlink" href="#omitting-tasks-at-runtime" title="Permalink to this headline">¶</a></h3>
+<h2>9.9. Omitting Tasks At Runtime<a class="headerlink" href="#omitting-tasks-at-runtime" title="Permalink to this headline">¶</a></h2>
 <p>It is sometimes convenient to omit certain tasks from the suite at
 runtime without actually deleting their definitions from the suite.</p>
 <p>Defining <code class="docutils literal notranslate"><span class="pre">[runtime]</span></code> properties for tasks that do not appear in the suite
@@ -3305,9 +3372,8 @@ suite structure by including or excluding tasks from the <code class="docutils l
 and <code class="docutils literal notranslate"><span class="pre">[runtime]</span></code> sections according to the value of a single logical flag
 defined at the top of the suite.</p>
 </div>
-</div>
 <div class="section" id="naked-dummy-tasks-and-strict-validation">
-<h2>9.7. Naked Dummy Tasks And Strict Validation<a class="headerlink" href="#naked-dummy-tasks-and-strict-validation" title="Permalink to this headline">¶</a></h2>
+<h2>9.10. Naked Dummy Tasks And Strict Validation<a class="headerlink" href="#naked-dummy-tasks-and-strict-validation" title="Permalink to this headline">¶</a></h2>
 <p>A <em>naked dummy task</em> appears in the suite graph but has no
 explicit runtime configuration section. Such tasks automatically
 inherit the default “dummy task” configuration from the root
@@ -3386,7 +3452,7 @@ depend on model background fields generated by the previous forecast.</td></tr>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#runtime-task-configuration">9.4. Runtime - Task Configuration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#namespace-names">9.4.1. Namespace Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#task-and-namespace-names">9.4.1. Task and Namespace Names</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#root-runtime-defaults">9.4.2. Root - Runtime Defaults</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#defining-multiple-namespaces-at-once">9.4.3. Defining Multiple Namespaces At Once</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#runtime-inheritance-single">9.4.4. Runtime Inheritance - Single</a></li>
@@ -3399,29 +3465,31 @@ depend on model background fields generated by the previous forecast.</td></tr>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#visualization">9.5. Visualization</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#collapsible-families-in-suite-graphs">9.5.1. Collapsible Families In Suite Graphs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#parameterized-tasks">9.5.2. Parameterized Tasks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#parameter-expansion">9.5.3. Parameter Expansion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#passing-parameter-values-to-tasks">9.5.4. Passing Parameter Values To Tasks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#selecting-specific-parameter-values">9.5.5. Selecting Specific Parameter Values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#selecting-partial-parameter-ranges">9.5.6. Selecting Partial Parameter Ranges</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#parameter-offsets-in-the-graph">9.5.7. Parameter Offsets In The Graph</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#task-families-and-parameterization">9.5.8. Task Families And Parameterization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#parameterized-cycling">9.5.9. Parameterized Cycling</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#jinja">9.6. Jinja2</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#accessing-environment-variables-with-jinja2">9.6.1. Accessing Environment Variables With Jinja2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#custom-jinja2-filters-tests-and-globals">9.6.2. Custom Jinja2 Filters, Tests and Globals</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#associative-arrays-in-jinja2">9.6.3. Associative Arrays In Jinja2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#jinja2-default-values-and-template-inputs">9.6.4. Jinja2 Default Values And Template Inputs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#jinja2-variable-scope">9.6.5. Jinja2 Variable Scope</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#raising-exceptions">9.6.6. Raising Exceptions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#importing-additional-python-modules">9.6.7. Importing additional Python modules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#empylabel">9.6.8. EmPy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#omitting-tasks-at-runtime">9.6.9. Omitting Tasks At Runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parameterized-tasks">9.6. Parameterized Tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#parameter-expansion">9.6.1. Parameter Expansion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#passing-parameter-values-to-tasks">9.6.2. Passing Parameter Values To Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#selecting-specific-parameter-values">9.6.3. Selecting Specific Parameter Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#selecting-partial-parameter-ranges">9.6.4. Selecting Partial Parameter Ranges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameter-offsets-in-the-graph">9.6.5. Parameter Offsets In The Graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#task-families-and-parameterization">9.6.6. Task Families And Parameterization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameterized-cycling">9.6.7. Parameterized Cycling</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#naked-dummy-tasks-and-strict-validation">9.7. Naked Dummy Tasks And Strict Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jinja">9.7. Jinja2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-environment-variables-with-jinja2">9.7.1. Accessing Environment Variables With Jinja2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-jinja2-filters-tests-and-globals">9.7.2. Custom Jinja2 Filters, Tests and Globals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#associative-arrays-in-jinja2">9.7.3. Associative Arrays In Jinja2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jinja2-default-values-and-template-inputs">9.7.4. Jinja2 Default Values And Template Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jinja2-variable-scope">9.7.5. Jinja2 Variable Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#raising-exceptions">9.7.6. Raising Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#importing-additional-python-modules">9.7.7. Importing additional Python modules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#empylabel">9.8. EmPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#omitting-tasks-at-runtime">9.9. Omitting Tasks At Runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#naked-dummy-tasks-and-strict-validation">9.10. Naked Dummy Tasks And Strict Validation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="task-implementation.html">10. Task Implementation</a></li>
@@ -3468,12 +3536,12 @@ depend on model background fields generated by the previous forecast.</td></tr>
         <li class="right" >
           <a href="suite-name-reg.html" title="8. Suite Name Registration"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.1-39-gf3b0d documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.2 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2008-2019 NIWA &amp; British Crown (Met Office) &amp; Contributors.
-      Last updated on Mar 01, 2019.
+      Last updated on May 02, 2019.
     </div>
   </body>
 </html>

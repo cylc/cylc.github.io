@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>15.2. Global (Site, User) Config File Reference &#8212; The Cylc Suite Engine 7.8.1-39-gf3b0d documentation</title>
+    <title>15.2. Global (Site, User) Config File Reference &#8212; The Cylc Suite Engine 7.8.2 documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="suiterc-config-ref.html" title="15.1. Suite.rc Reference"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.1-39-gf3b0d documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="appendices-master.html" accesskey="U">15. Appendices</a> &#187;</li> 
       </ul>
     </div>  
@@ -196,16 +196,47 @@ when they reach a configurable limit size.</p>
 <h2>15.2.4. [documentation]<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
 <p>Documentation locations for the <code class="docutils literal notranslate"><span class="pre">cylc</span> <span class="pre">doc</span></code> command and gcylc
 Help menus.</p>
-<div class="section" id="documentation-online">
-<h3>15.2.4.1. [documentation] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[online]]<a class="headerlink" href="#documentation-online" title="Permalink to this headline">¶</a></h3>
-<p>URL of the online cylc documentation.</p>
+<div class="section" id="documentation-files">
+<h3>15.2.4.1. [documentation] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[files]]<a class="headerlink" href="#documentation-files" title="Permalink to this headline">¶</a></h3>
+<p>File locations of documentation held locally on the cylc host server.</p>
+<div class="section" id="documentation-files-html-index">
+<h4>15.2.4.1.1. [documentation] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[files]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> html index<a class="headerlink" href="#documentation-files-html-index" title="Permalink to this headline">¶</a></h4>
+<p>File location of the main cylc documentation index.</p>
+<ul class="simple">
+<li><em>type</em>: string</li>
+<li><em>default</em>: <code class="docutils literal notranslate"><span class="pre">&lt;cylc-dir&gt;/doc/index.html</span></code></li>
+</ul>
 </div>
-<div class="section" id="documentation-local">
-<h3>15.2.4.2. [documentation] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[local]]<a class="headerlink" href="#documentation-local" title="Permalink to this headline">¶</a></h3>
-<p>Path where the cylc documentation will appear if built locally.</p>
+<div class="section" id="documentation-files-pdf-user-guide">
+<h4>15.2.4.1.2. [documentation] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[files]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> pdf user guide<a class="headerlink" href="#documentation-files-pdf-user-guide" title="Permalink to this headline">¶</a></h4>
+<p>File location of the cylc User Guide, PDF version.</p>
+<ul class="simple">
+<li><em>type</em>: string</li>
+<li><em>default</em>: <code class="docutils literal notranslate"><span class="pre">&lt;cylc-dir&gt;/doc/cug-pdf.pdf</span></code></li>
+</ul>
 </div>
-<div class="section" id="documentation-cylc-homepage">
-<h3>15.2.4.3. [documentation] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[cylc homepage]]<a class="headerlink" href="#documentation-cylc-homepage" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="documentation-files-multi-page-html-user-guide">
+<h4>15.2.4.1.3. [documentation] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[files]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> multi-page html user guide<a class="headerlink" href="#documentation-files-multi-page-html-user-guide" title="Permalink to this headline">¶</a></h4>
+<p>File location of the cylc User Guide, multi-page HTML version.</p>
+<ul class="simple">
+<li><em>type</em>: string</li>
+<li><em>default</em>: <code class="docutils literal notranslate"><span class="pre">&lt;cylc-dir&gt;/doc/html/multi/cug-html.html</span></code></li>
+</ul>
+</div>
+<div class="section" id="documentation-files-single-page-html-user-guide">
+<h4>15.2.4.1.4. [documentation] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[files]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> single-page html user guide<a class="headerlink" href="#documentation-files-single-page-html-user-guide" title="Permalink to this headline">¶</a></h4>
+<p>File location of the cylc User Guide, single-page HTML version.</p>
+<ul class="simple">
+<li><em>type</em>: string</li>
+<li><em>default</em>: <code class="docutils literal notranslate"><span class="pre">&lt;cylc-dir&gt;/doc/html/single/cug-html.html</span></code></li>
+</ul>
+</div>
+</div>
+<div class="section" id="documentation-urls">
+<h3>15.2.4.2. [documentation] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[urls]]<a class="headerlink" href="#documentation-urls" title="Permalink to this headline">¶</a></h3>
+<p>Online documentation URLs.</p>
+<div class="section" id="documentation-urls-internet-homepage">
+<h4>15.2.4.2.1. [documentation] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[urls]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> internet homepage<a class="headerlink" href="#documentation-urls-internet-homepage" title="Permalink to this headline">¶</a></h4>
 <p>URL of the cylc internet homepage, with links to documentation for the
 latest official release.</p>
 <ul class="simple">
@@ -213,12 +244,29 @@ latest official release.</p>
 <li><em>default</em>: <a class="reference external" href="http://cylc.github.com/cylc/">http://cylc.github.com/cylc/</a></li>
 </ul>
 </div>
+<div class="section" id="documentation-urls-local-index">
+<h4>15.2.4.2.2. [documentation] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[urls]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> local index<a class="headerlink" href="#documentation-urls-local-index" title="Permalink to this headline">¶</a></h4>
+<p>Local intranet URL of the main cylc documentation index.</p>
+<ul class="simple">
+<li><em>type</em>: string</li>
+<li><em>default</em>: (none)</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="section" id="document-viewers">
 <h2>15.2.5. [document viewers]<a class="headerlink" href="#document-viewers" title="Permalink to this headline">¶</a></h2>
 <p>PDF and HTML viewers can be launched by cylc to view the documentation.</p>
+<div class="section" id="document-viewers-pdf">
+<h3>15.2.5.1. [document viewers] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> pdf<a class="headerlink" href="#document-viewers-pdf" title="Permalink to this headline">¶</a></h3>
+<p>Your preferred PDF viewer program.</p>
+<ul class="simple">
+<li><em>type</em>: string</li>
+<li><em>default</em>: evince</li>
+</ul>
+</div>
 <div class="section" id="document-viewers-html">
-<h3>15.2.5.1. [document viewers] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> html<a class="headerlink" href="#document-viewers-html" title="Permalink to this headline">¶</a></h3>
+<h3>15.2.5.2. [document viewers] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> html<a class="headerlink" href="#document-viewers-html" title="Permalink to this headline">¶</a></h3>
 <p>Your preferred web browser.</p>
 <ul class="simple">
 <li><em>type</em>: string</li>
@@ -256,7 +304,9 @@ latest official release.</p>
 <div class="section" id="communication">
 <h2>15.2.7. [communication]<a class="headerlink" href="#communication" title="Permalink to this headline">¶</a></h2>
 <p>This section covers options for network communication between cylc
-clients (suite-connecting commands and guis) servers (running suites).</p>
+clients (suite-connecting commands and guis) servers (running suites).
+Each suite listens on a dedicated network port, binding on the first
+available starting at the configured base port.</p>
 <p>By default, the communication method is HTTPS secured with HTTP Digest
 Authentication. If the system does not support SSL, you should configure
 this section to use HTTP. Cylc will not automatically fall back to HTTP
@@ -274,8 +324,35 @@ Cylc defaults to HTTPS if this setting is not explicitly configured.</p>
 <li><em>default</em>: https</li>
 </ul>
 </div>
+<div class="section" id="communication-base-port">
+<h3>15.2.7.2. [communication] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> base port<a class="headerlink" href="#communication-base-port" title="Permalink to this headline">¶</a></h3>
+<p>The first port that Cylc is allowed to use. This item (and
+<code class="docutils literal notranslate"><span class="pre">maximum</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">ports</span></code>) is deprecated; please use
+<code class="docutils literal notranslate"><span class="pre">run</span> <span class="pre">ports</span></code> under <code class="docutils literal notranslate"><span class="pre">[suite</span> <span class="pre">servers]</span></code> instead.</p>
+<ul class="simple">
+<li><em>type</em>: integer</li>
+<li><em>default</em>: <code class="docutils literal notranslate"><span class="pre">43001</span></code></li>
+</ul>
+</div>
+<div class="section" id="communication-maximum-number-of-ports">
+<h3>15.2.7.3. [communication] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> maximum number of ports<a class="headerlink" href="#communication-maximum-number-of-ports" title="Permalink to this headline">¶</a></h3>
+<p>This setting (and <code class="docutils literal notranslate"><span class="pre">base</span> <span class="pre">port</span></code>) is deprecated; please use
+<code class="docutils literal notranslate"><span class="pre">run</span> <span class="pre">ports</span></code> under <code class="docutils literal notranslate"><span class="pre">[suite</span> <span class="pre">servers]</span></code> instead.</p>
+<ul class="simple">
+<li><em>type</em>: integer</li>
+<li><em>default</em>: <code class="docutils literal notranslate"><span class="pre">100</span></code></li>
+</ul>
+</div>
+<div class="section" id="communication-proxies-on">
+<h3>15.2.7.4. [communication] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> proxies on<a class="headerlink" href="#communication-proxies-on" title="Permalink to this headline">¶</a></h3>
+<p>Enable or disable proxy servers for HTTPS - disabled by default.</p>
+<ul class="simple">
+<li><em>type</em>: boolean</li>
+<li><em>localhost default</em>: False</li>
+</ul>
+</div>
 <div class="section" id="communication-options">
-<h3>15.2.7.2. [communication] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> options<a class="headerlink" href="#communication-options" title="Permalink to this headline">¶</a></h3>
+<h3>15.2.7.5. [communication] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> options<a class="headerlink" href="#communication-options" title="Permalink to this headline">¶</a></h3>
 <p>Option flags for the communication method. Currently only ‘SHA1’ is
 supported for HTTPS, which alters HTTP Digest Auth to use the SHA1 hash
 algorithm rather than the standard MD5. This is more secure but is also
@@ -708,6 +785,9 @@ a <code class="docutils literal notranslate"><span class="pre">run</span></code>
 of this list determines the maximum number of suites that can run
 at once per suite host.</p>
 </div>
+<p>This config item supersedes the deprecated settings <code class="docutils literal notranslate"><span class="pre">base</span> <span class="pre">port</span></code>
+and <code class="docutils literal notranslate"><span class="pre">maximum</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">ports</span></code>, where the base port is equivalent to
+the first port, and the maximum number of ports to the length, of this list.</p>
 <ul class="simple">
 <li><em>type</em>: string in the format <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">..</span> <span class="pre">Y</span></code> for
 <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">&lt;=</span> <span class="pre">Y</span></code> where <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">Y</span></code> are integers.</li>
@@ -959,44 +1039,47 @@ of which can be found under <a class="reference internal" href="suiterc-config-r
 <div class="section" id="cylc-events-shutdown-handler">
 <h4>15.2.14.4.4. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> shutdown handler<a class="headerlink" href="#cylc-events-shutdown-handler" title="Permalink to this headline">¶</a></h4>
 </div>
+<div class="section" id="cylc-events-aborted-handler">
+<h4>15.2.14.4.5. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> aborted handler<a class="headerlink" href="#cylc-events-aborted-handler" title="Permalink to this headline">¶</a></h4>
+</div>
 <div class="section" id="cylc-events-mail-events">
-<h4>15.2.14.4.5. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail events<a class="headerlink" href="#cylc-events-mail-events" title="Permalink to this headline">¶</a></h4>
+<h4>15.2.14.4.6. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail events<a class="headerlink" href="#cylc-events-mail-events" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="cylc-events-mail-footer">
-<h4>15.2.14.4.6. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail footer<a class="headerlink" href="#cylc-events-mail-footer" title="Permalink to this headline">¶</a></h4>
+<h4>15.2.14.4.7. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail footer<a class="headerlink" href="#cylc-events-mail-footer" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="cylc-events-mail-from">
-<h4>15.2.14.4.7. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail from<a class="headerlink" href="#cylc-events-mail-from" title="Permalink to this headline">¶</a></h4>
+<h4>15.2.14.4.8. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail from<a class="headerlink" href="#cylc-events-mail-from" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="cylc-events-mail-smtp">
-<h4>15.2.14.4.8. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail smtp<a class="headerlink" href="#cylc-events-mail-smtp" title="Permalink to this headline">¶</a></h4>
+<h4>15.2.14.4.9. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail smtp<a class="headerlink" href="#cylc-events-mail-smtp" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="cylc-events-mail-to">
-<h4>15.2.14.4.9. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail to<a class="headerlink" href="#cylc-events-mail-to" title="Permalink to this headline">¶</a></h4>
+<h4>15.2.14.4.10. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> mail to<a class="headerlink" href="#cylc-events-mail-to" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="cylc-events-timeout-handler">
-<h4>15.2.14.4.10. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> timeout handler<a class="headerlink" href="#cylc-events-timeout-handler" title="Permalink to this headline">¶</a></h4>
+<h4>15.2.14.4.11. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> timeout handler<a class="headerlink" href="#cylc-events-timeout-handler" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="cylc-events-timeout">
-<h4>15.2.14.4.11. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> timeout<a class="headerlink" href="#cylc-events-timeout" title="Permalink to this headline">¶</a></h4>
+<h4>15.2.14.4.12. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> timeout<a class="headerlink" href="#cylc-events-timeout" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="cylc-events-abort-on-timeout">
-<h4>15.2.14.4.12. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> abort on timeout<a class="headerlink" href="#cylc-events-abort-on-timeout" title="Permalink to this headline">¶</a></h4>
+<h4>15.2.14.4.13. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> abort on timeout<a class="headerlink" href="#cylc-events-abort-on-timeout" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="cylc-events-stalled-handler">
-<h4>15.2.14.4.13. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> stalled handler<a class="headerlink" href="#cylc-events-stalled-handler" title="Permalink to this headline">¶</a></h4>
+<h4>15.2.14.4.14. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> stalled handler<a class="headerlink" href="#cylc-events-stalled-handler" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="cylc-events-abort-on-stalled">
-<h4>15.2.14.4.14. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> abort on stalled<a class="headerlink" href="#cylc-events-abort-on-stalled" title="Permalink to this headline">¶</a></h4>
+<h4>15.2.14.4.15. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> abort on stalled<a class="headerlink" href="#cylc-events-abort-on-stalled" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="cylc-events-inactivity-handler">
-<h4>15.2.14.4.15. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> inactivity handler<a class="headerlink" href="#cylc-events-inactivity-handler" title="Permalink to this headline">¶</a></h4>
+<h4>15.2.14.4.16. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> inactivity handler<a class="headerlink" href="#cylc-events-inactivity-handler" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="cylc-events-inactivity">
-<h4>15.2.14.4.16. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> inactivity<a class="headerlink" href="#cylc-events-inactivity" title="Permalink to this headline">¶</a></h4>
+<h4>15.2.14.4.17. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> inactivity<a class="headerlink" href="#cylc-events-inactivity" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="cylc-events-abort-on-inactivity">
-<h4>15.2.14.4.17. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> abort on inactivity<a class="headerlink" href="#cylc-events-abort-on-inactivity" title="Permalink to this headline">¶</a></h4>
+<h4>15.2.14.4.18. [cylc] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[events]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> abort on inactivity<a class="headerlink" href="#cylc-events-abort-on-inactivity" title="Permalink to this headline">¶</a></h4>
 </div>
 </div>
 </div>
@@ -1083,8 +1166,9 @@ control.</li>
 <li class="toctree-l2"><a class="reference internal" href="readme-file.html">15.8. Cylc README File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install-file.html">15.9. Cylc INSTALL File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dev-history-major-changes.html">15.10. Cylc Development History - Major Changes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="known-issues.html">15.11. Known Issues</a></li>
-<li class="toctree-l2"><a class="reference internal" href="licensing.html">15.12. GNU GENERAL PUBLIC LICENSE v3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cylc-6-migration-ref.html">15.11. Cylc 6 Migration Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="known-issues.html">15.12. Known Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="licensing.html">15.13. GNU GENERAL PUBLIC LICENSE v3.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../suite-design-guide/suite-design-guide-master.html">16. Suite Design Guide</a></li>
@@ -1125,13 +1209,13 @@ control.</li>
         <li class="right" >
           <a href="suiterc-config-ref.html" title="15.1. Suite.rc Reference"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.1-39-gf3b0d documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="appendices-master.html" >15. Appendices</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2008-2019 NIWA &amp; British Crown (Met Office) &amp; Contributors.
-      Last updated on Mar 01, 2019.
+      Last updated on May 02, 2019.
     </div>
   </body>
 </html>

@@ -151,15 +151,15 @@ modified slightly to point to a location such as ``/opt`` where
 successive Cylc releases will be unpacked side by side.
 
 To install Cylc, unpack the release tarball in the right location, e.g.
-``/opt/cylc-7.7.0``, type ``make`` inside the release
+``/opt/cylc-7.8.2``, type ``make`` inside the release
 directory, and set site defaults - if necessary - in a site global config file
 (below).
 
 Make a symbolic link from ``cylc`` to the latest installed version:
-``ln -s /opt/cylc-7.7.0 /opt/cylc``. This will be invoked by the
+``ln -s /opt/cylc-7.8.2 /opt/cylc``. This will be invoked by the
 central wrapper if a specific version is not requested. Otherwise, the
 wrapper will attempt to invoke the Cylc version specified in
-``$CYLC_VERSION``, e.g. ``CYLC_VERSION=7.7.0``. This variable
+``$CYLC_VERSION``, e.g. ``CYLC_VERSION=7.8.2``. This variable
 is automatically set in task job scripts to ensure that jobs use the same Cylc
 version as their parent suite server program.  It can also be set by users,
 manually or in login scripts, to fix the Cylc version in their environment.
@@ -267,60 +267,13 @@ debug problems.
 .. _RTAST:
 
 Automated Tests
-^^^^^^^^^^^^^^^
+---------------
 
-For development purposes there are four sets of tests:
+The cylc test battery is primarily intended for developers to check that
+changes to the source code don't break existing functionality.
 
-Unittests
-   Fast to run Python unittests.
+.. note::
 
-   Location
-      ``tests`` sub directories within the Python code library.
-   Configuration
-      ``pytest.ini``
-   Execution
-      .. code-block:: console
-
-         $ pytest
-
-Residual Tests
-   Large scale integration tests of the whole Cylc machinary.
-
-   Location
-      ``tests/``
-   Execution
-      .. code-block:: console
-
-         $ cylc test-battery
-
-   .. note::
-
-      Some test failures can be expected to result from suites timing out,
-      even if nothing is wrong, if you run too many tests in parallel. See
-      ``cylc test-battery --help``.
-
-Code Style Tests
-   Tests to ensure the codebase conforms to code style.
-
-   Execution
-      .. code-block:: console
-
-         $ pycodestyle --ignore=E402,W503,W504 \
-            lib/cylc \
-            lib/Jinja2Filters/*.py \
-            lib/parsec/*.py \
-            $(grep -l '#!.*\<python\>' bin/*)
-
-Performance Tests
-   A system for measuring the performance of Cylc as measured against reference
-   suites.
-
-   Location
-      * ``etc/profile-experiments/``
-      * ``.profiling/experiments``
-   Configuration
-      ``.profiling``
-   Execution
-      .. code-block:: console
-
-         $ cylc profile-battery -e EXPERIMENT .. -v VERSION ..
+   Some test failures can be expected to result from suites timing out,
+   even if nothing is wrong, if you run too many tests in parallel. See
+   ``cylc test-battery --help``.

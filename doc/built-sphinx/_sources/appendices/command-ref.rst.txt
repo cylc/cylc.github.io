@@ -15,7 +15,7 @@ Help
    ordinary non-cycling workflows.
    For detailed documentation see the Cylc User Guide (cylc doc --help).
    
-   Version 7.8.1-39-gf3b0d
+   Version 7.8.2
    
    The graphical user interface for cylc is "gcylc" (a.k.a. "cylc gui").
    
@@ -71,10 +71,10 @@ Command Categories
 ------------------
 
 
+.. _command-cat-admin:
+
 admin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-cat-admin:
 
 .. code-block:: none
 
@@ -90,12 +90,13 @@ admin
      make-docs ......... Build the HTML documentation with Sphinx.
      profile-battery ... Run a battery of profiling tests
      test-battery ...... Run a battery of self-diagnosing test suites
+     upgrade-run-dir ... Upgrade a pre-cylc-6 suite run directory
 
+
+.. _command-cat-all:
 
 all
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-cat-all:
 
 .. code-block:: none
 
@@ -106,6 +107,7 @@ all
      The category all may be omitted.
    
    COMMANDS:
+     5to6 ........................................ Improve the cylc 6 compatibility of a cylc 5 suite file
      broadcast|bcast ............................. Change suite [runtime] settings on the fly
      cat-log|log ................................. Print various suite and task log files
      cat-state ................................... Print the state of tasks from the state dump
@@ -120,6 +122,8 @@ all
      documentation|browse ........................ Display cylc documentation (User Guide etc.)
      dump ........................................ Print the state of tasks in a running suite
      edit ........................................ Edit suite definitions, optionally inlined
+     email-suite ................................. A suite event hook script that sends email alerts
+     email-task .................................. A task event hook script that sends email alerts
      ext-trigger|external-trigger ................ Report an external trigger event to a suite
      function-run ................................ (Internal) Run a function in the process pool
      get-directory ............................... Retrieve suite source directory paths
@@ -174,15 +178,16 @@ all
      suite-state ................................. Query the task states in a suite
      test-battery ................................ Run a battery of self-diagnosing test suites
      trigger ..................................... Manually trigger or re-trigger a task
+     upgrade-run-dir ............................. Upgrade a pre-cylc-6 suite run directory
      validate .................................... Parse and validate suite definitions
      view ........................................ View suite definitions, inlined and Jinja2 processed
      warranty .................................... Print the GPLv3 disclaimer of warranty
 
 
+.. _command-cat-control:
+
 control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-cat-control:
 
 .. code-block:: none
 
@@ -215,10 +220,10 @@ control
      trigger ........................ Manually trigger or re-trigger a task
 
 
+.. _command-cat-discovery:
+
 discovery
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-cat-discovery:
 
 .. code-block:: none
 
@@ -234,10 +239,10 @@ discovery
      scan ............. Scan a host for running suites
 
 
+.. _command-cat-hook:
+
 hook
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-cat-hook:
 
 .. code-block:: none
 
@@ -249,12 +254,14 @@ hook
    
    COMMANDS:
      check-triggering ... A suite shutdown event hook for cylc testing
+     email-suite ........ A suite event hook script that sends email alerts
+     email-task ......... A task event hook script that sends email alerts
 
+
+.. _command-cat-information:
 
 information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-cat-information:
 
 .. code-block:: none
 
@@ -284,10 +291,10 @@ information
      show ................................. Print task state (prerequisites and outputs etc.)
 
 
+.. _command-cat-license:
+
 license
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-cat-license:
 
 .. code-block:: none
 
@@ -302,10 +309,10 @@ license
      warranty ..... Print the GPLv3 disclaimer of warranty
 
 
+.. _command-cat-preparation:
+
 preparation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-cat-preparation:
 
 .. code-block:: none
 
@@ -316,6 +323,7 @@ preparation
      The category preparation may be omitted.
    
    COMMANDS:
+     5to6 ............ Improve the cylc 6 compatibility of a cylc 5 suite file
      diff|compare .... Compare two suite definitions and print differences
      edit ............ Edit suite definitions, optionally inlined
      get-directory ... Retrieve suite source directory paths
@@ -330,10 +338,10 @@ preparation
      view ............ View suite definitions, inlined and Jinja2 processed
 
 
+.. _command-cat-task:
+
 task
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-cat-task:
 
 .. code-block:: none
 
@@ -353,10 +361,10 @@ task
      submit|single .......... Run a single task just as its parent suite would
 
 
+.. _command-cat-utility:
+
 utility
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-cat-utility:
 
 .. code-block:: none
 
@@ -379,10 +387,62 @@ Commands
 --------
 
 
-broadcast
+.. _command-5to6:
+
+5to6
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. code-block:: none
+
+      Usage: cylc [prep] 5to6 FILE
+   
+   Suggest changes to a cylc 5 suite file to make it more cylc 6 compatible.
+   This may be a suite.rc file, an include file, or a suite.rc.processed file.
+   
+   By default, print the changed file to stdout. Lines that have been changed
+   are marked with '# UPGRADE'. These marker comments are purely for your own
+   information and should not be included in any changes you make. In
+   particular, they may break continuation lines.
+   
+   Lines with '# UPGRADE CHANGE' have been altered.
+   Lines with '# UPGRADE ... INFO' indicate that manual change is needed.
+   
+   As of cylc 7, 'cylc validate' will no longer print out automatic dependency
+   section translations. At cylc 6 versions of cylc, 'cylc validate' will show
+   start-up/mixed async replacement R1* section(s). The validity of these can
+   be highly dependent on the initial cycle point choice (e.g. whether it is
+   T00 or T12).
+   
+   This command works best for hour-based cycling - it will always convert
+   e.g. 'foo[T-6]' to 'foo[-PT6H]', even where this is in a monthly or yearly
+   cycling section graph.
+   
+   This command is an aid, and is not an auto-upgrader or a substitute for
+   reading the documentation. The suggested changes must be understood and
+   checked by hand.
+   
+   Example usage:
+   
+   # Print out a file path (FILE) with suggested changes to stdout.
+   cylc 5to6 FILE
+   
+   # Replace the file with the suggested changes file.
+   cylc 5to6 FILE > FILE
+   
+   # Save a copy of the changed file.
+   cylc 5to6 FILE > FILE.5to6
+   
+   # Show the diff of the changed file vs the original file.
+   diff - <(cylc 5to6 FILE) <FILE
+   
+   Options:
+     -h, --help   Print this help message and exit.
+
+
 .. _command-broadcast:
+
+broadcast
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: none
 
@@ -510,10 +570,10 @@ broadcast
                            config files.
 
 
+.. _command-cat-log:
+
 cat-log
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-cat-log:
 
 .. code-block:: none
 
@@ -574,10 +634,10 @@ cat-log
                            tracebacks.
 
 
+.. _command-cat-state:
+
 cat-state
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-cat-state:
 
 .. code-block:: none
 
@@ -600,10 +660,10 @@ cat-state
      --debug        Output developer information and show exception tracebacks.
 
 
+.. _command-check-software:
+
 check-software
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-check-software:
 
 .. code-block:: none
 
@@ -624,10 +684,10 @@ check-software
    
 
 
+.. _command-check-triggering:
+
 check-triggering
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-check-triggering:
 
 .. code-block:: none
 
@@ -661,10 +721,10 @@ check-triggering
     that changes to cylc have not broken your suites.
 
 
+.. _command-check-versions:
+
 check-versions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-check-versions:
 
 .. code-block:: none
 
@@ -691,8 +751,8 @@ check-versions
    
    Options:
      -h, --help            show this help message and exit
-     -e, --error           Exit with error status if 7.8.1-39-gf3b0d is not
-                           available on all remote accounts.
+     -e, --error           Exit with error status if 7.8.2 is not available on
+                           all remote accounts.
      -v, --verbose         Verbose output mode.
      --debug               Output developer information and show exception
                            tracebacks.
@@ -712,10 +772,10 @@ check-versions
                            overridden.
 
 
+.. _command-checkpoint:
+
 checkpoint
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-checkpoint:
 
 .. code-block:: none
 
@@ -762,10 +822,10 @@ checkpoint
                            config files.
 
 
+.. _command-client:
+
 client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-client:
 
 .. code-block:: none
 
@@ -815,10 +875,10 @@ client
                            config files.
 
 
+.. _command-conditions:
+
 conditions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-conditions:
 
 .. code-block:: none
 
@@ -830,10 +890,10 @@ conditions
      --help   Print this usage message.
 
 
+.. _command-cycle-point:
+
 cycle-point
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-cycle-point:
 
 .. code-block:: none
 
@@ -899,10 +959,10 @@ cycle-point
                            tracebacks.
 
 
+.. _command-diff:
+
 diff
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-diff:
 
 .. code-block:: none
 
@@ -950,10 +1010,10 @@ diff
                            suite.rc.
 
 
+.. _command-documentation:
+
 documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-documentation:
 
 .. code-block:: none
 
@@ -961,8 +1021,9 @@ documentation
    
    View documentation in the browser, as per Cylc global config.
    
-   % cylc doc [--local] [OPTIONS]
-       Open the Cylc documentation.
+   % cylc doc [OPTIONS]
+      View local or internet [--www] Cylc documentation URLs.
+   
    % cylc doc [-t TASK] SUITE
        View suite or task documentation, if URLs are specified in the suite. This
        parses the suite definition to extract the requested URL. Note that suite
@@ -973,19 +1034,20 @@ documentation
    
    Options:
      -h, --help            show this help message and exit
-     --local               Open the local documentation (if it has been built,
-                           see cylc make-docs).
+     -g, --guides          Open the HTML (User & Suite Design) Guides directly.
+     -w, --www             Open the cylc internet homepage
      -t TASK_NAME, --task=TASK_NAME
                            Browse task documentation URLs.
      -s, --stdout          Just print the URL to stdout.
      --debug               Print exception traceback on error.
+     --url=URL             URL to view in your configured browser.
      -v, --verbose         Verbose output mode.
 
 
+.. _command-dump:
+
 dump
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-dump:
 
 .. code-block:: none
 
@@ -1043,10 +1105,10 @@ dump
                            logged unless the suite is running in debug mode).
 
 
+.. _command-edit:
+
 edit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-edit:
 
 .. code-block:: none
 
@@ -1109,10 +1171,66 @@ edit
      --suite-owner=OWNER  Specify suite owner
 
 
-ext-trigger
+.. _command-email-suite:
+
+email-suite
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. code-block:: none
+
+      Usage: cylc [hook] email-suite EVENT SUITE MESSAGE
+   
+   THIS COMMAND IS OBSOLETE - use built-in email event hooks.
+   
+   This is a simple suite event hook script that sends an email.
+   The command line arguments are supplied automatically by cylc.
+   
+   For example, to get an email alert when a suite shuts down:
+   
+   # SUITE.RC
+   [cylc]
+      [[environment]]
+         MAIL_ADDRESS = foo@bar.baz.waz
+      [[events]]
+         shutdown handler = cylc email-suite
+   
+   See the Suite.rc Reference (Cylc User Guide) for more information
+   on suite and task event hooks and event handler scripts.
+
+
+.. _command-email-task:
+
+email-task
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: none
+
+      Usage: cylc [hook] email-task EVENT SUITE TASKID MESSAGE
+   
+   THIS COMMAND IS OBSOLETE - use built-in email event hooks.
+   
+   A simple task event hook handler script that sends an email.
+   The command line arguments are supplied automatically by cylc.
+   
+   For example, to get an email alert whenever any task fails:
+   
+   # SUITE.RC
+   [cylc]
+      [[environment]]
+         MAIL_ADDRESS = foo@bar.baz.waz
+   [runtime]
+      [[root]]
+         [[[events]]]
+            failed handler = cylc email-task
+   
+   See the Suite.rc Reference (Cylc User Guide) for more information
+   on suite and task event hooks and event handler scripts.
+
+
 .. _command-ext-trigger:
+
+ext-trigger
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: none
 
@@ -1176,10 +1294,10 @@ ext-trigger
                            config files.
 
 
+.. _command-function-run:
+
 function-run
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-function-run:
 
 .. code-block:: none
 
@@ -1194,10 +1312,10 @@ function-run
    
 
 
+.. _command-get-directory:
+
 get-directory
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-get-directory:
 
 .. code-block:: none
 
@@ -1222,10 +1340,10 @@ get-directory
      --suite-owner=OWNER  Specify suite owner
 
 
+.. _command-get-gui-config:
+
 get-gui-config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-get-gui-config:
 
 .. code-block:: none
 
@@ -1249,10 +1367,10 @@ get-gui-config
                            tracebacks.
 
 
+.. _command-get-host-metrics:
+
 get-host-metrics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-get-host-metrics:
 
 .. code-block:: none
 
@@ -1284,10 +1402,10 @@ get-host-metrics
      --disk-space=DISK  Available disk space, in KB, from the 'df -Pk' command.
 
 
+.. _command-get-site-config:
+
 get-site-config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-get-site-config:
 
 .. code-block:: none
 
@@ -1313,10 +1431,10 @@ get-site-config
                            tracebacks.
 
 
+.. _command-get-suite-config:
+
 get-suite-config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-get-suite-config:
 
 .. code-block:: none
 
@@ -1400,10 +1518,10 @@ get-suite-config
                            suite.rc.
 
 
+.. _command-get-suite-contact:
+
 get-suite-contact
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-get-suite-contact:
 
 .. code-block:: none
 
@@ -1424,10 +1542,10 @@ get-suite-contact
      --debug        Output developer information and show exception tracebacks.
 
 
+.. _command-get-suite-version:
+
 get-suite-version
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-get-suite-version:
 
 .. code-block:: none
 
@@ -1474,10 +1592,10 @@ get-suite-version
                            config files.
 
 
+.. _command-gpanel:
+
 gpanel
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-gpanel:
 
 .. code-block:: none
 
@@ -1504,10 +1622,10 @@ gpanel
      --test      Run in a standalone window.
 
 
+.. _command-graph:
+
 graph
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-graph:
 
 .. code-block:: none
 
@@ -1606,10 +1724,10 @@ graph
                            overridden.
 
 
+.. _command-graph-diff:
+
 graph-diff
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-graph-diff:
 
 .. code-block:: none
 
@@ -1624,10 +1742,10 @@ graph-diff
    GRAPH_OPTIONS_ARGS: Options and arguments passed directly to cylc graph.
 
 
+.. _command-gscan:
+
 gscan
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-gscan:
 
 .. code-block:: none
 
@@ -1680,10 +1798,10 @@ gscan
                            logged unless the suite is running in debug mode).
 
 
+.. _command-gui:
+
 gui
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-gui:
 
 .. code-block:: none
 
@@ -1761,10 +1879,10 @@ gui
                            overridden.
 
 
+.. _command-hold:
+
 hold
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-hold:
 
 .. code-block:: none
 
@@ -1841,10 +1959,10 @@ hold
                            Disallow backward compatible multitask interface.
 
 
+.. _command-import-examples:
+
 import-examples
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-import-examples:
 
 .. code-block:: none
 
@@ -1857,10 +1975,10 @@ import-examples
       DIR    destination directory
 
 
+.. _command-insert:
+
 insert
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-insert:
 
 .. code-block:: none
 
@@ -1947,10 +2065,10 @@ insert
                            Disallow backward compatible multitask interface.
 
 
+.. _command-jobs-kill:
+
 jobs-kill
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-jobs-kill:
 
 .. code-block:: none
 
@@ -1977,10 +2095,10 @@ jobs-kill
      --debug        Output developer information and show exception tracebacks.
 
 
+.. _command-jobs-poll:
+
 jobs-poll
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-jobs-poll:
 
 .. code-block:: none
 
@@ -2006,10 +2124,10 @@ jobs-poll
      --debug        Output developer information and show exception tracebacks.
 
 
+.. _command-jobs-submit:
+
 jobs-submit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-jobs-submit:
 
 .. code-block:: none
 
@@ -2037,10 +2155,10 @@ jobs-submit
      --debug        Output developer information and show exception tracebacks.
 
 
+.. _command-jobscript:
+
 jobscript
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-jobscript:
 
 .. code-block:: none
 
@@ -2069,10 +2187,10 @@ jobscript
      TASK         Task ID (NAME.CYCLE_POINT)
 
 
+.. _command-kill:
+
 kill
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-kill:
 
 .. code-block:: none
 
@@ -2146,10 +2264,10 @@ kill
                            Disallow backward compatible multitask interface.
 
 
+.. _command-list:
+
 list
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-list:
 
 .. code-block:: none
 
@@ -2206,10 +2324,10 @@ list
                            suite.rc.
 
 
+.. _command-ls-checkpoints:
+
 ls-checkpoints
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-ls-checkpoints:
 
 .. code-block:: none
 
@@ -2235,10 +2353,10 @@ ls-checkpoints
      --debug        Output developer information and show exception tracebacks.
 
 
+.. _command-make-docs:
+
 make-docs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-make-docs:
 
 .. code-block:: none
 
@@ -2249,10 +2367,10 @@ make-docs
      --help   Print this usage message.
 
 
+.. _command-message:
+
 message
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-message:
 
 .. code-block:: none
 
@@ -2350,10 +2468,10 @@ message
                            config files.
 
 
+.. _command-monitor:
+
 monitor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-monitor:
 
 .. code-block:: none
 
@@ -2414,10 +2532,10 @@ monitor
                            logged unless the suite is running in debug mode).
 
 
+.. _command-nudge:
+
 nudge
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-nudge:
 
 .. code-block:: none
 
@@ -2471,10 +2589,10 @@ nudge
                            config files.
 
 
+.. _command-ping:
+
 ping
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-ping:
 
 .. code-block:: none
 
@@ -2521,10 +2639,10 @@ ping
                            config files.
 
 
+.. _command-poll:
+
 poll
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-poll:
 
 .. code-block:: none
 
@@ -2599,10 +2717,10 @@ poll
                            Disallow backward compatible multitask interface.
 
 
+.. _command-print:
+
 print
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-print:
 
 .. code-block:: none
 
@@ -2636,10 +2754,10 @@ print
      --debug        Output developer information and show exception tracebacks.
 
 
+.. _command-profile-battery:
+
 profile-battery
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-profile-battery:
 
 .. code-block:: none
 
@@ -2717,10 +2835,10 @@ profile-battery
                            saving results and regardless of any prior runs.
 
 
+.. _command-register:
+
 register
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-register:
 
 .. code-block:: none
 
@@ -2773,10 +2891,10 @@ register
      --debug        Output developer information and show exception tracebacks.
 
 
+.. _command-release:
+
 release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-release:
 
 .. code-block:: none
 
@@ -2851,10 +2969,10 @@ release
                            Disallow backward compatible multitask interface.
 
 
+.. _command-reload:
+
 reload
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-reload:
 
 .. code-block:: none
 
@@ -2918,10 +3036,10 @@ reload
                            config files.
 
 
+.. _command-remote-init:
+
 remote-init
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-remote-init:
 
 .. code-block:: none
 
@@ -2963,10 +3081,10 @@ remote-init
                            tracebacks.
 
 
+.. _command-remote-tidy:
+
 remote-tidy
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-remote-tidy:
 
 .. code-block:: none
 
@@ -2991,10 +3109,10 @@ remote-tidy
      --debug        Output developer information and show exception tracebacks.
 
 
+.. _command-remove:
+
 remove
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-remove:
 
 .. code-block:: none
 
@@ -3069,10 +3187,10 @@ remove
                            Disallow backward compatible multitask interface.
 
 
+.. _command-report-timings:
+
 report-timings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-report-timings:
 
 .. code-block:: none
 
@@ -3127,10 +3245,10 @@ report-timings
                            tracebacks.
 
 
+.. _command-reset:
+
 reset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-reset:
 
 .. code-block:: none
 
@@ -3220,10 +3338,10 @@ reset
                            Disallow backward compatible multitask interface.
 
 
+.. _command-restart:
+
 restart
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-restart:
 
 .. code-block:: none
 
@@ -3293,10 +3411,10 @@ restart
                            overridden.
 
 
+.. _command-review:
+
 review
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-review:
 
 .. code-block:: none
 
@@ -3322,10 +3440,10 @@ review
                            only).
 
 
+.. _command-run:
+
 run
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-run:
 
 .. code-block:: none
 
@@ -3407,10 +3525,10 @@ run
                            overridden.
 
 
+.. _command-scan:
+
 scan
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-scan:
 
 .. code-block:: none
 
@@ -3491,10 +3609,10 @@ scan
                            logged unless the suite is running in debug mode).
 
 
+.. _command-scp-transfer:
+
 scp-transfer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-scp-transfer:
 
 .. code-block:: none
 
@@ -3518,10 +3636,10 @@ scp-transfer
     --help - print this usage message.
 
 
+.. _command-search:
+
 search
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-search:
 
 .. code-block:: none
 
@@ -3558,10 +3676,10 @@ search
      --suite-owner=OWNER  Specify suite owner
 
 
+.. _command-set-verbosity:
+
 set-verbosity
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-set-verbosity:
 
 .. code-block:: none
 
@@ -3609,10 +3727,10 @@ set-verbosity
                            config files.
 
 
+.. _command-show:
+
 show
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-show:
 
 .. code-block:: none
 
@@ -3682,10 +3800,10 @@ show
                            Disallow backward compatible multitask interface.
 
 
+.. _command-spawn:
+
 spawn
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-spawn:
 
 .. code-block:: none
 
@@ -3758,10 +3876,10 @@ spawn
                            Disallow backward compatible multitask interface.
 
 
+.. _command-stop:
+
 stop
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-stop:
 
 .. code-block:: none
 
@@ -3837,10 +3955,10 @@ stop
                            config files.
 
 
+.. _command-submit:
+
 submit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-submit:
 
 .. code-block:: none
 
@@ -3889,10 +4007,10 @@ submit
                            suite.rc.
 
 
+.. _command-suite-state:
+
 suite-state
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-suite-state:
 
 .. code-block:: none
 
@@ -3967,25 +4085,25 @@ suite-state
                            tracebacks.
 
 
+.. _command-test-battery:
+
 test-battery
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _command-test-battery:
-
 .. code-block:: none
 
-      cd "/home/kinow/Development/python/workspace/cylc"
+      cd "/home/oliverh/cylc-git/worktrees/7.8.x"
    Usage: cylc test-battery [...]
    
    Run automated Cylc and Parsec tests, under (by default):
-      /home/kinow/Development/python/workspace/cylc/tests/.
+      /home/oliverh/cylc-git/worktrees/7.8.x/tests/.
    
    Options and arguments are appended to "prove -j $NPROC -s -r ${@:-tests}".
    NPROC is the number of concurrent processes to run, which defaults to the
    global config "process pool size" setting.
    
    The tests ignore normal site/user global config and instead use the file:
-      /home/kinow/Development/python/workspace/cylc/etc/global-tests.rc
+      /home/oliverh/cylc-git/worktrees/7.8.x/etc/global-tests.rc
    This should specify test job hosts under the [test battery] section, plus any
    other critical settings settings, including [hosts] configuration for test job
    hosts (and special batchview commands like qcat if available). Additional
@@ -4001,15 +4119,15 @@ test-battery
    
    Some test suites submit jobs to the 'at' so atd must be up on the job hosts.
    
-   Commits or Pull Requests to cylc/cylc on GitHub will trigger Travis CI to run
-   generic (non platform-specific) tests - see /home/kinow/Development/python/workspace/cylc/.travis.yml.
+   Commits or Pull Requests to cylc/cylc-flow on GitHub will trigger Travis CI to
+   run generic (non platform-specific) tests - see /home/oliverh/cylc-git/worktrees/7.8.x/.travis.yml.
    
    By default all tests are executed.  To run just a subset of them:
      * list individual tests or test directories to run on the comand line
      * list individual tests or test directories to skip in $CYLC_TEST_SKIP
      * skip all generic tests with CYLC_TEST_RUN_GENERIC=false
      * skip all platform-specific tests with CYLC_TEST_RUN_PLATFORM=false
-     List specific tests relative to /home/kinow/Development/python/workspace/cylc (i.e. starting with "test/").
+     List specific tests relative to /home/oliverh/cylc-git/worktrees/7.8.x (i.e. starting with "test/").
    Some platform-specific tests are automatically skipped, depending on platform.
    
    Platform-specific tests must set "CYLC_TEST_IS_GENERIC=false" before sourcing
@@ -4051,10 +4169,10 @@ test-battery
      cylc test-battery --state=failed
 
 
+.. _command-trigger:
+
 trigger
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-trigger:
 
 .. code-block:: none
 
@@ -4134,10 +4252,28 @@ trigger
                            Disallow backward compatible multitask interface.
 
 
-validate
+.. _command-upgrade-run-dir:
+
+upgrade-run-dir
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. code-block:: none
+
+      Usage: cylc [admin] upgrade-run-dir SUITE
+   
+   For one-off conversion of a suite run directory to cylc-6 format.
+   
+   Arguments:
+        SUITE    suite name or run directory path
+   
+   Options:
+     -h, --help  show this help message and exit
+
+
 .. _command-validate:
+
+validate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: none
 
@@ -4189,10 +4325,10 @@ validate
                            suite.rc.
 
 
+.. _command-view:
+
 view
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-view:
 
 .. code-block:: none
 
@@ -4258,10 +4394,10 @@ view
                            overridden.
 
 
+.. _command-warranty:
+
 warranty
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. _command-warranty:
 
 .. code-block:: none
 

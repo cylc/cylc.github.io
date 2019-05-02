@@ -1929,9 +1929,10 @@ task exists at these cycle points but has no prerequisites - although other
 prerequisites may be defined for it in other parts of the graph).
 
 *Cylc does not infer the existence of the upstream task in offset
-triggers* like ``foo[-P1D] => bar`` because a typo in the offset
-interval should generate an error rather than silently creating
-tasks on an erroneous cycling sequence.
+triggers* like ``foo[-P1D] => bar`` because, as explained in
+:ref:`cylc-6-migration-implicit-cycling`, a typo in the offset interval
+should generate an error rather than silently creating tasks on an erroneous
+cycling sequence.
 
 As a result you need to be careful not to define inter-cycle dependencies that
 cannot be satisfied at run time. Suite validation catches this kind of error if
@@ -2051,10 +2052,47 @@ namespace (as for single-inheritance) is used for suite visualization
 purposes.
 
 
-Namespace Names
-^^^^^^^^^^^^^^^
+.. _TaskNames:
 
-Namespace names may contain letters, digits, underscores, and hyphens.
+Task and Namespace Names
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+There are restrictions on names that can be used for tasks and namespaces
+to ensure all tasks are processed and implemented correctly. Valid names
+must:
+
+1. *begin with* (or consist only of, as single-character task names are
+   allowed) either:
+
+   - an alphanumeric character, i.e. a letter in either upper or lower case
+     (``a-z`` or ``A-Z``), or a digit (``0-9``);
+   - an underscore (``_``).
+
+2. *otherwise* contain *only* characters from the following options:
+
+   - alphanumeric characters or underscores (as above);
+   - any of these additional character symbols:
+
+     - hyphens (``-``);
+     - plus characters (``+``);
+     - percent signs (``%``);
+     - "at" signs (``@``).
+
+3. not be so long, typically over ``255`` characters, as to raise errors
+   from exceeding maximum filename length on the operating system for
+   generated outputs e.g. directories named (in part) after the task they
+   concern.
+
+.. warning::
+
+   Task and namespace names may not contain colons (``:``), which would
+   preclude use of directory paths involving the registration name in
+   ``$PATH`` variables). They also may not contain the dot (``.``) character,
+   as it will be interpreted as the delimiter separating the task name from
+   an appended cycle point (see :ref:`TaskIdentifiers`).
+
+Invalid names for tasks or namespaces will be raised as errors
+by ``cylc validate``.
 
 .. note::
 
@@ -2543,7 +2581,7 @@ task families in the *namespaces* example suite.
 .. _Parameterized Tasks Label:
 
 Parameterized Tasks
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
 Cylc can automatically generate tasks and dependencies by expanding
 parameterized task names over lists of parameter values. Uses for this
@@ -3298,9 +3336,34 @@ automatically imports the user environment to template's global namespace
            [[[environment]]]
                SUITE_OWNER_HOME_DIR_ON_SUITE_HOST = {{environ['HOME']}}
 
-This example is emphasizes that *the environment is read on the suite
-host at the time the suite configuration is parsed* - it is not, for
-instance, read at task run time on the task host.
+In addition, the following variables are exported to this environment
+prior to configuration parsing to provide suite context:
+
+.. code-block:: bash
+
+   CYLC_DEBUG                      # Debug mode, true or not defined
+   CYLC_DIR                        # Location of cylc installation used
+   CYLC_VERBOSE                    # Verbose mode, True or False
+   CYLC_VERSION                    # Version of cylc installation used
+
+   CYLC_SUITE_NAME                 # Suite name
+
+   CYLC_SUITE_DEF_PATH             # Location of the suite configuration
+                                   # source path on suite host,
+                                   # e.g. ~/cylc-run/foo
+   CYLC_SUITE_LOG_DIR              # Suite log directory.
+   CYLC_SUITE_RUN_DIR              # Location of the suite run directory in
+                                   # suite host, e.g. ~/cylc-run/foo
+   CYLC_SUITE_SHARE_DIR            # Suite (or task post parsing!)
+                                   # shared directory.
+   CYLC_SUITE_WORK_DIR             # Suite work directory.
+
+
+.. note::
+
+    The example above emphasizes that *the environment - including the suite
+    context variables - is read on the suite host when the suite configuration
+    is parsed*, not at task run time on job hosts.
 
 
 .. _CustomJinja2Filters:
@@ -3465,8 +3528,37 @@ The values of Jinja2 variables can be passed in from the cylc command
 line rather than hardwired in the suite configuration.
 Here's an example, from ``<cylc-dir>/etc/examples/jinja2/defaults``:
 
-.. literalinclude:: ../../etc/examples/jinja2/defaults/suite.rc
-   :language: cylc
+.. code-block:: cylc
+
+   #!Jinja2
+
+   [meta]
+
+       title = "Jinja2 example: use of defaults and external input"
+
+       description = """
+   The template variable FIRST_TASK must be given on the cylc command line
+   using --set or --set-file=FILE; two other variables, LAST_TASK and
+   N_MEMBERS can be set similarly, but if not they have default values."""
+
+   {% set LAST_TASK = LAST_TASK | default( 'baz' ) %}
+   {% set N_MEMBERS = N_MEMBERS | default( 3 ) | int %}
+
+   {# input of FIRST_TASK is required - no default #}
+
+   [scheduling]
+       initial cycle point = 20100808T00
+       final cycle point   = 20100816T00
+       [[dependencies]]
+           [[[0]]]
+               graph = """{{ FIRST_TASK }} => ENS
+                    ENS:succeed-all => {{ LAST_TASK }}"""
+   [runtime]
+       [[ENS]]
+   {% for I in range( 0, N_MEMBERS ) %}
+       [[ mem_{{ I }} ]]
+           inherit = ENS
+   {% endfor %}
 
 Here's the result:
 
@@ -3475,23 +3567,23 @@ Here's the result:
    $ cylc list SUITE
    Jinja2 Template Error
    'FIRST_TASK' is undefined
-   cylc-list SUITE  failed:  1
+   cylc-list foo  failed:  1
 
-   $ cylc list --set FIRST_TASK=bob SUITE
+   $ cylc list --set FIRST_TASK=bob foo
    bob
    baz
    mem_2
    mem_1
    mem_0
 
-   $ cylc list --set FIRST_TASK=bob --set LAST_TASK=alice SUITE
+   $ cylc list --set FIRST_TASK=bob --set LAST_TASK=alice foo
    bob
    alice
    mem_2
    mem_1
    mem_0
 
-   $ cylc list --set FIRST_TASK=bob --set N_MEMBERS=10 SUITE
+   $ cylc list --set FIRST_TASK=bob --set N_MEMBERS=10 foo
    mem_9
    mem_8
    mem_7
@@ -3625,7 +3717,7 @@ For better clarity and disambiguation Python modules can be prefixed with
 .. _EmPylabel:
 
 EmPy
-^^^^
+----
 
 In addition to Jinja2, Cylc supports EmPy template processor in suite
 configurations. Similarly to Jinja2, EmPy provides variables, mathematical
@@ -3680,7 +3772,7 @@ reasons:
 
 
 Omitting Tasks At Runtime
-^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------
 
 It is sometimes convenient to omit certain tasks from the suite at
 runtime without actually deleting their definitions from the suite.

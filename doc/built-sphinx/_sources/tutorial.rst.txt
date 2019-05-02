@@ -171,7 +171,7 @@ Suite configurations can be validated to detect syntax (and other) errors:
 
    # pass:
    $ cylc validate tut/oneoff/basic
-   Valid for cylc-7.8.1
+   Valid for cylc-6.0.0
    $ echo $?
    0
    # fail:
@@ -363,12 +363,14 @@ The scan GUI is shown in :numref:`fig-gscan`; clicking on a suite in
 it opens gcylc.
 
 
+.. _TaskIdentifiers:
+
 Task Identifiers
 ----------------
 
-At run time, task instances are identified by *name*, which is
-determined entirely by the suite configuration, and a *cycle point* which is
-usually a date-time or an integer:
+At run time, task instances are identified by their *name* (see
+:ref:`TaskNames`), which is determined entirely by the suite configuration,
+and a *cycle point* which is usually a date-time or an integer:
 
 .. code-block:: bash
 
@@ -1269,12 +1271,11 @@ configuration for groups of related tasks:
    :language: cylc
 
 To view the result of Jinja2 processing with the Jinja2 flag
-``MULTI`` set to an empty variable, so the ``{% if MULTI %}`` statement
-evaluates to ``False``:
+``MULTI`` set to ``False``:
 
 .. code-block:: bash
 
-   $ cylc view --set=MULTI= --jinja2 --stdout tut/oneoff/jinja2
+   $ cylc view --jinja2 --stdout tut/oneoff/jinja2
 
 .. code-block:: cylc
 
@@ -1287,8 +1288,7 @@ evaluates to ``False``:
        [[hello]]
            script = "sleep 10; echo Hello World!"
 
-
-And without setting ``MULTI``, so it assumes the default value of ``True``:
+And with ``MULTI`` set to ``True``:
 
 .. code-block:: bash
 
@@ -1392,5 +1392,5 @@ and can be copied and modified at will.
 - Use an *internal queue* to prevent more than an alotted number
   of tasks from running at once even though they are ready -
   see :ref:`InternalQueues`.
-- Configure task events to send an email, or shut the suite down,
+- Configure task event hooks to send an email, or shut the suite down,
   on task failure.

@@ -9,7 +9,7 @@ title: support
 
 #### Cylc Mail Forum
 Post general usage questions etc. to [the cylc
-forum](https://groups.google.com/d/forum/cylc) on Google Groups.
+forum](https://cylc.discourse.group/) on Discourse.
 
 #### Cylc Issue Tracker
 Open a new ticket on the [cylc issue

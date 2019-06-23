@@ -41,20 +41,22 @@ presentation, and the 'o' key for a multi-slide summary. This is the
 
 Please cite Cylc in your publications if you used it to automate your workflows.
 
-* [![DOI](10.1109/MCSE.2019.2906593)](https://doi.org/10.1109/MCSE.2019.2906593) - major peer-reviewed paper in Computing in Science and Engineering
+* [DOI: 10.1109/MCSE.2019.2906593](https://doi.org/10.1109/MCSE.2019.2906593) -
+     A major peer-reviewed article in Computing in Science and Engineering.
 
-> H. Oliver et al., "Workflow Automation for Cycling Systems:
-The Cylc Workflow Engine," in Computing in Science &
-Engineering Vol 21, Issue 4, July/Aug 2019. DOI:
-10.1109/MCSE.2019.2906593
+> H. Oliver et al., "Workflow Automation for Cycling Systems: The Cylc Workflow Engine",
+> Computing in Science & Engineering Vol 21, Issue 4, July/Aug 2019.
+> DOI: 10.1109/MCSE.2019.2906593
 
-* [![DOI](https://zenodo.org/badge/1836229.svg)](https://zenodo.org/badge/latestdoi/1836229) - Citable DOI for Cylc source code
+* [![DOI](http://joss.theoj.org/papers/10.21105/joss.00737/status.svg)](https://doi.org/10.21105/joss.00737) -
+   A short peer-reviewed article in the Journal of Open Source Software.
 
-* [![DOI](http://joss.theoj.org/papers/10.21105/joss.00737/status.svg)](https://doi.org/10.21105/joss.00737) - A short peer reviewed paper in the Journal of Open Source Software.
-Cite as:
-> _Oliver et al., (2018). Cylc: A Workflow Engine for Cycling Systems. Journal of
-Open Source Software, 3(27), 737, [https://doi.org/10.21105/joss.00737](https://doi.org/10.21105/joss.00737)_
+> Oliver et al., (2018). "Cylc: A Workflow Engine for Cycling Systems.",
+> Journal of Open Source Software, 3(27), 737.
+> [DOI: 10.21105/joss.00737](https://doi.org/10.21105/joss.00737)
 
+* [![DOI](https://zenodo.org/badge/1836229.svg)](https://zenodo.org/badge/latestdoi/1836229) -
+   Citable DOI for Cylc code releases.
 
 #### Cylc Response to "Assessment Report on Autosubmit, Cylc and ecFlow"
 

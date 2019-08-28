@@ -4,16 +4,19 @@
 // --- Progress
 
 /**
- * Get the next release from a set of milestones. The next release is simply the milestone with
- * a title 'next-release'.
+ * Get the next release from a set of milestones.
+ * The next release is the milestone with the earliest due date.
  *
  * @param milestones: array of milestone objects
- * @return the milestone titled 'next-release', or null if none found
+ * @return the milestone with the earliest due date, or null if milestones empty
  */
 function getNextRelease(milestones) {
-    return milestones.find(function(milestone) {
-        return milestone.title === "next-release";
-    });
+    // Sort the milestones by due date
+    if (!milestones) {
+        return null
+    }
+    milestones.sort((a, b) => a.due_on < b.due_on ? -1 : a.due_on > b.due_on ? 1 : 0)
+    return milestones[0]
 }
 /**
  * Populate progress elements in the DOM.

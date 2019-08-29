@@ -13,7 +13,18 @@
 function getNextRelease(milestones) {
     // Sort the milestones by due date
     if (!milestones) {
+        console.error("Invalid milestones value")
         return null
+    }
+    if (milestones instanceof Object) {
+        // GitHub API returns {documentation_url: "", message: ""} messages for rate limiting
+        // see https://developer.github.com/v3/#rate-limiting
+        // and https://github.com/cylc/cylc.github.io/issues/15
+        if (Object.prototype.hasOwnProperty.call(milestones, 'message')) {
+            console.error(milestones.message)
+        } else {
+            console.error("Invalid milestones value: " )
+        }
     }
     milestones.sort((a, b) => a.due_on < b.due_on ? -1 : a.due_on > b.due_on ? 1 : 0)
     return milestones[0]

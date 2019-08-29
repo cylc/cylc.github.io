@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://openlayers.org/en/v5.3.0/css/ol.css" type="text/css">
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+
+  <style>
+    .map {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  <!-- Grab whole OpenLayers package from source -->
+  <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+  <title>Cylc Usage Across the World</title>
+</head>
+
+<body>
+
+  <div id="map" class="map"></div>
+  <script type="text/javascript">
+    // Lat-lon decimal degrees coordinates (to ideally 5 s.f.) for major...
+    // ... known Cylc-using sites, with keys as neat names for labelling:
+    var cylcSiteLatLonCoors = {
+      "Met Office": [50.72762, -3.47564],
+      "Centre for Environmental Data Analysis (CEDA)": [51.57488, -1.31451],
+      "Plymouth Marine Laboratory": [50.36615, -4.14782],
+      "National Centre for Atmospheric Science (NCAS)": [53.80450, -1.56147],
+      "National Institute of Water & Atmospheric Research (NIWA)": [-36.8731, 174.7773],
+      "Max-Planck-Institut für Meteorologie": [53.56772, 9.97524],
+      "Deutches Klimarechenzentrum (DKRZ)": [53.56686, 9.97658],
+      "Bureau of Meteorology": [-37.81966, 144.95086],
+      "Meteorological Service Singapore (MSS)": [1.35380, 103.98875],
+      "NRL Marine Meteorology Division": [36.59290, -121.85459],
+      "Geophysical Fluid Dynamics Laboratory (GFDL)": [40.34539, -74.61623],
+      "Phillippine Atmospheric, Geophysical, & Astronomical Services Administration (PAGASA)": [14.64178, 121.04441],
+      "South African Weather Service (SAWS)": [-25.89068, 28.17072],
+      "National Centre for Medium Range Weather Forecasting (NCMRWF)": [28.62447, 77.35917],
+      "Korean Meteorological Administration (KMA)": [37.494, 126.917],
+      "Centre of Excellence in Simulation of Weather and Climate in Europe (ESiWACE)": [53.56686, 9.97658],
+      "NOAA Center for Weather and Climate Prediction (NCWCP)": [38.972, -76.925],
+      "Euro-Mediterranean Center on Climate Change (CMCC)": [40.35225, 18.17165],
+      "Barcelona Supercomputing Center (BSC)": [41.389, 2.116],
+      "National Center for Atmospheric Reserach (NCAR)": [39.97788, -105.27486],
+      "ARC Centre of Excellence for Climate Extremes (CLEX)": [-33.918, 151.234],
+      "Netherlands eScience Center": [52.35690, 4.95440],
+      "557th Weather Wing": [41.13033, -95.91532]
+    };
+
+    // Add each site location as a 'feature' with the name label to display
+    var vectorSource = new ol.source.Vector({});
+    for (var site in cylcSiteLatLonCoors) {
+      // needs 'reverse' as OpenLayers is in LonLat not standard LatLon
+      var markerData = cylcSiteLatLonCoors[site].reverse();
+      var markerAll = new ol.Feature({
+        geometry: new ol.geom.Point(
+          ol.proj.fromLonLat(markerData)
+        ),
+        name: site
+      });
+      vectorSource.addFeature(markerAll)
+    }
+
+    function wrapLabels(text) {
+      // Add newline character after every two words for neater labels.
+      var result = text.replace(/(\S+\s*){1,2}/g, "$&\n");
+      return result;
+    }
+
+    function styleFunction(feature) {
+      // Define a style for the site features, including name labels.
+      var nameLabel = feature.get('name');
+      var siteStyle = new ol.style.Style({
+        image: new ol.style.Circle({
+          radius: 6,
+          fill: new ol.style.Fill({
+            color: '#00C798'
+          }),
+          stroke: new ol.style.Stroke({
+            color: 'black',
+            width: 2
+          })
+        }),
+        text: new ol.style.Text({
+          text: wrapLabels(nameLabel),
+          font: '12px Calibri, sans-serif',
+          fill: new ol.style.Fill({
+            color: 'black'
+          }),
+          stroke: new ol.style.Stroke({
+            color: '#FF5966',
+            width: 5
+          }),
+          offsetX: 0,
+          offsetY: -25,
+        })
+      })
+      return siteStyle;
+    }
+
+    // Create world map.
+    var map = new ol.Map({
+      target: 'map',
+      layers: [
+        new ol.layer.Tile({
+          source: new ol.source.Stamen({
+            layer: 'watercolor',
+          })
+        }),
+        new ol.layer.Tile({
+          source: new ol.source.Stamen({
+            layer: 'terrain-labels'
+          })
+        })
+      ],
+      view: new ol.View({
+        center: ol.proj.fromLonLat([0, 175].reverse()),
+        zoom: 2
+      })
+    });
+
+    // Plot the styled site features on the world map.
+    var markerVectorLayer = new ol.layer.Vector({
+      source: vectorSource,
+      style: styleFunction,
+    });
+    map.addLayer(markerVectorLayer);
+  </script>
+</body>
+
+</html>

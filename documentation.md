@@ -29,11 +29,11 @@ Hit the "Home" and "End" keys to skip to the beginning and end of the
 presentation, and the 'o' key for a multi-slide summary. This is the
 [dzslides](https://github.com/paulrouget/dzslides) framework by Paul Roget.
 
-* [Cylc Keynote](cylc-keynote-lisbon-Sept2016/index.html) - from
+* [Cylc Keynote](presentations/cylc-keynote-lisbon-Sept2016/index.html) - from
   the IS-ENES2 Workshop on Workflow in Earth Systems Modeling, Lisbon,
   September 2016
 
-* [Cylc High Level Introduction](BoM-Feb-2017/index.html) - Bureau of
+* [Cylc High Level Introduction](presentations/BoM-Feb-2017/index.html) - Bureau of
   Meteorology, Melbourne, February 2017
 
 ### Publications, Citations, and References

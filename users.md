@@ -1,5 +1,5 @@
 ---
-layout: withmap
+layout: page
 title: Cylc Users
 ---
 

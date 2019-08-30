@@ -22,8 +22,6 @@
       // and https://github.com/cylc/cylc.github.io/issues/15
       if (Object.prototype.hasOwnProperty.call(milestones, 'message')) {
         console.error(milestones.message)
-      } else {
-        console.error("Invalid milestones value: " )
       }
     }
     milestones.sort((a, b) => a.due_on < b.due_on ? -1 : a.due_on > b.due_on ? 1 : 0)
@@ -187,7 +185,7 @@
           releasesContainer.appendChild(releaseElement);
 
           // we also display the latest release metadata
-          if (i == 0) {
+          if (i === 0) {
             populateLatestReleaseInformation(name, publishedAt);
           }
         }

@@ -148,7 +148,7 @@ read the User Guide!
 
     $ cylc graph test1 &
 
-![img/cylc-graph.png](img/cylc-graph.png)
+![img/cylc-graph.png]({{ site.url }}/assets/img/cylc-graph.png)
 
 
 ### Run
@@ -157,7 +157,7 @@ read the User Guide!
         # OR
     $ gcylc test1 &  # (and run it from the GUI)
 
-![img/gcylc-example.png](img/gcylc-example.png)
+![img/gcylc-example.png]({{ site.url }}/assets/img/gcylc-example.png)
 
 ### View Task Job Output
 

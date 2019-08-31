@@ -7,54 +7,56 @@ title: Cylc Users
 
 Known users, organised by continent, include:
 
-* Oceania:
-  * New Zealand:
-    * [National Institute of Water and Atmospheric Research
-      (NIWA)](http://www.niwa.co.nz)
-  * Australia:
-    * [Bureau of Meteorology](http://www.bom.gov.au/)
-    * [ARC Centre of Excellence for Climate Extremes (CLEX)](https://climateextremes.org.au/)
-* Europe:
-  * [Centre of Excellence in Simulation of Weather and Climate in
-      Europe](https://verc.enes.org/esiwace/services/sup_cylc)
-  * UK:
-    * [Met Office](http://www.metoffice.gov.uk)
-    * [Plymouth Marine Laboratory](https://www.pml.ac.uk/)
-    * [National Centre for Atmospheric Science (NCAS)](https://www.ncas.ac.uk)
-    * [Centre for Environmental Data Analysis (CEDA)](http://www.ceda.ac.uk)
-  * Germany:
-    * [Max-Planck-Institut f&uuml;r
-      Meteorologie](http://www.mpimet.mpg.de/mpimet-startseite/)
-    * [Deutches Klimarechenzentrum (DKRZ)](https://www.dkrz.de/)
-  * Italy:
-    * [Euro-Mediterranean Center on Climate Change (CMCC)](https://www.cmcc.it)
-  * Spain:
-    * [Barcelona Supercomputing Center (BSC)](https://www.bsc.es)
-  * Netherlands:
-    * [eWaterCycle](http://forecast.ewatercycle.org/) at the Netherlands eScience Center, Univerity of Utrecht, TUDelft
-* North America:
-  * USA:
-    * [NRL Marine Meteorology Division](http://www.nrlmry.navy.mil)
-    * [557th Weather Wing](https://www.557weatherwing.af.mil)
-    * [Geophysical Fluid Dynamics Laboratory](http://www.gfdl.noaa.gov/)
-    * [National Center for Atmospheric Reserach (NCAR)](https://ncar.ucar.edu)
-    * [NOAA Environmental Modeling Center](http://www.emc.ncep.noaa.gov/)
+* Africa:
+  * South Africa:
+    * [South African Weather Service (SAWS)](http://www.weathersa.co.za/)
 * Asia:
-  * Singapore:
-    * [Meteorological Service Singapore (MSS)](http://www.weather.gov.sg/home/)
-  * Phillippines:
-    * [Phillippine Atmospheric, Geophysical, and Astronomical Services
-      Administration (PAGASA)](http://bagong.pagasa.dost.gov.ph)
   * India:
     * [National Centre for Medium Range Weather
       Forecasting](http://www.ncmrwf.gov.in/)
   * Korea:
-  * [Korean Meteorological Administration (KMA)](http://web.kma.go.kr/)
-* Africa:
-  * South Africa:
-    * [South African Weather Service (SAWS)](http://www.weathersa.co.za/)
+    * [Korean Meteorological Administration (KMA)](http://web.kma.go.kr/)
+  * Phillippines:
+    * [Phillippine Atmospheric, Geophysical, and Astronomical Services
+       Administration (PAGASA)](http://bagong.pagasa.dost.gov.ph)
+  * Singapore:
+    * [Meteorological Service Singapore (MSS)](http://www.weather.gov.sg/home/)
+* Europe:
+  * [Centre of Excellence in Simulation of Weather and Climate in
+     Europe](https://verc.enes.org/esiwace/services/sup_cylc)
+  * Germany:
+    * [Deutches Klimarechenzentrum (DKRZ)](https://www.dkrz.de/)
+    * [Max-Planck-Institut f&uuml;r
+      Meteorologie](http://www.mpimet.mpg.de/mpimet-startseite/)
+  * Italy:
+    * [Euro-Mediterranean Center on Climate Change (CMCC)](https://www.cmcc.it)
+  * Netherlands:
+    * [eWaterCycle](http://forecast.ewatercycle.org/) at the Netherlands
+      eScience Center, Univerity of Utrecht, TUDelft
+  * Spain:
+    * [Barcelona Supercomputing Center (BSC)](https://www.bsc.es)
+  * UK:
+    * [Centre for Environmental Data Analysis (CEDA)](http://www.ceda.ac.uk)
+    * [Met Office](http://www.metoffice.gov.uk)
+    * [National Centre for Atmospheric Science (NCAS)](https://www.ncas.ac.uk)
+    * [Plymouth Marine Laboratory](https://www.pml.ac.uk/)
+* North America:
+  * USA:
+    * [Geophysical Fluid Dynamics Laboratory](http://www.gfdl.noaa.gov/)
+    * [National Center for Atmospheric Research (NCAR)](https://ncar.ucar.edu)
+    * [NOAA Environmental Modeling Center](http://www.emc.ncep.noaa.gov/)
+    * [NRL Marine Meteorology Division](http://www.nrlmry.navy.mil)
+    * [557th Weather Wing](https://www.557weatherwing.af.mil)
+* Oceania:
+  * Australia:
+    * [ARC Centre of Excellence for Climate Extremes
+       (CLEX)](https://climateextremes.org.au/)
+    * [Bureau of Meteorology](http://www.bom.gov.au/)
+  * New Zealand:
+    * [National Institute of Water and Atmospheric Research
+       (NIWA)](http://www.niwa.co.nz)
 
- 
+
 Many of these centers use Cylc with [Rose](https://github.com/metomi/rose), a
 framework for managing and running meteorological suites.
 

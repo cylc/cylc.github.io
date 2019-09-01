@@ -90,42 +90,42 @@ read the User Guide!
     $ vim ~/suites/test/suite.rc
 
     # suite.rc:
-	[meta]
-	  title = Test Suite One
+    [meta]
+      title = Test Suite One
 
-	[cylc]
-	  cycle point format = %Y
+    [cylc]
+      cycle point format = %Y
 
-	[scheduling]
-	  initial cycle point = 2021
-	  final cycle point = 2023
-	  [[dependencies]]
-	    [[[R1]]]  # Initial cycle point.
-	      graph = prep => model
-	    [[[R//P1Y]]]  # Yearly cycling.
-	      graph = model[-P1Y] => model => post
-	    [[[R1/P0Y]]]  # Final cycle point.
-	      graph = post => stop
+    [scheduling]
+      initial cycle point = 2021
+      final cycle point = 2023
+      [[dependencies]]
+        [[[R1]]]  # Initial cycle point.
+          graph = prep => model
+        [[[R//P1Y]]]  # Yearly cycling.
+          graph = model[-P1Y] => model => post
+        [[[R1/P0Y]]]  # Final cycle point.
+          graph = post => stop
 
-	[runtime]
-	  [[root]]  # Inherited by all tasks.
-	    script = sleep 10
-	  [[model]]
-	    script = echo "my FOOD is $FOOD"; sleep 10
-	    [[[environment]]]
-	      FOOD = icecream
-	  [[prep]]
-	    # ...
-	  # ...
+    [runtime]
+      [[root]]  # Inherited by all tasks.
+        script = sleep 10
+      [[model]]
+        script = echo "my FOOD is $FOOD"; sleep 10
+        [[[environment]]]
+          FOOD = icecream
+      [[prep]]
+        # ...
+      # ...
 
-	[visualization]
-	  use node color for edges = True
-	  [[node attributes]]
-	    root = "style=filled", "fontcolor=white"
-	    prep =  "color=#00a778"
-	    stop =  "color=#bf9c00"
-	    model = "color=#0074cd"
-	    post =  "color=#af3936"
+    [visualization]
+      use node color for edges = True
+      [[node attributes]]
+        root = "style=filled", "fontcolor=white"
+        prep =  "color=#00a778"
+        stop =  "color=#bf9c00"
+        model = "color=#0074cd"
+        post =  "color=#af3936"
 
 ### Register
 

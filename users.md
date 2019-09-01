@@ -5,7 +5,12 @@ title: Cylc Users
 
 ## Cylc users
 
-Known users, organised by continent, include:
+Major sites known to be using Cylc are shown on the world map above. Sites are
+shown in yellow, with
+[UM Partner](https://www.metoffice.gov.uk/research/approach/collaboration/unified-model/partnership)
+sites being distinguished in green. The sites where Cylc is mainly developed
+are shown in red (note these are also sites within the UM Partnership).
+Organised by geographical area, these sites are:
 
 * Africa:
   * South Africa:
@@ -56,6 +61,8 @@ Known users, organised by continent, include:
     * [National Institute of Water and Atmospheric Research
        (NIWA)](http://www.niwa.co.nz)
 
+
+Note this is not an exhaustive list.
 
 Many of these centers use Cylc with [Rose](https://github.com/metomi/rose), a
 framework for managing and running meteorological suites.

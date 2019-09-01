@@ -1,6 +1,7 @@
 
 # Jekyll files
 _site/
+.jekyll-cache/
 
 # File extensions
 
@@ -17,3 +18,4 @@ _site/
 *.xref
 *.sty
 *.cfg
+

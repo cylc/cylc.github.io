@@ -144,7 +144,7 @@
         umPartnerSite: false},
       { name: 'Bureau of Meteorology',
         shortName: false,
-        devSite: false,
+        devSite: true,
         forceLabelCoors: [0, -40],
         latLonDecimalDegrees: [-37.81966, 144.95086],
         umPartnerSite: true},
@@ -205,28 +205,24 @@
       layers: [
         new ol.layer.Tile({
           source: new ol.source.Stamen({
-            layer: 'watercolor',
-            wrapX: false, // disable continuously-wrapped horiztonal map.
+            layer: 'watercolor'
           })
         }),
         new ol.layer.Tile({
           source: new ol.source.Stamen({
-            layer: 'terrain-labels',
-            wrapX: false, // disable continuous horizontal label re-display.
+            layer: 'terrain-labels'
           })
         })
       ],
       view: new ol.View({
-        center: ol.proj.fromLonLat([30, 0].reverse()),
+        center: ol.proj.fromLonLat([20, 135].reverse()),
         zoom: 2,
-        minZoom: 2 // prevent zoom out whereby labels ugily overwhelm view
+        minZoom: 2 // prevent zoom out to extent labels overwhelm & spoil view
       })
     });
 
     // Add each site location as a 'feature' with the name label to display.
-    var vectorSource = new ol.source.Vector({
-      wrapX: false, // disable continuous horizontal re-display of sites.
-    });
+    var vectorSource = new ol.source.Vector();
     for (var site of cylcUsingSiteDataByLocation) {
       // Needs 'reverse' as OpenLayers takes LonLat not the standard LatLon.
       var markerData = site.latLonDecimalDegrees.reverse();

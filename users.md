@@ -21,8 +21,8 @@ Organised by geographical area, these sites are:
       Forecasting](http://www.ncmrwf.gov.in/)
   * Korea:
     * [Korean Meteorological Administration (KMA)](http://web.kma.go.kr/)
-  * Phillippines:
-    * [Phillippine Atmospheric, Geophysical, and Astronomical Services
+  * Philippines:
+    * [Philippine Atmospheric, Geophysical, and Astronomical Services
        Administration (PAGASA)](http://bagong.pagasa.dost.gov.ph)
   * Singapore:
     * [Meteorological Service Singapore (MSS)](http://www.weather.gov.sg/home/)

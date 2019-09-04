@@ -1,27 +1,36 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>15.6. Command Reference &#8212; The Cylc Suite Engine 7.8.2 documentation</title>
+    
+    <title>15.6. Command Reference &#8212; The Cylc Suite Engine 7.8.4 documentation</title>
+    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '7.8.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    
     <link rel="shortcut icon" href="../_static/cylc-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="15.7. The gcylc Graph View" href="gcylc-graph-view.html" />
     <link rel="prev" title="15.5. Remote Job Management" href="remote-job-management.html" /> 
-  </head><body>
+  </head>
+  <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -34,7 +43,7 @@
         <li class="right" >
           <a href="remote-job-management.html" title="15.5. Remote Job Management"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.4 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="appendices-master.html" accesskey="U">15. Appendices</a> &#187;</li> 
       </ul>
     </div>  
@@ -48,12 +57,12 @@
 <span id="commandreference"></span><h1>15.6. Command Reference<a class="headerlink" href="#command-reference" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="help">
 <span id="id1"></span><h2>15.6.1. Help<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Cylc (&quot;silk&quot;) is a workflow engine for orchestrating complex
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Cylc (&quot;silk&quot;) is a workflow engine for orchestrating complex
 *suites* of inter-dependent distributed cycling (repeating) tasks, as well as
 ordinary non-cycling workflows.
 For detailed documentation see the Cylc User Guide (cylc doc --help).
 
-Version 7.8.2
+Version 7.8.4
 
 The graphical user interface for cylc is &quot;gcylc&quot; (a.k.a. &quot;cylc gui&quot;).
 
@@ -111,7 +120,7 @@ Command CATEGORIES:
 <h2>15.6.2. Command Categories<a class="headerlink" href="#command-categories" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="admin">
 <span id="command-cat-admin"></span><h3>15.6.2.1. admin<a class="headerlink" href="#admin" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: admin - Cylc installation, testing, and example suites.
+<div class="highlight-none"><div class="highlight"><pre><span></span>   CATEGORY: admin - Cylc installation, testing, and example suites.
 
 HELP: cylc [admin] COMMAND help,--help
   You can abbreviate admin and COMMAND.
@@ -129,7 +138,7 @@ COMMANDS:
 </div>
 <div class="section" id="all">
 <span id="command-cat-all"></span><h3>15.6.2.2. all<a class="headerlink" href="#all" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: all - The complete command set.
+<div class="highlight-none"><div class="highlight"><pre><span></span>   CATEGORY: all - The complete command set.
 
 HELP: cylc [all] COMMAND help,--help
   You can abbreviate all and COMMAND.
@@ -216,7 +225,7 @@ COMMANDS:
 </div>
 <div class="section" id="control">
 <span id="command-cat-control"></span><h3>15.6.2.3. control<a class="headerlink" href="#control" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: control - Suite start up, monitoring, and control.
+<div class="highlight-none"><div class="highlight"><pre><span></span>   CATEGORY: control - Suite start up, monitoring, and control.
 
 HELP: cylc [control] COMMAND help,--help
   You can abbreviate control and COMMAND.
@@ -248,7 +257,7 @@ COMMANDS:
 </div>
 <div class="section" id="discovery">
 <span id="command-cat-discovery"></span><h3>15.6.2.4. discovery<a class="headerlink" href="#discovery" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: discovery - Detect running suites.
+<div class="highlight-none"><div class="highlight"><pre><span></span>   CATEGORY: discovery - Detect running suites.
 
 HELP: cylc [discovery] COMMAND help,--help
   You can abbreviate discovery and COMMAND.
@@ -263,7 +272,7 @@ COMMANDS:
 </div>
 <div class="section" id="hook">
 <span id="command-cat-hook"></span><h3>15.6.2.5. hook<a class="headerlink" href="#hook" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: hook - Suite and task event hook scripts.
+<div class="highlight-none"><div class="highlight"><pre><span></span>   CATEGORY: hook - Suite and task event hook scripts.
 
 HELP: cylc [hook] COMMAND help,--help
   You can abbreviate hook and COMMAND.
@@ -278,7 +287,7 @@ COMMANDS:
 </div>
 <div class="section" id="information">
 <span id="command-cat-information"></span><h3>15.6.2.6. information<a class="headerlink" href="#information" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: information - Interrogate suite definitions and running suites.
+<div class="highlight-none"><div class="highlight"><pre><span></span>   CATEGORY: information - Interrogate suite definitions and running suites.
 
 HELP: cylc [information] COMMAND help,--help
   You can abbreviate information and COMMAND.
@@ -307,7 +316,7 @@ COMMANDS:
 </div>
 <div class="section" id="license">
 <span id="command-cat-license"></span><h3>15.6.2.7. license<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: license|GPL - Software licensing information (GPL v3.0).
+<div class="highlight-none"><div class="highlight"><pre><span></span>   CATEGORY: license|GPL - Software licensing information (GPL v3.0).
 
 HELP: cylc [license|GPL] COMMAND help,--help
   You can abbreviate license|GPL and COMMAND.
@@ -321,7 +330,7 @@ COMMANDS:
 </div>
 <div class="section" id="preparation">
 <span id="command-cat-preparation"></span><h3>15.6.2.8. preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: preparation - Suite editing, validation, visualization, etc.
+<div class="highlight-none"><div class="highlight"><pre><span></span>   CATEGORY: preparation - Suite editing, validation, visualization, etc.
 
 HELP: cylc [preparation] COMMAND help,--help
   You can abbreviate preparation and COMMAND.
@@ -346,7 +355,7 @@ COMMANDS:
 </div>
 <div class="section" id="task">
 <span id="command-cat-task"></span><h3>15.6.2.9. task<a class="headerlink" href="#task" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: task - The task messaging interface.
+<div class="highlight-none"><div class="highlight"><pre><span></span>   CATEGORY: task - The task messaging interface.
 
 HELP: cylc [task] COMMAND help,--help
   You can abbreviate task and COMMAND.
@@ -365,7 +374,7 @@ COMMANDS:
 </div>
 <div class="section" id="utility">
 <span id="command-cat-utility"></span><h3>15.6.2.10. utility<a class="headerlink" href="#utility" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   CATEGORY: utility - Cycle arithmetic and templating, etc.
+<div class="highlight-none"><div class="highlight"><pre><span></span>   CATEGORY: utility - Cycle arithmetic and templating, etc.
 
 HELP: cylc [utility] COMMAND help,--help
   You can abbreviate utility and COMMAND.
@@ -386,7 +395,7 @@ COMMANDS:
 <h2>15.6.3. Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="to6">
 <span id="command-5to6"></span><h3>15.6.3.1. 5to6<a class="headerlink" href="#to6" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] 5to6 FILE
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [prep] 5to6 FILE
 
 Suggest changes to a cylc 5 suite file to make it more cylc 6 compatible.
 This may be a suite.rc file, an include file, or a suite.rc.processed file.
@@ -434,7 +443,7 @@ Options:
 </div>
 <div class="section" id="broadcast">
 <span id="command-broadcast"></span><h3>15.6.3.2. broadcast<a class="headerlink" href="#broadcast" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] broadcast|bcast [OPTIONS] REG
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] broadcast|bcast [OPTIONS] REG
 
 Override [runtime] config in targeted namespaces in a running suite.
 
@@ -561,7 +570,7 @@ Options:
 </div>
 <div class="section" id="cat-log">
 <span id="command-cat-log"></span><h3>15.6.3.3. cat-log<a class="headerlink" href="#cat-log" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] cat-log|log [OPTIONS] REG [TASK-ID]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [info] cat-log|log [OPTIONS] REG [TASK-ID]
 
 Print, view-in-editor, or tail-follow content, print path, or list directory,
 of local or remote task job and suite server logs. Batch-system view commands
@@ -621,7 +630,7 @@ Options:
 </div>
 <div class="section" id="cat-state">
 <span id="command-cat-state"></span><h3>15.6.3.4. cat-state<a class="headerlink" href="#cat-state" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] cat-state [OPTIONS] REG
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [info] cat-state [OPTIONS] REG
 
 Print the suite state in the old state dump file format to stdout.
 This command is deprecated; use &quot;cylc ls-checkpoints&quot; instead.
@@ -643,7 +652,7 @@ Options:
 </div>
 <div class="section" id="check-software">
 <span id="command-check-software"></span><h3>15.6.3.5. check-software<a class="headerlink" href="#check-software" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   cylc [admin] check-software [MODULES]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   cylc [admin] check-software [MODULES]
 
 Check for Cylc external software dependencices, including minimum versions.
 
@@ -662,7 +671,7 @@ Arguments:
 </div>
 <div class="section" id="check-triggering">
 <span id="command-check-triggering"></span><h3>15.6.3.6. check-triggering<a class="headerlink" href="#check-triggering" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   cylc [hook] check-triggering ARGS
+<div class="highlight-none"><div class="highlight"><pre><span></span>   cylc [hook] check-triggering ARGS
 
 This is a cylc shutdown event handler that compares the newly generated
 suite log with a previously generated reference log &quot;reference.log&quot;
@@ -695,7 +704,7 @@ Reference tests can use any run mode:
 </div>
 <div class="section" id="check-versions">
 <span id="command-check-versions"></span><h3>15.6.3.7. check-versions<a class="headerlink" href="#check-versions" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [discovery] check-versions [OPTIONS] SUITE
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [discovery] check-versions [OPTIONS] SUITE
 
 Check the version of cylc invoked on each of SUITE&#39;s task host accounts when
 CYLC_VERSION is set to *the version running this command line tool*.
@@ -718,7 +727,7 @@ Arguments:
 
 Options:
   -h, --help            show this help message and exit
-  -e, --error           Exit with error status if 7.8.2 is not available on
+  -e, --error           Exit with error status if 7.8.4 is not available on
                         all remote accounts.
   -v, --verbose         Verbose output mode.
   --debug               Output developer information and show exception
@@ -742,7 +751,7 @@ Options:
 </div>
 <div class="section" id="checkpoint">
 <span id="command-checkpoint"></span><h3>15.6.3.8. checkpoint<a class="headerlink" href="#checkpoint" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] checkpoint [OPTIONS] REG CHECKPOINT-NAME
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] checkpoint [OPTIONS] REG CHECKPOINT-NAME
 
 Tell suite to checkpoint its current state.
 
@@ -788,7 +797,7 @@ Options:
 </div>
 <div class="section" id="client">
 <span id="command-client"></span><h3>15.6.3.9. client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc client [OPTIONS] METHOD [REG]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc client [OPTIONS] METHOD [REG]
 
 (This command is for internal use.)
 Invoke HTTP(S) client, expect JSON from STDIN for keyword arguments.
@@ -837,7 +846,7 @@ Options:
 </div>
 <div class="section" id="conditions">
 <span id="command-conditions"></span><h3>15.6.3.10. conditions<a class="headerlink" href="#conditions" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [license] warranty [--help]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [license] warranty [--help]
 Cylc is release under the GNU General Public License v3.0
 This command prints the GPL v3.0 license in full.
 
@@ -848,7 +857,7 @@ Options:
 </div>
 <div class="section" id="cycle-point">
 <span id="command-cycle-point"></span><h3>15.6.3.11. cycle-point<a class="headerlink" href="#cycle-point" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [util] cycle-point [OPTIONS] [POINT]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [util] cycle-point [OPTIONS] [POINT]
 
 Cycle point date-time offset computation, and filename templating.
 
@@ -913,7 +922,7 @@ Options:
 </div>
 <div class="section" id="diff">
 <span id="command-diff"></span><h3>15.6.3.12. diff<a class="headerlink" href="#diff" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] diff|compare [OPTIONS] SUITE1 SUITE2
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [prep] diff|compare [OPTIONS] SUITE1 SUITE2
 
 Compare two suite definitions and display any differences.
 
@@ -953,14 +962,15 @@ Options:
                         across suite restarts, but can be set again on the
                         &quot;cylc restart&quot; command line if they need to be
                         overridden.
-  --icp=CYCLE_POINT     Set initial cycle point. Required if not defined in
-                        suite.rc.
+  --initial-cycle-point=CYCLE_POINT, --initial-point=CYCLE_POINT, --icp=CYCLE_POINT, --ict=CYCLE_POINT
+                        Set the initial cycle point. Required if not defined
+                        in suite.rc.
 </pre></div>
 </div>
 </div>
 <div class="section" id="documentation">
 <span id="command-documentation"></span><h3>15.6.3.13. documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] documentation|browse [OPTIONS] [TARGET]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [info] documentation|browse [OPTIONS] [TARGET]
 
 View documentation in the browser, as per Cylc global config.
 
@@ -990,7 +1000,7 @@ Options:
 </div>
 <div class="section" id="dump">
 <span id="command-dump"></span><h3>15.6.3.14. dump<a class="headerlink" href="#dump" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] dump [OPTIONS] REG
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [info] dump [OPTIONS] REG
 
 Print state information (e.g. the state of each task) from a running
 suite. For small suites &#39;watch cylc [info] dump SUITE&#39; is an effective
@@ -1047,7 +1057,7 @@ Options:
 </div>
 <div class="section" id="edit">
 <span id="command-edit"></span><h3>15.6.3.15. edit<a class="headerlink" href="#edit" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] edit [OPTIONS] SUITE
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [prep] edit [OPTIONS] SUITE
 
 Edit suite definitions without having to move to their directory
 locations, and with optional reversible inlining of include-files. Note
@@ -1109,7 +1119,7 @@ Options:
 </div>
 <div class="section" id="email-suite">
 <span id="command-email-suite"></span><h3>15.6.3.16. email-suite<a class="headerlink" href="#email-suite" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [hook] email-suite EVENT SUITE MESSAGE
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [hook] email-suite EVENT SUITE MESSAGE
 
 THIS COMMAND IS OBSOLETE - use built-in email event hooks.
 
@@ -1132,7 +1142,7 @@ on suite and task event hooks and event handler scripts.
 </div>
 <div class="section" id="email-task">
 <span id="command-email-task"></span><h3>15.6.3.17. email-task<a class="headerlink" href="#email-task" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [hook] email-task EVENT SUITE TASKID MESSAGE
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [hook] email-task EVENT SUITE TASKID MESSAGE
 
 THIS COMMAND IS OBSOLETE - use built-in email event hooks.
 
@@ -1157,7 +1167,7 @@ on suite and task event hooks and event handler scripts.
 </div>
 <div class="section" id="ext-trigger">
 <span id="command-ext-trigger"></span><h3>15.6.3.18. ext-trigger<a class="headerlink" href="#ext-trigger" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] ext-trigger [OPTIONS] REG MSG ID
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] ext-trigger [OPTIONS] REG MSG ID
 
 Report an external event message to a suite server program. It is expected that
 a task in the suite has registered the same message as an external trigger - a
@@ -1220,7 +1230,7 @@ Options:
 </div>
 <div class="section" id="function-run">
 <span id="command-function-run"></span><h3>15.6.3.19. function-run<a class="headerlink" href="#function-run" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   USAGE: cylc function-run &lt;name&gt; &lt;json-args&gt; &lt;json-kwargs&gt; &lt;src-dir&gt;
+<div class="highlight-none"><div class="highlight"><pre><span></span>   USAGE: cylc function-run &lt;name&gt; &lt;json-args&gt; &lt;json-kwargs&gt; &lt;src-dir&gt;
 
 INTERNAL USE (asynchronous external trigger function execution)
 
@@ -1233,7 +1243,7 @@ local xtrigger modules.
 </div>
 <div class="section" id="get-directory">
 <span id="command-get-directory"></span><h3>15.6.3.20. get-directory<a class="headerlink" href="#get-directory" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] get-directory REG
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [prep] get-directory REG
 
 Retrieve and print the source directory location of suite REG.
 Here&#39;s an easy way to move to a suite source directory:
@@ -1257,7 +1267,7 @@ Options:
 </div>
 <div class="section" id="get-gui-config">
 <span id="command-get-gui-config"></span><h3>15.6.3.21. get-gui-config<a class="headerlink" href="#get-gui-config" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [admin] get-gui-config [OPTIONS]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [admin] get-gui-config [OPTIONS]
 
 Print gcylc configuration settings.
 
@@ -1280,7 +1290,7 @@ Options:
 </div>
 <div class="section" id="get-host-metrics">
 <span id="command-get-host-metrics"></span><h3>15.6.3.22. get-host-metrics<a class="headerlink" href="#get-host-metrics" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc get-host-metrics [OPTIONS]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc get-host-metrics [OPTIONS]
 
 Get metrics for localhost, in the form of a JSON structure with top-level
 keys as requested via the OPTIONS:
@@ -1311,7 +1321,7 @@ Options:
 </div>
 <div class="section" id="get-site-config">
 <span id="command-get-site-config"></span><h3>15.6.3.23. get-site-config<a class="headerlink" href="#get-site-config" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [admin] get-site-config [OPTIONS]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [admin] get-site-config [OPTIONS]
 
 Print cylc site/user configuration settings.
 
@@ -1336,7 +1346,7 @@ Options:
 </div>
 <div class="section" id="get-suite-config">
 <span id="command-get-suite-config"></span><h3>15.6.3.24. get-suite-config<a class="headerlink" href="#get-suite-config" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] get-suite-config [OPTIONS] SUITE
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [info] get-suite-config [OPTIONS] SUITE
 
 Print parsed suite configuration items, after runtime inheritance.
 
@@ -1412,14 +1422,15 @@ Options:
                         across suite restarts, but can be set again on the
                         &quot;cylc restart&quot; command line if they need to be
                         overridden.
-  --icp=CYCLE_POINT     Set initial cycle point. Required if not defined in
-                        suite.rc.
+  --initial-cycle-point=CYCLE_POINT, --initial-point=CYCLE_POINT, --icp=CYCLE_POINT, --ict=CYCLE_POINT
+                        Set the initial cycle point. Required if not defined
+                        in suite.rc.
 </pre></div>
 </div>
 </div>
 <div class="section" id="get-suite-contact">
 <span id="command-get-suite-contact"></span><h3>15.6.3.25. get-suite-contact<a class="headerlink" href="#get-suite-contact" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] get-suite-contact [OPTIONS] REG
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [info] get-suite-contact [OPTIONS] REG
 
 Print contact information of running suite REG.
 
@@ -1439,7 +1450,7 @@ Options:
 </div>
 <div class="section" id="get-suite-version">
 <span id="command-get-suite-version"></span><h3>15.6.3.26. get-suite-version<a class="headerlink" href="#get-suite-version" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] get-suite-version [OPTIONS] REG
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [info] get-suite-version [OPTIONS] REG
 
 Interrogate running suite REG to find what version of cylc is running it.
 
@@ -1485,7 +1496,7 @@ Options:
 </div>
 <div class="section" id="gpanel">
 <span id="command-gpanel"></span><h3>15.6.3.27. gpanel<a class="headerlink" href="#gpanel" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc gpanel [OPTIONS]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc gpanel [OPTIONS]
 
 This is a cylc scan panel applet for monitoring running suites on a set of
 hosts in GNOME 2.
@@ -1511,7 +1522,7 @@ Options:
 </div>
 <div class="section" id="graph">
 <span id="command-graph"></span><h3>15.6.3.28. graph<a class="headerlink" href="#graph" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: 1/ cylc [prep] graph [OPTIONS] SUITE [START[STOP]]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: 1/ cylc [prep] graph [OPTIONS] SUITE [START[STOP]]
      Plot the suite.rc dependency graph for SUITE.
        2/ cylc [prep] graph [OPTIONS] -f,--file FILE
      Plot the specified dot-language graph file.
@@ -1609,7 +1620,7 @@ Options:
 </div>
 <div class="section" id="graph-diff">
 <span id="command-graph-diff"></span><h3>15.6.3.29. graph-diff<a class="headerlink" href="#graph-diff" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc graph-diff [OPTIONS] SUITE1 SUITE2 -- [GRAPH_OPTIONS_ARGS]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc graph-diff [OPTIONS] SUITE1 SUITE2 -- [GRAPH_OPTIONS_ARGS]
 
 Difference &#39;cylc graph --reference&#39; output for SUITE1 and SUITE2.
 
@@ -1623,7 +1634,7 @@ GRAPH_OPTIONS_ARGS: Options and arguments passed directly to cylc graph.
 </div>
 <div class="section" id="gscan">
 <span id="command-gscan"></span><h3>15.6.3.30. gscan<a class="headerlink" href="#gscan" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc gscan [OPTIONS]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc gscan [OPTIONS]
 
 This is the cylc scan gui for monitoring running suites on a set of
 hosts.
@@ -1675,7 +1686,7 @@ Options:
 </div>
 <div class="section" id="gui">
 <span id="command-gui"></span><h3>15.6.3.31. gui<a class="headerlink" href="#gui" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc gui [OPTIONS] [REG] [USER_AT_HOST]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc gui [OPTIONS] [REG] [USER_AT_HOST]
 gcylc [OPTIONS] [REG] [USER_AT_HOST]
 
 This is the cylc Graphical User Interface.
@@ -1752,16 +1763,21 @@ Options:
 </div>
 <div class="section" id="hold">
 <span id="command-hold"></span><h3>15.6.3.32. hold<a class="headerlink" href="#hold" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] hold [OPTIONS] REG [TASKID ...]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] hold [OPTIONS] REG [TASK_GLOB ...]
 
-Hold one or more waiting tasks (cylc hold REG TASKID ...), or
-a whole suite (cylc hold REG).
+Hold a suite or tasks:
+  cylc hold REG - hold a suite
+  cylc hold REG TASK_GLOB ... - hold one or more tasks in a suite
 
-Held tasks do not submit even if they are ready to run.
+Held tasks do not submit their jobs even if ready to run.
 
 See also &#39;cylc [control] release&#39;.
 
-TASKID is a pattern to match task proxies or task families, or groups of them:
+Multiple TASK_GLOBs can be given. They each match task proxy instances in the
+current task pool by task or family name pattern, cycle point pattern, and task
+state. They do NOT match any task at any point in the abstract suite graph; if
+target task instances do not exist in the current pool you must insert them
+first with the &quot;cylc insert&quot; command.
 * [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
 * [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
 * TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
@@ -1778,11 +1794,11 @@ For example, to match:
 
 The old &#39;MATCH POINT&#39; syntax will be automatically detected and supported. To
 avoid this, use the &#39;--no-multitask-compat&#39; option, or use the new syntax
-(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASKID arguments.
+(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASK_GLOB arguments.
 
 Arguments:
-   REG                        Suite name
-   [TASKID ...]               Task identifiers
+   REG                           Suite name
+   [TASK_GLOB ...]               Task match pattern(s)
 
 Options:
   -h, --help            show this help message and exit
@@ -1818,7 +1834,7 @@ Options:
                         command prompts have been disabled in the site/user
                         config files.
   -m, --family          (Obsolete) This option is now ignored and is retained
-                        for backward compatibility only. TASKID in the
+                        for backward compatibility only. TASK_GLOB in the
                         argument list can be used to match task and family
                         names regardless of this option.
   --no-multitask-compat
@@ -1828,7 +1844,7 @@ Options:
 </div>
 <div class="section" id="import-examples">
 <span id="command-import-examples"></span><h3>15.6.3.33. import-examples<a class="headerlink" href="#import-examples" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc import-examples DIR
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc import-examples DIR
 
 Copy the cylc example suites to DIR and register them for use under the GROUP
 suite name group.
@@ -1840,44 +1856,41 @@ Arguments:
 </div>
 <div class="section" id="insert">
 <span id="command-insert"></span><h3>15.6.3.34. insert<a class="headerlink" href="#insert" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] insert [OPTIONS] REG TASKID [...]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] insert [OPTIONS] TASK_GLOB [...]
 
-Insert task proxies into a running suite. Uses of insertion include:
- 1) insert a task that was excluded by the suite definition at start-up.
- 2) reinstate a task that was previously removed from a running suite.
- 3) re-run an old task that cannot be retriggered because its task proxy
- is no longer live in the a suite.
+Insert new task proxies into the task pool of a running suite, e.g. to allow
+re-triggering of an earlier task that has already been removed from the pool.
 
-Be aware that inserted cycling tasks keep on cycling as normal, even if
-another instance of the same task exists at a later cycle (instances of
-the same task at different cycles can coexist, but a newly spawned task
-will not be added to the pool if it catches up to another task with the
-same ID).
+NOTE: inserted cycling tasks cycle on as normal, even if another instance of
+the same task exists at a later cycle (instances of the same task at different
+cycles can coexist, but a newly spawned task will not be added to the pool if
+it catches up to another task with the same ID).
 
-See also &#39;cylc submit&#39;, for running tasks without the scheduler.
+See also &#39;cylc submit&#39;, for running tasks independently of the scheduler.
 
-TASKID is a pattern to match task proxies or task families, or groups of them:
-* [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
-* [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
-* TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
-* FAMILY-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
+TASK_GLOB matches task or family names, to insert task instances into the pool
+at a specific given cycle point. (NOTE this differs from other commands which
+match name and cycle point patterns against instances already in the pool).
+* CYCLE-POINT/TASK-NAME-GLOB
+* CYCLE-POINT/FAMILY-NAME-GLOB
+* TASK-NAME-GLOB.CYCLE-POINT
+* FAMILY-NAME-GLOB.CYCLE-POINT
 
-For example, to match:
-* all tasks in a cycle: &#39;20200202T0000Z/*&#39; or &#39;*.20200202T0000Z&#39;
-* all tasks in the submitted status: &#39;:submitted&#39;
-* retrying &#39;foo*&#39; tasks in 0000Z cycles: &#39;foo*.*0000Z:retrying&#39; or
-  &#39;*0000Z/foo*:retrying&#39;
-* retrying tasks in &#39;BAR&#39; family: &#39;*/BAR:retrying&#39; or &#39;BAR.*:retrying&#39;
-* retrying tasks in &#39;BAR&#39; or &#39;BAZ&#39; families: &#39;*/BA[RZ]:retrying&#39; or
-  &#39;BA[RZ].*:retrying&#39;
+For example, to match, within the given cycle point (e.g. &#39;20200202T0000Z&#39;):
+* all tasks: &#39;20200202T0000Z/*&#39; or &#39;*.20200202T0000Z&#39;
+* all tasks named model_N for some character N: &#39;20200202T0000Z/model_?&#39; or
+  &#39;model_?.20200202T0000Z&#39;
+* all tasks in &#39;BAR&#39; family: &#39;20200202T0000Z/BAR&#39; or &#39;BAR.20200202T0000Z&#39;
+* all tasks in &#39;BAR&#39; or &#39;BAZ&#39; families: &#39;20200202T0000Z/BA[RZ]&#39; or
+  &#39;BA[RZ].20200202T0000Z&#39;
 
 The old &#39;MATCH POINT&#39; syntax will be automatically detected and supported. To
 avoid this, use the &#39;--no-multitask-compat&#39; option, or use the new syntax
-(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASKID arguments.
+(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASK_GLOB arguments.
 
 Arguments:
-   REG                        Suite name
-   TASKID [...]               Task identifier
+   REG                           Suite name
+   TASK_GLOB [...]               Task match pattern(s)
 
 Options:
   -h, --help            show this help message and exit
@@ -1885,6 +1898,8 @@ Options:
                         Optional hold/stop cycle point for inserted task.
   --no-check            Add task even if the provided cycle point is not valid
                         for the given task.
+  --no-multitask-compat
+                        Disallow backward compatible multitask interface.
   --user=USER           Other user account name. This results in command
                         reinvocation on the remote account.
   --host=HOST           Other host name. This results in command reinvocation
@@ -1915,18 +1930,12 @@ Options:
                         it is not necessary to use this option if interactive
                         command prompts have been disabled in the site/user
                         config files.
-  -m, --family          (Obsolete) This option is now ignored and is retained
-                        for backward compatibility only. TASKID in the
-                        argument list can be used to match task and family
-                        names regardless of this option.
-  --no-multitask-compat
-                        Disallow backward compatible multitask interface.
 </pre></div>
 </div>
 </div>
 <div class="section" id="jobs-kill">
 <span id="command-jobs-kill"></span><h3>15.6.3.35. jobs-kill<a class="headerlink" href="#jobs-kill" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] jobs-kill JOB-LOG-ROOT [JOB-LOG-DIR ...]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] jobs-kill JOB-LOG-ROOT [JOB-LOG-DIR ...]
 
 (This command is for internal use. Users should use &quot;cylc kill&quot;.) Read job
 status files to obtain the names of the batch systems and the job IDs in the
@@ -1952,7 +1961,7 @@ Options:
 </div>
 <div class="section" id="jobs-poll">
 <span id="command-jobs-poll"></span><h3>15.6.3.36. jobs-poll<a class="headerlink" href="#jobs-poll" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] jobs-poll JOB-LOG-ROOT [JOB-LOG-DIR ...]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] jobs-poll JOB-LOG-ROOT [JOB-LOG-DIR ...]
 
 (This command is for internal use. Users should use &quot;cylc poll&quot;.) Read job
 status files to obtain the statuses of the jobs. If necessary, Invoke the
@@ -1977,7 +1986,7 @@ Options:
 </div>
 <div class="section" id="jobs-submit">
 <span id="command-jobs-submit"></span><h3>15.6.3.37. jobs-submit<a class="headerlink" href="#jobs-submit" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] jobs-submit JOB-LOG-ROOT [JOB-LOG-DIR ...]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] jobs-submit JOB-LOG-ROOT [JOB-LOG-DIR ...]
 
 (This command is for internal use. Users should use &quot;cylc submit&quot;.) Submit task
 jobs to relevant batch systems. On a remote job host, this command reads the
@@ -2004,7 +2013,7 @@ Options:
 </div>
 <div class="section" id="jobscript">
 <span id="command-jobscript"></span><h3>15.6.3.38. jobscript<a class="headerlink" href="#jobscript" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] jobscript [OPTIONS] REG TASK
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [prep] jobscript [OPTIONS] REG TASK
 
 Generate a task job script and print it to stdout.
 
@@ -2032,14 +2041,17 @@ Arguments:
 </div>
 <div class="section" id="kill">
 <span id="command-kill"></span><h3>15.6.3.39. kill<a class="headerlink" href="#kill" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] kill [OPTIONS] REG [TASKID ...]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] kill [OPTIONS] REG [TASK_GLOB ...]
 
 Kill jobs of active tasks and update their statuses accordingly.
+ cylc kill REG TASK_GLOB ... - kill one or more active tasks
+ cylc kill REG - kill all active tasks in the suite
 
-To kill one or more tasks, &quot;cylc kill REG TASKID ...&quot;; to kill all active
-tasks: &quot;cylc kill REG&quot;.
-
-TASKID is a pattern to match task proxies or task families, or groups of them:
+Multiple TASK_GLOBs can be given. They each match task proxy instances in the
+current task pool by task or family name pattern, cycle point pattern, and task
+state. They do NOT match any task at any point in the abstract suite graph; if
+target task instances do not exist in the current pool you must insert them
+first with the &quot;cylc insert&quot; command.
 * [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
 * [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
 * TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
@@ -2056,11 +2068,11 @@ For example, to match:
 
 The old &#39;MATCH POINT&#39; syntax will be automatically detected and supported. To
 avoid this, use the &#39;--no-multitask-compat&#39; option, or use the new syntax
-(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASKID arguments.
+(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASK_GLOB arguments.
 
 Arguments:
-   REG                        Suite name
-   [TASKID ...]               Task identifiers
+   REG                           Suite name
+   [TASK_GLOB ...]               Task match pattern(s)
 
 Options:
   -h, --help            show this help message and exit
@@ -2095,7 +2107,7 @@ Options:
                         command prompts have been disabled in the site/user
                         config files.
   -m, --family          (Obsolete) This option is now ignored and is retained
-                        for backward compatibility only. TASKID in the
+                        for backward compatibility only. TASK_GLOB in the
                         argument list can be used to match task and family
                         names regardless of this option.
   --no-multitask-compat
@@ -2105,7 +2117,7 @@ Options:
 </div>
 <div class="section" id="list">
 <span id="command-list"></span><h3>15.6.3.40. list<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info|prep] list|ls [OPTIONS] SUITE
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [info|prep] list|ls [OPTIONS] SUITE
 
 Print runtime namespace names (tasks and families), the first-parent
 inheritance graph, or actual tasks for a given cycle range.
@@ -2154,14 +2166,15 @@ Options:
                         across suite restarts, but can be set again on the
                         &quot;cylc restart&quot; command line if they need to be
                         overridden.
-  --icp=CYCLE_POINT     Set initial cycle point. Required if not defined in
-                        suite.rc.
+  --initial-cycle-point=CYCLE_POINT, --initial-point=CYCLE_POINT, --icp=CYCLE_POINT, --ict=CYCLE_POINT
+                        Set the initial cycle point. Required if not defined
+                        in suite.rc.
 </pre></div>
 </div>
 </div>
 <div class="section" id="ls-checkpoints">
 <span id="command-ls-checkpoints"></span><h3>15.6.3.41. ls-checkpoints<a class="headerlink" href="#ls-checkpoints" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] ls-checkpoints [OPTIONS] REG [ID ...]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [info] ls-checkpoints [OPTIONS] REG [ID ...]
 
 In the absence of arguments and the --all option, list checkpoint IDs, their
 time and events. Otherwise, display the latest and/or the checkpoints of suite
@@ -2186,7 +2199,7 @@ Options:
 </div>
 <div class="section" id="make-docs">
 <span id="command-make-docs"></span><h3>15.6.3.42. make-docs<a class="headerlink" href="#make-docs" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [admin] make-docs [--help]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [admin] make-docs [--help]
 Build the HTML User Guide, with Sphinx.
 
 Options:
@@ -2196,7 +2209,7 @@ Options:
 </div>
 <div class="section" id="message">
 <span id="command-message"></span><h3>15.6.3.43. message<a class="headerlink" href="#message" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [task] message [OPTIONS] -- [REG] [TASK-JOB] [[SEVERITY:]MESSAGE ...]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [task] message [OPTIONS] -- [REG] [TASK-JOB] [[SEVERITY:]MESSAGE ...]
 
 Record task job messages.
 
@@ -2293,7 +2306,7 @@ Options:
 </div>
 <div class="section" id="monitor">
 <span id="command-monitor"></span><h3>15.6.3.44. monitor<a class="headerlink" href="#monitor" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] monitor [OPTIONS] REG [USER_AT_HOST]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [info] monitor [OPTIONS] REG [USER_AT_HOST]
 
 A terminal-based live suite monitor.  Exit with &#39;Ctrl-C&#39;.
 
@@ -2353,7 +2366,7 @@ Options:
 </div>
 <div class="section" id="nudge">
 <span id="command-nudge"></span><h3>15.6.3.45. nudge<a class="headerlink" href="#nudge" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] nudge [OPTIONS] REG
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] nudge [OPTIONS] REG
 
 Cause the cylc task processing loop to be invoked in a running suite.
 
@@ -2406,7 +2419,7 @@ Options:
 </div>
 <div class="section" id="ping">
 <span id="command-ping"></span><h3>15.6.3.46. ping<a class="headerlink" href="#ping" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [discovery] ping [OPTIONS] REG [TASK]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [discovery] ping [OPTIONS] REG [TASK]
 
 If suite REG is running or TASK in suite REG is currently running,
 exit with success status, else exit with error status.
@@ -2452,14 +2465,17 @@ Options:
 </div>
 <div class="section" id="poll">
 <span id="command-poll"></span><h3>15.6.3.47. poll<a class="headerlink" href="#poll" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] poll [OPTIONS] REG [TASKID ...]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] poll [OPTIONS] REG [TASK_GLOB ...]
 
 Poll (query) task jobs to verify and update their statuses.
+  cylc poll REG - poll all active tasks
+  cylc poll REG TASK_GLOB ... - poll multiple active tasks or families
 
-Use &quot;cylc poll REG&quot; to poll all active tasks, or &quot;cylc poll REG TASKID&quot; to poll
-individual tasks or families, or groups of them.
-
-TASKID is a pattern to match task proxies or task families, or groups of them:
+Multiple TASK_GLOBs can be given. They each match task proxy instances in the
+current task pool by task or family name pattern, cycle point pattern, and task
+state. They do NOT match any task at any point in the abstract suite graph; if
+target task instances do not exist in the current pool you must insert them
+first with the &quot;cylc insert&quot; command.
 * [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
 * [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
 * TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
@@ -2476,11 +2492,11 @@ For example, to match:
 
 The old &#39;MATCH POINT&#39; syntax will be automatically detected and supported. To
 avoid this, use the &#39;--no-multitask-compat&#39; option, or use the new syntax
-(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASKID arguments.
+(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASK_GLOB arguments.
 
 Arguments:
-   REG                        Suite name
-   [TASKID ...]               Task identifiers
+   REG                           Suite name
+   [TASK_GLOB ...]               Task match pattern(s)
 
 Options:
   -h, --help            show this help message and exit
@@ -2516,7 +2532,7 @@ Options:
                         command prompts have been disabled in the site/user
                         config files.
   -m, --family          (Obsolete) This option is now ignored and is retained
-                        for backward compatibility only. TASKID in the
+                        for backward compatibility only. TASK_GLOB in the
                         argument list can be used to match task and family
                         names regardless of this option.
   --no-multitask-compat
@@ -2526,7 +2542,7 @@ Options:
 </div>
 <div class="section" id="print">
 <span id="command-print"></span><h3>15.6.3.48. print<a class="headerlink" href="#print" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] print [OPTIONS] [REGEX]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [prep] print [OPTIONS] [REGEX]
 
 Print registered (installed) suites.
 
@@ -2559,7 +2575,7 @@ Options:
 </div>
 <div class="section" id="profile-battery">
 <span id="command-profile-battery"></span><h3>15.6.3.49. profile-battery<a class="headerlink" href="#profile-battery" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc profile-battery [-e [EXPERIMENT ...]] [-v [VERSION ...]]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc profile-battery [-e [EXPERIMENT ...]] [-v [VERSION ...]]
 
 Run profiling experiments against different versions of cylc. A list of
 experiments can be specified after the -e flag, if not provided the experiment
@@ -2636,17 +2652,18 @@ Options:
 </div>
 <div class="section" id="register">
 <span id="command-register"></span><h3>15.6.3.50. register<a class="headerlink" href="#register" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] register [OPTIONS] [REG] [PATH]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [prep] register [OPTIONS] [REG] [PATH]
 
 Register the name REG for the suite definition in PATH. The suite server
 program can then be started, stopped, and targeted by name REG. (Note that
 &quot;cylc run&quot; can also register suites on the fly).
 
 Registration creates a suite run directory &quot;~/cylc-run/REG/&quot; containing a
-&quot;.service/source&quot; symlink to the suite definition PATH. The .service directory
-will also be used for server authentication files at run time.
+&quot;.service/source&quot; symlink to the suite definition location. The .service
+directory is also used for server authentication files at runtime. With the
+&quot;--run-dir&quot; option &quot;~/cylc-run/REG&quot; can be symlinked to another location.
 
-Suite names can be hierarchical, corresponding to the path under ~/cylc-run.
+Suite names can be hierarchical, corresponding to path under the run directory.
 
   % cylc register dogs/fido PATH
 Register PATH/suite.rc as dogs/fido, with run directory ~/cylc-run/dogs/fido.
@@ -2674,29 +2691,37 @@ Arguments:
    [PATH]               Suite definition directory (defaults to $PWD)
 
 Options:
-  -h, --help     show this help message and exit
-  --redirect     Allow an existing suite name and run directory to be used
-                 with another suite.
-  --user=USER    Other user account name. This results in command reinvocation
-                 on the remote account.
-  --host=HOST    Other host name. This results in command reinvocation on the
-                 remote account.
-  -v, --verbose  Verbose output mode.
-  --debug        Output developer information and show exception tracebacks.
+  -h, --help        show this help message and exit
+  --redirect        Allow an existing suite name and run directory to be used
+                    with another suite.
+  --run-dir=RUNDIR  Symlink $HOME/cylc-run/REG to RUNDIR/REG.
+  --user=USER       Other user account name. This results in command
+                    reinvocation on the remote account.
+  --host=HOST       Other host name. This results in command reinvocation on
+                    the remote account.
+  -v, --verbose     Verbose output mode.
+  --debug           Output developer information and show exception
+                    tracebacks.
 </pre></div>
 </div>
 </div>
 <div class="section" id="release">
 <span id="command-release"></span><h3>15.6.3.51. release<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] release|unhold [OPTIONS] REG [TASKID ...]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] release|unhold [OPTIONS] REG [TASK_GLOB ...]
 
-Release one or more held tasks (cylc release REG TASKID)
-or the whole suite (cylc release REG). Held tasks do not
-submit even if they are ready to run.
+Release a held suite or tasks.
+  cylc release REG - release the suite
+  cylc release REG TASK_GLOB ... - release one or more tasks
+
+Held tasks do not submit their jobs even if ready to run.
 
 See also &#39;cylc [control] hold&#39;.
 
-TASKID is a pattern to match task proxies or task families, or groups of them:
+Multiple TASK_GLOBs can be given. They each match task proxy instances in the
+current task pool by task or family name pattern, cycle point pattern, and task
+state. They do NOT match any task at any point in the abstract suite graph; if
+target task instances do not exist in the current pool you must insert them
+first with the &quot;cylc insert&quot; command.
 * [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
 * [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
 * TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
@@ -2713,11 +2738,11 @@ For example, to match:
 
 The old &#39;MATCH POINT&#39; syntax will be automatically detected and supported. To
 avoid this, use the &#39;--no-multitask-compat&#39; option, or use the new syntax
-(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASKID arguments.
+(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASK_GLOB arguments.
 
 Arguments:
-   REG                        Suite name
-   [TASKID ...]               Task identifiers
+   REG                           Suite name
+   [TASK_GLOB ...]               Task match pattern(s)
 
 Options:
   -h, --help            show this help message and exit
@@ -2752,7 +2777,7 @@ Options:
                         command prompts have been disabled in the site/user
                         config files.
   -m, --family          (Obsolete) This option is now ignored and is retained
-                        for backward compatibility only. TASKID in the
+                        for backward compatibility only. TASK_GLOB in the
                         argument list can be used to match task and family
                         names regardless of this option.
   --no-multitask-compat
@@ -2762,7 +2787,7 @@ Options:
 </div>
 <div class="section" id="reload">
 <span id="command-reload"></span><h3>15.6.3.52. reload<a class="headerlink" href="#reload" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] reload [OPTIONS] REG
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] reload [OPTIONS] REG
 
 Tell a suite to reload its definition at run time. All settings
 including task definitions, with the exception of suite log
@@ -2825,7 +2850,7 @@ Options:
 </div>
 <div class="section" id="remote-init">
 <span id="command-remote-init"></span><h3>15.6.3.53. remote-init<a class="headerlink" href="#remote-init" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [task] remote-init [--indirect-comm=ssh] UUID RUND
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [task] remote-init [--indirect-comm=ssh] UUID RUND
 
 (This command is for internal use.)
 Install suite service files on a task remote (i.e. a [owner@]host):
@@ -2866,7 +2891,7 @@ Options:
 </div>
 <div class="section" id="remote-tidy">
 <span id="command-remote-tidy"></span><h3>15.6.3.54. remote-tidy<a class="headerlink" href="#remote-tidy" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [task] remote-tidy RUND
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [task] remote-tidy RUND
 
 (This command is for internal use.)
 Remove &quot;.service/contact&quot; from a task remote (i.e. a [owner@]host).
@@ -2890,14 +2915,18 @@ Options:
 </div>
 <div class="section" id="remove">
 <span id="command-remove"></span><h3>15.6.3.55. remove<a class="headerlink" href="#remove" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] remove [OPTIONS] REG TASKID [...]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] remove [OPTIONS] REG TASK_GLOB [...]
 
-Remove one or more tasks (cylc remove REG TASKID), or all tasks with a
-given cycle point (cylc remove REG *.POINT) from a running suite.
+Remove one or more task instances from a running suite.
 
-Tasks will spawn successors first if they have not done so already.
+Tasks will be forced to spawn successors before removal if they have not done
+so already, unless you use &#39;--no-spawn&#39;.
 
-TASKID is a pattern to match task proxies or task families, or groups of them:
+Multiple TASK_GLOBs can be given. They each match task proxy instances in the
+current task pool by task or family name pattern, cycle point pattern, and task
+state. They do NOT match any task at any point in the abstract suite graph; if
+target task instances do not exist in the current pool you must insert them
+first with the &quot;cylc insert&quot; command.
 * [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
 * [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
 * TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
@@ -2914,11 +2943,11 @@ For example, to match:
 
 The old &#39;MATCH POINT&#39; syntax will be automatically detected and supported. To
 avoid this, use the &#39;--no-multitask-compat&#39; option, or use the new syntax
-(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASKID arguments.
+(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASK_GLOB arguments.
 
 Arguments:
-   REG                        Suite name
-   TASKID [...]               Task identifiers
+   REG                           Suite name
+   TASK_GLOB [...]               Task match pattern(s)
 
 Options:
   -h, --help            show this help message and exit
@@ -2954,7 +2983,7 @@ Options:
                         command prompts have been disabled in the site/user
                         config files.
   -m, --family          (Obsolete) This option is now ignored and is retained
-                        for backward compatibility only. TASKID in the
+                        for backward compatibility only. TASK_GLOB in the
                         argument list can be used to match task and family
                         names regardless of this option.
   --no-multitask-compat
@@ -2964,7 +2993,7 @@ Options:
 </div>
 <div class="section" id="report-timings">
 <span id="command-report-timings"></span><h3>15.6.3.56. report-timings<a class="headerlink" href="#report-timings" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [util] report-timings [OPTIONS] REG
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [util] report-timings [OPTIONS] REG
 
 Retrieve suite timing information for wait and run time performance analysis.
 Raw output and summary output (in text or HTML format) are available.  Output
@@ -3018,22 +3047,25 @@ Options:
 </div>
 <div class="section" id="reset">
 <span id="command-reset"></span><h3>15.6.3.57. reset<a class="headerlink" href="#reset" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] reset [OPTIONS] REG [TASKID ...]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] reset [OPTIONS] REG [TASK_GLOB ...]
 
-Force tasks to a specified state, and modify their prerequisites and outputs
-accordingly.
+Force task instances to a specified state.
+  cylc reset --state=xxx REG - reset all tasks to state xxx
+  cylc reset --state=xxx REG TASK_GLOB ... - reset one or more tasks to xxx
 
 Outputs are automatically updated to reflect the new task state, except for
-custom message outputs - which can be manipulated directly with &quot;--output&quot;.
+custom message outputs which can be manipulated directly with &quot;--output&quot;.
 
-Prerequisites reflect the state of other  tasks; they are not changed except
-to unset them on resetting the task state to &#39;waiting&#39; or earlier.
+Prerequisites reflect the state of other tasks; they are not changed except
+to unset them on resetting state to &#39;waiting&#39; or earlier.
 
-To hold and release tasks use &quot;cylc hold&quot; and &quot;cylc release&quot;.
-&quot;cylc reset --state=spawn&quot; is deprecated: use &quot;cylc spawn&quot; instead.
+To hold and release tasks use &quot;cylc hold&quot; and &quot;cylc release&quot;, not this command.
 
-
-TASKID is a pattern to match task proxies or task families, or groups of them:
+Multiple TASK_GLOBs can be given. They each match task proxy instances in the
+current task pool by task or family name pattern, cycle point pattern, and task
+state. They do NOT match any task at any point in the abstract suite graph; if
+target task instances do not exist in the current pool you must insert them
+first with the &quot;cylc insert&quot; command.
 * [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
 * [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
 * TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
@@ -3050,11 +3082,11 @@ For example, to match:
 
 The old &#39;MATCH POINT&#39; syntax will be automatically detected and supported. To
 avoid this, use the &#39;--no-multitask-compat&#39; option, or use the new syntax
-(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASKID arguments.
+(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASK_GLOB arguments.
 
 Arguments:
-   REG                        Suite name
-   [TASKID ...]               Task identifiers
+   REG                           Suite name
+   [TASK_GLOB ...]               Task match pattern(s)
 
 Options:
   -h, --help            show this help message and exit
@@ -3097,7 +3129,7 @@ Options:
                         command prompts have been disabled in the site/user
                         config files.
   -m, --family          (Obsolete) This option is now ignored and is retained
-                        for backward compatibility only. TASKID in the
+                        for backward compatibility only. TASK_GLOB in the
                         argument list can be used to match task and family
                         names regardless of this option.
   --no-multitask-compat
@@ -3107,7 +3139,7 @@ Options:
 </div>
 <div class="section" id="restart">
 <span id="command-restart"></span><h3>15.6.3.58. restart<a class="headerlink" href="#restart" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] restart [OPTIONS] [REG]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] restart [OPTIONS] [REG]
 
 Start a suite run from the previous state. To start from scratch (cold or warm
 start) see the &#39;cylc run&#39; command.
@@ -3122,36 +3154,49 @@ Arguments:
 
 Options:
   -h, --help            show this help message and exit
-  --non-daemon          (deprecated: use --no-detach)
-  -n, --no-detach       Do not daemonize the suite
+  -n, --no-detach, --non-daemon
+                        Do not daemonize the suite
   -a, --no-auto-shutdown
                         Do not shut down the suite automatically when all
                         tasks have finished. This flag overrides the
                         corresponding suite config item.
+  --auto-shutdown       Shut down the suite automatically when all tasks have
+                        finished. This flag overrides the corresponding suite
+                        config item.
   --profile             Output profiling (performance) information
   --checkpoint=CHECKPOINT-ID
                         Specify the ID of a checkpoint to restart from
-  --ignore-final-cycle-point
-                        Ignore the final cycle point in the suite run
-                        database. If one is specified in the suite definition
-                        it will be used, however.
   --ignore-initial-cycle-point
                         Ignore the initial cycle point in the suite run
                         database. If one is specified in the suite definition
                         it will be used, however.
-  --until=CYCLE_POINT   Shut down after all tasks have PASSED this cycle
-                        point.
-  --hold                Hold (don&#39;t run tasks) immediately on starting.
-  --hold-after=CYCLE_POINT
-                        Hold (don&#39;t run tasks) AFTER this cycle point.
+  --ignore-final-cycle-point
+                        Ignore the final cycle point in the suite run
+                        database. If one is specified in the suite definition
+                        it will be used, however.
+  --ignore-start-cycle-point
+                        Ignore the start cycle point in the suite run
+                        database.
+  --ignore-stop-cycle-point
+                        Ignore the stop cycle point in the suite run database.
+  --final-cycle-point=CYCLE_POINT, --final-point=CYCLE_POINT, --until=CYCLE_POINT, --fcp=CYCLE_POINT
+                        Set the final cycle point.
+  --stop-cycle-point=CYCLE_POINT, --stop-point=CYCLE_POINT
+                        Set stop point. Shut down after all tasks have PASSED
+                        this cycle point. (Not to be confused with the final
+                        cycle point.)
+  --hold                Hold suite immediately on starting.
+  --hold-point=CYCLE_POINT, --hold-after=CYCLE_POINT
+                        Set hold cycle point. Hold suite AFTER all tasks have
+                        PASSED this cycle point.
   -m STRING, --mode=STRING
                         Run mode: live, dummy, dummy-local, simulation
                         (default live).
   --reference-log       Generate a reference log for use in reference tests.
   --reference-test      Do a test run against a previously generated reference
                         log.
-  --host=HOST           Specify the host on which to start-up the suite.
-                        Without this set a host will be selected using the
+  --host=HOST           Specify the host on which to start-up the suite. If
+                        not specified, a host will be selected using the
                         &#39;suite servers&#39; global config.
   --user=USER           Other user account name. This results in command
                         reinvocation on the remote account.
@@ -3176,7 +3221,7 @@ Options:
 </div>
 <div class="section" id="review">
 <span id="command-review"></span><h3>15.6.3.59. review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] review [OPTIONS] [start [PORT]] [stop]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [info] review [OPTIONS] [start [PORT]] [stop]
 
 Start/stop ad-hoc Cylc Review web service server for browsing users&#39; suite
 logs via an HTTP interface.
@@ -3201,7 +3246,7 @@ Options:
 </div>
 <div class="section" id="run">
 <span id="command-run"></span><h3>15.6.3.60. run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] run|start [OPTIONS] [[REG] [START_POINT] ]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] run|start [OPTIONS] [[REG] [START_POINT] ]
 
 Start a suite run from scratch, ignoring dependence prior to the start point.
 
@@ -3236,28 +3281,38 @@ Arguments:
 
 Options:
   -h, --help            show this help message and exit
-  --non-daemon          (deprecated: use --no-detach)
-  -n, --no-detach       Do not daemonize the suite
+  -n, --no-detach, --non-daemon
+                        Do not daemonize the suite
   -a, --no-auto-shutdown
                         Do not shut down the suite automatically when all
                         tasks have finished. This flag overrides the
                         corresponding suite config item.
+  --auto-shutdown       Shut down the suite automatically when all tasks have
+                        finished. This flag overrides the corresponding suite
+                        config item.
   --profile             Output profiling (performance) information
   -w, --warm            Warm start the suite. The default is to cold start.
-  --ict                 Does nothing, option for backward compatibility only
-  --until=CYCLE_POINT   Shut down after all tasks have PASSED this cycle
-                        point.
-  --hold                Hold (don&#39;t run tasks) immediately on starting.
-  --hold-after=CYCLE_POINT
-                        Hold (don&#39;t run tasks) AFTER this cycle point.
+  --start-cycle-point=CYCLE_POINT, --start-point=CYCLE_POINT
+                        Set the start cycle point. Implies --warm.(Not to be
+                        confused with the initial cycle point.)
+  --final-cycle-point=CYCLE_POINT, --final-point=CYCLE_POINT, --until=CYCLE_POINT, --fcp=CYCLE_POINT
+                        Set the final cycle point.
+  --stop-cycle-point=CYCLE_POINT, --stop-point=CYCLE_POINT
+                        Set stop point. Shut down after all tasks have PASSED
+                        this cycle point. (Not to be confused with the final
+                        cycle point.)
+  --hold                Hold suite immediately on starting.
+  --hold-point=CYCLE_POINT, --hold-after=CYCLE_POINT
+                        Set hold cycle point. Hold suite AFTER all tasks have
+                        PASSED this cycle point.
   -m STRING, --mode=STRING
                         Run mode: live, dummy, dummy-local, simulation
                         (default live).
   --reference-log       Generate a reference log for use in reference tests.
   --reference-test      Do a test run against a previously generated reference
                         log.
-  --host=HOST           Specify the host on which to start-up the suite.
-                        Without this set a host will be selected using the
+  --host=HOST           Specify the host on which to start-up the suite. If
+                        not specified, a host will be selected using the
                         &#39;suite servers&#39; global config.
   --user=USER           Other user account name. This results in command
                         reinvocation on the remote account.
@@ -3277,12 +3332,15 @@ Options:
                         across suite restarts, but can be set again on the
                         &quot;cylc restart&quot; command line if they need to be
                         overridden.
+  --initial-cycle-point=CYCLE_POINT, --initial-point=CYCLE_POINT, --icp=CYCLE_POINT, --ict=CYCLE_POINT
+                        Set the initial cycle point. Required if not defined
+                        in suite.rc.
 </pre></div>
 </div>
 </div>
 <div class="section" id="scan">
 <span id="command-scan"></span><h3>15.6.3.61. scan<a class="headerlink" href="#scan" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [discovery] scan [OPTIONS] [HOSTS ...]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [discovery] scan [OPTIONS] [HOSTS ...]
 
 Print information about running suites.
 
@@ -3362,7 +3420,7 @@ Options:
 </div>
 <div class="section" id="scp-transfer">
 <span id="command-scp-transfer"></span><h3>15.6.3.62. scp-transfer<a class="headerlink" href="#scp-transfer" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [util] scp-transfer [OPTIONS]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [util] scp-transfer [OPTIONS]
 
 An scp wrapper for transferring a list of files and/or directories
 at once. The source and target scp URLs can be local or remote (scp
@@ -3385,7 +3443,7 @@ Options:
 </div>
 <div class="section" id="search">
 <span id="command-search"></span><h3>15.6.3.63. search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] search|grep [OPTIONS] SUITE PATTERN [PATTERN2...]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [prep] search|grep [OPTIONS] SUITE PATTERN [PATTERN2...]
 
 Search for pattern matches in suite definitions and any files in the
 suite bin directory. Matches are reported by line number and suite
@@ -3421,7 +3479,7 @@ Options:
 </div>
 <div class="section" id="set-verbosity">
 <span id="command-set-verbosity"></span><h3>15.6.3.64. set-verbosity<a class="headerlink" href="#set-verbosity" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] set-verbosity [OPTIONS] REG LEVEL
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] set-verbosity [OPTIONS] REG LEVEL
 
 Change the logging severity level of a running suite.  Only messages at
 or above the chosen severity level will be logged; for example, if you
@@ -3468,12 +3526,18 @@ Options:
 </div>
 <div class="section" id="show">
 <span id="command-show"></span><h3>15.6.3.65. show<a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [info] show [OPTIONS] REG [TASKID ...]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [info] show [OPTIONS] REG [TASK_NAME or TASK_GLOB ...]
 
-Interrogate a suite server program for the suite metadata; or for the metadata
-of one of its tasks; or for the current state of the prerequisites, outputs,
-and clock-triggering of a specific task instance.
-TASKID is a pattern to match task proxies or task families, or groups of them:
+Query a running suite for:
+  cylc show REG - suite metadata
+  cylc show REG TASK_NAME - task metadata
+  cylc show REG TASK_GLOB - prerequisites and outputs of matched task instances
+
+Multiple TASK_GLOBs can be given. They each match task proxy instances in the
+current task pool by task or family name pattern, cycle point pattern, and task
+state. They do NOT match any task at any point in the abstract suite graph; if
+target task instances do not exist in the current pool you must insert them
+first with the &quot;cylc insert&quot; command.
 * [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
 * [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
 * TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
@@ -3490,11 +3554,11 @@ For example, to match:
 
 The old &#39;MATCH POINT&#39; syntax will be automatically detected and supported. To
 avoid this, use the &#39;--no-multitask-compat&#39; option, or use the new syntax
-(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASKID arguments.
+(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASK_GLOB arguments.
 
 Arguments:
-   REG                        Suite name
-   [TASKID ...]               Task names or identifiers
+   REG                                        Suite name
+   [TASK_NAME or TASK_GLOB ...]               Task names or match patterns
 
 Options:
   -h, --help            show this help message and exit
@@ -3527,7 +3591,7 @@ Options:
                         first [info] command from the same client ID will be
                         logged unless the suite is running in debug mode).
   -m, --family          (Obsolete) This option is now ignored and is retained
-                        for backward compatibility only. TASKID in the
+                        for backward compatibility only. TASK_GLOB in the
                         argument list can be used to match task and family
                         names regardless of this option.
   --no-multitask-compat
@@ -3537,13 +3601,21 @@ Options:
 </div>
 <div class="section" id="spawn">
 <span id="command-spawn"></span><h3>15.6.3.66. spawn<a class="headerlink" href="#spawn" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] spawn [OPTIONS] REG [TASKID ...]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] spawn [OPTIONS] REG [TASK_GLOB ...]
 
-Force one or more task proxies to spawn successors at the next cycle point
-in their sequences.  This is useful if you need to run successive instances
-of a task out of order.
+Force task proxies to spawn successors at their own next cycle point.
+  cylc spawn REG - force spawn all tasks in a suite
+  cylc spawn REG TASK_GLOB ... - force spawn one or more tasks in a suite
 
-TASKID is a pattern to match task proxies or task families, or groups of them:
+Tasks normally spawn on reaching the &quot;submitted&quot; status. Spawning them early
+allows running successive instances of the same task out of order. See also
+the &quot;spawn to max active cycle points&quot; suite configuration.
+
+Multiple TASK_GLOBs can be given. They each match task proxy instances in the
+current task pool by task or family name pattern, cycle point pattern, and task
+state. They do NOT match any task at any point in the abstract suite graph; if
+target task instances do not exist in the current pool you must insert them
+first with the &quot;cylc insert&quot; command.
 * [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
 * [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
 * TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
@@ -3560,11 +3632,11 @@ For example, to match:
 
 The old &#39;MATCH POINT&#39; syntax will be automatically detected and supported. To
 avoid this, use the &#39;--no-multitask-compat&#39; option, or use the new syntax
-(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASKID arguments.
+(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASK_GLOB arguments.
 
 Arguments:
-   REG                        Suite name
-   [TASKID ...]               Task identifiers
+   REG                           Suite name
+   [TASK_GLOB ...]               Task match pattern(s)
 
 Options:
   -h, --help            show this help message and exit
@@ -3599,7 +3671,7 @@ Options:
                         command prompts have been disabled in the site/user
                         config files.
   -m, --family          (Obsolete) This option is now ignored and is retained
-                        for backward compatibility only. TASKID in the
+                        for backward compatibility only. TASK_GLOB in the
                         argument list can be used to match task and family
                         names regardless of this option.
   --no-multitask-compat
@@ -3609,7 +3681,7 @@ Options:
 </div>
 <div class="section" id="stop">
 <span id="command-stop"></span><h3>15.6.3.67. stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] stop|shutdown [OPTIONS] REG [STOP]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] stop|shutdown [OPTIONS] REG [STOP]
 
 Tell a suite server program to shut down. In order to prevent failures going
 unnoticed, suites only shut down automatically at a final cycle point if no
@@ -3684,7 +3756,7 @@ Options:
 </div>
 <div class="section" id="submit">
 <span id="command-submit"></span><h3>15.6.3.68. submit<a class="headerlink" href="#submit" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [task] submit|single [OPTIONS] REG TASK [...]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [task] submit|single [OPTIONS] REG TASK [...]
 
 Submit a single task to run just as it would be submitted by its suite.  Task
 messaging commands will print to stdout but will not attempt to communicate
@@ -3725,14 +3797,15 @@ Options:
                         across suite restarts, but can be set again on the
                         &quot;cylc restart&quot; command line if they need to be
                         overridden.
-  --icp=CYCLE_POINT     Set initial cycle point. Required if not defined in
-                        suite.rc.
+  --initial-cycle-point=CYCLE_POINT, --initial-point=CYCLE_POINT, --icp=CYCLE_POINT, --ict=CYCLE_POINT
+                        Set the initial cycle point. Required if not defined
+                        in suite.rc.
 </pre></div>
 </div>
 </div>
 <div class="section" id="suite-state">
 <span id="command-suite-state"></span><h3>15.6.3.69. suite-state<a class="headerlink" href="#suite-state" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc suite-state REG [OPTIONS]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc suite-state REG [OPTIONS]
 
 Print task states retrieved from a suite database; or (with --task,
 --point, and --status) poll until a given task reaches a given state; or (with
@@ -3806,18 +3879,18 @@ Options:
 </div>
 <div class="section" id="test-battery">
 <span id="command-test-battery"></span><h3>15.6.3.70. test-battery<a class="headerlink" href="#test-battery" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   cd &quot;/home/oliverh/cylc-git/worktrees/7.8.x&quot;
+<div class="highlight-none"><div class="highlight"><pre><span></span>   cd &quot;/home/oliverh/cylc/cylc-flow&quot;
 Usage: cylc test-battery [...]
 
 Run automated Cylc and Parsec tests, under (by default):
-   /home/oliverh/cylc-git/worktrees/7.8.x/tests/.
+   /home/oliverh/cylc/cylc-flow/tests/.
 
 Options and arguments are appended to &quot;prove -j $NPROC -s -r ${@:-tests}&quot;.
 NPROC is the number of concurrent processes to run, which defaults to the
 global config &quot;process pool size&quot; setting.
 
 The tests ignore normal site/user global config and instead use the file:
-   /home/oliverh/cylc-git/worktrees/7.8.x/etc/global-tests.rc
+   /home/oliverh/cylc/cylc-flow/etc/global-tests.rc
 This should specify test job hosts under the [test battery] section, plus any
 other critical settings settings, including [hosts] configuration for test job
 hosts (and special batchview commands like qcat if available). Additional
@@ -3834,14 +3907,14 @@ To change the test file comparision command from &quot;diff -u&quot; do (for exa
 Some test suites submit jobs to the &#39;at&#39; so atd must be up on the job hosts.
 
 Commits or Pull Requests to cylc/cylc-flow on GitHub will trigger Travis CI to
-run generic (non platform-specific) tests - see /home/oliverh/cylc-git/worktrees/7.8.x/.travis.yml.
+run generic (non platform-specific) tests - see /home/oliverh/cylc/cylc-flow/.travis.yml.
 
 By default all tests are executed.  To run just a subset of them:
   * list individual tests or test directories to run on the comand line
   * list individual tests or test directories to skip in $CYLC_TEST_SKIP
   * skip all generic tests with CYLC_TEST_RUN_GENERIC=false
   * skip all platform-specific tests with CYLC_TEST_RUN_PLATFORM=false
-  List specific tests relative to /home/oliverh/cylc-git/worktrees/7.8.x (i.e. starting with &quot;test/&quot;).
+  List specific tests relative to /home/oliverh/cylc/cylc-flow (i.e. starting with &quot;test/&quot;).
 Some platform-specific tests are automatically skipped, depending on platform.
 
 Platform-specific tests must set &quot;CYLC_TEST_IS_GENERIC=false&quot; before sourcing
@@ -3886,18 +3959,26 @@ Re-run failed tests
 </div>
 <div class="section" id="trigger">
 <span id="command-trigger"></span><h3>15.6.3.71. trigger<a class="headerlink" href="#trigger" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [control] trigger [OPTIONS] REG [TASKID ...]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] trigger [OPTIONS] REG [TASK_GLOB ...]
 
-Manually trigger one or more tasks. Waiting tasks will be queued (cylc internal
-queues) and will submit as normal when released by the queue; queued tasks will
-submit immediately even if that violates the queue limit (so you may need to
-trigger a queue-limited task twice to get it to submit).
+Manually trigger tasks.
+  cylc trigger REG - trigger all tasks in a running suite
+  cylc trigger REG TASK_GLOB ... - trigger one or more tasks in a running suite
+
+NOTE waiting tasks that are queue-limited will be queued if triggered, to
+submit as normal when released by the queue; queued tasks will submit
+immediately if triggered, even if that violates the queue limit (so you may
+need to trigger a queue-limited task twice to get it to submit immediately).
 
 For single tasks you can use &quot;--edit&quot; to edit the generated job script before
 it submits, to apply one-off changes. A diff between the original and edited
 job script will be saved to the task job log directory.
 
-TASKID is a pattern to match task proxies or task families, or groups of them:
+Multiple TASK_GLOBs can be given. They each match task proxy instances in the
+current task pool by task or family name pattern, cycle point pattern, and task
+state. They do NOT match any task at any point in the abstract suite graph; if
+target task instances do not exist in the current pool you must insert them
+first with the &quot;cylc insert&quot; command.
 * [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
 * [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
 * TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
@@ -3914,11 +3995,11 @@ For example, to match:
 
 The old &#39;MATCH POINT&#39; syntax will be automatically detected and supported. To
 avoid this, use the &#39;--no-multitask-compat&#39; option, or use the new syntax
-(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASKID arguments.
+(with a &#39;/&#39; or a &#39;.&#39;) when specifying 2 TASK_GLOB arguments.
 
 Arguments:
-   REG                        Suite name
-   [TASKID ...]               Task identifiers
+   REG                           Suite name
+   [TASK_GLOB ...]               Task match pattern(s)
 
 Options:
   -h, --help            show this help message and exit
@@ -3955,7 +4036,7 @@ Options:
                         command prompts have been disabled in the site/user
                         config files.
   -m, --family          (Obsolete) This option is now ignored and is retained
-                        for backward compatibility only. TASKID in the
+                        for backward compatibility only. TASK_GLOB in the
                         argument list can be used to match task and family
                         names regardless of this option.
   --no-multitask-compat
@@ -3965,7 +4046,7 @@ Options:
 </div>
 <div class="section" id="upgrade-run-dir">
 <span id="command-upgrade-run-dir"></span><h3>15.6.3.72. upgrade-run-dir<a class="headerlink" href="#upgrade-run-dir" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [admin] upgrade-run-dir SUITE
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [admin] upgrade-run-dir SUITE
 
 For one-off conversion of a suite run directory to cylc-6 format.
 
@@ -3979,7 +4060,7 @@ Options:
 </div>
 <div class="section" id="validate">
 <span id="command-validate"></span><h3>15.6.3.73. validate<a class="headerlink" href="#validate" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] validate [OPTIONS] SUITE
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [prep] validate [OPTIONS] SUITE
 
 Validate a suite definition.
 
@@ -4023,14 +4104,15 @@ Options:
                         across suite restarts, but can be set again on the
                         &quot;cylc restart&quot; command line if they need to be
                         overridden.
-  --icp=CYCLE_POINT     Set initial cycle point. Required if not defined in
-                        suite.rc.
+  --initial-cycle-point=CYCLE_POINT, --initial-point=CYCLE_POINT, --icp=CYCLE_POINT, --ict=CYCLE_POINT
+                        Set the initial cycle point. Required if not defined
+                        in suite.rc.
 </pre></div>
 </div>
 </div>
 <div class="section" id="view">
 <span id="command-view"></span><h3>15.6.3.74. view<a class="headerlink" href="#view" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [prep] view [OPTIONS] SUITE
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [prep] view [OPTIONS] SUITE
 
 View a read-only temporary copy of suite NAME&#39;s suite.rc file, in your
 editor, after optional include-file inlining and Jinja2 preprocessing.
@@ -4095,7 +4177,7 @@ Options:
 </div>
 <div class="section" id="warranty">
 <span id="command-warranty"></span><h3>15.6.3.75. warranty<a class="headerlink" href="#warranty" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   Usage: cylc [license] warranty [--help]
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [license] warranty [--help]
    Cylc is released under the GNU General Public License v3.0
 This command prints the GPL v3.0 disclaimer of warranty.
 Options:
@@ -4115,7 +4197,7 @@ Options:
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/cylc-logo.png" alt="Logo"/>
             </a></p>
-<h3><a href="../index.html">Table of Contents</a></h3>
+<h3><a href="../index.html">Table Of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction: How Cylc Works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../screenshots.html">2. Cylc Screenshots</a></li>
@@ -4157,14 +4239,12 @@ Options:
 
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
-    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
   <div role="note" aria-label="source link">
@@ -4190,13 +4270,13 @@ Options:
         <li class="right" >
           <a href="remote-job-management.html" title="15.5. Remote Job Management"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.4 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="appendices-master.html" >15. Appendices</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2008-2019 NIWA &amp; British Crown (Met Office) &amp; Contributors.
-      Last updated on May 02, 2019.
+      Last updated on Sep 04, 2019.
     </div>
   </body>
 </html>

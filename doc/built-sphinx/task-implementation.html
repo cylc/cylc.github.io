@@ -1,27 +1,36 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>10. Task Implementation &#8212; The Cylc Suite Engine 7.8.2 documentation</title>
+    
+    <title>10. Task Implementation &#8212; The Cylc Suite Engine 7.8.4 documentation</title>
+    
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '7.8.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    
     <link rel="shortcut icon" href="_static/cylc-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="11. Task Job Submission and Management" href="task-job-submission.html" />
     <link rel="prev" title="9. Suite Configuration" href="suite-config.html" /> 
-  </head><body>
+  </head>
+  <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -34,7 +43,7 @@
         <li class="right" >
           <a href="suite-config.html" title="9. Suite Configuration"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.4 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -54,26 +63,26 @@ for failure - and do not spawn detaching processes internally
 <p>When the suite server program determines that a task is ready to run it
 generates a <em>job script</em> for the task, and submits it to run (see
 <a class="reference internal" href="task-job-submission.html#taskjobsubmission"><span class="std std-ref">Task Job Submission and Management</span></a>).</p>
-<p>Job scripts encapsulate configured task runtime settings: <code class="docutils literal notranslate"><span class="pre">script</span></code> and
-<code class="docutils literal notranslate"><span class="pre">environment</span></code> items, if defined, are just concatenated in the order shown in
+<p>Job scripts encapsulate configured task runtime settings: <code class="docutils literal"><span class="pre">script</span></code> and
+<code class="docutils literal"><span class="pre">environment</span></code> items, if defined, are just concatenated in the order shown in
 <a class="reference internal" href="#fig-anatomy-of-a-job-script"><span class="std std-numref">Fig. 36</span></a>, to make the job script. Everything
 executes in the same shell, so each part of the script can potentially affect
 the environment of subsequent parts.</p>
 <div class="figure align-center" id="id1">
 <span id="fig-anatomy-of-a-job-script"></span><img alt="_images/anatomy-of-a-job-script.png" src="_images/anatomy-of-a-job-script.png" />
 <p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text">The order in which task runtime script and environment configuration items
-are combined, in the same shell, to create a task job script. <code class="docutils literal notranslate"><span class="pre">cylc-env</span></code>
-represents Cylc-defined environment variables, and <code class="docutils literal notranslate"><span class="pre">user-env</span></code> user-defined
-variables from the task <code class="docutils literal notranslate"><span class="pre">[environment]</span></code> section. (Note this is not a suite
+are combined, in the same shell, to create a task job script. <code class="docutils literal"><span class="pre">cylc-env</span></code>
+represents Cylc-defined environment variables, and <code class="docutils literal"><span class="pre">user-env</span></code> user-defined
+variables from the task <code class="docutils literal"><span class="pre">[environment]</span></code> section. (Note this is not a suite
 dependency graph).</span></p>
 </div>
-<p>Task job scripts are written to the suite’s job log directory. They can be
-printed with <code class="docutils literal notranslate"><span class="pre">cylc</span> <span class="pre">cat-log</span></code> or generated and printed with
-<code class="docutils literal notranslate"><span class="pre">cylc</span> <span class="pre">jobscript</span></code>.</p>
+<p>Task job scripts are written to the suite&#8217;s job log directory. They can be
+printed with <code class="docutils literal"><span class="pre">cylc</span> <span class="pre">cat-log</span></code> or generated and printed with
+<code class="docutils literal"><span class="pre">cylc</span> <span class="pre">jobscript</span></code>.</p>
 </div>
 <div class="section" id="inlined-tasks">
 <h2>10.2. Inlined Tasks<a class="headerlink" href="#inlined-tasks" title="Permalink to this headline">¶</a></h2>
-<p>Task <em>script</em> items can be multi-line strings of <code class="docutils literal notranslate"><span class="pre">bash</span></code>  code, so
+<p>Task <em>script</em> items can be multi-line strings of <code class="docutils literal"><span class="pre">bash</span></code>  code, so
 many tasks can be entirely inlined in the suite.rc file. For anything more than
 a few lines of code, however, we recommend using external shell scripts to allow
 independent testing, re-use, and shell mode editing.</p>
@@ -85,16 +94,16 @@ outputs and arbitrary messages of different severity levels.</p>
 <p>Some types of message - in addition to events like task failure -  can
 optionally trigger execution of event handlers in the suite server program
 (see <a class="reference internal" href="running-suites.html#eventhandling"><span class="std std-ref">Task Event Handling</span></a>).</p>
-<p>Normal severity messages are printed to <code class="docutils literal notranslate"><span class="pre">job.out</span></code> and logged by the
+<p>Normal severity messages are printed to <code class="docutils literal"><span class="pre">job.out</span></code> and logged by the
 suite server program:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cylc message -- <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CYLC_SUITE_NAME</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CYLC_TASK_JOB</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>cylc message -- <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CYLC_SUITE_NAME</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CYLC_TASK_JOB</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
   <span class="s2">&quot;Hello from </span><span class="si">${</span><span class="nv">CYLC_TASK_ID</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
-<p>CUSTOM severity messages are printed to <code class="docutils literal notranslate"><span class="pre">job.out</span></code>, logged by the
+<p>CUSTOM severity messages are printed to <code class="docutils literal"><span class="pre">job.out</span></code>, logged by the
 suite server program, and can be used to trigger <em>custom</em>
 event handlers:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cylc message -- <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CYLC_SUITE_NAME</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CYLC_TASK_JOB</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>cylc message -- <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CYLC_SUITE_NAME</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CYLC_TASK_JOB</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
   <span class="s2">&quot;CUSTOM:data available for </span><span class="si">${</span><span class="nv">CYLC_TASK_CYCLE_POINT</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
@@ -102,49 +111,49 @@ event handlers:</p>
 events that are neither routine information or an error condition, such as
 production of a particular data file. Task output messages, used for triggering
 other tasks, can also be sent with custom severity if need be.</p>
-<p>WARNING severity messages are printed to <code class="docutils literal notranslate"><span class="pre">job.err</span></code>, logged by the
+<p>WARNING severity messages are printed to <code class="docutils literal"><span class="pre">job.err</span></code>, logged by the
 suite server program, and can be passed to <em>warning</em> event handlers:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cylc message -- <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CYLC_SUITE_NAME</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CYLC_TASK_JOB</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>cylc message -- <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CYLC_SUITE_NAME</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CYLC_TASK_JOB</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
   <span class="s2">&quot;WARNING:Uh-oh, something&#39;s not right here.&quot;</span>
 </pre></div>
 </div>
-<p>CRITICAL severity messages are printed to <code class="docutils literal notranslate"><span class="pre">job.err</span></code>, logged by the
+<p>CRITICAL severity messages are printed to <code class="docutils literal"><span class="pre">job.err</span></code>, logged by the
 suite server program, and can be passed to <em>critical</em> event handlers:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cylc message -- <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CYLC_SUITE_NAME</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CYLC_TASK_JOB</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>cylc message -- <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CYLC_SUITE_NAME</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CYLC_TASK_JOB</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
   <span class="s2">&quot;CRITICAL:ERROR occurred in process X!&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="aborting-job-scripts-on-error">
 <h2>10.4. Aborting Job Scripts on Error<a class="headerlink" href="#aborting-job-scripts-on-error" title="Permalink to this headline">¶</a></h2>
-<p>Task job scripts use <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-x</span></code> to abort on any error, and
+<p>Task job scripts use <code class="docutils literal"><span class="pre">set</span> <span class="pre">-x</span></code> to abort on any error, and
 trap ERR, EXIT, and SIGTERM to send task failed messages back to the
 suite server program before aborting. Other scripts called from job scripts
 should therefore abort with standard non-zero exit status on error, to trigger
 the job script error trap.</p>
 <p>To prevent a command that is expected to generate a non-zero exit status from
 triggering the exit trap, protect it with a control statement such as:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> cmp FILE1 FILE2<span class="p">;</span> <span class="k">then</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="k">if</span> cmp FILE1 FILE2<span class="p">;</span> <span class="k">then</span>
     :  <span class="c1"># success: do stuff</span>
 <span class="k">else</span>
     :  <span class="c1"># failure: do other stuff</span>
 <span class="k">fi</span>
 </pre></div>
 </div>
-<p>Task job scripts also use <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-u</span></code> to abort on referencing any
-undefined variable (useful for picking up typos); and <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-o</span> <span class="pre">pipefail</span></code>
+<p>Task job scripts also use <code class="docutils literal"><span class="pre">set</span> <span class="pre">-u</span></code> to abort on referencing any
+undefined variable (useful for picking up typos); and <code class="docutils literal"><span class="pre">set</span> <span class="pre">-o</span> <span class="pre">pipefail</span></code>
 to abort if any part of a pipe fails (by default the shell only returns the
 exit status of the final command in a pipeline).</p>
 <div class="section" id="custom-failure-messages">
 <h3>10.4.1. Custom Failure Messages<a class="headerlink" href="#custom-failure-messages" title="Permalink to this headline">¶</a></h3>
 <p>Critical events normally warrant aborting a job script rather than just sending
-a message. As described just above, <code class="docutils literal notranslate"><span class="pre">exit</span> <span class="pre">1</span></code> or any failing command
+a message. As described just above, <code class="docutils literal"><span class="pre">exit</span> <span class="pre">1</span></code> or any failing command
 not protected by the surrounding scripting will cause a job script to abort and
 report failure to the suite server program, potentially triggering a
 <em>failed</em> task event handler.</p>
 <p>For failures detected by the scripting you could send a critical message back
 before aborting, potentially triggering a <em>critical</em> task event handler:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> ! /bin/false<span class="p">;</span> <span class="k">then</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="k">if</span> ! /bin/false<span class="p">;</span> <span class="k">then</span>
   cylc message -- <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CYLC_SUITE_NAME</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CYLC_TASK_JOB</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
     <span class="s2">&quot;CRITICAL:ERROR: /bin/false failed!&quot;</span>
   <span class="nb">exit</span> <span class="m">1</span>
@@ -152,9 +161,9 @@ before aborting, potentially triggering a <em>critical</em> task event handler:<
 </pre></div>
 </div>
 <p>To abort a job script with a custom message that can be passed to a
-<em>failed</em> task event handler, use the built-in <code class="docutils literal notranslate"><span class="pre">cylc__job_abort</span></code> shell
+<em>failed</em> task event handler, use the built-in <code class="docutils literal"><span class="pre">cylc__job_abort</span></code> shell
 function:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> ! /bin/false<span class="p">;</span> <span class="k">then</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="k">if</span> ! /bin/false<span class="p">;</span> <span class="k">then</span>
   cylc__job_abort <span class="s2">&quot;ERROR: /bin/false failed!&quot;</span>
 <span class="k">fi</span>
 </pre></div>
@@ -168,15 +177,15 @@ internally submits jobs to a batch scheduler and then exits immediately, the
 detached processes will not be visible to cylc and the task will appear to
 finish when the top-level script finishes. You will need to modify scripts
 like this to make them execute all sub-processes in the foreground (or use the
-shell <code class="docutils literal notranslate"><span class="pre">wait</span></code> command to wait on them before exiting) and to prevent
+shell <code class="docutils literal"><span class="pre">wait</span></code> command to wait on them before exiting) and to prevent
 job submission commands from returning before the job completes (e.g.
-<code class="docutils literal notranslate"><span class="pre">llsubmit</span> <span class="pre">-s</span></code> for Loadleveler,
-<code class="docutils literal notranslate"><span class="pre">qsub</span> <span class="pre">-sync</span> <span class="pre">yes</span></code> for Sun Grid Engine, and
-<code class="docutils literal notranslate"><span class="pre">qsub</span> <span class="pre">-W</span> <span class="pre">block=true</span></code> for PBS).</p>
-<p>If this is not possible - perhaps you don’t have control over the script
-or can’t work out how to fix it - one alternative approach is to use another
+<code class="docutils literal"><span class="pre">llsubmit</span> <span class="pre">-s</span></code> for Loadleveler,
+<code class="docutils literal"><span class="pre">qsub</span> <span class="pre">-sync</span> <span class="pre">yes</span></code> for Sun Grid Engine, and
+<code class="docutils literal"><span class="pre">qsub</span> <span class="pre">-W</span> <span class="pre">block=true</span></code> for PBS).</p>
+<p>If this is not possible - perhaps you don&#8217;t have control over the script
+or can&#8217;t work out how to fix it - one alternative approach is to use another
 task to repeatedly poll for the results of the detached processes:</p>
-<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[scheduling]</span>
+<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[scheduling]</span>
     <span class="nt">[[dependencies]]</span>
         <span class="nv">graph</span><span class="s"> </span><span class="o">=</span> <span class="c">&quot;</span><span class="kd">model</span> <span class="o">=&gt;</span> <span class="kd">checker</span> <span class="o">=&gt;</span> <span class="kd">post</span><span class="c">-</span><span class="kd">proc</span><span class="c">&quot;</span>
 <span class="nt">[runtime]</span>
@@ -203,7 +212,7 @@ task to repeatedly poll for the results of the detached processes:</p>
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/cylc-logo.png" alt="Logo"/>
             </a></p>
-<h3><a href="index.html">Table of Contents</a></h3>
+<h3><a href="index.html">Table Of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction: How Cylc Works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="screenshots.html">2. Cylc Screenshots</a></li>
@@ -235,14 +244,12 @@ task to repeatedly poll for the results of the detached processes:</p>
 
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
-    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
   <div role="note" aria-label="source link">
@@ -268,12 +275,12 @@ task to repeatedly poll for the results of the detached processes:</p>
         <li class="right" >
           <a href="suite-config.html" title="9. Suite Configuration"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.4 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2008-2019 NIWA &amp; British Crown (Met Office) &amp; Contributors.
-      Last updated on May 02, 2019.
+      Last updated on Sep 04, 2019.
     </div>
   </body>
 </html>

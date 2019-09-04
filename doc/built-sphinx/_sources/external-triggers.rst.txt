@@ -225,11 +225,19 @@ Custom Trigger Functions
 Trigger functions are just normal Python functions, with a few special
 properties:
 
-- they must be defined in a module with the same name as the function
+- they must:
+
+  - be defined in a module with the same name as the function;
+  - be compatible with the same Python version that runs the Cylc workflow
+    server program (see :ref:`Requirements` for the latest version
+    specification).
+
 - they can be located in:
-  - ``<cylc-dir>/lib/cylc/xtriggers/``
-  - ``<suite-dir>/lib/python/``
-  - (or anywhere in your Python library path)
+
+  - ``<cylc-dir>/lib/cylc/xtriggers/``;
+  - ``<suite-dir>/lib/python/``;
+  - or anywhere in your Python library path.
+
 - they can take arbitrary positional and keyword arguments
 - suite and task identity, and cycle point, can be passed to trigger
   functions by using string templates in function arguments (see below)
@@ -260,6 +268,10 @@ and less commonly needed:
 - ``%(suite_run_dir)s`` - suite run directory
 - ``%(suite_share_dir)s`` - suite share directory
 
+If you need to pass a string template into an xtrigger function as a string
+literal - i.e. to be used as a template inside the function - escape it with
+``%`` to avoid detection by the Cylc xtrigger parser: ``%%(cat)s``.
+
 Function return values should be as follows:
 
 - if the trigger condition is *not satisfied*:
@@ -270,9 +282,15 @@ Function return values should be as follows:
 
   - return ``(True, results)``
 
-where ``results`` is an arbitrary dictionary of information to be
-passed to dependent tasks. How this looks to these tasks is described above
-in :ref:`Built-in Suite State Triggers`.
+where ``results`` is an arbitrary dictionary of information to be passed to
+dependent tasks, which in terms of format must:
+
+- be *flat* (non-nested);
+- contain *only* keys which are
+  `valid <http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap08.html>`_ as environment variable names.
+
+See :ref:`Built-in Suite State Triggers` for an example of one such
+``results`` dictionary and how it gets processed by the suite.
 
 The suite server program manages trigger functions as follows:
 

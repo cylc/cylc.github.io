@@ -1,27 +1,36 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>16.2. Style Guidelines &#8212; The Cylc Suite Engine 7.8.2 documentation</title>
+    
+    <title>16.2. Style Guidelines &#8212; The Cylc Suite Engine 7.8.4 documentation</title>
+    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '7.8.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    
     <link rel="shortcut icon" href="../_static/cylc-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="16.3. Basic Principles" href="general-principles.html" />
     <link rel="prev" title="16.1. Introduction" href="sdg-introduction.html" /> 
-  </head><body>
+  </head>
+  <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -34,7 +43,7 @@
         <li class="right" >
           <a href="sdg-introduction.html" title="16.1. Introduction"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.4 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="suite-design-guide-master.html" accesskey="U">16. Suite Design Guide</a> &#187;</li> 
       </ul>
     </div>  
@@ -53,10 +62,10 @@ avoid getting into a mess. The following style rules are recommended.</p>
 <h2>16.2.1. Tab Characters<a class="headerlink" href="#tab-characters" title="Permalink to this headline">¶</a></h2>
 <p>Do not use tab characters. Tab width depends on editor settings, so a mixture
 of tabs and spaces in the same file can render to a mess.</p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-InPr</span> <span class="pre">&quot;\t&quot;</span> <span class="pre">*</span></code> to find tabs recursively in files in
+<p>Use <code class="docutils literal"><span class="pre">grep</span> <span class="pre">-InPr</span> <span class="pre">&quot;\t&quot;</span> <span class="pre">*</span></code> to find tabs recursively in files in
 a directory.</p>
-<p>In <em>vim</em> use <code class="docutils literal notranslate"><span class="pre">%retab</span></code> to convert existing tabs to spaces,
-and set <code class="docutils literal notranslate"><span class="pre">expandtab</span></code> to automatically convert new tabs.</p>
+<p>In <em>vim</em> use <code class="docutils literal"><span class="pre">%retab</span></code> to convert existing tabs to spaces,
+and set <code class="docutils literal"><span class="pre">expandtab</span></code> to automatically convert new tabs.</p>
 <p>In <em>emacs</em> use <em>whitespace-cleanup</em>.</p>
 <p>In <em>gedit</em>, use the <em>Draw Spaces</em> plugin to display tabs and spaces.</p>
 </div>
@@ -65,9 +74,9 @@ and set <code class="docutils literal notranslate"><span class="pre">expandtab</
 <p>Trailing whitespace is untidy, it makes quick reformatting of paragraphs
 difficult, and it can result in hard-to-find bugs (space after intended
 line continuation markers).</p>
-<p>To remove existing trailing whitespace in a file use a <code class="docutils literal notranslate"><span class="pre">sed</span></code> or
-<code class="docutils literal notranslate"><span class="pre">perl</span></code> one-liner:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ perl -pi -e <span class="s2">&quot;s/ +</span>$<span class="s2">//g&quot;</span> /path/to/file
+<p>To remove existing trailing whitespace in a file use a <code class="docutils literal"><span class="pre">sed</span></code> or
+<code class="docutils literal"><span class="pre">perl</span></code> one-liner:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ perl -pi -e <span class="s2">&quot;s/ +</span>$<span class="s2">//g&quot;</span> /path/to/file
 <span class="c1"># or:</span>
 $ sed --in-place <span class="s1">&#39;s/[[:space:]]\+$//&#39;</span> path/to/file
 </pre></div>
@@ -83,7 +92,7 @@ nesting clearly, and it makes block re-indentation operations easier in text
 editors. Indent suite.rc syntax four spaces per nesting level:</p>
 <div class="section" id="config-items">
 <h3>16.2.3.1. Config Items<a class="headerlink" href="#config-items" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[SECTION]</span>
+<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[SECTION]</span>
     <span class="c1"># A comment.</span>
     <span class="nv">title </span><span class="o">=</span><span class="s"> the quick brown fox</span>
     <span class="nt">[[SUBSECTION]]</span>
@@ -92,15 +101,15 @@ editors. Indent suite.rc syntax four spaces per nesting level:</p>
         <span class="nv">a very very long item </span><span class="o">=</span><span class="s"> value2</span>
 </pre></div>
 </div>
-<p>Don’t align <code class="docutils literal notranslate"><span class="pre">item</span> <span class="pre">=</span> <span class="pre">value</span></code> pairs on the <code class="docutils literal notranslate"><span class="pre">=</span></code> character
+<p>Don&#8217;t align <code class="docutils literal"><span class="pre">item</span> <span class="pre">=</span> <span class="pre">value</span></code> pairs on the <code class="docutils literal"><span class="pre">=</span></code> character
 like this:</p>
-<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[SECTION]</span>  <span class="c1"># Avoid this.</span>
+<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[SECTION]</span>  <span class="c1"># Avoid this.</span>
              <span class="nv">a short item </span><span class="o">=</span><span class="s"> value1</span>
     <span class="nv">a very very long item </span><span class="o">=</span><span class="s"> value2</span>
 </pre></div>
 </div>
 <p>or like this:</p>
-<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[SECTION]</span>  <span class="c1"># Avoid this.</span>
+<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[SECTION]</span>  <span class="c1"># Avoid this.</span>
     <span class="nv">a short item          </span><span class="o">=</span><span class="s"> value1</span>
     <span class="nv">a very very long item </span><span class="o">=</span><span class="s"> value2</span>
 </pre></div>
@@ -114,7 +123,7 @@ to, and trailing comments should be preceded by two spaces, as shown above.</p>
 <h3>16.2.3.2. Script String Lines<a class="headerlink" href="#script-string-lines" title="Permalink to this headline">¶</a></h3>
 <p>Script strings are written verbatim to task job scripts so they should really
 be indented from the left margin:</p>
-<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
+<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
     <span class="nt">[[foo]]</span>
         <span class="c1"># Recommended.</span>
         <span class="nv">post-script </span><span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -127,7 +136,7 @@ be indented from the left margin:</p>
 <p>Indentation is <em>mostly</em> ignored by the bash interpreter, but is useful for
 readability. It is <em>mostly</em> harmless to indent internal script lines as if
 part of the Cylc syntax, or even out to the triple quotes:</p>
-<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
+<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
     <span class="nt">[[foo]]</span>
         <span class="c1"># OK, but...</span>
         <span class="nv">post-script </span><span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -139,14 +148,14 @@ part of the Cylc syntax, or even out to the triple quotes:</p>
 </div>
 <p>On parsing the triple quoted value, Cylc will remove any common leading
 whitespace from each line using the logic of
-<a class="reference external" href="https://docs.python.org/2/library/textwrap.html#textwrap.dedent">Python’s textwrap.dedent</a>
+<a class="reference external" href="https://docs.python.org/2/library/textwrap.html#textwrap.dedent">Python&#8217;s textwrap.dedent</a>
 so the script block would end up being the same as the previous example.
 However, you should watch your line length (see <a class="reference internal" href="#line-length"><span class="std std-ref">Line Length And Continuation</span></a>) when you
 have many levels of indentations.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>Take care when indenting here documents:</p>
-<div class="last highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
+<div class="last highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
     <span class="nt">[[foo]]</span>
      <span class="nv">script </span><span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">     cat &gt;&gt; log.txt &lt;&lt;_EOF_</span>
@@ -157,9 +166,9 @@ have many levels of indentations.</p>
 </pre></div>
 </div>
 </div>
-<p>In the above, each line in <code class="docutils literal notranslate"><span class="pre">log.txt</span></code> would end up with 4 leading
+<p>In the above, each line in <code class="docutils literal"><span class="pre">log.txt</span></code> would end up with 4 leading
 white spaces. The following will give you lines with no white spaces.</p>
-<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
+<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
     <span class="nt">[[foo]]</span>
         <span class="nv">script </span><span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">        cat &gt;&gt; log.txt &lt;&lt;_EOF_</span>
@@ -172,8 +181,8 @@ white spaces. The following will give you lines with no white spaces.</p>
 </div>
 <div class="section" id="graph-string-lines">
 <h3>16.2.3.3. Graph String Lines<a class="headerlink" href="#graph-string-lines" title="Permalink to this headline">¶</a></h3>
-<p>Multiline <code class="docutils literal notranslate"><span class="pre">graph</span></code> strings can be entirely free-form:</p>
-<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[scheduling]</span>
+<p>Multiline <code class="docutils literal"><span class="pre">graph</span></code> strings can be entirely free-form:</p>
+<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[scheduling]</span>
     <span class="nt">[[dependencies]]</span>
         <span class="nv">graph</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
     <span class="c1"># Main workflow:</span>
@@ -187,7 +196,7 @@ white spaces. The following will give you lines with no white spaces.</p>
 can be indented as if part of the suite.rc syntax, or even out to the triple
 quotes, if you feel it aids readability (but watch line length with large
 indents; see <a class="reference internal" href="#line-length"><span class="std std-ref">Line Length And Continuation</span></a>):</p>
-<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[scheduling]</span>
+<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[scheduling]</span>
     <span class="nt">[[dependencies]]</span>
         <span class="nv">graph</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
             <span class="c1"># Main workflow:</span>
@@ -206,7 +215,7 @@ generate a Cylc suite definition. It is not possible to consistently indent the
 Jinja2 as if it were part of the suite.rc syntax (which to the Jinja2 processor
 is just arbitrary text), so it should be indented from the left margin on
 its own terms:</p>
-<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
+<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[runtime]</span>
     <span class="nt">[[OPS]]</span>
 <span class="cp">{% for T in OPS_TASKS %}</span>
     <span class="cp">{% for M in range(M_MAX) %}</span>
@@ -226,14 +235,14 @@ tend to get out of sync with the code they describe, which can be worse
 than having no comments.</p>
 <p>Avoid long lists of numbered comments - future changes may require mass
 renumbering.</p>
-<p>Avoid page-width “section divider” comments, especially if they are not
+<p>Avoid page-width &#8220;section divider&#8221; comments, especially if they are not
 strictly limited to the standard line length (see <a class="reference internal" href="#line-length"><span class="std std-ref">Line Length And Continuation</span></a>).</p>
 <p>Indent comments to the same level as the config items they describe.</p>
 </div>
 <div class="section" id="titles-descriptions-and-urls">
 <h2>16.2.5. Titles, Descriptions, And URLs<a class="headerlink" href="#titles-descriptions-and-urls" title="Permalink to this headline">¶</a></h2>
-<p>Document the suite and its tasks with <code class="docutils literal notranslate"><span class="pre">title</span></code>,
-<code class="docutils literal notranslate"><span class="pre">description</span></code>, and <code class="docutils literal notranslate"><span class="pre">url</span></code> items instead of comments. These
+<p>Document the suite and its tasks with <code class="docutils literal"><span class="pre">title</span></code>,
+<code class="docutils literal"><span class="pre">description</span></code>, and <code class="docutils literal"><span class="pre">url</span></code> items instead of comments. These
 can be displayed, or linked to, by the GUI at runtime.</p>
 </div>
 <div class="section" id="line-length-and-continuation">
@@ -245,7 +254,7 @@ but should be avoided if possible because they are easily broken by invisible
 trailing whitespace.</p>
 <p>Continuation markers are not needed in graph strings where trailing
 trigger arrows imply line continuation:</p>
-<div class="highlight-cylc notranslate"><div class="highlight"><pre><span></span><span class="nt">[scheduling]</span>
+<div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[scheduling]</span>
     <span class="nt">[[dependencies]]</span>
         <span class="c1"># No line continuation marker is needed here.</span>
         <span class="nv">graph</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="kd">prep</span> <span class="o">=&gt;</span> <span class="kd">one</span> <span class="o">=&gt;</span> <span class="kd">two</span> <span class="o">=&gt;</span> <span class="kd">three</span> <span class="o">=&gt;</span>
@@ -261,25 +270,25 @@ trigger arrows imply line continuation:</p>
 </div>
 <div class="section" id="task-naming-conventions">
 <h2>16.2.7. Task Naming Conventions<a class="headerlink" href="#task-naming-conventions" title="Permalink to this headline">¶</a></h2>
-<p>Use <code class="docutils literal notranslate"><span class="pre">UPPERCASE</span></code> for family names and <code class="docutils literal notranslate"><span class="pre">lowercase</span></code>
+<p>Use <code class="docutils literal"><span class="pre">UPPERCASE</span></code> for family names and <code class="docutils literal"><span class="pre">lowercase</span></code>
 for tasks, so you can distinguish them at a glance.</p>
 <p>Choose a convention for multi-component names and use it consistently. Put the
 most general name components first for natural grouping in the GUI, e.g.
-<code class="docutils literal notranslate"><span class="pre">obs_sonde</span></code>, <code class="docutils literal notranslate"><span class="pre">obs_radar</span></code> (not <code class="docutils literal notranslate"><span class="pre">sonde_obs</span></code> etc.)</p>
+<code class="docutils literal"><span class="pre">obs_sonde</span></code>, <code class="docutils literal"><span class="pre">obs_radar</span></code> (not <code class="docutils literal"><span class="pre">sonde_obs</span></code> etc.)</p>
 <p>Within your convention keep names as short as possible.</p>
 <div class="section" id="um-system-task-names">
 <h3>16.2.7.1. UM System Task Names<a class="headerlink" href="#um-system-task-names" title="Permalink to this headline">¶</a></h3>
 <p>For UM System suites we recommend the following full task naming convention:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>model_system_function[_member]
+<div class="highlight-none"><div class="highlight"><pre><span></span>model_system_function[_member]
 </pre></div>
 </div>
-<p>For example, <code class="docutils literal notranslate"><span class="pre">glu_ops_process_scatwind</span></code> where <code class="docutils literal notranslate"><span class="pre">glu</span></code> refers
-to the global (deterministic model) update run, <code class="docutils literal notranslate"><span class="pre">ops</span></code> is the system
-that owns the task, and <code class="docutils literal notranslate"><span class="pre">process_scatwind</span></code> is the function it
-performs. The optional <code class="docutils literal notranslate"><span class="pre">member</span></code> suffix is intended for use with
+<p>For example, <code class="docutils literal"><span class="pre">glu_ops_process_scatwind</span></code> where <code class="docutils literal"><span class="pre">glu</span></code> refers
+to the global (deterministic model) update run, <code class="docutils literal"><span class="pre">ops</span></code> is the system
+that owns the task, and <code class="docutils literal"><span class="pre">process_scatwind</span></code> is the function it
+performs. The optional <code class="docutils literal"><span class="pre">member</span></code> suffix is intended for use with
 ensembles as needed.</p>
 <p>Within this convention keep names as short as possible, e.g. use
-<code class="docutils literal notranslate"><span class="pre">fcst</span></code> instead of <code class="docutils literal notranslate"><span class="pre">forecast</span></code>.</p>
+<code class="docutils literal"><span class="pre">fcst</span></code> instead of <code class="docutils literal"><span class="pre">forecast</span></code>.</p>
 <p>UM forecast apps should be given names that reflect their general science
 configuration rather than geographic domain, to allow use on other model
 domains without causing confusion.</p>
@@ -287,9 +296,9 @@ domains without causing confusion.</p>
 </div>
 <div class="section" id="rose-config-files">
 <h2>16.2.8. Rose Config Files<a class="headerlink" href="#rose-config-files" title="Permalink to this headline">¶</a></h2>
-<p>Use <code class="docutils literal notranslate"><span class="pre">rose</span> <span class="pre">config-dump</span></code> to load and re-save new Rose .conf files. This
+<p>Use <code class="docutils literal"><span class="pre">rose</span> <span class="pre">config-dump</span></code> to load and re-save new Rose .conf files. This
 puts the files in a standard format (ordering of lines etc.) to ensure that
-spurious changes aren’t generated when you next use <code class="docutils literal notranslate"><span class="pre">rose</span> <span class="pre">edit</span></code>.</p>
+spurious changes aren&#8217;t generated when you next use <code class="docutils literal"><span class="pre">rose</span> <span class="pre">edit</span></code>.</p>
 <p>See also <a class="reference internal" href="efficiency.html#optional-app-config-files"><span class="std std-ref">Optional App Config Files</span></a> on optional app config files.</p>
 </div>
 </div>
@@ -303,7 +312,7 @@ spurious changes aren’t generated when you next use <code class="docutils lite
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/cylc-logo.png" alt="Logo"/>
             </a></p>
-<h3><a href="../index.html">Table of Contents</a></h3>
+<h3><a href="../index.html">Table Of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction: How Cylc Works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../screenshots.html">2. Cylc Screenshots</a></li>
@@ -343,14 +352,12 @@ spurious changes aren’t generated when you next use <code class="docutils lite
 
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
-    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
   <div role="note" aria-label="source link">
@@ -376,13 +383,13 @@ spurious changes aren’t generated when you next use <code class="docutils lite
         <li class="right" >
           <a href="sdg-introduction.html" title="16.1. Introduction"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.4 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="suite-design-guide-master.html" >16. Suite Design Guide</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2008-2019 NIWA &amp; British Crown (Met Office) &amp; Contributors.
-      Last updated on May 02, 2019.
+      Last updated on Sep 04, 2019.
     </div>
   </body>
 </html>

@@ -1,27 +1,36 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>15.3. Gcylc GUI (cylc gui) Config File Reference &#8212; The Cylc Suite Engine 7.8.2 documentation</title>
+    
+    <title>15.3. Gcylc GUI (cylc gui) Config File Reference &#8212; The Cylc Suite Engine 7.8.4 documentation</title>
+    
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '7.8.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    
     <link rel="shortcut icon" href="../_static/cylc-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="15.4. Gscan GUI (cylc gscan) Config File Reference" href="gscan-config-ref.html" />
     <link rel="prev" title="15.2. Global (Site, User) Config File Reference" href="site-user-config-ref.html" /> 
-  </head><body>
+  </head>
+  <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -34,7 +43,7 @@
         <li class="right" >
           <a href="site-user-config-ref.html" title="15.2. Global (Site, User) Config File Reference"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.4 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="appendices-master.html" accesskey="U">15. Appendices</a> &#187;</li> 
       </ul>
     </div>  
@@ -47,8 +56,8 @@
   <div class="section" id="gcylc-gui-cylc-gui-config-file-reference">
 <span id="gcylcrcreference"></span><h1>15.3. Gcylc GUI (cylc gui) Config File Reference<a class="headerlink" href="#gcylc-gui-cylc-gui-config-file-reference" title="Permalink to this headline">¶</a></h1>
 <p>This section defines all legal items and values for the gcylc user config file,
-which should be located in <code class="docutils literal notranslate"><span class="pre">$HOME/.cylc/gcylc.rc</span></code>. Current settings
-can be printed with the <code class="docutils literal notranslate"><span class="pre">cylc</span> <span class="pre">get-gui-config</span></code> command.</p>
+which should be located in <code class="docutils literal"><span class="pre">$HOME/.cylc/gcylc.rc</span></code>. Current settings
+can be printed with the <code class="docutils literal"><span class="pre">cylc</span> <span class="pre">get-gui-config</span></code> command.</p>
 <div class="section" id="top-level-items">
 <h2>15.3.1. Top Level Items<a class="headerlink" href="#top-level-items" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="dot-icon-size">
@@ -57,19 +66,19 @@ can be printed with the <code class="docutils literal notranslate"><span class="
 views.</p>
 <ul class="simple">
 <li><em>type</em>: string</li>
-<li><em>legal values</em>: <code class="docutils literal notranslate"><span class="pre">small</span></code> (10px), <code class="docutils literal notranslate"><span class="pre">medium</span></code> (14px), <code class="docutils literal notranslate"><span class="pre">large</span></code> (20px),
-<code class="docutils literal notranslate"><span class="pre">extra</span> <span class="pre">large</span></code> (30px)</li>
-<li><em>default</em>: <code class="docutils literal notranslate"><span class="pre">medium</span></code></li>
+<li><em>legal values</em>: <code class="docutils literal"><span class="pre">small</span></code> (10px), <code class="docutils literal"><span class="pre">medium</span></code> (14px), <code class="docutils literal"><span class="pre">large</span></code> (20px),
+<code class="docutils literal"><span class="pre">extra</span> <span class="pre">large</span></code> (30px)</li>
+<li><em>default</em>: <code class="docutils literal"><span class="pre">medium</span></code></li>
 </ul>
 </div>
 <div class="section" id="initial-side-by-side-views">
 <h3>15.3.1.2. initial side-by-side views<a class="headerlink" href="#initial-side-by-side-views" title="Permalink to this headline">¶</a></h3>
 <p>Set the suite view panels initial orientation when the GUI starts.
-This can be changed later using the “View” menu “Toggle views side-by-side”
+This can be changed later using the &#8220;View&#8221; menu &#8220;Toggle views side-by-side&#8221;
 option.</p>
 <ul class="simple">
 <li><em>type</em>: boolean (False or True)</li>
-<li><em>default</em>: <code class="docutils literal notranslate"><span class="pre">False</span></code></li>
+<li><em>default</em>: <code class="docutils literal"><span class="pre">False</span></code></li>
 </ul>
 </div>
 <div class="section" id="initial-views">
@@ -78,9 +87,9 @@ option.</p>
 This can be changed later using the tool bar.</p>
 <ul class="simple">
 <li><em>type</em>: string (a list of one or two view names)</li>
-<li><em>legal values</em>: <code class="docutils literal notranslate"><span class="pre">text</span></code>, <code class="docutils literal notranslate"><span class="pre">dot</span></code>,  <code class="docutils literal notranslate"><span class="pre">graph</span></code></li>
-<li><em>default</em>: <code class="docutils literal notranslate"><span class="pre">text</span></code></li>
-<li><em>example</em>: <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">views</span> <span class="pre">=</span> <span class="pre">graph,</span> <span class="pre">dot</span></code></li>
+<li><em>legal values</em>: <code class="docutils literal"><span class="pre">text</span></code>, <code class="docutils literal"><span class="pre">dot</span></code>,  <code class="docutils literal"><span class="pre">graph</span></code></li>
+<li><em>default</em>: <code class="docutils literal"><span class="pre">text</span></code></li>
+<li><em>example</em>: <code class="docutils literal"><span class="pre">initial</span> <span class="pre">views</span> <span class="pre">=</span> <span class="pre">graph,</span> <span class="pre">dot</span></code></li>
 </ul>
 </div>
 <div class="section" id="maximum-update-interval">
@@ -91,7 +100,7 @@ update.</p>
 the time of last update and the mean duration of the last 10 main loops of the
 suite.</p>
 <p>In general, the GUI will use an update frequency that matches the mean duration
-of the suite’s main loop. In quiet time (or if the suite is not contactable),
+of the suite&#8217;s main loop. In quiet time (or if the suite is not contactable),
 it will gradually increase the update interval (i.e. reduce the update
 frequency) to a maximum determined by this setting.</p>
 <p>Increasing this setting will reduce the network traffic and hits on the suite
@@ -100,7 +109,7 @@ initially appear out of sync with what is happening in the suite for the
 duration of this interval.</p>
 <ul class="simple">
 <li><em>type</em>: ISO 8601 duration/interval representation (e.g.
-<code class="docutils literal notranslate"><span class="pre">PT10S</span></code>, 10 seconds, or <code class="docutils literal notranslate"><span class="pre">PT1M</span></code>, 1 minute).</li>
+<code class="docutils literal"><span class="pre">PT10S</span></code>, 10 seconds, or <code class="docutils literal"><span class="pre">PT1M</span></code>, 1 minute).</li>
 <li><em>default</em>: PT15S</li>
 </ul>
 </div>
@@ -114,31 +123,31 @@ dot view.  If turned off, the default sort order is alphanumeric and
 definition order is not available at all.</p>
 <ul class="simple">
 <li><em>type</em>: boolean</li>
-<li><em>default</em>: <code class="docutils literal notranslate"><span class="pre">True</span></code></li>
+<li><em>default</em>: <code class="docutils literal"><span class="pre">True</span></code></li>
 </ul>
 </div>
 <div class="section" id="sort-column">
 <h3>15.3.1.6. sort column<a class="headerlink" href="#sort-column" title="Permalink to this headline">¶</a></h3>
-<p>If <code class="docutils literal notranslate"><span class="pre">text</span></code> is in <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">views</span></code> then <code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">column</span></code> sets
+<p>If <code class="docutils literal"><span class="pre">text</span></code> is in <code class="docutils literal"><span class="pre">initial</span> <span class="pre">views</span></code> then <code class="docutils literal"><span class="pre">sort</span> <span class="pre">column</span></code> sets
 the column that will be sorted initially when the GUI launches. Sorting can be
 changed later by clicking on the column headers.</p>
 <ul class="simple">
 <li><em>type</em>: string</li>
-<li><em>legal values</em>: <code class="docutils literal notranslate"><span class="pre">task</span></code>, <code class="docutils literal notranslate"><span class="pre">state</span></code>, <code class="docutils literal notranslate"><span class="pre">host</span></code>, <code class="docutils literal notranslate"><span class="pre">job</span> <span class="pre">system</span></code>,
-<code class="docutils literal notranslate"><span class="pre">job</span> <span class="pre">ID</span></code>, <code class="docutils literal notranslate"><span class="pre">T-submit</span></code>, <code class="docutils literal notranslate"><span class="pre">T-start</span></code>, <code class="docutils literal notranslate"><span class="pre">T-finish</span></code>, <code class="docutils literal notranslate"><span class="pre">dT-mean</span></code>,
-<code class="docutils literal notranslate"><span class="pre">latest</span> <span class="pre">message</span></code>, <code class="docutils literal notranslate"><span class="pre">none</span></code></li>
-<li><em>default</em>: <code class="docutils literal notranslate"><span class="pre">none</span></code></li>
-<li><em>example</em>: <code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">column</span> <span class="pre">=</span> <span class="pre">T-start</span></code></li>
+<li><em>legal values</em>: <code class="docutils literal"><span class="pre">task</span></code>, <code class="docutils literal"><span class="pre">state</span></code>, <code class="docutils literal"><span class="pre">host</span></code>, <code class="docutils literal"><span class="pre">job</span> <span class="pre">system</span></code>,
+<code class="docutils literal"><span class="pre">job</span> <span class="pre">ID</span></code>, <code class="docutils literal"><span class="pre">T-submit</span></code>, <code class="docutils literal"><span class="pre">T-start</span></code>, <code class="docutils literal"><span class="pre">T-finish</span></code>, <code class="docutils literal"><span class="pre">dT-mean</span></code>,
+<code class="docutils literal"><span class="pre">latest</span> <span class="pre">message</span></code>, <code class="docutils literal"><span class="pre">none</span></code></li>
+<li><em>default</em>: <code class="docutils literal"><span class="pre">none</span></code></li>
+<li><em>example</em>: <code class="docutils literal"><span class="pre">sort</span> <span class="pre">column</span> <span class="pre">=</span> <span class="pre">T-start</span></code></li>
 </ul>
 </div>
 <div class="section" id="sort-column-ascending">
 <h3>15.3.1.7. sort column ascending<a class="headerlink" href="#sort-column-ascending" title="Permalink to this headline">¶</a></h3>
-<p>For use in combination with <code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">column</span></code>, sets whether the column will
+<p>For use in combination with <code class="docutils literal"><span class="pre">sort</span> <span class="pre">column</span></code>, sets whether the column will
 be sorted using ascending or descending order.</p>
 <ul class="simple">
 <li><em>type</em>: boolean</li>
-<li><em>default</em>: <code class="docutils literal notranslate"><span class="pre">True</span></code></li>
-<li><em>example</em>: <code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">column</span> <span class="pre">ascending</span> <span class="pre">=</span> <span class="pre">False</span></code></li>
+<li><em>default</em>: <code class="docutils literal"><span class="pre">True</span></code></li>
+<li><em>example</em>: <code class="docutils literal"><span class="pre">sort</span> <span class="pre">column</span> <span class="pre">ascending</span> <span class="pre">=</span> <span class="pre">False</span></code></li>
 </ul>
 </div>
 <div class="section" id="sub-graphs-on">
@@ -147,24 +156,24 @@ be sorted using ascending or descending order.</p>
 This can be changed later using the toggle options for the graph view.</p>
 <ul class="simple">
 <li><em>type</em>: boolean (False or True)</li>
-<li><em>default</em>: <code class="docutils literal notranslate"><span class="pre">False</span></code></li>
+<li><em>default</em>: <code class="docutils literal"><span class="pre">False</span></code></li>
 </ul>
 </div>
 <div class="section" id="task-filter-highlight-color">
 <h3>15.3.1.9. task filter highlight color<a class="headerlink" href="#task-filter-highlight-color" title="Permalink to this headline">¶</a></h3>
 <p>The color used to highlight active task filters in gcylc. It must be a name
-from the X11 <code class="docutils literal notranslate"><span class="pre">rgb.txt</span></code> file, e.g. <code class="docutils literal notranslate"><span class="pre">SteelBlue</span></code>; or a
-<em>quoted</em> hexadecimal color code, e.g. <code class="docutils literal notranslate"><span class="pre">&quot;#ff0000&quot;</span></code> for red (quotes
+from the X11 <code class="docutils literal"><span class="pre">rgb.txt</span></code> file, e.g. <code class="docutils literal"><span class="pre">SteelBlue</span></code>; or a
+<em>quoted</em> hexadecimal color code, e.g. <code class="docutils literal"><span class="pre">&quot;#ff0000&quot;</span></code> for red (quotes
 are required to prevent the hex code being interpreted as a comment).</p>
 <ul class="simple">
 <li><em>type</em>: string</li>
-<li><em>default</em>: <code class="docutils literal notranslate"><span class="pre">PowderBlue</span></code></li>
+<li><em>default</em>: <code class="docutils literal"><span class="pre">PowderBlue</span></code></li>
 </ul>
 </div>
 <div class="section" id="task-states-to-filter-out">
 <h3>15.3.1.10. task states to filter out<a class="headerlink" href="#task-states-to-filter-out" title="Permalink to this headline">¶</a></h3>
 <p>Set the initial filtering options when the GUI starts. Later this can be
-changed by using the “View” menu “Task Filtering” option.</p>
+changed by using the &#8220;View&#8221; menu &#8220;Task Filtering&#8221; option.</p>
 <ul class="simple">
 <li><em>type</em>: string list</li>
 <li><em>legal values</em>: waiting, held, queued, ready, expired, submitted,
@@ -180,8 +189,8 @@ rather than from top to bottom. Can be changed later using the options
 submenu available via the view menu.</p>
 <ul class="simple">
 <li><em>type</em>: boolean</li>
-<li><em>default</em>: <code class="docutils literal notranslate"><span class="pre">False</span></code></li>
-<li><em>example</em>: <code class="docutils literal notranslate"><span class="pre">transpose</span> <span class="pre">dot</span> <span class="pre">=</span> <span class="pre">True</span></code></li>
+<li><em>default</em>: <code class="docutils literal"><span class="pre">False</span></code></li>
+<li><em>example</em>: <code class="docutils literal"><span class="pre">transpose</span> <span class="pre">dot</span> <span class="pre">=</span> <span class="pre">True</span></code></li>
 </ul>
 </div>
 <div class="section" id="transpose-graph">
@@ -191,8 +200,8 @@ rather than from top to bottom. Can be changed later using the options submenu
 via the view menu.</p>
 <ul class="simple">
 <li><em>type</em>: boolean</li>
-<li><em>default</em>: <code class="docutils literal notranslate"><span class="pre">False</span></code></li>
-<li><em>example</em>: <code class="docutils literal notranslate"><span class="pre">transpose</span> <span class="pre">graph</span> <span class="pre">=</span> <span class="pre">True</span></code></li>
+<li><em>default</em>: <code class="docutils literal"><span class="pre">False</span></code></li>
+<li><em>example</em>: <code class="docutils literal"><span class="pre">transpose</span> <span class="pre">graph</span> <span class="pre">=</span> <span class="pre">True</span></code></li>
 </ul>
 </div>
 <div class="section" id="ungrouped-views">
@@ -202,23 +211,23 @@ ungrouped state. Namespace family grouping can be changed later
 using the tool bar.</p>
 <ul class="simple">
 <li><em>type</em>: string (a list of zero or more view names)</li>
-<li><em>legal values</em>: <code class="docutils literal notranslate"><span class="pre">text</span></code>, <code class="docutils literal notranslate"><span class="pre">dot</span></code>,  <code class="docutils literal notranslate"><span class="pre">graph</span></code></li>
+<li><em>legal values</em>: <code class="docutils literal"><span class="pre">text</span></code>, <code class="docutils literal"><span class="pre">dot</span></code>,  <code class="docutils literal"><span class="pre">graph</span></code></li>
 <li><em>default</em>: (none)</li>
-<li><em>example</em>: <code class="docutils literal notranslate"><span class="pre">ungrouped</span> <span class="pre">views</span> <span class="pre">=</span> <span class="pre">text,</span> <span class="pre">dot</span></code></li>
+<li><em>example</em>: <code class="docutils literal"><span class="pre">ungrouped</span> <span class="pre">views</span> <span class="pre">=</span> <span class="pre">text,</span> <span class="pre">dot</span></code></li>
 </ul>
 </div>
 <div class="section" id="use-theme">
 <h3>15.3.1.14. use theme<a class="headerlink" href="#use-theme" title="Permalink to this headline">¶</a></h3>
 <p>Set the task state color theme, common to all views, to use initially. The
 color theme can be changed later using the tool bar.  See
-<code class="docutils literal notranslate"><span class="pre">etc/gcylc.rc.eg</span></code> and <code class="docutils literal notranslate"><span class="pre">etc/gcylc-themes.rc</span></code> in the Cylc
+<code class="docutils literal"><span class="pre">etc/gcylc.rc.eg</span></code> and <code class="docutils literal"><span class="pre">etc/gcylc-themes.rc</span></code> in the Cylc
 installation directory for how to modify existing themes or define your own.
-Use <code class="docutils literal notranslate"><span class="pre">cylc</span> <span class="pre">get-gui-config</span></code> to list available themes.</p>
+Use <code class="docutils literal"><span class="pre">cylc</span> <span class="pre">get-gui-config</span></code> to list available themes.</p>
 <ul class="simple">
 <li><em>type</em>: string (theme name)</li>
-<li><em>legal values</em>: <code class="docutils literal notranslate"><span class="pre">default</span></code>, <code class="docutils literal notranslate"><span class="pre">solid</span></code>, <code class="docutils literal notranslate"><span class="pre">high-contrast</span></code>,
-<code class="docutils literal notranslate"><span class="pre">color-blind</span></code>, and any custom or user-modified themes.</li>
-<li><em>default</em>: <code class="docutils literal notranslate"><span class="pre">default</span></code></li>
+<li><em>legal values</em>: <code class="docutils literal"><span class="pre">default</span></code>, <code class="docutils literal"><span class="pre">solid</span></code>, <code class="docutils literal"><span class="pre">high-contrast</span></code>,
+<code class="docutils literal"><span class="pre">color-blind</span></code>, and any custom or user-modified themes.</li>
+<li><em>default</em>: <code class="docutils literal"><span class="pre">default</span></code></li>
 </ul>
 </div>
 <div class="section" id="window-size">
@@ -228,7 +237,7 @@ Use <code class="docutils literal notranslate"><span class="pre">cylc</span> <sp
 <li><em>type</em>: integer list: x, y</li>
 <li><em>legal values</em>: positive integers</li>
 <li><em>default</em>: 800, 500</li>
-<li><em>example</em>: <code class="docutils literal notranslate"><span class="pre">window</span> <span class="pre">size</span> <span class="pre">=</span> <span class="pre">1000,</span> <span class="pre">700</span></code></li>
+<li><em>example</em>: <code class="docutils literal"><span class="pre">window</span> <span class="pre">size</span> <span class="pre">=</span> <span class="pre">1000,</span> <span class="pre">700</span></code></li>
 </ul>
 </div>
 </div>
@@ -236,51 +245,51 @@ Use <code class="docutils literal notranslate"><span class="pre">cylc</span> <sp
 <h2>15.3.2. [themes]<a class="headerlink" href="#themes" title="Permalink to this headline">¶</a></h2>
 <p>This section may contain task state color theme definitions.</p>
 <div class="section" id="themes-theme">
-<h3>15.3.2.1. [themes] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[THEME]]<a class="headerlink" href="#themes-theme" title="Permalink to this headline">¶</a></h3>
+<h3>15.3.2.1. [themes] <code class="docutils literal"><span class="pre">-&gt;</span></code> [[THEME]]<a class="headerlink" href="#themes-theme" title="Permalink to this headline">¶</a></h3>
 <p>The name of the task state color-theme to be defined in this section.</p>
 <ul class="simple">
 <li><em>type</em>: string</li>
 </ul>
 <div class="section" id="themes-theme-inherit">
-<h4>15.3.2.1.1. [themes] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[THEME]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> inherit<a class="headerlink" href="#themes-theme-inherit" title="Permalink to this headline">¶</a></h4>
+<h4>15.3.2.1.1. [themes] <code class="docutils literal"><span class="pre">-&gt;</span></code> [[THEME]] <code class="docutils literal"><span class="pre">-&gt;</span></code> inherit<a class="headerlink" href="#themes-theme-inherit" title="Permalink to this headline">¶</a></h4>
 <p>You can inherit from another theme in order to avoid defining all states.</p>
 <ul class="simple">
 <li><em>type</em>: string (parent theme name)</li>
-<li><em>default</em>: <code class="docutils literal notranslate"><span class="pre">default</span></code></li>
+<li><em>default</em>: <code class="docutils literal"><span class="pre">default</span></code></li>
 </ul>
 </div>
 <div class="section" id="themes-theme-defaults">
-<h4>15.3.2.1.2. [themes] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[THEME]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> defaults<a class="headerlink" href="#themes-theme-defaults" title="Permalink to this headline">¶</a></h4>
+<h4>15.3.2.1.2. [themes] <code class="docutils literal"><span class="pre">-&gt;</span></code> [[THEME]] <code class="docutils literal"><span class="pre">-&gt;</span></code> defaults<a class="headerlink" href="#themes-theme-defaults" title="Permalink to this headline">¶</a></h4>
 <p>Set default icon attributes for all state icons in this theme.</p>
 <ul class="simple">
 <li><em>type</em>: string list (icon attributes)</li>
-<li><em>legal values</em>: <code class="docutils literal notranslate"><span class="pre">&quot;color=COLOR&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;style=STYLE&quot;</span></code>,
-<code class="docutils literal notranslate"><span class="pre">&quot;fontcolor=FONTCOLOR&quot;</span></code></li>
+<li><em>legal values</em>: <code class="docutils literal"><span class="pre">&quot;color=COLOR&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;style=STYLE&quot;</span></code>,
+<code class="docutils literal"><span class="pre">&quot;fontcolor=FONTCOLOR&quot;</span></code></li>
 <li><em>default</em>: (none)</li>
 </ul>
-<p>For the attribute values, <code class="docutils literal notranslate"><span class="pre">COLOR</span></code> and <code class="docutils literal notranslate"><span class="pre">FONTCOLOR</span></code> can be color names from
-the X11 <code class="docutils literal notranslate"><span class="pre">rgb.txt</span></code> file, e.g. <code class="docutils literal notranslate"><span class="pre">SteelBlue</span></code>; or hexadecimal color codes, e.g.
-<code class="docutils literal notranslate"><span class="pre">#ff0000</span></code> for red; and <code class="docutils literal notranslate"><span class="pre">STYLE</span></code> can be <code class="docutils literal notranslate"><span class="pre">filled</span></code> or <code class="docutils literal notranslate"><span class="pre">unfilled</span></code>.
-See <code class="docutils literal notranslate"><span class="pre">etc/gcylc.rc.eg</span></code> and <code class="docutils literal notranslate"><span class="pre">etc/gcylc-themes.rc</span></code> in
+<p>For the attribute values, <code class="docutils literal"><span class="pre">COLOR</span></code> and <code class="docutils literal"><span class="pre">FONTCOLOR</span></code> can be color names from
+the X11 <code class="docutils literal"><span class="pre">rgb.txt</span></code> file, e.g. <code class="docutils literal"><span class="pre">SteelBlue</span></code>; or hexadecimal color codes, e.g.
+<code class="docutils literal"><span class="pre">#ff0000</span></code> for red; and <code class="docutils literal"><span class="pre">STYLE</span></code> can be <code class="docutils literal"><span class="pre">filled</span></code> or <code class="docutils literal"><span class="pre">unfilled</span></code>.
+See <code class="docutils literal"><span class="pre">etc/gcylc.rc.eg</span></code> and <code class="docutils literal"><span class="pre">etc/gcylc-themes.rc</span></code> in
 the Cylc installation directory for examples.</p>
 </div>
 <div class="section" id="themes-theme-state">
-<h4>15.3.2.1.3. [themes] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> [[THEME]] <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> STATE<a class="headerlink" href="#themes-theme-state" title="Permalink to this headline">¶</a></h4>
-<p>Set icon attributes for all task states in <code class="docutils literal notranslate"><span class="pre">THEME</span></code>, or for a subset of them
-if you have used theme inheritance and/or defaults. Legal values of <code class="docutils literal notranslate"><span class="pre">STATE</span></code>
+<h4>15.3.2.1.3. [themes] <code class="docutils literal"><span class="pre">-&gt;</span></code> [[THEME]] <code class="docutils literal"><span class="pre">-&gt;</span></code> STATE<a class="headerlink" href="#themes-theme-state" title="Permalink to this headline">¶</a></h4>
+<p>Set icon attributes for all task states in <code class="docutils literal"><span class="pre">THEME</span></code>, or for a subset of them
+if you have used theme inheritance and/or defaults. Legal values of <code class="docutils literal"><span class="pre">STATE</span></code>
 are any of the cylc task proxy states: <em>waiting, runahead, held, queued,
 ready, submitted, submit-failed, running, succeeded, failed, retrying,
 submit-retrying</em>.</p>
 <ul class="simple">
 <li><em>type</em>: string list (icon attributes)</li>
-<li><em>legal values</em>: <code class="docutils literal notranslate"><span class="pre">&quot;color=COLOR&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;style=STYLE&quot;</span></code>,
-<code class="docutils literal notranslate"><span class="pre">&quot;fontcolor=FONTCOLOR&quot;</span></code></li>
+<li><em>legal values</em>: <code class="docutils literal"><span class="pre">&quot;color=COLOR&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;style=STYLE&quot;</span></code>,
+<code class="docutils literal"><span class="pre">&quot;fontcolor=FONTCOLOR&quot;</span></code></li>
 <li><em>default:</em> (none)</li>
 </ul>
-<p>For the attribute values, <code class="docutils literal notranslate"><span class="pre">COLOR</span></code> and <code class="docutils literal notranslate"><span class="pre">FONTCOLOR</span></code> can be color names from
-the X11 <code class="docutils literal notranslate"><span class="pre">rgb.txt</span></code> file, e.g. <code class="docutils literal notranslate"><span class="pre">SteelBlue</span></code>; or hexadecimal color codes, e.g.
-<code class="docutils literal notranslate"><span class="pre">#ff0000</span></code> for red; and <code class="docutils literal notranslate"><span class="pre">STYLE</span></code> can be <code class="docutils literal notranslate"><span class="pre">filled</span></code> or <code class="docutils literal notranslate"><span class="pre">unfilled</span></code>.
-See <code class="docutils literal notranslate"><span class="pre">etc/gcylc.rc.eg</span></code> and <code class="docutils literal notranslate"><span class="pre">etc/gcylc-themes.rc</span></code> in
+<p>For the attribute values, <code class="docutils literal"><span class="pre">COLOR</span></code> and <code class="docutils literal"><span class="pre">FONTCOLOR</span></code> can be color names from
+the X11 <code class="docutils literal"><span class="pre">rgb.txt</span></code> file, e.g. <code class="docutils literal"><span class="pre">SteelBlue</span></code>; or hexadecimal color codes, e.g.
+<code class="docutils literal"><span class="pre">#ff0000</span></code> for red; and <code class="docutils literal"><span class="pre">STYLE</span></code> can be <code class="docutils literal"><span class="pre">filled</span></code> or <code class="docutils literal"><span class="pre">unfilled</span></code>.
+See <code class="docutils literal"><span class="pre">etc/gcylc.rc.eg</span></code> and <code class="docutils literal"><span class="pre">etc/gcylc-themes.rc</span></code> in
 the Cylc installation directory for examples.</p>
 </div>
 </div>
@@ -296,7 +305,7 @@ the Cylc installation directory for examples.</p>
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/cylc-logo.png" alt="Logo"/>
             </a></p>
-<h3><a href="../index.html">Table of Contents</a></h3>
+<h3><a href="../index.html">Table Of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction: How Cylc Works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../screenshots.html">2. Cylc Screenshots</a></li>
@@ -337,14 +346,12 @@ the Cylc installation directory for examples.</p>
 
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
-    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
   <div role="note" aria-label="source link">
@@ -370,13 +377,13 @@ the Cylc installation directory for examples.</p>
         <li class="right" >
           <a href="site-user-config-ref.html" title="15.2. Global (Site, User) Config File Reference"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.4 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="appendices-master.html" >15. Appendices</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2008-2019 NIWA &amp; British Crown (Met Office) &amp; Contributors.
-      Last updated on May 02, 2019.
+      Last updated on Sep 04, 2019.
     </div>
   </body>
 </html>

@@ -15,7 +15,7 @@ Help
    ordinary non-cycling workflows.
    For detailed documentation see the Cylc User Guide (cylc doc --help).
    
-   Version 7.8.2
+   Version 7.8.4
    
    The graphical user interface for cylc is "gcylc" (a.k.a. "cylc gui").
    
@@ -751,7 +751,7 @@ check-versions
    
    Options:
      -h, --help            show this help message and exit
-     -e, --error           Exit with error status if 7.8.2 is not available on
+     -e, --error           Exit with error status if 7.8.4 is not available on
                            all remote accounts.
      -v, --verbose         Verbose output mode.
      --debug               Output developer information and show exception
@@ -1006,8 +1006,9 @@ diff
                            across suite restarts, but can be set again on the
                            "cylc restart" command line if they need to be
                            overridden.
-     --icp=CYCLE_POINT     Set initial cycle point. Required if not defined in
-                           suite.rc.
+     --initial-cycle-point=CYCLE_POINT, --initial-point=CYCLE_POINT, --icp=CYCLE_POINT, --ict=CYCLE_POINT
+                           Set the initial cycle point. Required if not defined
+                           in suite.rc.
 
 
 .. _command-documentation:
@@ -1514,8 +1515,9 @@ get-suite-config
                            across suite restarts, but can be set again on the
                            "cylc restart" command line if they need to be
                            overridden.
-     --icp=CYCLE_POINT     Set initial cycle point. Required if not defined in
-                           suite.rc.
+     --initial-cycle-point=CYCLE_POINT, --initial-point=CYCLE_POINT, --icp=CYCLE_POINT, --ict=CYCLE_POINT
+                           Set the initial cycle point. Required if not defined
+                           in suite.rc.
 
 
 .. _command-get-suite-contact:
@@ -1886,16 +1888,21 @@ hold
 
 .. code-block:: none
 
-      Usage: cylc [control] hold [OPTIONS] REG [TASKID ...] 
+      Usage: cylc [control] hold [OPTIONS] REG [TASK_GLOB ...] 
    
-   Hold one or more waiting tasks (cylc hold REG TASKID ...), or
-   a whole suite (cylc hold REG).
+   Hold a suite or tasks:
+     cylc hold REG - hold a suite
+     cylc hold REG TASK_GLOB ... - hold one or more tasks in a suite
    
-   Held tasks do not submit even if they are ready to run.
+   Held tasks do not submit their jobs even if ready to run.
    
    See also 'cylc [control] release'.
    
-   TASKID is a pattern to match task proxies or task families, or groups of them:
+   Multiple TASK_GLOBs can be given. They each match task proxy instances in the
+   current task pool by task or family name pattern, cycle point pattern, and task
+   state. They do NOT match any task at any point in the abstract suite graph; if
+   target task instances do not exist in the current pool you must insert them
+   first with the "cylc insert" command.
    * [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
    * [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
    * TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
@@ -1912,11 +1919,11 @@ hold
    
    The old 'MATCH POINT' syntax will be automatically detected and supported. To
    avoid this, use the '--no-multitask-compat' option, or use the new syntax
-   (with a '/' or a '.') when specifying 2 TASKID arguments.
+   (with a '/' or a '.') when specifying 2 TASK_GLOB arguments.
    
    Arguments:
-      REG                        Suite name
-      [TASKID ...]               Task identifiers
+      REG                           Suite name
+      [TASK_GLOB ...]               Task match pattern(s)
    
    Options:
      -h, --help            show this help message and exit
@@ -1952,7 +1959,7 @@ hold
                            command prompts have been disabled in the site/user
                            config files.
      -m, --family          (Obsolete) This option is now ignored and is retained
-                           for backward compatibility only. TASKID in the
+                           for backward compatibility only. TASK_GLOB in the
                            argument list can be used to match task and family
                            names regardless of this option.
      --no-multitask-compat
@@ -1982,44 +1989,41 @@ insert
 
 .. code-block:: none
 
-      Usage: cylc [control] insert [OPTIONS] REG TASKID [...] 
+      Usage: cylc [control] insert [OPTIONS] TASK_GLOB [...]
    
-   Insert task proxies into a running suite. Uses of insertion include:
-    1) insert a task that was excluded by the suite definition at start-up.
-    2) reinstate a task that was previously removed from a running suite.
-    3) re-run an old task that cannot be retriggered because its task proxy
-    is no longer live in the a suite.
+   Insert new task proxies into the task pool of a running suite, e.g. to allow
+   re-triggering of an earlier task that has already been removed from the pool.
    
-   Be aware that inserted cycling tasks keep on cycling as normal, even if
-   another instance of the same task exists at a later cycle (instances of
-   the same task at different cycles can coexist, but a newly spawned task
-   will not be added to the pool if it catches up to another task with the
-   same ID).
+   NOTE: inserted cycling tasks cycle on as normal, even if another instance of
+   the same task exists at a later cycle (instances of the same task at different
+   cycles can coexist, but a newly spawned task will not be added to the pool if
+   it catches up to another task with the same ID).
    
-   See also 'cylc submit', for running tasks without the scheduler.
+   See also 'cylc submit', for running tasks independently of the scheduler.
    
-   TASKID is a pattern to match task proxies or task families, or groups of them:
-   * [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
-   * [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
-   * TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
-   * FAMILY-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
+   TASK_GLOB matches task or family names, to insert task instances into the pool
+   at a specific given cycle point. (NOTE this differs from other commands which
+   match name and cycle point patterns against instances already in the pool).
+   * CYCLE-POINT/TASK-NAME-GLOB
+   * CYCLE-POINT/FAMILY-NAME-GLOB
+   * TASK-NAME-GLOB.CYCLE-POINT
+   * FAMILY-NAME-GLOB.CYCLE-POINT
    
-   For example, to match:
-   * all tasks in a cycle: '20200202T0000Z/*' or '*.20200202T0000Z'
-   * all tasks in the submitted status: ':submitted'
-   * retrying 'foo*' tasks in 0000Z cycles: 'foo*.*0000Z:retrying' or
-     '*0000Z/foo*:retrying'
-   * retrying tasks in 'BAR' family: '*/BAR:retrying' or 'BAR.*:retrying'
-   * retrying tasks in 'BAR' or 'BAZ' families: '*/BA[RZ]:retrying' or
-     'BA[RZ].*:retrying'
+   For example, to match, within the given cycle point (e.g. '20200202T0000Z'):
+   * all tasks: '20200202T0000Z/*' or '*.20200202T0000Z'
+   * all tasks named model_N for some character N: '20200202T0000Z/model_?' or
+     'model_?.20200202T0000Z'
+   * all tasks in 'BAR' family: '20200202T0000Z/BAR' or 'BAR.20200202T0000Z'
+   * all tasks in 'BAR' or 'BAZ' families: '20200202T0000Z/BA[RZ]' or
+     'BA[RZ].20200202T0000Z'
    
    The old 'MATCH POINT' syntax will be automatically detected and supported. To
    avoid this, use the '--no-multitask-compat' option, or use the new syntax
-   (with a '/' or a '.') when specifying 2 TASKID arguments.
+   (with a '/' or a '.') when specifying 2 TASK_GLOB arguments.
    
    Arguments:
-      REG                        Suite name
-      TASKID [...]               Task identifier
+      REG                           Suite name
+      TASK_GLOB [...]               Task match pattern(s)
    
    Options:
      -h, --help            show this help message and exit
@@ -2027,6 +2031,8 @@ insert
                            Optional hold/stop cycle point for inserted task.
      --no-check            Add task even if the provided cycle point is not valid
                            for the given task.
+     --no-multitask-compat
+                           Disallow backward compatible multitask interface.
      --user=USER           Other user account name. This results in command
                            reinvocation on the remote account.
      --host=HOST           Other host name. This results in command reinvocation
@@ -2057,12 +2063,6 @@ insert
                            it is not necessary to use this option if interactive
                            command prompts have been disabled in the site/user
                            config files.
-     -m, --family          (Obsolete) This option is now ignored and is retained
-                           for backward compatibility only. TASKID in the
-                           argument list can be used to match task and family
-                           names regardless of this option.
-     --no-multitask-compat
-                           Disallow backward compatible multitask interface.
 
 
 .. _command-jobs-kill:
@@ -2194,14 +2194,17 @@ kill
 
 .. code-block:: none
 
-      Usage: cylc [control] kill [OPTIONS] REG [TASKID ...] 
+      Usage: cylc [control] kill [OPTIONS] REG [TASK_GLOB ...] 
    
    Kill jobs of active tasks and update their statuses accordingly.
+    cylc kill REG TASK_GLOB ... - kill one or more active tasks
+    cylc kill REG - kill all active tasks in the suite
    
-   To kill one or more tasks, "cylc kill REG TASKID ..."; to kill all active
-   tasks: "cylc kill REG".
-   
-   TASKID is a pattern to match task proxies or task families, or groups of them:
+   Multiple TASK_GLOBs can be given. They each match task proxy instances in the
+   current task pool by task or family name pattern, cycle point pattern, and task
+   state. They do NOT match any task at any point in the abstract suite graph; if
+   target task instances do not exist in the current pool you must insert them
+   first with the "cylc insert" command.
    * [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
    * [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
    * TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
@@ -2218,11 +2221,11 @@ kill
    
    The old 'MATCH POINT' syntax will be automatically detected and supported. To
    avoid this, use the '--no-multitask-compat' option, or use the new syntax
-   (with a '/' or a '.') when specifying 2 TASKID arguments.
+   (with a '/' or a '.') when specifying 2 TASK_GLOB arguments.
    
    Arguments:
-      REG                        Suite name
-      [TASKID ...]               Task identifiers
+      REG                           Suite name
+      [TASK_GLOB ...]               Task match pattern(s)
    
    Options:
      -h, --help            show this help message and exit
@@ -2257,7 +2260,7 @@ kill
                            command prompts have been disabled in the site/user
                            config files.
      -m, --family          (Obsolete) This option is now ignored and is retained
-                           for backward compatibility only. TASKID in the
+                           for backward compatibility only. TASK_GLOB in the
                            argument list can be used to match task and family
                            names regardless of this option.
      --no-multitask-compat
@@ -2320,8 +2323,9 @@ list
                            across suite restarts, but can be set again on the
                            "cylc restart" command line if they need to be
                            overridden.
-     --icp=CYCLE_POINT     Set initial cycle point. Required if not defined in
-                           suite.rc.
+     --initial-cycle-point=CYCLE_POINT, --initial-point=CYCLE_POINT, --icp=CYCLE_POINT, --ict=CYCLE_POINT
+                           Set the initial cycle point. Required if not defined
+                           in suite.rc.
 
 
 .. _command-ls-checkpoints:
@@ -2646,14 +2650,17 @@ poll
 
 .. code-block:: none
 
-      Usage: cylc [control] poll [OPTIONS] REG [TASKID ...] 
+      Usage: cylc [control] poll [OPTIONS] REG [TASK_GLOB ...] 
    
    Poll (query) task jobs to verify and update their statuses.
+     cylc poll REG - poll all active tasks
+     cylc poll REG TASK_GLOB ... - poll multiple active tasks or families
    
-   Use "cylc poll REG" to poll all active tasks, or "cylc poll REG TASKID" to poll
-   individual tasks or families, or groups of them.
-   
-   TASKID is a pattern to match task proxies or task families, or groups of them:
+   Multiple TASK_GLOBs can be given. They each match task proxy instances in the
+   current task pool by task or family name pattern, cycle point pattern, and task
+   state. They do NOT match any task at any point in the abstract suite graph; if
+   target task instances do not exist in the current pool you must insert them
+   first with the "cylc insert" command.
    * [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
    * [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
    * TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
@@ -2670,11 +2677,11 @@ poll
    
    The old 'MATCH POINT' syntax will be automatically detected and supported. To
    avoid this, use the '--no-multitask-compat' option, or use the new syntax
-   (with a '/' or a '.') when specifying 2 TASKID arguments.
+   (with a '/' or a '.') when specifying 2 TASK_GLOB arguments.
    
    Arguments:
-      REG                        Suite name
-      [TASKID ...]               Task identifiers
+      REG                           Suite name
+      [TASK_GLOB ...]               Task match pattern(s)
    
    Options:
      -h, --help            show this help message and exit
@@ -2710,7 +2717,7 @@ poll
                            command prompts have been disabled in the site/user
                            config files.
      -m, --family          (Obsolete) This option is now ignored and is retained
-                           for backward compatibility only. TASKID in the
+                           for backward compatibility only. TASK_GLOB in the
                            argument list can be used to match task and family
                            names regardless of this option.
      --no-multitask-compat
@@ -2849,10 +2856,11 @@ register
    "cylc run" can also register suites on the fly).
    
    Registration creates a suite run directory "~/cylc-run/REG/" containing a
-   ".service/source" symlink to the suite definition PATH. The .service directory
-   will also be used for server authentication files at run time.
+   ".service/source" symlink to the suite definition location. The .service
+   directory is also used for server authentication files at runtime. With the
+   "--run-dir" option "~/cylc-run/REG" can be symlinked to another location.
    
-   Suite names can be hierarchical, corresponding to the path under ~/cylc-run.
+   Suite names can be hierarchical, corresponding to path under the run directory.
    
      % cylc register dogs/fido PATH
    Register PATH/suite.rc as dogs/fido, with run directory ~/cylc-run/dogs/fido.
@@ -2880,15 +2888,17 @@ register
       [PATH]               Suite definition directory (defaults to $PWD)
    
    Options:
-     -h, --help     show this help message and exit
-     --redirect     Allow an existing suite name and run directory to be used
-                    with another suite.
-     --user=USER    Other user account name. This results in command reinvocation
-                    on the remote account.
-     --host=HOST    Other host name. This results in command reinvocation on the
-                    remote account.
-     -v, --verbose  Verbose output mode.
-     --debug        Output developer information and show exception tracebacks.
+     -h, --help        show this help message and exit
+     --redirect        Allow an existing suite name and run directory to be used
+                       with another suite.
+     --run-dir=RUNDIR  Symlink $HOME/cylc-run/REG to RUNDIR/REG.
+     --user=USER       Other user account name. This results in command
+                       reinvocation on the remote account.
+     --host=HOST       Other host name. This results in command reinvocation on
+                       the remote account.
+     -v, --verbose     Verbose output mode.
+     --debug           Output developer information and show exception
+                       tracebacks.
 
 
 .. _command-release:
@@ -2898,15 +2908,21 @@ release
 
 .. code-block:: none
 
-      Usage: cylc [control] release|unhold [OPTIONS] REG [TASKID ...] 
+      Usage: cylc [control] release|unhold [OPTIONS] REG [TASK_GLOB ...] 
    
-   Release one or more held tasks (cylc release REG TASKID)
-   or the whole suite (cylc release REG). Held tasks do not
-   submit even if they are ready to run.
+   Release a held suite or tasks.
+     cylc release REG - release the suite
+     cylc release REG TASK_GLOB ... - release one or more tasks
+   
+   Held tasks do not submit their jobs even if ready to run.
    
    See also 'cylc [control] hold'.
    
-   TASKID is a pattern to match task proxies or task families, or groups of them:
+   Multiple TASK_GLOBs can be given. They each match task proxy instances in the
+   current task pool by task or family name pattern, cycle point pattern, and task
+   state. They do NOT match any task at any point in the abstract suite graph; if
+   target task instances do not exist in the current pool you must insert them
+   first with the "cylc insert" command.
    * [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
    * [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
    * TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
@@ -2923,11 +2939,11 @@ release
    
    The old 'MATCH POINT' syntax will be automatically detected and supported. To
    avoid this, use the '--no-multitask-compat' option, or use the new syntax
-   (with a '/' or a '.') when specifying 2 TASKID arguments.
+   (with a '/' or a '.') when specifying 2 TASK_GLOB arguments.
    
    Arguments:
-      REG                        Suite name
-      [TASKID ...]               Task identifiers
+      REG                           Suite name
+      [TASK_GLOB ...]               Task match pattern(s)
    
    Options:
      -h, --help            show this help message and exit
@@ -2962,7 +2978,7 @@ release
                            command prompts have been disabled in the site/user
                            config files.
      -m, --family          (Obsolete) This option is now ignored and is retained
-                           for backward compatibility only. TASKID in the
+                           for backward compatibility only. TASK_GLOB in the
                            argument list can be used to match task and family
                            names regardless of this option.
      --no-multitask-compat
@@ -3116,14 +3132,18 @@ remove
 
 .. code-block:: none
 
-      Usage: cylc [control] remove [OPTIONS] REG TASKID [...] 
+      Usage: cylc [control] remove [OPTIONS] REG TASK_GLOB [...] 
    
-   Remove one or more tasks (cylc remove REG TASKID), or all tasks with a
-   given cycle point (cylc remove REG *.POINT) from a running suite.
+   Remove one or more task instances from a running suite.
    
-   Tasks will spawn successors first if they have not done so already.
+   Tasks will be forced to spawn successors before removal if they have not done
+   so already, unless you use '--no-spawn'.
    
-   TASKID is a pattern to match task proxies or task families, or groups of them:
+   Multiple TASK_GLOBs can be given. They each match task proxy instances in the
+   current task pool by task or family name pattern, cycle point pattern, and task
+   state. They do NOT match any task at any point in the abstract suite graph; if
+   target task instances do not exist in the current pool you must insert them
+   first with the "cylc insert" command.
    * [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
    * [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
    * TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
@@ -3140,11 +3160,11 @@ remove
    
    The old 'MATCH POINT' syntax will be automatically detected and supported. To
    avoid this, use the '--no-multitask-compat' option, or use the new syntax
-   (with a '/' or a '.') when specifying 2 TASKID arguments.
+   (with a '/' or a '.') when specifying 2 TASK_GLOB arguments.
    
    Arguments:
-      REG                        Suite name
-      TASKID [...]               Task identifiers
+      REG                           Suite name
+      TASK_GLOB [...]               Task match pattern(s)
    
    Options:
      -h, --help            show this help message and exit
@@ -3180,7 +3200,7 @@ remove
                            command prompts have been disabled in the site/user
                            config files.
      -m, --family          (Obsolete) This option is now ignored and is retained
-                           for backward compatibility only. TASKID in the
+                           for backward compatibility only. TASK_GLOB in the
                            argument list can be used to match task and family
                            names regardless of this option.
      --no-multitask-compat
@@ -3252,22 +3272,25 @@ reset
 
 .. code-block:: none
 
-      Usage: cylc [control] reset [OPTIONS] REG [TASKID ...] 
+      Usage: cylc [control] reset [OPTIONS] REG [TASK_GLOB ...] 
    
-   Force tasks to a specified state, and modify their prerequisites and outputs
-   accordingly.
+   Force task instances to a specified state.
+     cylc reset --state=xxx REG - reset all tasks to state xxx
+     cylc reset --state=xxx REG TASK_GLOB ... - reset one or more tasks to xxx
    
    Outputs are automatically updated to reflect the new task state, except for
-   custom message outputs - which can be manipulated directly with "--output".
+   custom message outputs which can be manipulated directly with "--output".
    
-   Prerequisites reflect the state of other  tasks; they are not changed except
-   to unset them on resetting the task state to 'waiting' or earlier.
+   Prerequisites reflect the state of other tasks; they are not changed except
+   to unset them on resetting state to 'waiting' or earlier.
    
-   To hold and release tasks use "cylc hold" and "cylc release".
-   "cylc reset --state=spawn" is deprecated: use "cylc spawn" instead.
+   To hold and release tasks use "cylc hold" and "cylc release", not this command.
    
-   
-   TASKID is a pattern to match task proxies or task families, or groups of them:
+   Multiple TASK_GLOBs can be given. They each match task proxy instances in the
+   current task pool by task or family name pattern, cycle point pattern, and task
+   state. They do NOT match any task at any point in the abstract suite graph; if
+   target task instances do not exist in the current pool you must insert them
+   first with the "cylc insert" command.
    * [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
    * [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
    * TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
@@ -3284,11 +3307,11 @@ reset
    
    The old 'MATCH POINT' syntax will be automatically detected and supported. To
    avoid this, use the '--no-multitask-compat' option, or use the new syntax
-   (with a '/' or a '.') when specifying 2 TASKID arguments.
+   (with a '/' or a '.') when specifying 2 TASK_GLOB arguments.
    
    Arguments:
-      REG                        Suite name
-      [TASKID ...]               Task identifiers
+      REG                           Suite name
+      [TASK_GLOB ...]               Task match pattern(s)
    
    Options:
      -h, --help            show this help message and exit
@@ -3331,7 +3354,7 @@ reset
                            command prompts have been disabled in the site/user
                            config files.
      -m, --family          (Obsolete) This option is now ignored and is retained
-                           for backward compatibility only. TASKID in the
+                           for backward compatibility only. TASK_GLOB in the
                            argument list can be used to match task and family
                            names regardless of this option.
      --no-multitask-compat
@@ -3360,36 +3383,49 @@ restart
    
    Options:
      -h, --help            show this help message and exit
-     --non-daemon          (deprecated: use --no-detach)
-     -n, --no-detach       Do not daemonize the suite
+     -n, --no-detach, --non-daemon
+                           Do not daemonize the suite
      -a, --no-auto-shutdown
                            Do not shut down the suite automatically when all
                            tasks have finished. This flag overrides the
                            corresponding suite config item.
+     --auto-shutdown       Shut down the suite automatically when all tasks have
+                           finished. This flag overrides the corresponding suite
+                           config item.
      --profile             Output profiling (performance) information
      --checkpoint=CHECKPOINT-ID
                            Specify the ID of a checkpoint to restart from
-     --ignore-final-cycle-point
-                           Ignore the final cycle point in the suite run
-                           database. If one is specified in the suite definition
-                           it will be used, however.
      --ignore-initial-cycle-point
                            Ignore the initial cycle point in the suite run
                            database. If one is specified in the suite definition
                            it will be used, however.
-     --until=CYCLE_POINT   Shut down after all tasks have PASSED this cycle
-                           point.
-     --hold                Hold (don't run tasks) immediately on starting.
-     --hold-after=CYCLE_POINT
-                           Hold (don't run tasks) AFTER this cycle point.
+     --ignore-final-cycle-point
+                           Ignore the final cycle point in the suite run
+                           database. If one is specified in the suite definition
+                           it will be used, however.
+     --ignore-start-cycle-point
+                           Ignore the start cycle point in the suite run
+                           database.
+     --ignore-stop-cycle-point
+                           Ignore the stop cycle point in the suite run database.
+     --final-cycle-point=CYCLE_POINT, --final-point=CYCLE_POINT, --until=CYCLE_POINT, --fcp=CYCLE_POINT
+                           Set the final cycle point.
+     --stop-cycle-point=CYCLE_POINT, --stop-point=CYCLE_POINT
+                           Set stop point. Shut down after all tasks have PASSED
+                           this cycle point. (Not to be confused with the final
+                           cycle point.)
+     --hold                Hold suite immediately on starting.
+     --hold-point=CYCLE_POINT, --hold-after=CYCLE_POINT
+                           Set hold cycle point. Hold suite AFTER all tasks have
+                           PASSED this cycle point.
      -m STRING, --mode=STRING
                            Run mode: live, dummy, dummy-local, simulation
                            (default live).
      --reference-log       Generate a reference log for use in reference tests.
      --reference-test      Do a test run against a previously generated reference
                            log.
-     --host=HOST           Specify the host on which to start-up the suite.
-                           Without this set a host will be selected using the
+     --host=HOST           Specify the host on which to start-up the suite. If
+                           not specified, a host will be selected using the
                            'suite servers' global config.
      --user=USER           Other user account name. This results in command
                            reinvocation on the remote account.
@@ -3482,28 +3518,38 @@ run
    
    Options:
      -h, --help            show this help message and exit
-     --non-daemon          (deprecated: use --no-detach)
-     -n, --no-detach       Do not daemonize the suite
+     -n, --no-detach, --non-daemon
+                           Do not daemonize the suite
      -a, --no-auto-shutdown
                            Do not shut down the suite automatically when all
                            tasks have finished. This flag overrides the
                            corresponding suite config item.
+     --auto-shutdown       Shut down the suite automatically when all tasks have
+                           finished. This flag overrides the corresponding suite
+                           config item.
      --profile             Output profiling (performance) information
      -w, --warm            Warm start the suite. The default is to cold start.
-     --ict                 Does nothing, option for backward compatibility only
-     --until=CYCLE_POINT   Shut down after all tasks have PASSED this cycle
-                           point.
-     --hold                Hold (don't run tasks) immediately on starting.
-     --hold-after=CYCLE_POINT
-                           Hold (don't run tasks) AFTER this cycle point.
+     --start-cycle-point=CYCLE_POINT, --start-point=CYCLE_POINT
+                           Set the start cycle point. Implies --warm.(Not to be
+                           confused with the initial cycle point.)
+     --final-cycle-point=CYCLE_POINT, --final-point=CYCLE_POINT, --until=CYCLE_POINT, --fcp=CYCLE_POINT
+                           Set the final cycle point.
+     --stop-cycle-point=CYCLE_POINT, --stop-point=CYCLE_POINT
+                           Set stop point. Shut down after all tasks have PASSED
+                           this cycle point. (Not to be confused with the final
+                           cycle point.)
+     --hold                Hold suite immediately on starting.
+     --hold-point=CYCLE_POINT, --hold-after=CYCLE_POINT
+                           Set hold cycle point. Hold suite AFTER all tasks have
+                           PASSED this cycle point.
      -m STRING, --mode=STRING
                            Run mode: live, dummy, dummy-local, simulation
                            (default live).
      --reference-log       Generate a reference log for use in reference tests.
      --reference-test      Do a test run against a previously generated reference
                            log.
-     --host=HOST           Specify the host on which to start-up the suite.
-                           Without this set a host will be selected using the
+     --host=HOST           Specify the host on which to start-up the suite. If
+                           not specified, a host will be selected using the
                            'suite servers' global config.
      --user=USER           Other user account name. This results in command
                            reinvocation on the remote account.
@@ -3523,6 +3569,9 @@ run
                            across suite restarts, but can be set again on the
                            "cylc restart" command line if they need to be
                            overridden.
+     --initial-cycle-point=CYCLE_POINT, --initial-point=CYCLE_POINT, --icp=CYCLE_POINT, --ict=CYCLE_POINT
+                           Set the initial cycle point. Required if not defined
+                           in suite.rc.
 
 
 .. _command-scan:
@@ -3734,12 +3783,18 @@ show
 
 .. code-block:: none
 
-      Usage: cylc [info] show [OPTIONS] REG [TASKID ...] 
+      Usage: cylc [info] show [OPTIONS] REG [TASK_NAME or TASK_GLOB ...] 
    
-   Interrogate a suite server program for the suite metadata; or for the metadata
-   of one of its tasks; or for the current state of the prerequisites, outputs,
-   and clock-triggering of a specific task instance.
-   TASKID is a pattern to match task proxies or task families, or groups of them:
+   Query a running suite for:
+     cylc show REG - suite metadata
+     cylc show REG TASK_NAME - task metadata
+     cylc show REG TASK_GLOB - prerequisites and outputs of matched task instances
+   
+   Multiple TASK_GLOBs can be given. They each match task proxy instances in the
+   current task pool by task or family name pattern, cycle point pattern, and task
+   state. They do NOT match any task at any point in the abstract suite graph; if
+   target task instances do not exist in the current pool you must insert them
+   first with the "cylc insert" command.
    * [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
    * [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
    * TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
@@ -3756,11 +3811,11 @@ show
    
    The old 'MATCH POINT' syntax will be automatically detected and supported. To
    avoid this, use the '--no-multitask-compat' option, or use the new syntax
-   (with a '/' or a '.') when specifying 2 TASKID arguments.
+   (with a '/' or a '.') when specifying 2 TASK_GLOB arguments.
    
    Arguments:
-      REG                        Suite name
-      [TASKID ...]               Task names or identifiers
+      REG                                        Suite name
+      [TASK_NAME or TASK_GLOB ...]               Task names or match patterns
    
    Options:
      -h, --help            show this help message and exit
@@ -3793,7 +3848,7 @@ show
                            first [info] command from the same client ID will be
                            logged unless the suite is running in debug mode).
      -m, --family          (Obsolete) This option is now ignored and is retained
-                           for backward compatibility only. TASKID in the
+                           for backward compatibility only. TASK_GLOB in the
                            argument list can be used to match task and family
                            names regardless of this option.
      --no-multitask-compat
@@ -3807,13 +3862,21 @@ spawn
 
 .. code-block:: none
 
-      Usage: cylc [control] spawn [OPTIONS] REG [TASKID ...] 
+      Usage: cylc [control] spawn [OPTIONS] REG [TASK_GLOB ...] 
    
-   Force one or more task proxies to spawn successors at the next cycle point
-   in their sequences.  This is useful if you need to run successive instances
-   of a task out of order.
+   Force task proxies to spawn successors at their own next cycle point.
+     cylc spawn REG - force spawn all tasks in a suite
+     cylc spawn REG TASK_GLOB ... - force spawn one or more tasks in a suite
    
-   TASKID is a pattern to match task proxies or task families, or groups of them:
+   Tasks normally spawn on reaching the "submitted" status. Spawning them early
+   allows running successive instances of the same task out of order. See also
+   the "spawn to max active cycle points" suite configuration.
+   
+   Multiple TASK_GLOBs can be given. They each match task proxy instances in the
+   current task pool by task or family name pattern, cycle point pattern, and task
+   state. They do NOT match any task at any point in the abstract suite graph; if
+   target task instances do not exist in the current pool you must insert them
+   first with the "cylc insert" command.
    * [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
    * [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
    * TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
@@ -3830,11 +3893,11 @@ spawn
    
    The old 'MATCH POINT' syntax will be automatically detected and supported. To
    avoid this, use the '--no-multitask-compat' option, or use the new syntax
-   (with a '/' or a '.') when specifying 2 TASKID arguments.
+   (with a '/' or a '.') when specifying 2 TASK_GLOB arguments.
    
    Arguments:
-      REG                        Suite name
-      [TASKID ...]               Task identifiers
+      REG                           Suite name
+      [TASK_GLOB ...]               Task match pattern(s)
    
    Options:
      -h, --help            show this help message and exit
@@ -3869,7 +3932,7 @@ spawn
                            command prompts have been disabled in the site/user
                            config files.
      -m, --family          (Obsolete) This option is now ignored and is retained
-                           for backward compatibility only. TASKID in the
+                           for backward compatibility only. TASK_GLOB in the
                            argument list can be used to match task and family
                            names regardless of this option.
      --no-multitask-compat
@@ -4003,8 +4066,9 @@ submit
                            across suite restarts, but can be set again on the
                            "cylc restart" command line if they need to be
                            overridden.
-     --icp=CYCLE_POINT     Set initial cycle point. Required if not defined in
-                           suite.rc.
+     --initial-cycle-point=CYCLE_POINT, --initial-point=CYCLE_POINT, --icp=CYCLE_POINT, --ict=CYCLE_POINT
+                           Set the initial cycle point. Required if not defined
+                           in suite.rc.
 
 
 .. _command-suite-state:
@@ -4092,18 +4156,18 @@ test-battery
 
 .. code-block:: none
 
-      cd "/home/oliverh/cylc-git/worktrees/7.8.x"
+      cd "/home/oliverh/cylc/cylc-flow"
    Usage: cylc test-battery [...]
    
    Run automated Cylc and Parsec tests, under (by default):
-      /home/oliverh/cylc-git/worktrees/7.8.x/tests/.
+      /home/oliverh/cylc/cylc-flow/tests/.
    
    Options and arguments are appended to "prove -j $NPROC -s -r ${@:-tests}".
    NPROC is the number of concurrent processes to run, which defaults to the
    global config "process pool size" setting.
    
    The tests ignore normal site/user global config and instead use the file:
-      /home/oliverh/cylc-git/worktrees/7.8.x/etc/global-tests.rc
+      /home/oliverh/cylc/cylc-flow/etc/global-tests.rc
    This should specify test job hosts under the [test battery] section, plus any
    other critical settings settings, including [hosts] configuration for test job
    hosts (and special batchview commands like qcat if available). Additional
@@ -4120,14 +4184,14 @@ test-battery
    Some test suites submit jobs to the 'at' so atd must be up on the job hosts.
    
    Commits or Pull Requests to cylc/cylc-flow on GitHub will trigger Travis CI to
-   run generic (non platform-specific) tests - see /home/oliverh/cylc-git/worktrees/7.8.x/.travis.yml.
+   run generic (non platform-specific) tests - see /home/oliverh/cylc/cylc-flow/.travis.yml.
    
    By default all tests are executed.  To run just a subset of them:
      * list individual tests or test directories to run on the comand line
      * list individual tests or test directories to skip in $CYLC_TEST_SKIP
      * skip all generic tests with CYLC_TEST_RUN_GENERIC=false
      * skip all platform-specific tests with CYLC_TEST_RUN_PLATFORM=false
-     List specific tests relative to /home/oliverh/cylc-git/worktrees/7.8.x (i.e. starting with "test/").
+     List specific tests relative to /home/oliverh/cylc/cylc-flow (i.e. starting with "test/").
    Some platform-specific tests are automatically skipped, depending on platform.
    
    Platform-specific tests must set "CYLC_TEST_IS_GENERIC=false" before sourcing
@@ -4176,18 +4240,26 @@ trigger
 
 .. code-block:: none
 
-      Usage: cylc [control] trigger [OPTIONS] REG [TASKID ...] 
+      Usage: cylc [control] trigger [OPTIONS] REG [TASK_GLOB ...] 
    
-   Manually trigger one or more tasks. Waiting tasks will be queued (cylc internal
-   queues) and will submit as normal when released by the queue; queued tasks will
-   submit immediately even if that violates the queue limit (so you may need to
-   trigger a queue-limited task twice to get it to submit).
+   Manually trigger tasks.
+     cylc trigger REG - trigger all tasks in a running suite
+     cylc trigger REG TASK_GLOB ... - trigger one or more tasks in a running suite
+   
+   NOTE waiting tasks that are queue-limited will be queued if triggered, to
+   submit as normal when released by the queue; queued tasks will submit
+   immediately if triggered, even if that violates the queue limit (so you may
+   need to trigger a queue-limited task twice to get it to submit immediately).
    
    For single tasks you can use "--edit" to edit the generated job script before
    it submits, to apply one-off changes. A diff between the original and edited
    job script will be saved to the task job log directory.
    
-   TASKID is a pattern to match task proxies or task families, or groups of them:
+   Multiple TASK_GLOBs can be given. They each match task proxy instances in the
+   current task pool by task or family name pattern, cycle point pattern, and task
+   state. They do NOT match any task at any point in the abstract suite graph; if
+   target task instances do not exist in the current pool you must insert them
+   first with the "cylc insert" command.
    * [CYCLE-POINT-GLOB/]TASK-NAME-GLOB[:TASK-STATE]
    * [CYCLE-POINT-GLOB/]FAMILY-NAME-GLOB[:TASK-STATE]
    * TASK-NAME-GLOB[.CYCLE-POINT-GLOB][:TASK-STATE]
@@ -4204,11 +4276,11 @@ trigger
    
    The old 'MATCH POINT' syntax will be automatically detected and supported. To
    avoid this, use the '--no-multitask-compat' option, or use the new syntax
-   (with a '/' or a '.') when specifying 2 TASKID arguments.
+   (with a '/' or a '.') when specifying 2 TASK_GLOB arguments.
    
    Arguments:
-      REG                        Suite name
-      [TASKID ...]               Task identifiers
+      REG                           Suite name
+      [TASK_GLOB ...]               Task match pattern(s)
    
    Options:
      -h, --help            show this help message and exit
@@ -4245,7 +4317,7 @@ trigger
                            command prompts have been disabled in the site/user
                            config files.
      -m, --family          (Obsolete) This option is now ignored and is retained
-                           for backward compatibility only. TASKID in the
+                           for backward compatibility only. TASK_GLOB in the
                            argument list can be used to match task and family
                            names regardless of this option.
      --no-multitask-compat
@@ -4321,8 +4393,9 @@ validate
                            across suite restarts, but can be set again on the
                            "cylc restart" command line if they need to be
                            overridden.
-     --icp=CYCLE_POINT     Set initial cycle point. Required if not defined in
-                           suite.rc.
+     --initial-cycle-point=CYCLE_POINT, --initial-point=CYCLE_POINT, --icp=CYCLE_POINT, --ict=CYCLE_POINT
+                           Set the initial cycle point. Required if not defined
+                           in suite.rc.
 
 
 .. _command-view:

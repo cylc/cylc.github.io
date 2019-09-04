@@ -2,7 +2,7 @@
 layout: frontpage
 title: a workflow engine
 scripts:
-  - assets/js/progress.js
+  - /assets/js/progress.js
 ---
 
 ## Cylc ("silk") is a workflow engine for cycling systems

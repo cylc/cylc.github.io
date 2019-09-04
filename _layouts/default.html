@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>cylc - {{ page.title }}</title>
-		<link rel="stylesheet" type="text/css" href="{{ site.url }}/assets/css/main.css">
-		{%- if page.styles -%}
-		{% for style in page.styles %}
-		<link rel="stylesheet" type="text/css" href="{{ site.url }}/{{ style }}">
-		{%- endfor -%}
-		{% endif %}
-	</head>
-	<body>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>cylc - {{ page.title }}</title>
+        <link rel="stylesheet" type="text/css" href="{{ site.url }}/assets/css/main.css">
+        {%- if page.styles -%}
+        {% for style in page.styles %}
+        <link rel="stylesheet" type="text/css" href="{{ style }}">
+        {%- endfor -%}
+        {% endif %}
+    </head>
+    <body>
     {% include header.html %}
-		<div id="wrapper">
-			{{ content }}
+        <div id="wrapper">
+            {{ content }}
     </div>
     {% include footer.html %}
-		{% if page.scripts %}
-		{%- for script in page.scripts -%}
-		<script src="{{ site.url }}/{{ script }}" type="text/javascript"></script>
-		{% endfor %}
-		{%- endif -%}
-	</body>
+        {% if page.scripts %}
+        {%- for script in page.scripts -%}
+        <script src="{{ script }}" type="text/javascript"></script>
+        {% endfor %}
+        {%- endif -%}
+    </body>
 </html>

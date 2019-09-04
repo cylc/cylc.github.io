@@ -1,9 +1,18 @@
 ---
 layout: page
 title: Cylc Users
+scripts:
+  - https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL
+  - https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js
+  - /assets/js/map.js
+styles:
+  - https://openlayers.org/en/v5.3.0/css/ol.css
 ---
 
 ## Cylc users
+
+<!-- map goes here -->
+<div id="map" class="map"></div>
 
 Major sites known to be using Cylc are shown on the world map above. Sites are
 shown in yellow, with

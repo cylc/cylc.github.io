@@ -192,3 +192,9 @@ h4 {
 code {
     color:#4c84ad;
 }
+
+#map {
+    height: 80%;
+    width: 100%;
+    margin: 0;
+}

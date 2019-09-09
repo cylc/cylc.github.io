@@ -15,8 +15,7 @@ title: documentation
 
 ### The Cylc User Guide
 
-If you have access to cylc already, type `cylc doc` or use the GUI "Help" menu
-to view the User Guide.  Otherwise, an online copy is available here:
+Online copies of the documentation are available here:
 
 * [Multi-Page version](doc/built-sphinx/index.html) (with word search box)
 * [Single-Page version](doc/built-sphinx-single/index.html) - (search with browser Ctrl-F)

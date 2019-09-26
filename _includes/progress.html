@@ -175,7 +175,7 @@ function retrieveReleases(url, linkBaseUrl) {
         xhr.onload = function() {
             const releases = JSON.parse(this.response);
             // we only want to iterate over 4 releases...
-            var min = Math.min(releases.length, 4);
+            var min = Math.min(releases.length, 2);
             releasesContainer.innerHTML = "";
             for (var i = 0; i < min; ++i) {
                 var release = releases[i];

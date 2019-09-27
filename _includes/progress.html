@@ -205,9 +205,9 @@ function retrieveReleases(url, linkBaseUrl) {
  * If an error occurs, it will print the error to the browser console.
  */
 window.onload = function () {
-    var milestonesUrl = "https://api.github.com/repos/cylc/cylc/milestones";
-    var releasesUrl = "https://api.github.com/repos/cylc/cylc/releases";
-    var releasesLinkBaseUrl = "https://github.com/cylc/cylc/releases/tag/";
+    var milestonesUrl = "https://api.github.com/repos/cylc/cylc-flow/milestones";
+    var releasesUrl = "https://api.github.com/repos/cylc/cylc-flow/releases";
+    var releasesLinkBaseUrl = "https://github.com/cylc/cylc-flow/releases/tag/";
     Promise.all([
         retrieveProgress(milestonesUrl),
         retrieveReleases(releasesUrl, releasesLinkBaseUrl)

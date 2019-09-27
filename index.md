@@ -5,13 +5,11 @@ title: a workflow engine
 
 ## Cylc ("silk") is a workflow engine for cycling systems
 
-Use cases for cycling include:
+Use cases for include:
 
- * Running successive cycles of an environmental forecasting system (where in
-   real time operation new forecasts are initiated at regular intervals; but in
-   catch-up or historical mode dependencies may allow concurrent cycles).
+ * Running successive cycles of an environmental forecasting system.
 
- * Splitting long model runs into a sequence of smaller runs, with associated
+ * Splitting long model integrations into many smaller chunks, with associated
    processing tasks for each chunk.
 
  * Running successive steps in some multi-task iterative process, such as for
@@ -28,31 +26,29 @@ and
 [others](https://github.com/cylc/cylc/blob/master/CONTRIBUTING.md#code-contributors).
 It is [available under the GPL v3 license](./license.html).
 
-{% include feature.html content="Workflows are defined in a human-readable
-config file format - so you can use software development power tools for suite
-development." %}
+{% include feature.html content="Workflows are configured in a human-readable
+text format (with programmatic templating)- so you can use software development
+power tools for suite development." %}
 
-{% include feature.html content="Configure scheduling with an efficient graph
-description notation, and task runtime properties in an efficient inheritance
-hierarchy (to factor out all commonality)." %}
+{% include feature.html content="Scheduling is configured with an efficient
+cycling graph notation, and task runtime properties with an efficient
+inheritance hierarchy." %}
 
 {% include feature.html content="Cylc respects inter-cycle dependence and
-dynamically generates new workflow without being constrained by a global cycle
-loop, so that cycles can interleave naturally for much improved scheduling
-during catch-up from delays." %}
+is not constrained by a traditional global cycle loop, so cycles can interleave
+naturally for fast scheduling after delays, and for "off the clock" operation."
+%}
 
 {% include feature.html content="Cylc has low admin overhead and a small
-security footprint, because - as a distributed system - there is no central
-server process to manage workflows for all users." %}
+security footprint, because there is no central server process to manage
+workflows for all users." %}
 
 {% include feature.html content="Plus <a href='features.html'>many other
 features</a> to support both clock-triggered real time and free-flow
-metascheduling in research and operational environments." %}
+scheduling in research and operational environments." %}
+
+If you use Cylc to automate your workflows, [please cite Cylc in your
+publications](documentation.html#publications-citations-and-references).
 
 [Let us know](mailto:hilary.oliver@niwa.co.nz) if your organization
 should be listed on this site with [Cylc Users](./users.html).
-
-If you use Cylc to automate your workflows, [please cite Cylc in resulting
-publications](documentation.html#publications-citations-and-references).
-
-See also [publications and citations](./documentation.html#publications-and-citations)

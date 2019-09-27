@@ -49,9 +49,10 @@ server process to manage workflows for all users." %}
 features</a> to support both clock-triggered real time and free-flow
 metascheduling in research and operational environments." %}
 
-Please [let us know](mailto:hilary.oliver@niwa.co.nz) if your organization
-should be included in the **[list of Cylc users](./users.html)**.
+[Let us know](mailto:hilary.oliver@niwa.co.nz) if your organization
+should be listed on this site with [Cylc Users](./users.html).
 
-Here's the DOI to use when citing Cylc: [![DOI](https://zenodo.org/badge/1836229.svg)](https://zenodo.org/badge/latestdoi/1836229)
+If you use Cylc to automate your workflows, [please cite Cylc in resulting
+publications](documentation.html#publications-citations-and-references).
 
 See also [publications and citations](./documentation.html#publications-and-citations)

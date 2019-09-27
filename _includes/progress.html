@@ -145,18 +145,23 @@ function createReleaseElement(name, link, publishedAt, body) {
 /**
  * Populate HTML elements with information about the latest release.
  *
+ * @param cylcx: 'cylc8' or 'cylc7'
  * @param name: name of the release
+ * @param link: URL of the release
  * @param publishedAt: raw text date as returned from the API
  */
-function populateLatestReleaseInformation(name, publishedAt) {
+function populateLatestReleaseInformation(cylcx, name, link, publishedAt) {
 
-    var latestReleaseName = document.getElementById("latest-release-name");
+    var latestReleaseName = document.getElementById(cylcx + "-latest-release-name");
     latestReleaseName.innerHTML = name;
 
-    var latestReleaseDateTime = document.getElementById("latest-release-pubdate-time");
+    var latestReleaseURL = document.getElementById(cylcx + "-button");
+    latestReleaseURL.href = link;
+
+    var latestReleaseDateTime = document.getElementById(cylcx + "-latest-release-pubdate-time");
     latestReleaseDateTime.setAttribute("datetime", publishedAt);
 
-    var latestReleaseDateText = document.getElementById("latest-release-pubdate-text");
+    var latestReleaseDateText = document.getElementById(cylcx + "-latest-release-pubdate-text");
     latestReleaseDateText.innerHTML = publishedAt;
 }
 
@@ -168,29 +173,32 @@ function populateLatestReleaseInformation(name, publishedAt) {
  * @return a Promise object that populates and creates DOM elements, or returns the status text on error
  */
 function retrieveReleases(url, linkBaseUrl) {
-    var releasesContainer = document.getElementById("repository-releases");
     return new Promise(function(resolve, reject) {
         const xhr = new XMLHttpRequest();
         xhr.open("GET", url);
         xhr.onload = function() {
             const releases = JSON.parse(this.response);
-            // we only want to iterate over 4 releases...
-            var min = Math.min(releases.length, 2);
-            releasesContainer.innerHTML = "";
+            var min = Math.min(releases.length, 15);
+            var foundCylc8Latest = false;
+            var foundCylc7Latest = false;
             for (var i = 0; i < min; ++i) {
                 var release = releases[i];
                 var name = release.name;
                 var publishedAt = release.published_at;
                 var body = release.body;
                 var link = linkBaseUrl + release.tag_name;
-                var releaseElement = createReleaseElement(name, link, publishedAt, body);
-                releasesContainer.appendChild(releaseElement);
-
-                // we also display the latest release metadata
-                if (i == 0) {
-                    populateLatestReleaseInformation(name, publishedAt);
-                }
-            }
+                // display latest release metadata
+                if (name.startsWith("cylc-7.8")) {
+                    populateLatestReleaseInformation("cylc7", name, link, publishedAt);
+                    foundCylc7Latest = true;
+                } else if (name.startsWith("cylc-flow-8")) {
+                    populateLatestReleaseInformation("cylc8", name, link, publishedAt);
+                    foundCylc8Latest = true;
+                };
+                if (foundCylc7Latest === true && foundCylc8Latest === true) {
+                    break;
+                };
+            };
         };
         xhr.onerror = reject(xhr.statusText);
         xhr.send();

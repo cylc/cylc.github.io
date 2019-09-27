@@ -5,7 +5,7 @@ title: a workflow engine
 
 ## Cylc ("silk") is a workflow engine for cycling systems
 
-Use cases for include:
+Use cases include:
 
  * Running successive cycles of an environmental forecasting system.
 
@@ -20,15 +20,15 @@ Use cases for include:
 
 Cylc was originally developed for operational environmental forecasting at
 [NIWA](http://www.niwa.co.nz) by [Dr Hilary
-Oliver](mailto:hilary.oliver@niwa.co.nz). It is now an Open
-Source collaboration involving NIWA, [Met Office](http://www.metoffice.gov.uk),
-and
+Oliver](mailto:hilary.oliver@niwa.co.nz) - however it is not specialized to
+forecasting in any way. It is now an Open Source collaboration involving NIWA,
+[Met Office](http://www.metoffice.gov.uk), and
 [others](https://github.com/cylc/cylc/blob/master/CONTRIBUTING.md#code-contributors).
 It is [available under the GPL v3 license](./license.html).
 
 {% include feature.html content="Workflows are configured in a human-readable
-text format (with programmatic templating)- so you can use software development
-power tools for suite development." %}
+text format, with programmatic templating - so you can use software development
+power tools for workflow development." %}
 
 {% include feature.html content="Scheduling is configured with an efficient
 cycling graph notation, and task runtime properties with an efficient
@@ -36,8 +36,7 @@ inheritance hierarchy." %}
 
 {% include feature.html content="Cylc respects inter-cycle dependence and
 is not constrained by a traditional global cycle loop, so cycles can interleave
-naturally for fast scheduling after delays, and for "off the clock" operation."
-%}
+naturally for fast scheduling after delays, and for 'off the clock' operation." %}
 
 {% include feature.html content="Cylc has low admin overhead and a small
 security footprint, because there is no central server process to manage
@@ -48,7 +47,7 @@ features</a> to support both clock-triggered real time and free-flow
 scheduling in research and operational environments." %}
 
 If you use Cylc to automate your workflows, [please cite Cylc in your
-publications](documentation.html#publications-citations-and-references).
+publications](./documentation.html#publications-citations-and-references).
 
 [Let us know](mailto:hilary.oliver@niwa.co.nz) if your organization
 should be listed on this site with [Cylc Users](./users.html).

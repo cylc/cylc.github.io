@@ -60,6 +60,7 @@ Organised by geographical area, these sites are:
   * New Zealand:
     * [National Institute of Water and Atmospheric Research
        (NIWA)](http://www.niwa.co.nz)
+       - (Auckland, Wellington, and Christchurch campuses).
 
 
 Note this is not an exhaustive list.

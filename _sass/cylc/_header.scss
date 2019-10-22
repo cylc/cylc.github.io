@@ -1,0 +1,93 @@
+.header {
+  min-height: 80px;
+
+  .min {
+    min-height: 80px;
+  }
+
+  background: #eee;
+  .site {
+    .title {
+      font-size: 2em;
+      letter-spacing: 6px;
+      div {
+        @extend .flex;
+        align-items: center;
+      }
+    }
+
+    .logo {
+      margin-left: 20px;
+      img {
+        width: 50px;
+      }
+    }
+  }
+
+  #toggle-checkbox, #toggle-checkbox ~ .links {
+    display: none;
+  }
+
+  .icon-ham {
+    margin-right: 20px;
+    display: none;
+  }
+
+
+  .links {
+    @extend .flex;
+    @extend .grow;
+    @extend .jc-flex-end;
+    .link {
+      @extend .flex;
+      margin: 0 20px;
+      a {
+        @extend .flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@media (max-width:732px)  {
+  .header {
+
+    #toggle-checkbox:checked ~ .icon-ham {
+      svg {
+        width: 33;
+        height: 28;
+      }
+    }
+
+    #toggle-checkbox:checked ~ .links {
+      display: flex !important;
+      position: absolute;
+      z-index: 2;
+      background: #eee;
+      width: 100%;
+      margin-top: 80px;
+      left: 0;
+      height: 100vh;
+    }
+
+    .icon-ham {
+      display: flex;
+      transition: display 0.5s;
+    }
+
+    .links {
+      display: none;
+      margin-top: 20px;
+      justify-content: flex-start;
+      .link {
+        justify-content: center;
+        margin: 20px 0;
+      }
+    }
+
+
+    .links, .header-collapse {
+      flex-direction: column;
+    }
+  }
+}

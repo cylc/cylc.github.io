@@ -1,36 +1,38 @@
-<div id="footer">
-            <div class="page">
-                <div class="container">
-                    <div class="column" style="width:25%">
-                        <h4>Support</h4>
-                        <ul>
-                            <li><a href="https://cylc.discourse.group/">Forum</a></li>
-                            <li><a href="https://github.com/cylc/cylc-flow/issues">Issues</a></li>
-                        </ul>
-                    </div>  <!--column-->
-                    <div class="column" style="width:25%">
-                        <h4>About</h4>
-                        <ul>
-                            <li><a href="users.html">Users</a></li>
-                            <li><a href="license.html">License</a></li>
-                        </ul>
-                    </div>  <!--column-->
-                    <div class="column" style="width:25%">
-                        <h4>Development</h4>
-                        <ul>
-                            <li><a href="https://github.com/cylc/cylc-flow">Repository</a></li>
-                            <li> <a href="https://github.com/cylc/cylc-flow/blob/master/CHANGES.md">Changes</a>
- 
-                        </ul>
-                    </div>  <!--column-->
-                    <div class="column" style="width:25%">
-                        <a href="index.html" id="logo_bot">
-                            <span style="color:#ff5966">c</span>
-                            <span style="color:#eebb00">y</span>
-                            <span style="color:#00c798">l</span>
-                            <span style="color:#00b4fd">c</span>
-                        </a>
-                    </div>  <!--column-->
-                </div>  <!--container-->
-            </div>  <!--page-->
-        </div>  <!--footer-->
+<div class="flex footer">
+  <div class="flex container">
+    <div class="flex flex--vertical">
+      <div class="flex heading">Support</div>
+      <div class="flex flex--vertical links">
+        <a class="page-link" href="https://cylc.discourse.group/">Forums</a>
+        <a class="page-link" href="https://github.com/cylc/cylc-flow/issues">Issues</a>
+      </div>
+    </div>
+    <div class="flex flex--vertical">
+      <div class="flex heading">About</div>
+      <div class="flex flex--vertical links">
+          <a class="page-link" href="{{'/users'}}">Users</a>
+          <a class="page-link" href="{{'/license'}}">License</a>
+        </div>
+    </div>
+    <div class="flex flex--vertical">
+      <div class="flex heading">Development</div>
+      <div class="flex flex--vertical links">
+          <a class="page-link" href="https://github.com/cylc/cylc-flow">Repository</a>
+          <a class="page-link" href="https://github.com/cylc/cylc-flow/blob/master/CHANGES.md">Changes</a>
+        </div>
+    </div>
+    <div class="flex logo ">
+      <a class="flex" href="/">
+        <div class="flex title">
+          <div class="text-red">C</div>
+          <div class="text-yellow">Y</div>
+          <div class="text-green">L</div>
+          <div class="text-blue">C</div>
+        </div>
+      <div class="flex logo">
+        <img src="{{ '/assets/icon-cylc.svg' | prepend: site.baseurl }}" alt="CYLC Logo" />
+      </div>
+    </a>
+    </div>
+  </div>
+</div>

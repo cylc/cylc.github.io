@@ -1,9 +1,9 @@
-<div class="container">
-    <div class="column" style="float:left; width:70%">
-        <h3>{{include.title}}</h3>
-        {{include.desc}}
+<div class="flex screenshot wrap">
+    <div class="flex flex--vertical grow shrink desc">
+        <h3 class="flex">{{include.title}}</h3>
+        <div class="flex flex--vertical">{{include.desc}}</div>
     </div>
-    <div class="column" style="float:right; width:30%">
+    <div class="flex grow shrink image">
         {% if include.url %}
             <a href="{{include.url}}">
                 <img style="width:100%" src="{{include.url}}">

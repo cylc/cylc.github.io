@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+
+body {
+  font-family: 'Titillium Web', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #666;
+}
+
+
+
+.flex {
+  display: flex;
+
+  &--vertical {
+    flex-direction: column;
+  }
+}
+
+.grow {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.shrink {
+  flex-shrink: 1;
+  overflow: hidden;
+}
+
+.ai {
+  &-center {
+    align-items: center;
+  }
+}
+
+.jc {
+  &-center {
+    justify-content: center;
+  }
+
+  &-space-around {
+    justify-content: space-around;
+  }
+
+  &-space-between {
+    justify-content: space-between;
+  }
+
+  &-flex-end {
+    justify-content: flex-end;
+  }
+}
+
+.container {
+  @extend .flex;
+  width: 1000px;
+  padding: 0 20px;
+  margin: 0 auto;
+
+  p img {
+    width: 100%;
+  }
+
+  code {
+    width: 100%;
+    max-width: 330px;
+  }
+}
+
+.bg {
+    &-grey {
+        background: #eee;
+    }
+}
+
+.text {
+    &-normal {
+      color: #666666;
+    }
+  
+    &-red {
+      color: #ff5966;
+    }
+  
+    &-yellow {
+      color: #eebb00;
+    }
+  
+    &-green {
+      color: #00c798;
+    }
+  
+    &-blue {
+      color: #00b4fd;
+    }
+}
+
+a {
+    color: #44B4F8;
+    text-decoration: unset;
+
+    &.page-link {
+        @extend .text-normal;
+        &:hover {
+            @extend .text-green;
+            text-decoration: underline !important;
+        }
+    }
+}
+
+.m {
+    &-l {
+        margin-left: 10px;
+    }
+
+    &-r {
+        margin-right: 10px;
+    }
+}
+
+
+// BUTTONS
+.button {
+    font-family: 'Titillium Web', sans-serif;
+    background: #44B4F8;
+    border: 1px solid #44B4F8;
+    padding: 10px 20px;
+    font-size: 15px;
+    color: white;
+    @extend .ai-center;
+    @extend .jc-center;
+    cursor: pointer;
+
+    img {
+        margin-right: 10px;
+        width: 24px;
+    }
+
+    &.transparent {
+        border: 1px solid;
+        background: #fff;
+        padding: 0 6px;
+        height: 40px;
+        color: #000;
+    }
+}

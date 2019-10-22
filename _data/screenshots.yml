@@ -1,31 +1,31 @@
  -  title: gcylc graph and dot views
-    url: screenshots/gcylc-graph-dot.png
+    url: /assets/screenshots/gcylc-graph-dot.png
     desc: The gcylc suite control GUI can display two of three views at once.
         Colors represent task state (<em>running</em>, <em>failed</em>, etc.).
         The graph view shows the suite dependency structure.  The dot view is a
         minimal view of task states in a cycling suite.
     
  -  title: gcylc text tree view
-    url: screenshots/gcylc-tree.png
+    url: /assets/screenshots/gcylc-tree.png
     desc: The gcylc text tree view shows the most information about tasks in
         a running suite.
 
  -  title: gscan GUI
-    url: screenshots/gscan.png
+    url: /assets/screenshots/gscan.png
     desc: The gscan GUI shows a minimal state summary view of all your running
         suites. Click on a suite to open a gcylc suite control GUI for it.
 
  -  title: static visualization 1
-    url: screenshots/ecox.png
+    url: /assets/screenshots/ecox.png
     desc: This shows a moderately large operational cycling workflow.
 
  -  title: static visualization 2
-    url: screenshots/cylc-tn-si.png
+    url: /assets/screenshots/cylc-tn-si.png
     desc: Another suite with families partially collapsed (inset) and fully
         expanded. Automatic coloring of parameterized tasks with a Jinaj2 loop
         over Hue in the HSV color space.
 
  -  title: static visualization 3
-    url: screenshots/complex-large.svg
+    url: /assets/screenshots/complex-large.svg
     desc: A big one! (4.8M SVG format - you may need to use your horizontal
         and vertical browser scroll bars to find the image).

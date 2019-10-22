@@ -1,23 +1,64 @@
-<div id="header">
-            <div class="page">
-                <div class="container">
-                    <div class="column">
-                        <a href="index.html" id="logo_top">
-                            <span style="color:#ff5966">c</span>
-                            <span style="color:#eebb00">y</span>
-                            <span style="color:#00c798">l</span>
-                            <span style="color:#00b4fd">c</span>
-                        </a>
-                    </div>  <!--column-->
-                    <div class="column">
-                        <div id="nav">
-                            <a href="features.html">Features</a>
-                            <a href="screenshots.html">Screenshots</a>
-                            <a href="documentation.html">Documentation</a>
-                            <a href="users.html">Users</a>
-                            <a href="support.html">Support</a>
-                        </div>  <!--nav-->
-                    </div>  <!--column-->
-                </div>  <!--container-->
-            </div>  <!--page-->
-        </div>  <!--header-->
+{%- assign default_paths = site.pages | map: "path" -%}
+{%- assign page_paths = site.header_pages | default: default_paths -%}
+
+<header class="flex grow shrink header" role="banner">
+  <div class="container jc-space-between header-collapse">
+      <div class="flex grow shrink site">
+        <div class="flex grow shrink flex--vertical">
+          <div class="flex min">
+            <label class="flex" for="toggle-checkbox">
+              <img src="{{ '/assets/icon-ham.svg' | prepend: site.baseurl }}" alt="CYLC Ham Icon" class="icon-ham" />
+            </label>
+            <a class="flex" href="/">
+                <div class="flex title">
+                  <div class="text-red">C</div>
+                  <div class="text-yellow">Y</div>
+                  <div class="text-green">L</div>
+                  <div class="text-blue">C</div>
+                </div>
+              <div class="flex logo">
+                <img src="{{ '/assets/icon-cylc.svg' | prepend: site.baseurl }}" alt="CYLC Logo" />
+              </div>
+            </a>
+          </div>
+
+          <input type="checkbox" id="toggle-checkbox">
+          <div class="links">
+            <div class="link">
+              <a class="page-link" href="{{ '/features' | prepend: site.baseurl }}">Features</a>
+            </div>
+                  <div class="link">
+              <a class="page-link" href="{{ '/screenshots' | prepend: site.baseurl }}">Screenshots</a>
+            </div>
+                  <div class="link">
+              <a class="page-link" href="{{ '/documentation' | prepend: site.baseurl }}">Documentation</a>
+            </div>
+                  <div class="link">
+              <a class="page-link" href="{{ '/users' | prepend: site.baseurl }}">Users</a>
+            </div>
+                  <div class="link">
+              <a class="page-link" href="{{ '/support' | prepend: site.baseurl }}">Support</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="links">
+      <div class="link">
+        <a class="page-link" href="{{ '/features' | prepend: site.baseurl }}">Features</a>
+      </div>
+            <div class="link">
+        <a class="page-link" href="{{ '/screenshots' | prepend: site.baseurl }}">Screenshots</a>
+      </div>
+            <div class="link">
+        <a class="page-link" href="{{ '/documentation' | prepend: site.baseurl }}">Documentation</a>
+      </div>
+            <div class="link">
+        <a class="page-link" href="{{ '/users' | prepend: site.baseurl }}">Users</a>
+      </div>
+            <div class="link">
+        <a class="page-link" href="{{ '/support' | prepend: site.baseurl }}">Support</a>
+      </div>
+    </div>
+  </div>
+</header>

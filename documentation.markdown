@@ -15,24 +15,10 @@ permalink: /documentation/
 
 Online copies of the documentation are available here:
 
-* [Multi-Page version]({{ 'doc/built-sphinx/index.html' | relative_url}}) (with word search box)
+* [Multi-Page version]({{ '/doc/built-sphinx/index.html' | relative_url}}) (with word search box)
 * [Single-Page version]({{ '/doc/built-sphinx-single/index.html' | relative_url}}) - (search with browser Ctrl-F)
 
 (Includes the formerly-separate Suite Design Guide).
-
-### Presentations
-
-Format HTML5 with embedded .webm videos (plays natively in Firefox or Chrome).
-Hit the "Home" and "End" keys to skip to the beginning and end of the
-presentation, and the 'o' key for a multi-slide summary. This is the
-[dzslides](https://github.com/paulrouget/dzslides) framework by Paul Roget.
-
-* [Cylc Keynote](/../cylc-keynote-lisbon-Sept2016/index.html) - from
-  the IS-ENES2 Workshop on Workflow in Earth Systems Modeling, Lisbon,
-  September 2016
-
-* [Cylc High Level Introduction](/../BoM-Feb-2017/index.html) - Bureau of
-  Meteorology, Melbourne, February 2017
 
 ### Publications, Citations, and References
 
@@ -71,19 +57,19 @@ Perhaps inevitably as the developers of Cylc we have a rather different view on
 the strengths and weaknesses of the different systems.  In particular we would
 like to address the following points.*
 
-...[CLICK HERE FOR THE FULL RESPONSE](/../doc/cylc-autosub-response.pdf) (PDF)
+...[CLICK HERE FOR THE FULL RESPONSE]({{'/doc/cylc-autosub-response.pdf' | relative_url}}) (PDF)
 
 ---
 
 ## A Cycling Workflow Example
 
 The following example is intended to convey something of basic Cylc
-functionality.  However, it barely scratches the surface; to understand more,
+functionality. However, it barely scratches the surface; to understand more,
 read the User Guide!
 
 ### Create A New Suite
 
-    $ mkdir -p ~/suites/test/
+{% assign foo='    $ mkdir -p ~/suites/test/
     $ vim ~/suites/test/suite.rc
 
     # suite.rc:
@@ -114,15 +100,8 @@ read the User Guide!
       [[prep]]
         # ...
       # ...
-
-    [visualization]
-      use node color for edges = True
-      [[node attributes]]
-        root = "style=filled", "fontcolor=white"
-        prep =  "color=#00a778"
-        stop =  "color=#bf9c00"
-        model = "color=#0074cd"
-        post =  "color=#af3936"
+'%}
+{% include figure2.html title='' url='/assets/img/suiterc.png' desc=foo %}
 
 ### Register
 
@@ -144,18 +123,18 @@ read the User Guide!
 
 ### Visualize
 
-    $ cylc graph test1 &
-
-![img/cylc-graph.png]({{/assets/img/cylc-graph.png | relative_url}})
-
+{% assign bar='   $ cylc graph test1 &' %}
+{% include figure2.html title='' desc=bar url='/assets/img/cylc-graph.png' %}
 
 ### Run
 
+{% assign baz='
     $ cylc run test1
         # OR
     $ gcylc test1 &  # (and run it from the GUI)
+' %}
 
-![img/gcylc-example.png]({{/assets/img/gcylc-example.png | relative_url}})
+{% include figure2.html title='' desc=bar url='/assets/img/gcylc-example.png' %}
 
 ### View Task Job Output
 

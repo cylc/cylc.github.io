@@ -11,7 +11,16 @@
       <div class="container herounit">
         <div class="flex flex--vertical content">
           <h3 class="flex">Cylc (“silk”) is a workflow engine for cycling systems</h3>
-          <p>Cylc was originally developed for operational environmental forecasting at <a href="http://www.niwa.co.nz/">NIWA</a> by <a href="hilary.oliver@niwa.co.nz">Dr Hilary Oliver</a> - however it is not specialized to forecasting in any way. It is now an Open Source collaboration involving NIWA, <a href="http://www.metoffice.gov.uk/">Met Office</a>, and <a href="https://github.com/cylc/cylc-flow/blob/master/CONTRIBUTING.md#code-contributors">others</a>. It is available under the <a href="{{'/license'}}">GPL v3 license</a>.</p>
+					<p>Cylc was originally developed for use in environmental forecasting
+					at <a href="http://www.niwa.co.nz/">NIWA</a>. It is not actually
+							specialized to forecasting, however. It is now an Open Source
+			collaboration involving NIWA, <a href="http://www.metoffice.gov.uk/">Met
+			Office</a>, and <a
+	href="https://github.com/cylc/cylc-flow/blob/master/CONTRIBUTING.md#code-contributors">others</a>.
+	It is available under the <a href="{{'/license' | relative_url}}">GPL v3 license</a>.</p>
+        </div>
+        <div class="flex flex--vertical release jc-space-around">
+            <div class="flex flex--vertical">
           <div class="flex download-buttons">
             <div class="flex flex--vertical m-r">
               <label>Production</label>
@@ -34,9 +43,7 @@
                 <label id="cylc8-latest-release-pubdate-text"></label>
               </div>
           </div>
-        </div>
-        <div class="flex flex--vertical release jc-space-around">
-            <div class="flex flex--vertical">
+
               <h3 class="flex jc-center">Next Release:&nbsp;
                 <a class="page-link" id="milestone-url" target="_blank"><span id="milestone-version"></span> (<span id="progress-info"></span>)</a>
               </h3>
@@ -50,24 +57,6 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="flex flex--vertical">
-              <div class="flex ai-center jc-space-between">
-                <div class="flex">
-                  <h4 class="flex"><b>Previous Release</b></h4>
-                </div>
-                <a href="https://github.com/cylc/cylc.github.io" target="_blank">
-                  <button class="button transparent flex repel">
-                    <img src={{'/assets/icon-github.svg'}} alt="Clone Github repo"/>
-                    Clone CYLC
-                  </button>
-                </a>
-              </div>
-              <div class="flex flex--vertical">
-                  <a target="_blank" id='p0'></a>
-                  <a target="_blank" id='p1'></a>
-                  <a target="_blank" id='p2'></a>
-              </div>
-            </div> -->
           </div>
       </div>
     </div>
@@ -75,7 +64,7 @@
     <div class="flex usecase bg-grey">
       <div class="container flex--vertical">
         <div class="flex">
-          <h3>Use Case for Cylcing</h3>
+          <h3>Use Cases for Cycing</h3>
         </div>
         
         <div class="flex wrap">
@@ -133,7 +122,7 @@
       <div class="flex">
         <div class="container flex--vertical">
           <p>If you use Cylc to automate your workflows, <a href="https://cylc.github.io/documentation.html#publications-citations-and-references">please cite Cylc in your publications.</a></p>
-          <p><a href="mailto:hilary.oliver@niwa.co.nz">Let us know</a> if your organization should be listed on this site with <a href={{'/users'}}>Cylc Users.</a></p>
+          <p><a href="mailto:hilary.oliver@niwa.co.nz">Let us know</a> if your organization can be <a href={{'/users' | relative_url}}>listed as a Cylc user</a> on this site.</p>
         </div>
       </div>
 
@@ -165,7 +154,7 @@
           </div>
         </div>
 
-    {%- include footer.html -%}
+    {%- include header.html -%}
     <script type="text/javascript">
       "use strict";
       

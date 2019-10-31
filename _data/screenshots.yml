@@ -1,16 +1,15 @@
- -  title: gcylc graph and dot views
+ -  title: cylc GUI graph and dot views
     url: /assets/screenshots/gcylc-graph-dot.png
     desc: The gcylc suite control GUI can display two of three views at once.
-        Colors represent task state (<em>running</em>, <em>failed</em>, etc.).
-        The graph view shows the suite dependency structure.  The dot view is a
-        minimal view of task states in a cycling suite.
+        Colors represent different task states. The graph view shows the suite
+        dependency structure. The dot view shows task spread over cycle points.
     
- -  title: gcylc text tree view
+ -  title: cylc GUI text tree view
     url: /assets/screenshots/gcylc-tree.png
     desc: The gcylc text tree view shows the most information about tasks in
         a running suite.
 
- -  title: gscan GUI
+ -  title: cylc gscan GUI
     url: /assets/screenshots/gscan.png
     desc: The gscan GUI shows a minimal state summary view of all your running
         suites. Click on a suite to open a gcylc suite control GUI for it.

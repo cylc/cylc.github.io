@@ -10,8 +10,8 @@
     <div class="flex flex--vertical">
       <div class="flex heading">About</div>
       <div class="flex flex--vertical links">
-          <a class="page-link" href="{{'/users'}}">Users</a>
-          <a class="page-link" href="{{'/license'}}">License</a>
+          <a class="page-link" href="{{'/users' | relative_url}}">Users</a>
+          <a class="page-link" href="{{'/license' | relative_url}}">License</a>
         </div>
     </div>
     <div class="flex flex--vertical">
@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="flex logo ">
-      <a class="flex" href="/">
+      <a class="flex" href="{{'/' | relative_url}}">
         <div class="flex title">
           <div class="text-red">C</div>
           <div class="text-yellow">Y</div>
@@ -30,7 +30,7 @@
           <div class="text-blue">C</div>
         </div>
       <div class="flex logo">
-        <img src="{{ '/assets/icon-cylc.svg' | prepend: site.baseurl }}" alt="CYLC Logo" />
+        <img src="{{ '/assets/icon-cylc.svg' | relative_url }}" alt="CYLC Logo" />
       </div>
     </a>
     </div>

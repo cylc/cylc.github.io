@@ -17,7 +17,7 @@
               <label>Production</label>
               <a class="flex grow" id="cylc7-button">
                 <button class="button flex grow">
-                    <img src={{'/assets/icon-download.svg'}} />
+                    <img src={{'/assets/icon-download.svg' | relative_url}} />
                     <span id="cylc7-latest-release-name"></span>
                 </button>
               </a>
@@ -27,7 +27,7 @@
                 <label>Preview</label>
                 <a class="flex grow" id="cylc8-button">
                   <button class="button flex grow">
-                    <img src={{'/assets/icon-download.svg'}} />
+                    <img src={{'/assets/icon-download.svg' | relative_url}} />
                     <span id="cylc8-latest-release-name"></span>
                   </button>
                 </a>
@@ -50,7 +50,7 @@
                 </div>
               </div>
             </div>
-            <div class="flex flex--vertical">
+            <!-- <div class="flex flex--vertical">
               <div class="flex ai-center jc-space-between">
                 <div class="flex">
                   <h4 class="flex"><b>Previous Release</b></h4>
@@ -67,7 +67,7 @@
                   <a target="_blank" id='p1'></a>
                   <a target="_blank" id='p2'></a>
               </div>
-            </div>
+            </div> -->
           </div>
       </div>
     </div>
@@ -105,24 +105,24 @@
           <div class="flex wrap">
             <div class="flex flex--vertical">
               <div class="flex item">
-                  <img src={{'/assets/icon-workflow.svg'}} class="icon-workflow" alt="Workflow Icon"/>
+                  <img src={{'/assets/icon-workflow.svg' | relative_url}} class="icon-workflow" alt="Workflow Icon"/>
                   <div class="flex">Workflows are configured in a human-readable text format, with programmatic templating - so you can use software development power tools for workflow development.</div>
               </div>
               <div class="flex item">
-                  <img src={{'/assets/icon-workflow.svg'}} class="icon-workflow" alt="Workflow Icon"/>
+                  <img src={{'/assets/icon-workflow.svg' | relative_url}} class="icon-workflow" alt="Workflow Icon"/>
                   <div class="flex">Scheduling is configured with an efficient cycling graph notation, and task runtime properties with an efficient inheritance hierarchy.</div>
               </div>
             
               <div class="flex item">
-                  <img src={{'/assets/icon-workflow.svg'}} class="icon-workflow" alt="Workflow Icon"/>
+                  <img src={{'/assets/icon-workflow.svg' | relative_url}} class="icon-workflow" alt="Workflow Icon"/>
                   <div class="flex">Cylc respects inter-cycle dependence and is not constrained by a traditional global cycle loop, so cycles can interleave naturally for fast scheduling after delays, and for 'off the clock' operation.</div>
               </div>
               <div class="flex item">
-                  <img src={{'/assets/icon-workflow.svg'}} class="icon-workflow" alt="Workflow Icon"/>
+                  <img src={{'/assets/icon-workflow.svg' | relative_url}} class="icon-workflow" alt="Workflow Icon"/>
                   <div class="flex">Cylc has low admin overhead and a small security footprint, because there is no central server process to manage workflows for all users.</div>  
               </div>
               <div class="flex item">
-                  <img src={{'/assets/icon-workflow.svg'}} class="icon-workflow" alt="Workflow Icon"/>
+                  <img src={{'/assets/icon-workflow.svg' | relative_url}} class="icon-workflow" alt="Workflow Icon"/>
                   <div class="flex">Plus many other features to support both clock-triggered real time and free-flow scheduling in research and operational environments.</div>  
               </div>
             </div>
@@ -142,22 +142,22 @@
             <div class="flex wrap">
               <div class="flex flex--vertical">
                 <div class="flex item wrap">
-                    <a href={{'/users'}}>
-                      <img src={{'/assets/icon-metoffice.svg'}} class="icon-user met" alt="Met Office"/>
-                      <img src={{'/assets/icon-airforce.png'}} class="icon-user airforce" alt="Air Force"/>
-                      <img src={{'/assets/icon-altair.jpeg'}} class="icon-user altair" alt="Altair"/>
-                      <img src={{'/assets/icon-agbom.jpeg'}} class="icon-user agbom" alt="AGBOM"/>
-                      <img src={{'/assets/icon-csiro.png'}} class="icon-user csiro" alt="CSIRO"/>
-                      <img src={{'/assets/icon-moes.jpeg'}} class="icon-user moes" alt="MOES"/>
-                      <img src={{'/assets/icon-esiwace.png'}} class="icon-user esiwace" alt="ESIWACE"/>
-                      <img src={{'/assets/icon-icm.png'}} class="icon-user icm" alt="ICM"/>
-                      <img src={{'/assets/icon-korea.png'}} class="icon-user korea" alt="Korea"/>
-                      <img src={{'/assets/icon-coecss.png'}} class="icon-user coecss" alt="COECSS"/>
-                      <img src={{'/assets/icon-mets.png'}} class="icon-user mets" alt="METS"/>
-                      <img src={{'/assets/icon-niwa.png'}} class="icon-user niwa" alt="NIWA"/>
-                      <img src={{'/assets/icon-saws.jpeg'}} class="icon-user saws" alt="SAWS"/>
-                      <img src={{'/assets/icon-isenes.png'}} class="icon-user isenes" alt="ISENES"/>
-                      <img src={{'/assets/icon-ncfas.png'}} class="icon-user ncfas" alt="NCFAS"/>
+                    <a href={{'/users' | relative_url}}>
+                      <img src={{'/assets/icon-metoffice.svg' | relative_url}} class="icon-user met" alt="Met Office"/>
+                      <img src={{'/assets/icon-airforce.png' | relative_url}} class="icon-user airforce" alt="Air Force"/>
+                      <img src={{'/assets/icon-altair.jpeg' | relative_url}} class="icon-user altair" alt="Altair"/>
+                      <img src={{'/assets/icon-agbom.jpeg' | relative_url}} class="icon-user agbom" alt="AGBOM"/>
+                      <img src={{'/assets/icon-csiro.png' | relative_url }} class="icon-user csiro" alt="CSIRO"/>
+                      <img src={{'/assets/icon-moes.jpeg' | relative_url}} class="icon-user moes" alt="MOES"/>
+                      <img src={{'/assets/icon-esiwace.png' | relative_url}} class="icon-user esiwace" alt="ESIWACE"/>
+                      <img src={{'/assets/icon-icm.png' | relative_url}} class="icon-user icm" alt="ICM"/>
+                      <img src={{'/assets/icon-korea.png' | relative_url}} class="icon-user korea" alt="Korea"/>
+                      <img src={{'/assets/icon-coecss.png' | relative_url}} class="icon-user coecss" alt="COECSS"/>
+                      <img src={{'/assets/icon-mets.png' | relative_url}} class="icon-user mets" alt="METS"/>
+                      <img src={{'/assets/icon-niwa.png' | relative_url}} class="icon-user niwa" alt="NIWA"/>
+                      <img src={{'/assets/icon-saws.jpeg' | relative_url}} class="icon-user saws" alt="SAWS"/>
+                      <img src={{'/assets/icon-isenes.png' | relative_url}} class="icon-user isenes" alt="ISENES"/>
+                      <img src={{'/assets/icon-ncfas.png' | relative_url}} class="icon-user ncfas" alt="NCFAS"/>
                     </a>
                 </div>
               </div>
@@ -297,18 +297,6 @@
           var latestReleaseDateText = document.getElementById(cylcx + "-latest-release-pubdate-text");
           latestReleaseDateText.innerHTML = `Released: ${publishedAt}`;
       }
-
-      function updateThreePastReleases( releases, from ) {
-        let three = releases.splice(from, 3);
-
-        for( let i = 0; i < 3; i++ ) {
-          var latestReleaseName = document.getElementById('p' + i);
-          latestReleaseName.innerHTML = three[i].name;
-
-          var latestReleaseName = document.getElementById('p' + i);
-          latestReleaseName.href = three[i].html_url;
-        }
-      }
       
       /**
        * Retrieve the releases of the project.
@@ -341,7 +329,6 @@
                           foundCylc8Latest = true;
                       };
                       if (foundCylc7Latest === true && foundCylc8Latest === true) {
-                          updateThreePastReleases( releases, i + 1 );
                           break;
                       };
                   };

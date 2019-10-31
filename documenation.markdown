@@ -15,8 +15,8 @@ permalink: /documentation/
 
 Online copies of the documentation are available here:
 
-* [Multi-Page version](/../doc/built-sphinx/index.html) (with word search box)
-* [Single-Page version](/../doc/built-sphinx-single/index.html) - (search with browser Ctrl-F)
+* [Multi-Page version]({{ 'doc/built-sphinx/index.html' | relative_url}}) (with word search box)
+* [Single-Page version]({{ '/doc/built-sphinx-single/index.html' | relative_url}}) - (search with browser Ctrl-F)
 
 (Includes the formerly-separate Suite Design Guide).
 

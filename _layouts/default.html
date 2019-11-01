@@ -6,7 +6,7 @@
   <body>
 
     {%- include header.html -%}
-    
+
     <div class="flex" aria-label="Content">
       <div class="container herounit">
         <div class="flex flex--vertical content">
@@ -66,7 +66,7 @@
         <div class="flex">
           <h3>Use Cases for Cycling</h3>
         </div>
-        
+
         <div class="flex wrap">
           <div class="flex flex--vertical">
             <div class="flex item">
@@ -101,18 +101,18 @@
                   <img src={{'/assets/icon-workflow.svg' | relative_url}} class="icon-workflow" alt="Workflow Icon"/>
                   <div class="flex">Scheduling is configured with an efficient cycling graph notation, and task runtime properties with an efficient inheritance hierarchy.</div>
               </div>
-            
+
               <div class="flex item">
                   <img src={{'/assets/icon-workflow.svg' | relative_url}} class="icon-workflow" alt="Workflow Icon"/>
                   <div class="flex">Cylc respects inter-cycle dependence and is not constrained by a traditional global cycle loop, so cycles can interleave naturally for fast scheduling after delays, and for 'off the clock' operation.</div>
               </div>
               <div class="flex item">
                   <img src={{'/assets/icon-workflow.svg' | relative_url}} class="icon-workflow" alt="Workflow Icon"/>
-                  <div class="flex">Cylc has low admin overhead and a small security footprint, because there is no central server process to manage workflows for all users.</div>  
+                  <div class="flex">Cylc has low admin overhead and a small security footprint, because there is no central server process to manage workflows for all users.</div>
               </div>
               <div class="flex item">
                   <img src={{'/assets/icon-workflow.svg' | relative_url}} class="icon-workflow" alt="Workflow Icon"/>
-                  <div class="flex">Plus many other features to support both clock-triggered real time and free-flow scheduling in research and operational environments.</div>  
+                  <div class="flex">Plus many other features to support both clock-triggered real time and free-flow scheduling in research and operational environments.</div>
               </div>
             </div>
           </div>
@@ -157,196 +157,292 @@
     {%- include header.html -%}
     <script type="text/javascript">
       "use strict";
-      
-      // --- Progress
-      
+
+      // --- HTTP request
       /**
-       * Get the next release from a set of milestones.
-       * The next release is the milestone with the earliest due date.
-       *
-       * @param milestones: array of milestone objects
-       * @return the milestone with the earliest due date, or null if milestones empty
+       * The GitHub URL for the milestones.
+       * @const {string}
+       */
+      const MILESTONES_URL = "https://api.github.com/repos/cylc/cylc/milestones";
+      /**
+       * The GitHub URL for the releases.
+       * @const {string}
+       */
+      const RELEASES_URL   = "https://api.github.com/repos/cylc/cylc/releases";
+      /**
+       * The GitHub URL for the tags.
+       * @const {string}
+       */
+      const TAGS_URL = "https://github.com/cylc/cylc-flow/releases/tag/";
+      /**
+       * Send HTTP GET request, and invoke callback after upon response. If
+       * it contains the GitHub API message, the callback is not invoked, but
+       * instead it is logged ot the console as an error.
+       * @param {string} url - The URL to send GET request.
+       * @return {Promise} A promise.
+       */
+      function doGet (url) {
+        return new Promise(function(resolve, reject) {
+          const xhr = new XMLHttpRequest();
+          xhr.open("GET", url);
+          xhr.onload = function () {
+            const milestones = JSON.parse(this.response);
+            // GitHub API returns {documentation_url: "", message: ""} messages for rate limiting
+            // see https://developer.github.com/v3/#rate-limiting
+            // and https://github.com/cylc/cylc.github.io/issues/15
+            if (Object.prototype.hasOwnProperty.call(milestones, 'message')) {
+              // will be logged in the .catch block of the promise call
+              reject(milestones.message);
+            } else {
+              resolve(milestones);
+            }
+          };
+          xhr.onerror = function () {
+            reject(xhr.statusText);
+          };
+          xhr.send();
+        });
+      }
+      // --- Cache
+      /**
+       * Cache keys prefix constant.
+       * @const {string}
+       */
+      const CACHE_KEY_PREFIX = 'cylc.progress.cached.';
+      /**
+       * Cache timeout constant (in seconds).
+       * @const {number}
+       */
+      const CACHE_TIMEOUT_SECONDS = 60 * 60; /* 1 hour, 60 minutes times 60 seconds */
+      /**
+       * A cache that uses the browser LocalStorage. Values are stored for
+       * a limit timeout. Once this timeout expires, the value is removed
+       * from the cache and null is returned.
+       */
+      class Cache {
+        /**
+         * @param {number} timeout - The cache timeout expiration in seconds.
+         */
+        constructor(timeout) {
+          this.timeout = timeout;
+          this.storage = window.localStorage;
+        }
+        /**
+         * Simply puts the value in the LocalStorage, replacing any previous value.
+         * @param {string} key - The cache key.
+         * @param {string} value - The value to be cached. This value will be serialized as a JSON string.
+         */
+        put(key, value) {
+          const cached = {
+            value: value,
+            created: new Date().getTime()
+          };
+          // we always store strings in the LocalStorage, that is the reason for the JSON.stringify call
+          this.storage.setItem(`${CACHE_KEY_PREFIX}${key}`, JSON.stringify(cached));
+        }
+        /**
+         * Get the cached value if in the cache and not expired. Otherwise returns null.
+         * @param {string} key - The cache key.
+         * @returns {(null|Object)} Either the value cached, or null if nothing was found.
+         */
+        get(key) {
+          try {
+            const cachedJson = this.storage.getItem(`${CACHE_KEY_PREFIX}${key}`);
+            if (cachedJson === null || cachedJson === undefined) {
+              return null;
+            }
+            const cached = JSON.parse(cachedJson);
+            const created = cached.created;
+            const now = new Date().getTime(); // ms
+            const expired = created + (this.timeout * 1000) <= now;
+            // still valid, return it immediately
+            if (!expired) {
+              return cached.value;
+            }
+            // expired, remove from cache
+            this.storage.removeItem(`${CACHE_KEY_PREFIX}${key}`);
+            return null;
+          } catch (e) {
+            // e.g. SecurityError if using file:///...
+            console.error(e);
+            return null;
+          }
+        }
+      }
+      /**
+       * A cache to prevent hitting the GitHub API unnecessarily.
+       * @const {Cache}
+       */
+      const CACHE = new Cache(/* timeout in seconds */ CACHE_TIMEOUT_SECONDS);
+
+
+      // --- Progress
+
+      /**
+       * Get the next release from a set of milestones. The next release is the milestone with the earliest due date.
+       * @param {Array} milestones - array of milestone objects
+       * @return {Object} The milestone with the earliest due date, or null if milestones empty.
        */
       function getNextRelease(milestones) {
           // Sort the milestones by due date
           if (!milestones) {
-              console.error("Invalid milestones value")
-              return null
+            console.error("Invalid milestones value");
+            return null;
           }
           if (milestones instanceof Object) {
-              // GitHub API returns {documentation_url: "", message: ""} messages for rate limiting
-              // see https://developer.github.com/v3/#rate-limiting
-              // and https://github.com/cylc/cylc.github.io/issues/15
-              if (Object.prototype.hasOwnProperty.call(milestones, 'message')) {
-                  console.error(milestones.message)
-              } else {
-                  console.error("Invalid milestones value: " )
-              }
+            // GitHub API returns {documentation_url: "", message: ""} messages for rate limiting
+            // see https://developer.github.com/v3/#rate-limiting
+            // and https://github.com/cylc/cylc.github.io/issues/15
+            if (Object.prototype.hasOwnProperty.call(milestones, 'message')) {
+              console.error(milestones.message)
+              return null;
+            }
           }
-          milestones.sort((a, b) => a.due_on < b.due_on ? -1 : a.due_on > b.due_on ? 1 : 0)
-          return milestones[0]
+          milestones.sort((a, b) => a.due_on < b.due_on ? -1 : a.due_on > b.due_on ? 1 : 0);
+          return milestones[0];
       }
       /**
        * Populate progress elements in the DOM.
        *
-       * @param openIssues: integer with the number of open issues
-       * @param closedIssues: integer with the number of closed issues
-       * @param title: the title of the next release
-       * @param link: URL link to the next release
+       * @param {number} openIssues - An integer with the number of open issues.
+       * @param {number} closedIssues: An integer with the number of closed issues.
+       * @param {string} title - The title of the next release.
+       * @param {string} link - A URL link to the next release.
         */
       function populateProgress(openIssues, closedIssues, title, link) {
-          var workProgress = closedIssues * 100 / (openIssues + closedIssues);
-      
-          var milestoneVersion = document.getElementById("milestone-version");
+          const workProgress = closedIssues * 100 / (openIssues + closedIssues);
+
+          const milestoneVersion = document.getElementById("milestone-version");
           milestoneVersion.innerHTML = title;
-      
-          var milestoneURL = document.getElementById("milestone-url");
+
+          const milestoneURL = document.getElementById("milestone-url");
           milestoneURL.setAttribute('href', link);
-      
-          var progressBarInner = document.getElementById("progress");
+
+          const progressBarInner = document.getElementById("progress");
           progressBarInner.style.width = workProgress + "%";
-      
-          var progress = document.getElementById("progress-info");
+
+          const progress = document.getElementById("progress-info");
           progress.innerHTML = Math.floor(workProgress) + "%";
-      
-          var milestoneContainer = document.getElementById("milestone-container");
+
+          const milestoneContainer = document.getElementById("milestone-container");
           milestoneContainer.style.opacity = "1";
           milestoneContainer.style.transition = ".7s ease-in";
       }
+
       /**
-       * Retrieve the progress of the project.
-       *
-       * @param url: GitHub API project milestones URL
-       * @return a Promise object that populates DOM elements, or returns the status text on error
+       * @param {Object} milestones - The list of milestones.
        */
-      function retrieveProgress(url) {
-          return new Promise(function (resolve, reject) {
-              var xhr = new XMLHttpRequest();
-              xhr.open("GET", url);
-      
-              xhr.onload = function () {
-                  var milestones = JSON.parse(this.response);
-                  var nextRelease = getNextRelease(milestones);
-      
-                  if (nextRelease) {
-                      var openIssues = nextRelease.open_issues;
-                      var closedIssues = nextRelease.closed_issues;
-                      var title = nextRelease.title;
-                      var link = nextRelease.html_url.replace('s/next%20release', '/' + nextRelease.number);
-                      populateProgress(openIssues, closedIssues, title, link);
-                  }
-              };
-      
-              xhr.onerror = reject(xhr.statusText);
-              xhr.send();
-          });
+      function showProgress(milestones) {
+        const nextRelease = getNextRelease(milestones);
+        if (nextRelease) {
+          const openIssues = nextRelease.open_issues;
+          const closedIssues = nextRelease.closed_issues;
+          const title = nextRelease.title;
+          const link = nextRelease.html_url.replace('s/next%20release', '/' + nextRelease.number);
+          populateProgress(openIssues, closedIssues, title, link);
+        }
       }
-      
+
+      /**
+       * Retrieve the milestones (progress) of the project.
+       * @return {Promise} A Promise object that populates and creates DOM elements, or returns the status text on error.
+       */
+      function retrieveProgress() {
+        const milestones = CACHE.get('milestones');
+        if (milestones !== null) {
+          return new Promise(function () {
+            showProgress(milestones);
+          })
+        } else {
+          // fetch from GitHub API
+          return doGet(MILESTONES_URL).then(function (milestones) {
+            CACHE.put('milestones', milestones);
+            showProgress(milestones);
+          })
+        }
+      }
+
       // --- Releases
-      
-      /**
-       * Truncate text at desired limit of max words. The text is split by
-       * white spaces. If the number of tokens produced is less than the
-       * given limit, we use the lowest value to truncate. Will append
-       * ellipsis if the text was truncated (i.e. words were discarded).
-       *
-       * @param text: text to be truncated
-       * @param maxWords: integer defining the maximum number of words to be returned
-       * @return truncated text, with ellipsis if words were discarded
-       */
-      function truncate(text, maxWords) {
-          var tokens = text.trim().split(" ");
-          var limit = Math.min(tokens.length, maxWords) - 1;
-          var truncated = tokens.slice(0, limit);
-          if (limit < tokens.length) {
-              truncated.push("...");
-          }
-          return truncated.join(" ");
-      }
-      
+
       /**
        * Populate HTML elements with information about the latest release.
        *
-       * @param cylcx: 'cylc8' or 'cylc7'
-       * @param name: name of the release
-       * @param link: URL of the release
-       * @param publishedAt: raw text date as returned from the API
+       * @param cylcx {string} - 'cylc8' or 'cylc7'
+       * @param name {string} -  name of the release
+       * @param link {string} - URL of the release
+       * @param publishedAt {string} - raw text date as returned from the API
        */
       function populateLatestReleaseInformation(cylcx, name, link, publishedAt) {
-      
-          var latestReleaseName = document.getElementById(cylcx + "-latest-release-name");
-          latestReleaseName.innerHTML = name;
-      
-          var latestReleaseURL = document.getElementById(cylcx + "-button");
-          latestReleaseURL.href = link;
-      
-          // var latestReleaseDateTime = document.getElementById(cylcx + "-latest-release-pubdate-time");
-          // latestReleaseDateTime.setAttribute("datetime", publishedAt);
-      
-          var latestReleaseDateText = document.getElementById(cylcx + "-latest-release-pubdate-text");
-          latestReleaseDateText.innerHTML = `Released: ${publishedAt}`;
+        const latestReleaseName = document.getElementById(cylcx + "-latest-release-name");
+        latestReleaseName.innerHTML = name;
+
+        const latestReleaseURL = document.getElementById(cylcx + "-button");
+        latestReleaseURL.href = link;
+
+        const latestReleaseDateText = document.getElementById(cylcx + "-latest-release-pubdate-text");
+        latestReleaseDateText.innerHTML = `Released: ${publishedAt}`;
       }
-      
+
+      /**
+       * @param {Array} releases - The list of releases.
+       */
+      function showReleases(releases) {
+        // we only want to iterate over 15 releases...
+        const min = Math.min(releases.length, 15);
+        let foundCylc8Latest = false;
+        let foundCylc7Latest = false;
+        for (let i = 0; i < min; ++i) {
+          const release = releases[i];
+          const name = release.name;
+          const publishedAt = new Date(release.published_at).toLocaleString().split(',')[0];
+          const link = TAGS_URL + release.tag_name;
+          // display latest release metadata
+          if (name.startsWith("cylc-7.8")) {
+            populateLatestReleaseInformation("cylc7", name, link, publishedAt);
+            foundCylc7Latest = true;
+          } else if (name.startsWith("cylc-flow-8")) {
+            populateLatestReleaseInformation("cylc8", name, link, publishedAt);
+            foundCylc8Latest = true;
+          }
+          if (foundCylc7Latest === true && foundCylc8Latest === true) {
+            break;
+          }
+        }
+      }
+
       /**
        * Retrieve the releases of the project.
-       *
-       * @param url: GitHub API project releases URL
-       * @param linkBaseUrl: Base URL to create links to releases
-       * @return a Promise object that populates and creates DOM elements, or returns the status text on error
+       * @return {Promise} A Promise object that populates and creates DOM elements, or returns the status text on error.
        */
-      function retrieveReleases(url, linkBaseUrl) {
-          return new Promise(function(resolve, reject) {
-              const xhr = new XMLHttpRequest();
-              xhr.open("GET", url);
-              xhr.onload = function() {
-                  const releases = JSON.parse(this.response);
-                  var min = Math.min(releases.length, 15);
-                  var foundCylc8Latest = false;
-                  var foundCylc7Latest = false;
-                  for (var i = 0; i < min; ++i) {
-                      var release = releases[i];
-                      var name = release.name;
-                      var publishedAt = new Date(release.published_at).toLocaleString().split(',')[0];
-                      var body = release.body;
-                      var link = linkBaseUrl + release.tag_name;
-                      // display latest release metadata
-                      if (name.startsWith("cylc-7.8")) {
-                          populateLatestReleaseInformation("cylc7", name, link, publishedAt);
-                          foundCylc7Latest = true;
-                      } else if (name.startsWith("cylc-flow-8")) {
-                          populateLatestReleaseInformation("cylc8", name, link, publishedAt);
-                          foundCylc8Latest = true;
-                      };
-                      if (foundCylc7Latest === true && foundCylc8Latest === true) {
-                          break;
-                      };
-                  };
-              };
-              xhr.onerror = reject(xhr.statusText);
-              xhr.send();
-          });
+      function retrieveReleases() {
+        const releases = CACHE.get('releases');
+        if (releases !== null) {
+          return new Promise(function () {
+            showReleases(releases);
+          })
+        } else {
+          return doGet(RELEASES_URL).then(function (releases) {
+            CACHE.put('releases', releases);
+            showReleases(releases);
+          })
+        }
       }
-      
+
       // --- window.onload
-      
+
       /**
        * Called when the browser loads the page. It will execute two promises asynchronously,
        * one to retrieve the progress, and the other to retrieve the releases.
        * If an error occurs, it will print the error to the browser console.
        */
       window.onload = function () {
-          var milestonesUrl = "https://api.github.com/repos/cylc/cylc-flow/milestones";
-          var releasesUrl = "https://api.github.com/repos/cylc/cylc-flow/releases";
-          var releasesLinkBaseUrl = "https://github.com/cylc/cylc-flow/releases/tag/";
-          Promise.all([
-              retrieveProgress(milestonesUrl),
-              retrieveReleases(releasesUrl, releasesLinkBaseUrl)
-          ])
-          .then(function() {
-              // all good here!
-          })
+        Promise.all([
+          retrieveProgress(),
+          retrieveReleases()
+        ])
           .catch(function(error) {
-              console.log(error);
+            // Any error propagated here will be logged to the browser console
+            console.log(error);
           });
       };
       </script>

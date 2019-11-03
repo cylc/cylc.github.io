@@ -10,15 +10,24 @@
     <div class="flex" aria-label="Content">
       <div class="container herounit">
         <div class="flex flex--vertical content">
-          <h3 class="flex">Cylc (“silk”) is a workflow engine for cycling systems</h3>
-					<p>Cylc was originally developed for use in environmental forecasting
-					at <a href="http://www.niwa.co.nz/">NIWA</a>, but it is not actually
-							specialized to forecasting. It is now an Open Source
-			collaboration involving NIWA, <a href="http://www.metoffice.gov.uk/">Met
-			Office</a>, and <a
-	href="https://github.com/cylc/cylc-flow/blob/master/CONTRIBUTING.md#code-contributors">others</a>,
-	available under the <a href="{{'/license' | relative_url}}">GPL v3 license</a>.</p>
+
+						<h3>Cylc is an Open Source workflow engine that orchestrates
+								cycling systems very efficiently.</h3>
+						
+						<p>If you need repetitive application-level workflows, Cylc may be
+						for you. (And it can run ordinary non-repetitive workflows too.)</p>
+						
+						<p>Cylc was designed at <a href="http://www.niwa.co.nz/">NIWA</a> to
+						manage climate, weather, and environmental forecasting workflows; but
+						it is not specialized to these domains and is completely agnostic to
+						the applications it manages. It is now an active collaboration
+						between <a href="http://www.niwa.co.nz/">NIWA</a>, <a
+								href="http://www.metoffice.gov.uk/">Met Office</a>, and <a
+								href="#logos">OTHERS</a>, and is a critical component of the
+						infrastructure that supports the Met Office Unified Model
+						system.</p>
         </div>
+
         <div class="flex flex--vertical release jc-space-around">
             <div class="flex flex--vertical">
           <div class="flex download-buttons">
@@ -32,6 +41,7 @@
               </a>
               <label id="cylc7-latest-release-pubdate-text"></label>
             </div>
+
             <div class="flex flex--vertical m-l">
                 <label>Preview</label>
                 <a class="flex grow" id="cylc8-button">
@@ -61,80 +71,89 @@
       </div>
     </div>
 
-    <div class="flex usecase bg-grey">
-      <div class="container flex--vertical">
-        <div class="flex">
-          <h3>Use Cases for Cycling</h3>
-        </div>
+		<div class="flex usecase bg-grey">
+				<div class="container flex--vertical">
+						<div class="flex screenshot wrap">
+								<div class="flex flex--vertical grow shrink desc">
+										<h3 class="flex">Cylc Does Cycling Properly</h3>
+										<div class="flex flex--vertical">
+												Cycling with Cylc is not just repeat-running a workflow
+												(on a real time schedule or not); it is a more general
+												concept.
+												<ul>
+														<li> Cylc interleaves cycles for fast catch-up from
+														delays and sustained high throughput off the clock</li>
+														<li> It seamlessly transitions from fast catch-up to
+														real-time scheduling (and back) as needed</li>
+														<li> In Cylc's original production deployment this
+														cut ~24 hours of catch-up down to just ~30 minutes</li>
+												</ul>
+										</div>
+								</div>
+								<div class="flex grow shrink image">
+										<a href="{{'/assets/img/cycling.png' | relative_url}}">
+												<img style="width:100%; margin-top:40px"
+												src="{{'/assets/img/cycling-trans.png' | relative_url}}">
+										</a>
+								</div>
+						</div>
+				</div>
+		</div>
 
-        <div class="flex wrap">
-          <div class="flex flex--vertical">
-            <div class="flex item">
-                <li>Running successive cycles of an environmental forecasting system.</li>
-            </div>
-            <div class="flex item">
-                <li>Splitting long model integrations into many smaller chunks, with associated processing tasks for each chunk.</li>
-              </div>
-          </div>
+		<div class="flex" aria-label="Content">
+				<div class="container herounit">
+						<div class="flex flex--vertical content">
 
-          <div class="flex flex--vertical">
-              <div class="flex item">
-                  <li>Running successive steps in some multi-task iterative process, such as for optimizing model parameters.</li>
-              </div>
-              <div class="flex item">
-                <li>Processing a series of datasets (potentially concurrently, to the extent possible) as they are generated or received.</li>
-                </div>
-            </div>
-        </div>
-      </div>
-    </div>
+								<h3>Why Another Workflow Engine?</h3>
 
-    <div class="flex secondary">
+								<p>Other systems did not do cycling properly!
+								(Cylc also predates several non-cycling systems that
+								are well known today.)</p>
+
+								<p>For strategic efficiency: we also wanted a workflow engine
+								flexible and general enough to unify workflow management across
+								all environmental forecasting-related use cases, and between
+								individual researchers and full production systems.</p>
+						</div>
+
+						<div class="flex flex--vertical release">
+
+								<p> Cylc <a href="features/">FEATURES</a>.</p>
+
+								<p> Cylc <a href="documentation/">DOCUMENTATION</a>.</p>
+
+								<p><a href="documentation#publications">
+										H. Oliver et al., <i>“Workflow Automation for Cycling Systems:
+												The Cylc Workflow Engine”</i>, <b>Computing in Science
+												& Engineering Vol 21, Issue 4, July/Aug 2019</b>. DOI:
+										10.1109/MCSE.2019.2906593</a></p>
+						</div>
+
+				</div>
+		</div>
+
+		<div class="flex">
         <div class="container flex--vertical">
-          <div class="flex wrap">
-            <div class="flex flex--vertical">
-              <div class="flex item">
-                  <img src={{'/assets/icon-workflow.svg' | relative_url}} class="icon-workflow" alt="Workflow Icon"/>
-                  <div class="flex">Workflows are configured in a human-readable text format, with programmatic templating - so you can use software development power tools for workflow development.</div>
-              </div>
-              <div class="flex item">
-                  <img src={{'/assets/icon-workflow.svg' | relative_url}} class="icon-workflow" alt="Workflow Icon"/>
-                  <div class="flex">Scheduling is configured with an efficient cycling graph notation, and task runtime properties with an efficient inheritance hierarchy.</div>
-              </div>
 
-              <div class="flex item">
-                  <img src={{'/assets/icon-workflow.svg' | relative_url}} class="icon-workflow" alt="Workflow Icon"/>
-                  <div class="flex">Cylc respects inter-cycle dependence and is not constrained by a traditional global cycle loop, so cycles can interleave naturally for fast scheduling after delays, and for 'off the clock' operation.</div>
-              </div>
-              <div class="flex item">
-                  <img src={{'/assets/icon-workflow.svg' | relative_url}} class="icon-workflow" alt="Workflow Icon"/>
-                  <div class="flex">Cylc has low admin overhead and a small security footprint, because there is no central server process to manage workflows for all users.</div>
-              </div>
-              <div class="flex item">
-                  <img src={{'/assets/icon-workflow.svg' | relative_url}} class="icon-workflow" alt="Workflow Icon"/>
-                  <div class="flex">Plus many other features to support both clock-triggered real time and free-flow scheduling in research and operational environments.</div>
-              </div>
-            </div>
-          </div>
+						<p><b>If you use Cylc</b> please <a
+								href="documentation#publications">cite it in your
+								publications</a> and <a href="community#user-support">let us
+						know</a> if your organization should be <a
+				href="community#sites-using-cylc">listed on this website</a>.
+						</p>
         </div>
       </div>
 
-      <div class="flex">
-        <div class="container flex--vertical">
-          <p>If you use Cylc to automate your workflows, <a href="https://cylc.github.io/documentation/#publications-citations-and-references">please cite Cylc in your publications.</a></p>
-          <p><a href="mailto:hilary.oliver@niwa.co.nz">Let us know</a> if your organization can be <a href={{'/users' | relative_url}}>listed as a Cylc user</a> on this site.</p>
-        </div>
-      </div>
-
+			<a name="logos"></a>
       <div class="flex users">
           <div class="container flex--vertical">
             <div class="flex wrap">
               <div class="flex flex--vertical">
                 <div class="flex item wrap">
-                    <a href={{'/users' | relative_url}}>
+                    <a href={{'/community#sites-using-cylc' | relative_url}}>
+                      <img src={{'/assets/icon-niwa.png' | relative_url}} class="icon-user niwa" alt="NIWA"/>
                       <img src={{'/assets/icon-metoffice.svg' | relative_url}} class="icon-user met" alt="Met Office"/>
                       <img src={{'/assets/icon-airforce.png' | relative_url}} class="icon-user airforce" alt="Air Force"/>
-                      <img src={{'/assets/icon-altair.jpeg' | relative_url}} class="icon-user altair" alt="Altair"/>
                       <img src={{'/assets/icon-agbom.jpeg' | relative_url}} class="icon-user agbom" alt="AGBOM"/>
                       <img src={{'/assets/icon-csiro.png' | relative_url }} class="icon-user csiro" alt="CSIRO"/>
                       <img src={{'/assets/icon-moes.jpeg' | relative_url}} class="icon-user moes" alt="MOES"/>
@@ -143,10 +162,10 @@
                       <img src={{'/assets/icon-korea.png' | relative_url}} class="icon-user korea" alt="Korea"/>
                       <img src={{'/assets/icon-coecss.png' | relative_url}} class="icon-user coecss" alt="COECSS"/>
                       <img src={{'/assets/icon-mets.png' | relative_url}} class="icon-user mets" alt="METS"/>
-                      <img src={{'/assets/icon-niwa.png' | relative_url}} class="icon-user niwa" alt="NIWA"/>
                       <img src={{'/assets/icon-saws.jpeg' | relative_url}} class="icon-user saws" alt="SAWS"/>
                       <img src={{'/assets/icon-isenes.png' | relative_url}} class="icon-user isenes" alt="ISENES"/>
                       <img src={{'/assets/icon-ncfas.png' | relative_url}} class="icon-user ncfas" alt="NCFAS"/>
+                      <img src={{'/assets/icon-altair.jpeg' | relative_url}} class="icon-user altair" alt="Altair"/>
                     </a>
                 </div>
               </div>

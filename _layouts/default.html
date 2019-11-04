@@ -7,16 +7,54 @@
 
     {%- include header.html -%}
 
+      <div class="flex users">
+          <div class="container flex--vertical">
+            <div class="flex wrap">
+              <div class="flex flex--vertical">
+                <div class="flex item wrap">
+                    <a href={{'/community#sites-using-cylc' | relative_url}}>
+                      <img src={{'/assets/icon-niwa.png' | relative_url}} class="icon-user niwa" alt="NIWA"/>
+                      <img src={{'/assets/icon-metoffice.svg' | relative_url}} class="icon-user met" alt="Met Office"/>
+                      <img src={{'/assets/icon-airforce.png' | relative_url}} class="icon-user airforce" alt="US Air Force"/>
+                      <img src={{'/assets/icon-nrl-small.jpg' | relative_url}} class="icon-user nrl" alt="US Navy"/>
+                      <img src={{'/assets/icon-agbom.jpeg' | relative_url}} class="icon-user agbom" alt="AGBOM"/>
+                      <img src={{'/assets/icon-csiro.png' | relative_url }} class="icon-user csiro" alt="CSIRO"/>
+                      <img src={{'/assets/icon-moes.jpeg' | relative_url}} class="icon-user moes" alt="MOES"/>
+                      <img src={{'/assets/icon-altair.jpeg' | relative_url}} class="icon-user altair" alt="Altair"/>
+                      <img src={{'/assets/icon-icm.png' | relative_url}} class="icon-user icm" alt="ICM"/>
+                      <img src={{'/assets/icon-korea.png' | relative_url}} class="icon-user korea" alt="Korea"/>
+                      <img src={{'/assets/icon-coecss.png' | relative_url}} class="icon-user coecss" alt="COECSS"/>
+                      <img src={{'/assets/icon-mets.png' | relative_url}} class="icon-user mets" alt="METS"/>
+                      <img src={{'/assets/icon-saws.jpeg' | relative_url}} class="icon-user saws" alt="SAWS"/>
+                      <img src={{'/assets/icon-isenes.png' | relative_url}} class="icon-user isenes" alt="ISENES"/>
+                      <img src={{'/assets/icon-ncfas.png' | relative_url}} class="icon-user ncfas" alt="NCFAS"/>
+                      <img src={{'/assets/icon-esiwace.png' | relative_url}} class="icon-user esiwace" alt="ESIWACE"/>
+                    </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
     <div class="flex" aria-label="Content">
       <div class="container herounit">
-        <div class="flex flex--vertical content">
 
-						<h3>Cylc is an Open Source workflow engine that orchestrates
-								cycling systems very efficiently.</h3>
-						
-						<p>If you need repetitive application-level workflows, Cylc may be
-						for you. (And it can run ordinary non-repetitive workflows too.)</p>
-						
+        <div class="flex flex--vertical content">
+				
+						<p>Cylc is a <b>general purpose workflow engine</b> that <b>orchestrates
+								cycling workflows very efficiently</b>. It was designed
+							for automation of production weather, climate, and environmental
+							forecasting systems, but it is not specialized to those domains and is
+							completely agnostic to the applications it manages.</p>
+
+						<p><a href="documentation#publications">
+								H. Oliver et al., <i>“Workflow Automation for Cycling Systems:
+										The Cylc Workflow Engine”</i>, <b>Computing in Science
+										& Engineering Vol 21, Issue 4, July/Aug 2019</b>. DOI:
+								10.1109/MCSE.2019.2906593</a></p>
+
+						<!--
 						<p>Cylc was designed at <a href="http://www.niwa.co.nz/">NIWA</a> to
 						manage climate, weather, and environmental forecasting workflows; but
 						it is not specialized to these domains and is completely agnostic to
@@ -26,6 +64,7 @@
 								href="#logos">OTHERS</a>, and is a critical component of the
 						infrastructure that supports the Met Office Unified Model
 						system.</p>
+						-->
         </div>
 
         <div class="flex flex--vertical release jc-space-around">
@@ -77,16 +116,19 @@
 								<div class="flex flex--vertical grow shrink desc">
 										<h3 class="flex">Cylc Does Cycling Properly</h3>
 										<div class="flex flex--vertical">
-												Cycling with Cylc is not just repeat-running a workflow
-												(on a real time schedule or not); it is a more general
-												concept.
-												<ul>
-														<li> Cylc interleaves cycles for fast catch-up from
-														delays and sustained high throughput off the clock</li>
-														<li> It seamlessly transitions from fast catch-up to
-														real-time scheduling (and back) as needed</li>
-														<li> In Cylc's original production deployment this
-														cut ~24 hours of catch-up down to just ~30 minutes</li>
+
+												<p>Cylc does not merely repeat-run a workflow (on a
+												real time schedule or not). It "unwinds the loop" to
+												create a single infinite non-cycling workflow of
+												repeating tasks. Consequently it can:</p>
+											<ul>
+													<li> Interleave cycles for fast catch-up from
+													delays, and sustained high-throughput off the
+													clock</li>
+													<li> Seamlessly transition between fast catch-up
+													and real-time scheduling</li>
+													<li> Support multiple cycles within a single
+													workflow</li>
 												</ul>
 										</div>
 								</div>
@@ -100,37 +142,146 @@
 				</div>
 		</div>
 
-		<div class="flex" aria-label="Content">
-				<div class="container herounit">
-						<div class="flex flex--vertical content">
+		<div class="flex">
+        <div class="container flex--vertical">
 
-								<h3>Why Another Workflow Engine?</h3>
+						<p><b>Production Ready:</b> 
+						Cylc is not just a research tool. It has been used 24/7 for
+						production weather forecasting since 2010.</p>
+						<br/>
 
-								<p>Other systems did not do cycling properly!
-								(Cylc also predates several non-cycling systems that
-								are well known today.)</p>
+						<p><b>Efficient Cycling:</b>
+						On its initial production deployment at NIWA Cylc cut ~24 hours
+						of catch-up from delays down to ~30 minutes. Other systems
+						could not do this! This is the original reason for Cylc's existence
+						(Cylc also predates some current non-cycling systems).</p>
+						<!--<p>If there is no cross-cycle dependence Cylc runs
+						multiple cycles concurrently, limited only by external
+						resource and configurable internal constraints.</p>-->
+						<br/>
 
-								<p>For strategic efficiency: we also wanted a workflow engine
-								flexible and general enough to unify workflow management across
-								all environmental forecasting-related use cases, from
-								individual researchers to full production systems.</p>
-						</div>
+						<p><b>Open Source:</b> 
+						Cylc is available on the GPLv3 license and is actively and openly
+						<a href="https://github.com/cylc">developed on GitHub</a>.</p>
+						<br/>
 
-						<div class="flex flex--vertical release">
+						<p><b>Distributed Architecture:</b> 
+						Everything runs as the user, and only relies on the filesystem -
+						there are no central workflow or database servers to manage. So
+						Cylc has low admin overheads and a small security footprint.</p>
+						<br/>
 
-								<p> Cylc <a href="features/">FEATURES</a>.</p>
+						<p><b>Distributed Workflows:</b> 
+						Cylc easily manages task jobs on multiple remote hosts.</p>
+						<br/>
+						
+						<p><b>Cross-workflow Triggering:</b>
+						Via the upstream workflow database, so the upstream system doesn't
+						have to be running.</p>
+						<br/>
 
-								<p> Cylc <a href="documentation/">DOCUMENTATION</a>.</p>
+						<p><b>Workflow Configuration:</b> 
+						A human-readable config file, so modest workflows are easy to
+						write, even for non-programmers. This is <b>not</b> <i>"just a
+								static config file"</i> however: efficient programmatic
+								generation of
+				    large complex workflows is supported by task inheritance and
+						parameterization, and Python-like general template processing. (A
+						Python API is also planned for Cylc 9).</p>
+						<br/>
 
-								<p><a href="documentation#publications">
-										H. Oliver et al., <i>“Workflow Automation for Cycling Systems:
-												The Cylc Workflow Engine”</i>, <b>Computing in Science
-												& Engineering Vol 21, Issue 4, July/Aug 2019</b>. DOI:
-										10.1109/MCSE.2019.2906593</a></p>
-						</div>
+						<p><b>Workflow Scaling:</b>
+						Single workflows scale to thousands of tasks per cycle (however,
+						Cylc is a distributed system so several smaller workflows may be
+						preferred).</p>
+						</br/>
 
-				</div>
-		</div>
+						<p><b>System Scaling:</b>
+						Cylc is built to transparently use a pool of host VMs, with
+						load balancing at start-up, and it scales arbitrarily well with the
+						number of host VMs. Running workflows can self-migrate to another
+						host at maintenance time. </p> 
+						<br/>
+
+						<p><b>Powerful UIs:</b>
+						GUIs for visualization and runtime monitoring and control
+						(GTK desktop GUIs for cylc-7 - in production; web UI for Cylc 8 - 
+						coming next year). The CLI can target many tasks at once, e.g. to
+						re-trigger all failed tasks matching a certain pattern in
+						particular cycle points.</p>
+						<br/>
+
+						<p><b>ISO 8601 Date-Time Cycling:</b>
+						Supports all weather and climate type worklows</p>
+						<br/>
+
+						<p><b>Arbitrary (Integer-based) Cycling:</b>
+						For repetitive processing not tied to a regular sequence of
+						date-times, e.g. for satellite data processing.</p>
+
+						<p><b>Flexibility and Generality:</b>
+						Cylc can be used equally for every kind of workflow in climate,
+						weather, and weather-driving forecasting, in research and
+						production. Portable workflows are feasible that run "out of the
+						box" in development, test, and production environments; and even at
+						different sites. This can lead to huge savings for large, complex
+						workflows. The transition from research to operations, for
+						instance, is notoriously difficult if different workflows are used
+						- and much worse again if conversion to a different workflow
+						engine is required.</p>
+						<br/>
+
+						<p><b>HPC Batch Systems:</b>
+						Cylc has great support for common HPC batch systems (workload
+						managers) like PBS and Slurm. It can also manage plain background
+						jobs on any Linux host or VM.</p>
+
+						<p><b>Remote Job Hosts:</b>
+						If you need to use ssh to reach a remote job host, Cylc supports
+						that as well. This includes remote job query and kill, filesystem
+						configuration and file installation, and job log retrieval. (Some
+						of this is via Rose but soon to be built in to Cylc).</p>
+						<br/>
+
+						<p><b>Resilience:</b>
+						Cylc has many features to help deal with system problems, e.g.:</p>
+						<ul>
+								<li> configurable retries for both job submission and job
+								execution
+								<li> state checkpointing, with safe restarts even in the event
+								of a power outage (Cylc even determines what happened to
+								jobs orphaned during downtime)
+								<li> polling to confirm that jobs are still queued or running
+								as expected (if not, job status is updated accordingly)
+								<li> manual job control: poll, kill, or retrigger jobs
+								<li> failure (and other state) triggering - e.g. define tasks
+								that only run if other tasks fail
+								<li>flexible event handling - connect handler scripts to
+								many events (such as task failure); and built-in email alerting
+						</ul>
+						<br/>
+
+						<p><b>Other Capabilities in Brief:</b>
+						</p>
+						<ul>
+								<li> Powerful web-based viewer for thousands of job logs
+								<li> Validation - catch many errors prior to run time.
+								<li> Edit Run - edit job scripts on the fly just before submission.
+								<li> Broadcast task runtime settings (including environment variables) to
+								tasks or groups of tasks, at runtime.
+								<li> Simulation modes with proportional job run length.
+								<li> Internal Queues to limit the number of concurrent active
+								tasks.
+								<li> Conditional triggering.
+								<li> Clock-triggers - trigger off the clock as well as off other tasks.
+								<li> External triggers - trigger off external events as well as
+								other tasks - via user-defined Python plug-in functions.
+								<li> Expiring tasks - optionally skip tasks that are too far
+								behind the clock.
+						</ul>
+
+        </div>
+      </div>
 
 		<div class="flex">
         <div class="container flex--vertical">
@@ -143,35 +294,6 @@
 						</p>
         </div>
       </div>
-
-			<a name="logos"></a>
-      <div class="flex users">
-          <div class="container flex--vertical">
-            <div class="flex wrap">
-              <div class="flex flex--vertical">
-                <div class="flex item wrap">
-                    <a href={{'/community#sites-using-cylc' | relative_url}}>
-                      <img src={{'/assets/icon-niwa.png' | relative_url}} class="icon-user niwa" alt="NIWA"/>
-                      <img src={{'/assets/icon-metoffice.svg' | relative_url}} class="icon-user met" alt="Met Office"/>
-                      <img src={{'/assets/icon-airforce.png' | relative_url}} class="icon-user airforce" alt="Air Force"/>
-                      <img src={{'/assets/icon-agbom.jpeg' | relative_url}} class="icon-user agbom" alt="AGBOM"/>
-                      <img src={{'/assets/icon-csiro.png' | relative_url }} class="icon-user csiro" alt="CSIRO"/>
-                      <img src={{'/assets/icon-moes.jpeg' | relative_url}} class="icon-user moes" alt="MOES"/>
-                      <img src={{'/assets/icon-esiwace.png' | relative_url}} class="icon-user esiwace" alt="ESIWACE"/>
-                      <img src={{'/assets/icon-icm.png' | relative_url}} class="icon-user icm" alt="ICM"/>
-                      <img src={{'/assets/icon-korea.png' | relative_url}} class="icon-user korea" alt="Korea"/>
-                      <img src={{'/assets/icon-coecss.png' | relative_url}} class="icon-user coecss" alt="COECSS"/>
-                      <img src={{'/assets/icon-mets.png' | relative_url}} class="icon-user mets" alt="METS"/>
-                      <img src={{'/assets/icon-saws.jpeg' | relative_url}} class="icon-user saws" alt="SAWS"/>
-                      <img src={{'/assets/icon-isenes.png' | relative_url}} class="icon-user isenes" alt="ISENES"/>
-                      <img src={{'/assets/icon-ncfas.png' | relative_url}} class="icon-user ncfas" alt="NCFAS"/>
-                      <img src={{'/assets/icon-altair.jpeg' | relative_url}} class="icon-user altair" alt="Altair"/>
-                    </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
     {%- include header.html -%}
     <script type="text/javascript">

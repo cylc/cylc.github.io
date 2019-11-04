@@ -47,8 +47,9 @@ which makes small to modest workflows easy to write and understand, even by
 non-programmers.
 
 This is **not** "just a static config file": efficient programmatic
-generation of large workflows is supported by built-in support for task
-inheritance and parameterization, and Python-like general template processing.
+generation of large and complex workflows is supported by task inheritance and
+parameterization, and Python-like general template processing (Jinja2 and
+EmPy).
 
 (However a Python API is also planned for Cylc 9).
 

@@ -151,3 +151,8 @@ These technologies are definitely coming soon to HPC near you, but for the
 moment you'll have to "roll your own" use of Cylc with them. That's easy enough
 to do because Cylc runs on any Linux VM and the jobs that it manages can do
 anything you want.
+
+## Common Workflow Language?
+
+Cylc doesn't support the Common Workflow Language, because CWL does not
+understand cycling workflows.

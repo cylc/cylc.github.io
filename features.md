@@ -73,8 +73,8 @@ Cylc can feasibly be used for:
   
 This can lead to massive savings of time and effort, when large, complex
 workflows are involved (transitioning workflows between research and operations,
-for instance, is notoriously difficult if conversion is required - and it
-is much worse again if conversion to a different workflow engine is required).
+for instance, is notoriously difficult if much translation is needed - and it
+is much worse again for conversion to a different workflow engine).
 
 ## User Interfaces
 

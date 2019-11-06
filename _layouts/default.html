@@ -145,6 +145,8 @@
 		<div class="flex">
         <div class="container flex--vertical">
 
+						<h3>Main Features and Capabilities</h3>
+
 						<p><b>Production Ready:</b> 
 						Cylc is not just a research tool. It has been used 24/7 for
 						production weather forecasting since 2010.</p>
@@ -175,11 +177,6 @@
 						Cylc easily manages task jobs on multiple remote hosts.</p>
 						<br/>
 						
-						<p><b>Cross-workflow Triggering:</b>
-						Via the upstream workflow database, so the upstream system doesn't
-						have to be running.</p>
-						<br/>
-
 						<p><b>Workflow Configuration:</b> 
 						A human-readable config file, so modest workflows are easy to
 						write, even for non-programmers. This is <b>not</b> <i>"just a
@@ -241,6 +238,17 @@
 						that as well. This includes remote job query and kill, filesystem
 						configuration and file installation, and job log retrieval. (Some
 						of this is via Rose but soon to be built in to Cylc).</p>
+						<br/>
+
+						<p><b>Cross-workflow Triggering:</b>
+						Via the upstream workflow database, so the upstream system doesn't
+						have to be running.</p>
+						<br/>
+
+						<p><b>General External Triggering:</b>
+						Trigger tasks off of anything in the external world - just supply a
+						Python function that checks your external condition, and Cylc will
+						call it repeatedly (and configurably) until satisfied.</p>
 						<br/>
 
 						<p><b>Resilience:</b>

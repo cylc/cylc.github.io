@@ -155,6 +155,11 @@
 						of catch-up from delays down to ~30 minutes. Other systems
 						could not do this! This is the original reason for Cylc's existence
 						(Cylc also predates some current non-cycling systems).</p>
+						<p>
+						<i>ISO 8601 cycling</i> supports any date-time interval for weather
+						and climate worklow, and <i>arbitrary (integer-based) cycling</i>
+						supports repetitive processing not tied to a regular date-time sequence
+						(e.g. satellite data processing).</p>
 						<!--<p>If there is no cross-cycle dependence Cylc runs
 						multiple cycles concurrently, limited only by external
 						resource and configurable internal constraints.</p>-->
@@ -206,25 +211,16 @@
 						particular cycle points.</p>
 						<br/>
 
-						<p><b>ISO 8601 Date-Time Cycling:</b>
-						Supports all weather and climate type worklows</p>
-						<br/>
-
-						<p><b>Arbitrary (Integer-based) Cycling:</b>
-						For repetitive processing not tied to a regular sequence of
-						date-times, e.g. for satellite data processing.</p>
-
-						<p><b>Flexibility and Generality:</b>
-						Cylc can be used equally for every kind of workflow in climate,
-						weather, and weather-driving forecasting, in research and
-						production. Portable workflows are feasible that run "out of the
-						box" in development, test, and production environments; and even at
+						<p><b>Flexibility and Generality:</b> Cylc can be used equally for
+						every kind of workflow in climate, weather, and weather-driving
+						forecasting (for example), in research, test, and production.
+						Portable workflows are feasible that run "out of the box" in
+						development, test, and production environments; and even at
 						different sites. This can lead to huge savings for large, complex
 						workflows. The transition from research to operations, for
 						instance, is notoriously difficult if different workflows are used
-						- and much worse again if conversion to a different workflow
-						engine is required.</p>
-						<br/>
+						- and much worse again if conversion to a different workflow engine
+						is required.</p> <br/>
 
 						<p><b>HPC Batch Systems:</b>
 						Cylc has great support for common HPC batch systems (workload

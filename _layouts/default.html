@@ -117,10 +117,10 @@
 										<h3 class="flex">Cylc Does Cycling Properly</h3>
 										<div class="flex flex--vertical">
 												<p>Cylc does not merely repeat-run a workflow
-												(immediately or on a real time schedule). It "unwinds
+												(immediately, or on a real time schedule). It "unwinds
 												the loop" to create a single infinite non-cycling
-												workflow of repeating tasks. Consequently:</p>
-											<ul>
+												workflow composed of repeating tasks. Consequently:</p>
+											 <ul>
 													<li>Cylc can interleave cycles for fast catch-up from
 													delays, and sustained high-throughput off the clock</li>
 													<li> It seamlessly transitions between fast catch-up
@@ -155,11 +155,12 @@
 						of catch-up from delays down to ~30 minutes. Other systems
 						could not do this! This is the original reason for Cylc's existence
 						(Cylc also predates some current non-cycling systems).</p>
-						<p>
-						<i>ISO 8601 cycling</i> supports any date-time interval for weather
-						and climate worklow, and <i>arbitrary (integer-based) cycling</i>
-						supports repetitive processing not tied to a regular date-time sequence
-						(e.g. satellite data processing).</p>
+						<ul>
+								<li> <i>ISO 8601 cycling</i> supports any date-time sequence
+								for weather and climate workflows
+								<li><i>integer cycling</i> supports arbitrary repetitive
+								workflows (e.g. satellite data processing).
+						</ul>
 						<!--<p>If there is no cross-cycle dependence Cylc runs
 						multiple cycles concurrently, limited only by external
 						resource and configurable internal constraints.</p>-->

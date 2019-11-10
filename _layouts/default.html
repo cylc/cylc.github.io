@@ -172,9 +172,15 @@
 						<br/>
 
 						<p><b>Distributed Architecture:</b> 
-						Everything runs as the user, and only relies on the filesystem -
-						there are no central workflow or database servers to manage. So
-						Cylc has low admin overheads and a small security footprint.</p>
+						There are no central workflow or database servers to manage, so
+						Cylc has low admin overhead and a small security footprint. Each
+						workflow gets its own ad hoc server program, which runs as the
+						user, and only relies on the filesystem. </p>
+						<br/>
+
+						<p><b>Cross-workflow Triggering:</b>
+						Via the upstream workflow database, so the upstream workflow
+						doesn't even have to be running at the time.</p>
 						<br/>
 
 						<p><b>Distributed Workflows:</b> 
@@ -232,11 +238,6 @@
 						that as well. This includes remote job query and kill, filesystem
 						configuration and file installation, and job log retrieval. (Some
 						of this is via Rose but soon to be built in to Cylc).</p>
-						<br/>
-
-						<p><b>Cross-workflow Triggering:</b>
-						Via the upstream workflow database, so the upstream system doesn't
-						have to be running.</p>
 						<br/>
 
 						<p><b>General External Triggering:</b>

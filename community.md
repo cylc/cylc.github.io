@@ -35,7 +35,7 @@ in the UM Partnership), and others are yellow.
     * [Euro-Mediterranean Center on Climate Change (CMCC)](https://www.cmcc.it)
   * Netherlands:
     * [eWaterCycle](http://forecast.ewatercycle.org/) at the Netherlands
-      eScience Center, Univerity of Utrecht, TUDelft
+      eScience Center, University of Utrecht, TUDelft
   * Spain:
     * [Barcelona Supercomputing Center (BSC)](https://www.bsc.es)
   * UK:

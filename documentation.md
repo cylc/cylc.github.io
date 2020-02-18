@@ -168,3 +168,16 @@ manages can do anything you want.
 No, Cylc doesn't support CWL at this stage because CWL does not understand
 cycling workflows (see for example the eWaterCycle Case Study in the [Cylc
 CiSE paper](#publications)).
+
+
+## Screenshots
+
+These show the current <b>Cylc 7</b> production system.
+
+<b>Cylc 8</b> (coming soon) will feature a web UI.
+
+{% for item in site.data.screenshots %}
+---
+{% include figure.html title=item.title desc=item.desc url=item.url %}
+
+{% endfor %}

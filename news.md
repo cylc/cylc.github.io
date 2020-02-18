@@ -22,6 +22,12 @@ and NRL (US).
 
 ![CylcCon 2020 Dinner Photo]({{site.url}}/assets/CylcCon2020-1.jpg)
 
+## Cylc at SC19 Denver 2019
+
+[Cylc User Group Featuring the Altair Weather Solution](https://web.altair.com/cylc-user-group)
+
+![Hilary Oliver at the SC19 Altair Booth]({{site.url}}/assets/SC19-Cylc.jpg)
+
 ## CylcCon 2019
 
 Held at BOM, Melbourne, Australia, in December 2018). This was a developer
@@ -30,3 +36,7 @@ associated architecture. Delegates came from NIWA (NZ), Met Office (UK), BOM
 (Australia), and Altair (India/US).
 
 [Dec 2018 Workshop Report](https://cylc.github.io/cylc-admin/dec-workshop-report)
+
+## Cylc at SC18 Dallas 2018
+
+[2018 Cylc Weather User Group (Altair Flyer, PDF)]({{site.url}}/assets/PBSWorks_0034_EventFlyer_CycleUserGroup_SC2018.pdf)

@@ -3,7 +3,7 @@ layout: home
 title: News
 permalink: /news/
 ---
-# Cylc News
+# News and Events
 {:.no_toc}
 
 * replace-me

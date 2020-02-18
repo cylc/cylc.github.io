@@ -18,9 +18,9 @@ and NRL (US).
 
 **A workshop report URL will be added here soon...**
 
-![CylcCon 2020 Group Photo]({{site.url}}/assets/CylcCon2020-2.jpg)
-
-![CylcCon 2020 Dinner Photo]({{site.url}}/assets/CylcCon2020-1.jpg)
+{% for item in site.data.CylcCon2020-photos %}
+{% include figure.html title=item.title desc=item.desc url=item.url %}
+{% endfor %}
 
 ## Cylc at SC19 Denver 2019
 

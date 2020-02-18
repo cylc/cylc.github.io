@@ -118,14 +118,15 @@
 										<div class="flex flex--vertical">
 												<p>Cylc does not merely repeat-run a workflow
 												(immediately, or on a real time schedule). It "unwinds
-												the loop" to create a single infinite non-cycling
-												workflow composed of repeating tasks. Consequently:</p>
+												the loop" to create a single potentially infinite
+												non-cycling workflow composed of repeating tasks.
+												Consequently:</p>
 											 <ul>
 													<li>Cylc can interleave cycles for fast catch-up from
 													delays, and sustained high-throughput off the clock</li>
 													<li> It seamlessly transitions between fast catch-up
 													and clock-limited real-time scheduling</li>
-													<li>It supports multiple cycles within a single
+													<li>It supports multiple cycle intervals within a single
 													workflow</li>
 												</ul>
 										</div>
@@ -152,11 +153,10 @@
 						<br/>
 
 						<p><b>Efficient Cycling:</b>
-						On its initial production deployment at NIWA Cylc cut ~24 hours
-						of catch-up from delays down to ~30 minutes. Other systems
-						could not do this! (They have to run one whole cycle after
-						another). This is the original reason for Cylc's existence (Cylc
-						also predates some current non-cycling systems).</p>
+						On deployment to NIWA production systems Cylc's automatic cycle
+						interleaving cut ~24 hours of catch-up from delays down to ~30
+						minutes. (This is the original reason for Cylc. It also predates
+						some current non-cycling systems).</p>
 						<ul>
 								<li> <i>ISO 8601 cycling</i> supports any date-time sequence
 								for weather and climate workflows
@@ -230,10 +230,10 @@
 						are different; and much worse again if conversion to a different
 						workflow engine is required.</p> <br/>
 
-						<p><b>HPC Batch Systems:</b>
+						<p><b>HPC:</b>
 						Cylc has great support for common HPC batch systems (workload
 						managers) like PBS and Slurm. It can also manage plain background
-						jobs on any Linux host or VM.</p>
+						jobs on any Linux host.</p>
 
 						<p><b>Remote Job Hosts:</b>
 						If you need to use ssh to reach a remote job host, Cylc supports
@@ -244,8 +244,7 @@
 
 						<p><b>General External Triggering:</b>
 						Trigger tasks off of anything in the external world - just supply a
-						Python function that checks your external condition, and Cylc will
-						call it repeatedly (and configurably) until satisfied.</p>
+						Python function that checks your external condition.</p>
 						<br/>
 
 						<p><b>Resilience:</b>

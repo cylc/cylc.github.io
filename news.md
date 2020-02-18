@@ -6,8 +6,6 @@ permalink: /news/
 # Cylc News
 {:.no_toc}
 
-First read the [front page of this website]({{'/' | relative_url}}), then:
-
 * replace-me
 {:toc}
 
@@ -17,6 +15,8 @@ CylcCon 2020 (NIWA, Wellington, New Zealand, February 2020) was focused on
 assessing progress to date on Cylc 8, and charting the path to completion by
 early 2021. Delegates came from NIWA (NZ), Met Office (UK), BOM (Australia),
 and NRL (US).
+
+**A workshop report URL will be added here soon...**
 
 ![CylcCon 2020 Group Photo]({{site.url}}/assets/CylcCon2020-2.jpg)
 

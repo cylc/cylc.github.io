@@ -25,7 +25,7 @@ Commercial support for Cylc is available from Altair, a leading provider of
 workload management and scheduling resources for the weather industry.
 
 Learn more about commercial support for Cylc at
-[https://web.altair.com/cylc-weather-solution](Altair Weather Solution)
+[Altair Weather Solution](https://web.altair.com/cylc-weather-solution)
 
 Altair’s weather solution combines Cylc, Altair PBS Professional, and
 additional features including message viewing, event inspection, message

@@ -16,7 +16,7 @@ focused on assessing progress to date on Cylc 8, and charting the path to
 completion by early 2021. Delegates came from NIWA (NZ), Met Office (UK), BOM
 (Australia), and NRL (US).
 
-**A workshop report URL will be added here soon...**
+[CylcCon 2020 Final Report](https://cylc.github.io/cylc-admin/feb2020-workshop-report)
 
 {% for item in site.data.CylcCon2020-photos %}
 {% include figure.html title=item.title desc=item.desc url=item.url %}
@@ -30,14 +30,14 @@ completion by early 2021. Delegates came from NIWA (NZ), Met Office (UK), BOM
 {% include figure.html title=item.title desc=item.desc url=item.url %}
 {% endfor %}
 
-## CylcCon 2019
+## CylcCon 2018/9
 
 Held at BOM in Melbourne, Australia (December 2018) CylcCon 2019 was focused on
 finalizing plans for Cylc 8: Python 3, and a web UI and associated
 architecture. Delegates came from NIWA (NZ), Met Office (UK), BOM (Australia),
 and Altair (India/USA).
 
-[Dec 2018 Workshop Report](https://cylc.github.io/cylc-admin/dec-workshop-report)
+[Dec 2018 Cylc Workshop Report](https://cylc.github.io/cylc-admin/dec-workshop-report)
 
 {% for item in site.data.CylcCon2019-photos %}
 {% include figure.html title=item.title desc=item.desc url=item.url %}

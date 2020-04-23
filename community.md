@@ -41,6 +41,12 @@ in the UM Partnership), and others are yellow.
   * UK:
     * [Centre for Environmental Data Analysis (CEDA)](http://www.ceda.ac.uk)
     * [Met Office](http://www.metoffice.gov.uk)
+      * Cylc has been used at the Met Office since 2012 and operationally since
+        2014.
+      * "Every week we have 300+ users who rely on Cylc. At any one time we
+        typically have 700+ active workflows. Of the 11.7 million jobs run on our
+        HPC systems in February 2020, 99.6% of them were submitted by Cylc."
+        [David Matthews](https://github.com/dpmatthews), March 2020
     * [National Centre for Atmospheric Science (NCAS)](https://www.ncas.ac.uk)
     * [Plymouth Marine Laboratory](https://www.pml.ac.uk/)
 * North America:

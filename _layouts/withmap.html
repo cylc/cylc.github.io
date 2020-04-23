@@ -11,11 +11,13 @@
         <div class="container mapcontainer flex--vertical">
             {% include sites-world-map.html %}
         </div>  
-      <div class="flex">
-        <div class="container flex--vertical">
-        {{content}}
+        <div class="flex">
+           <div class="container flex--vertical">
+
+        {%- include sites.html -%}
+              
+           </div>
         </div>
-      </div>
     </div>
 
     {%- include header.html -%}

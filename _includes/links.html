@@ -1,7 +1,24 @@
+{%- comment -%}
+Here are simply create the HTML elements with the list of links.
+
+For each link, we test whether any of `/value`, or `/value/`, or `/value.html`
+matches the current page.url. If so, we add a CSS class to tell that that
+menu entry that matched is the active menu item.
+
+Does not work with multi-level page at the moment, but it would not be too
+hard to add that later as an improvement - if necessary.
+{%- endcomment -%}
 <div class="links">
   {%- for entry in site.menu -%}
-  <div class="link">
-    <a class="page-link" href="{{ entry.url | relative_url }}">{{ entry.text }}</a>
-  </div>
+    {%- assign css_class = "page-link" -%}
+    {%- assign entry_url = entry.url | relative_url -%}
+    {%- assign entry_url_slash = entry.url | relative_url | append: '/' -%}
+    {%- assign entry_url_html = entry.url | relative_url | append: '.html' -%}
+    {%- if entry_url == page.url or entry_url_slash == page.url or entry_url_html == page.url -%}
+      {%- assign css_class = css_class | append: ' active' -%}
+    {%- endif -%}
+    <div class="link">
+      <a class="{{ css_class }}" href="{{ entry.url | relative_url }}">{{ entry.text }}</a>
+    </div>
   {%- endfor -%}
 </div>

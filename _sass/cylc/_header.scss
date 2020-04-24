@@ -44,6 +44,10 @@
       a {
         @extend .flex;
         align-items: center;
+        &.active {
+          font-weight: bold;
+          text-decoration: underline;
+        }
       }
     }
   }

@@ -8,7 +8,7 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 #
-# If you need help with YAML syntax, here are some quick references for you: 
+# If you need help with YAML syntax, here are some quick references for you:
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 #
@@ -53,6 +53,20 @@ sass:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+menu:
+  - text: Home
+    url: '/'
+  - text: Docs
+    url: '/documentation'
+  - text: Sites
+    url: '/community'
+  - text: Support
+    url: '/support'
+  - text: Development
+    url: '/development'
+  - text: News
+    url: '/news'
 
 include: [
   "_downloads",

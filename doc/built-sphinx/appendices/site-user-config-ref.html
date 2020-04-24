@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>15.2. Global (Site, User) Config File Reference &#8212; The Cylc Suite Engine 7.8.4 documentation</title>
+    <title>15.2. Global (Site, User) Config File Reference &#8212; The Cylc Suite Engine 7.8.5 documentation</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '7.8.4',
+        VERSION:     '7.8.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="suiterc-config-ref.html" title="15.1. Suite.rc Reference"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.4 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.5 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="appendices-master.html" accesskey="U">15. Appendices</a> &#187;</li> 
       </ul>
     </div>  
@@ -800,32 +800,42 @@ is not specified on the command line via the <code class="docutils literal"><spa
 <h4>15.2.10.7.1. [suite servers] <code class="docutils literal"><span class="pre">-&gt;</span></code> [[run host select]] <code class="docutils literal"><span class="pre">-&gt;</span></code> rank<a class="headerlink" href="#suite-servers-run-host-select-rank" title="Permalink to this headline">¶</a></h4>
 <p>The method to use to rank the <code class="docutils literal"><span class="pre">run</span> <span class="pre">host</span></code> list in order of
 suitability.</p>
-<ul class="simple">
-<li><em>type</em>: string (which must be one of the options outlined below)</li>
-<li><em>default</em>: <code class="docutils literal"><span class="pre">random</span></code></li>
-<li><em>options</em>:<ul>
-<li><strong>random</strong> - shuffle the hosts to select a host at random</li>
-<li><strong>load:1</strong> - rank and select for the lowest load average over
-1 minute (as given by the <code class="docutils literal"><span class="pre">uptime</span></code> command)</li>
-<li><strong>load:5</strong> - as for <code class="docutils literal"><span class="pre">load:1</span></code> above, but over 5 minutes</li>
-<li><strong>load:15</strong> - as for <code class="docutils literal"><span class="pre">load:1</span></code> above, but over 15 minutes</li>
+<ul>
+<li><p class="first"><em>type</em>: string (which must be one of the options outlined below)</p>
+</li>
+<li><p class="first"><em>default</em>: <code class="docutils literal"><span class="pre">random</span></code></p>
+</li>
+<li><p class="first"><em>options</em>:</p>
+<ul>
+<li><p class="first"><strong>random</strong> - shuffle the hosts to select a host at random</p>
+</li>
+<li><p class="first"><strong>load:1</strong> - rank and select for the lowest load average over
+1 minute (as given by the <code class="docutils literal"><span class="pre">uptime</span></code> command)</p>
+</li>
+<li><p class="first"><strong>load:5</strong> - as for <code class="docutils literal"><span class="pre">load:1</span></code> above, but over 5 minutes</p>
+</li>
+<li><p class="first"><strong>load:15</strong> - as for <code class="docutils literal"><span class="pre">load:1</span></code> above, but over 15 minutes</p>
+</li>
 <li><dl class="first docutils">
 <dt><strong>memory</strong> - rank and select for the highest usable memory i.e.</dt>
-<dd>free memory plus memory in the buffer cache (&#8216;buffers&#8217;) and in the
-page cache (&#8216;cache&#8217;), as specified under <code class="docutils literal"><span class="pre">/proc/meminfo</span></code></dd>
+<dd><p class="first last">free memory plus memory in the buffer cache (&#8216;buffers&#8217;) and in the
+page cache (&#8216;cache&#8217;), as specified under <code class="docutils literal"><span class="pre">/proc/meminfo</span></code></p>
+</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><strong>disk-space:PATH</strong> - rank and select for the highest free disk</dt>
-<dd>space for a given mount directory path <code class="docutils literal"><span class="pre">PATH</span></code> as given by
+<dd><p class="first last">space for a given mount directory path <code class="docutils literal"><span class="pre">PATH</span></code> as given by
 the <code class="docutils literal"><span class="pre">df</span></code> command, where multiple paths may be specified
 individually i.e. via <code class="docutils literal"><span class="pre">disk-space:PATH_1</span></code> and
-<code class="docutils literal"><span class="pre">disk-space:PATH_2</span></code>, etc.</dd>
+<code class="docutils literal"><span class="pre">disk-space:PATH_2</span></code>, etc.</p>
+</dd>
 </dl>
 </li>
 </ul>
 </li>
-<li><em>default</em>: (none)</li>
+<li><p class="first"><em>default</em>: (none)</p>
+</li>
 </ul>
 </div>
 <div class="section" id="suite-servers-run-host-select-thresholds">
@@ -1192,13 +1202,13 @@ control.</li>
         <li class="right" >
           <a href="suiterc-config-ref.html" title="15.1. Suite.rc Reference"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.4 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">The Cylc Suite Engine 7.8.5 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="appendices-master.html" >15. Appendices</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2008-2019 NIWA &amp; British Crown (Met Office) &amp; Contributors.
-      Last updated on Sep 04, 2019.
+      Last updated on Apr 24, 2020.
     </div>
   </body>
 </html>

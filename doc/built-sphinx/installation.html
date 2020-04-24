@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>3. Installation &#8212; The Cylc Suite Engine 7.8.4 documentation</title>
+    <title>3. Installation &#8212; The Cylc Suite Engine 7.8.5 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '7.8.4',
+        VERSION:     '7.8.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="screenshots.html" title="2. Cylc Screenshots"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.4 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.5 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -73,11 +73,18 @@ already be installed in your Linux system.</p>
 you can construct and run suites without dependency graph visualisation or
 the Cylc GUIs:</p>
 <ul>
-<li><p class="first"><a class="reference external" href="http://www.pygtk.org">PyGTK</a> - GUI toolkit.</p>
+<li><p class="first"><a class="reference external" href="http://www.pygtk.org">PyGTK</a> - Python bindings for the GTK+ GUI toolkit.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">PyGTK typically comes with your system Python. It is allegedly quite
-difficult to install if you need to do so for another Python version.</p>
+<p>PyGTK typically comes with your system Python 2 version. It is allegedly
+quite difficult to install if you need to do so for another Python
+version. At time of writing, for instance, there are no functional PyGTK
+conda packages available.</p>
+<p>Note that <strong>we need to do ``import gtk`` in Python, not ``import pygtk``</strong>.</p>
+<p class="last">In Centos 7.6, for example, the Cylc GUIs run &#8220;out of the box&#8221; with the
+system-installed Python 2.7.5. Under the hood, the Python “gtk” package is
+provided by the “pygtk2” yum package. (The “pygtk” Python module, which we
+don&#8217;t need, is supplied by the “pygobject2” yum package).</p>
 </div>
 </li>
 <li><p class="first"><a class="reference external" href="http://www.graphviz.org">Graphviz</a> - graph layout engine (tested 2.36.0)</p>
@@ -88,6 +95,12 @@ difficult to install if you need to do so for another Python version.</p>
 <li>python-devel</li>
 <li>graphviz-devel</li>
 </ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal"><span class="pre">cylc</span> <span class="pre">graph</span></code> command for static workflow visualization requires
+PyGTK, but we provide a separate <code class="docutils literal"><span class="pre">cylc</span> <span class="pre">ref-graph</span></code> command to print
+out a simple text-format &#8220;reference graph&#8221; without PyGTK.</p>
+</div>
 </li>
 </ul>
 <p>The Cylc Review service does not need any additional packages.</p>
@@ -365,12 +378,12 @@ even if nothing is wrong, if you run too many tests in parallel. See
         <li class="right" >
           <a href="screenshots.html" title="2. Cylc Screenshots"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.4 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.5 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2008-2019 NIWA &amp; British Crown (Met Office) &amp; Contributors.
-      Last updated on Sep 04, 2019.
+      Last updated on Apr 24, 2020.
     </div>
   </body>
 </html>

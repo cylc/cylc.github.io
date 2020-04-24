@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>The Cylc Suite Engine 7.8.4 documentation</title>
+    <title>The Cylc Suite Engine 7.8.5 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,17 +14,17 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '7.8.4',
+        VERSION:     '7.8.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
         SOURCELINK_SUFFIX: '.txt'
       };
     </script>
-    <script type="text/javascript" src="./_static/jquery.js"></script>
-    <script type="text/javascript" src="./_static/underscore.js"></script>
-    <script type="text/javascript" src="./_static/doctools.js"></script>
-    <link rel="shortcut icon" href="./_static/cylc-favicon.ico"/>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/cylc-favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
   </head>
@@ -32,7 +32,7 @@
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
-        <li class="nav-item nav-item-0"><a href="index.html#document-index">The Cylc Suite Engine 7.8.4 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html#document-index">The Cylc Suite Engine 7.8.5 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -44,7 +44,7 @@
   <div class="section" id="cylc-documentation">
 <h1>Cylc documentation<a class="headerlink" href="#cylc-documentation" title="Permalink to this headline">¶</a></h1>
 <p><strong>The Cylc Suite Engine</strong></p>
-<p>Current release: 7.8.4</p>
+<p>Current release: 7.8.5</p>
 <p><em>Released Under the GNU GPL v3.0 Software License</em></p>
 <p><em>Copyright (C) 2008-2019 NIWA &amp; British Crown (Met Office) &amp; Contributors.</em></p>
 <hr class="docutils" />
@@ -390,11 +390,18 @@ already be installed in your Linux system.</p>
 you can construct and run suites without dependency graph visualisation or
 the Cylc GUIs:</p>
 <ul>
-<li><p class="first"><a class="reference external" href="http://www.pygtk.org">PyGTK</a> - GUI toolkit.</p>
+<li><p class="first"><a class="reference external" href="http://www.pygtk.org">PyGTK</a> - Python bindings for the GTK+ GUI toolkit.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">PyGTK typically comes with your system Python. It is allegedly quite
-difficult to install if you need to do so for another Python version.</p>
+<p>PyGTK typically comes with your system Python 2 version. It is allegedly
+quite difficult to install if you need to do so for another Python
+version. At time of writing, for instance, there are no functional PyGTK
+conda packages available.</p>
+<p>Note that <strong>we need to do ``import gtk`` in Python, not ``import pygtk``</strong>.</p>
+<p class="last">In Centos 7.6, for example, the Cylc GUIs run &#8220;out of the box&#8221; with the
+system-installed Python 2.7.5. Under the hood, the Python “gtk” package is
+provided by the “pygtk2” yum package. (The “pygtk” Python module, which we
+don&#8217;t need, is supplied by the “pygobject2” yum package).</p>
 </div>
 </li>
 <li><p class="first"><a class="reference external" href="http://www.graphviz.org">Graphviz</a> - graph layout engine (tested 2.36.0)</p>
@@ -405,6 +412,12 @@ difficult to install if you need to do so for another Python version.</p>
 <li>python-devel</li>
 <li>graphviz-devel</li>
 </ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal"><span class="pre">cylc</span> <span class="pre">graph</span></code> command for static workflow visualization requires
+PyGTK, but we provide a separate <code class="docutils literal"><span class="pre">cylc</span> <span class="pre">ref-graph</span></code> command to print
+out a simple text-format &#8220;reference graph&#8221; without PyGTK.</p>
+</div>
 </li>
 </ul>
 <p>The Cylc Review service does not need any additional packages.</p>
@@ -2270,13 +2283,13 @@ vary depending on the particular cycle point:</p>
 <p><a class="reference internal" href="#fig-dep-eg-1"><span class="std std-numref">Fig. 22</span></a> shows the complete suite.rc listing alongside
 the suite graph. This is a complete, valid, runnable suite (it will
 use default task runtime properties such as <code class="docutils literal"><span class="pre">script</span></code>).</p>
-<div class="twocol docutils container">
-<div class="image docutils container">
+<div class="twocol container">
+<div class="image container">
 <div class="figure align-center" id="fig-dep-eg-1">
 <img alt="_images/dep-eg-1.png" src="_images/dep-eg-1.png" />
 </div>
 </div>
-<div class="caption docutils container">
+<div class="caption container">
 <p>Example Suite</p>
 <div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[meta]</span>
     <span class="nv">title </span><span class="o">=</span><span class="s"> &quot;Dependency Example 1&quot;</span>
@@ -2432,13 +2445,13 @@ to generate the final graph.</p>
 tasks; these all share a single cycle point (<code class="docutils literal"><span class="pre">1</span></code>) and don&#8217;t spawn
 successors (once they&#8217;re all finished the suite just exits). The integer
 <code class="docutils literal"><span class="pre">1</span></code> attached to each graph node is just an arbitrary label here.</p>
-<div class="twocol docutils container">
-<div class="image docutils container">
+<div class="twocol container">
+<div class="image container">
 <div class="figure align-center" id="fig-test1">
 <img alt="_images/test1.png" src="_images/test1.png" />
 </div>
 </div>
-<div class="caption docutils container">
+<div class="caption container">
 <p>One-off (Non-Cycling) Tasks.</p>
 <div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[meta]</span>
     <span class="nv">title </span><span class="o">=</span><span class="s"> some one-off tasks</span>
@@ -2455,13 +2468,13 @@ successors (once they&#8217;re all finished the suite just exits). The integer
 <p>For cycling tasks the graph section heading defines a sequence of cycle points
 for which the subsequent graph section is valid. <a class="reference internal" href="#fig-test2"><span class="std std-numref">Fig. 24</span></a>
 shows a small suite of cycling tasks.</p>
-<div class="twocol docutils container">
-<div class="image docutils container">
+<div class="twocol container">
+<div class="image container">
 <div class="figure align-center" id="fig-test2">
 <img alt="_images/test2.png" src="_images/test2.png" />
 </div>
 </div>
-<div class="caption docutils container">
+<div class="caption container">
 <p>Cycling Tasks.</p>
 <div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[meta]</span>
     <span class="nv">title </span><span class="o">=</span><span class="s"> some cycling tasks</span>
@@ -2776,13 +2789,13 @@ a single <code class="docutils literal"><span class="pre">prep</span></code> tas
 <p>We can write this using a special case of the <code class="docutils literal"><span class="pre">task[-interval]</span></code> syntax -
 if the interval is null, this implies the task at the initial cycle point.</p>
 <p>For example, we can write our suite like <a class="reference internal" href="#fig-test4"><span class="std std-numref">Fig. 25</span></a>.</p>
-<div class="twocol docutils container">
-<div class="image docutils container">
+<div class="twocol container">
+<div class="image container">
 <div class="figure align-center" id="fig-test4">
 <img alt="_images/test4.png" src="_images/test4.png" />
 </div>
 </div>
-<div class="caption docutils container">
+<div class="caption container">
 <p>Staggered Start Suite</p>
 <div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[cylc]</span>
     <span class="nv">UTC mode </span><span class="o">=</span><span class="s"> True</span>
@@ -2816,13 +2829,13 @@ if the interval is null, this implies the task at the initial cycle point.</p>
 </div>
 <p>This neatly expresses what we want - a task running at the initial cycle point
 that has one-off dependencies with other task sets at different cycles.</p>
-<div class="twocol docutils container">
-<div class="image docutils container">
+<div class="twocol container">
+<div class="image container">
 <div class="figure align-center" id="fig-test5">
 <img alt="_images/test5.png" src="_images/test5.png" />
 </div>
 </div>
-<div class="caption docutils container">
+<div class="caption container">
 <p>Restricted First Cycle Point Suite</p>
 <div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[cylc]</span>
     <span class="nv">UTC mode </span><span class="o">=</span><span class="s"> True</span>
@@ -3126,13 +3139,13 @@ can only appear on the left <a class="footnote-reference" href="#id11" id="id5">
 triggering requirements, but any valid conditional expression can be
 used, as shown in <a class="reference internal" href="#fig-conditional"><span class="std std-numref">Fig. 28</span></a>
 (conditional triggers are plotted with open arrow heads).</p>
-<div class="twocol docutils container">
-<div class="image docutils container">
+<div class="twocol container">
+<div class="image container">
 <div class="figure align-center" id="fig-conditional">
 <img alt="_images/conditional-triggers.png" src="_images/conditional-triggers.png" />
 </div>
 </div>
-<div class="caption docutils container">
+<div class="caption container">
 <p>Conditional triggers, which are plotted with open arrow heads.</p>
 <div class="highlight-cylc"><div class="highlight"><pre><span></span>        <span class="nv">graph</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="c1"># D triggers if A or (B and C) succeed</span>
@@ -3160,13 +3173,13 @@ suicide triggers, and the open arrowheads indicate conditional triggers
 as usual. Suicide triggers are ignored by default in the graph view, unless
 you toggle them on with <em>View</em> <code class="docutils literal"><span class="pre">-&gt;</span></code> <em>Options</em> <code class="docutils literal"><span class="pre">-&gt;</span></code>
 <em>Ignore Suicide Triggers</em>.</p>
-<div class="twocol docutils container">
-<div class="image docutils container">
+<div class="twocol container">
+<div class="image container">
 <div class="figure align-center" id="fig-suicide">
 <img alt="_images/suicide.png" src="_images/suicide.png" />
 </div>
 </div>
-<div class="caption docutils container">
+<div class="caption container">
 <p>Automated failure recovery via suicide triggers.</p>
 <div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[meta]</span>
     <span class="nv">title </span><span class="o">=</span><span class="s"> automated failure recovery</span>
@@ -4329,11 +4342,11 @@ considered strings. It is not possible to mix strings with integer ranges.</p>
 </div>
 <p>Then angle brackets denote use of these parameters throughout the suite
 configuration. For the values above, this parameterized name:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>model&lt;run&gt;  # for run = 1..2
+<div class="highlight-none"><div class="highlight"><pre><span></span>model&lt;run&gt;  # for run = 1..5
 </pre></div>
 </div>
 <p>expands to these concrete task names:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>model_run1, model_run2
+<div class="highlight-none"><div class="highlight"><pre><span></span>model_run1, model_run2, model_run3, model_run4, model_run5
 </pre></div>
 </div>
 <p>and this parameterized name:</p>
@@ -8671,8 +8684,8 @@ for determining cycle periods, e.g.</p>
 interpreted first, and then the offset is applied.</p>
 <p>The offset can also be used independently without a <code class="docutils literal"><span class="pre">next</span></code> or <code class="docutils literal"><span class="pre">previous</span></code>
 command, and will be interpreted as an offset from &#8220;now&#8221;.</p>
-<span id="fig-relative-initial-cycle-point-time-syntax-interpretation"></span><table border="1" class="docutils" id="id1">
-<caption><span class="caption-number">Table 1 </span><span class="caption-text">Examples of setting relative initial cycle point for times and offsets using <code class="docutils literal"><span class="pre">now</span> <span class="pre">=</span> <span class="pre">2018-03-14T15:12Z</span></code> (and UTC mode)</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id1">
+<span id="fig-relative-initial-cycle-point-time-syntax-interpretation"></span><caption><span class="caption-number">Table 1 </span><span class="caption-text">Examples of setting relative initial cycle point for times and offsets using <code class="docutils literal"><span class="pre">now</span> <span class="pre">=</span> <span class="pre">2018-03-14T15:12Z</span></code> (and UTC mode)</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="67%" />
 <col width="33%" />
@@ -8731,8 +8744,8 @@ is not included, the calculation of the next or previous corresponding
 point will be done from midnight of the current day.
 Examples of interpretation are given in
 <a class="reference internal" href="#fig-relative-initial-cycle-point-date-syntax-interpretation"><span class="std std-numref">Table 2</span></a>.</p>
-<span id="fig-relative-initial-cycle-point-date-syntax-interpretation"></span><table border="1" class="docutils" id="id2">
-<caption><span class="caption-number">Table 2 </span><span class="caption-text">Examples of setting relative initial cycle point for dates using <code class="docutils literal"><span class="pre">now</span> <span class="pre">=</span> <span class="pre">2018-03-14T15:12Z</span></code> (and UTC mode)</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id2">
+<span id="fig-relative-initial-cycle-point-date-syntax-interpretation"></span><caption><span class="caption-number">Table 2 </span><span class="caption-text">Examples of setting relative initial cycle point for dates using <code class="docutils literal"><span class="pre">now</span> <span class="pre">=</span> <span class="pre">2018-03-14T15:12Z</span></code> (and UTC mode)</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="67%" />
 <col width="33%" />
@@ -10967,32 +10980,42 @@ is not specified on the command line via the <code class="docutils literal"><spa
 <h6>15.2.10.7.1. [suite servers] <code class="docutils literal"><span class="pre">-&gt;</span></code> [[run host select]] <code class="docutils literal"><span class="pre">-&gt;</span></code> rank<a class="headerlink" href="#suite-servers-run-host-select-rank" title="Permalink to this headline">¶</a></h6>
 <p>The method to use to rank the <code class="docutils literal"><span class="pre">run</span> <span class="pre">host</span></code> list in order of
 suitability.</p>
-<ul class="simple">
-<li><em>type</em>: string (which must be one of the options outlined below)</li>
-<li><em>default</em>: <code class="docutils literal"><span class="pre">random</span></code></li>
-<li><em>options</em>:<ul>
-<li><strong>random</strong> - shuffle the hosts to select a host at random</li>
-<li><strong>load:1</strong> - rank and select for the lowest load average over
-1 minute (as given by the <code class="docutils literal"><span class="pre">uptime</span></code> command)</li>
-<li><strong>load:5</strong> - as for <code class="docutils literal"><span class="pre">load:1</span></code> above, but over 5 minutes</li>
-<li><strong>load:15</strong> - as for <code class="docutils literal"><span class="pre">load:1</span></code> above, but over 15 minutes</li>
+<ul>
+<li><p class="first"><em>type</em>: string (which must be one of the options outlined below)</p>
+</li>
+<li><p class="first"><em>default</em>: <code class="docutils literal"><span class="pre">random</span></code></p>
+</li>
+<li><p class="first"><em>options</em>:</p>
+<ul>
+<li><p class="first"><strong>random</strong> - shuffle the hosts to select a host at random</p>
+</li>
+<li><p class="first"><strong>load:1</strong> - rank and select for the lowest load average over
+1 minute (as given by the <code class="docutils literal"><span class="pre">uptime</span></code> command)</p>
+</li>
+<li><p class="first"><strong>load:5</strong> - as for <code class="docutils literal"><span class="pre">load:1</span></code> above, but over 5 minutes</p>
+</li>
+<li><p class="first"><strong>load:15</strong> - as for <code class="docutils literal"><span class="pre">load:1</span></code> above, but over 15 minutes</p>
+</li>
 <li><dl class="first docutils">
 <dt><strong>memory</strong> - rank and select for the highest usable memory i.e.</dt>
-<dd>free memory plus memory in the buffer cache (&#8216;buffers&#8217;) and in the
-page cache (&#8216;cache&#8217;), as specified under <code class="docutils literal"><span class="pre">/proc/meminfo</span></code></dd>
+<dd><p class="first last">free memory plus memory in the buffer cache (&#8216;buffers&#8217;) and in the
+page cache (&#8216;cache&#8217;), as specified under <code class="docutils literal"><span class="pre">/proc/meminfo</span></code></p>
+</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><strong>disk-space:PATH</strong> - rank and select for the highest free disk</dt>
-<dd>space for a given mount directory path <code class="docutils literal"><span class="pre">PATH</span></code> as given by
+<dd><p class="first last">space for a given mount directory path <code class="docutils literal"><span class="pre">PATH</span></code> as given by
 the <code class="docutils literal"><span class="pre">df</span></code> command, where multiple paths may be specified
 individually i.e. via <code class="docutils literal"><span class="pre">disk-space:PATH_1</span></code> and
-<code class="docutils literal"><span class="pre">disk-space:PATH_2</span></code>, etc.</dd>
+<code class="docutils literal"><span class="pre">disk-space:PATH_2</span></code>, etc.</p>
+</dd>
 </dl>
 </li>
 </ul>
 </li>
-<li><em>default</em>: (none)</li>
+<li><p class="first"><em>default</em>: (none)</p>
+</li>
 </ul>
 </div>
 <div class="section" id="suite-servers-run-host-select-thresholds">
@@ -11946,7 +11969,7 @@ administration, and security.</td></tr>
 ordinary non-cycling workflows.
 For detailed documentation see the Cylc User Guide (cylc doc --help).
 
-Version 7.8.4
+Version 7.8.5
 
 The graphical user interface for cylc is &quot;gcylc&quot; (a.k.a. &quot;cylc gui&quot;).
 
@@ -12078,6 +12101,7 @@ COMMANDS:
   poll ........................................ Poll submitted or running tasks
   print ....................................... Print registered suites
   profile-battery ............................. Run a battery of profiling tests
+  ref-graph ................................... Print text-format &quot;reference graphs&quot; without GTK
   register .................................... Register a suite for use
   release|unhold .............................. Release (unpause) suites or individual tasks
   reload ...................................... Reload the suite definition at run time
@@ -12230,6 +12254,7 @@ COMMANDS:
   jobscript ....... Generate a task job script and print it to stdout
   list|ls ......... List suite tasks and family namespaces
   print ........... Print registered suites
+  ref-graph ....... Print text-format &quot;reference graphs&quot; without GTK
   register ........ Register a suite for use
   search|grep ..... Search in suite definitions
   validate ........ Parse and validate suite definitions
@@ -12611,7 +12636,7 @@ Arguments:
 
 Options:
   -h, --help            show this help message and exit
-  -e, --error           Exit with error status if 7.8.4 is not available on
+  -e, --error           Exit with error status if 7.8.5 is not available on
                         all remote accounts.
   -v, --verbose         Verbose output mode.
   --debug               Output developer information and show exception
@@ -13416,7 +13441,11 @@ Options:
      Plot SUITE dependencies to a file FILE with a extension-derived format.
      If FILE endswith &quot;.png&quot;, output in PNG format, etc.
 
-Plot suite dependency graphs in an interactive graph viewer.
+Plot suite dependency graphs in an interactive graph viewer, or (with
+&quot;--output-file&quot;) directly to image file.
+
+See also &quot;cylc ref-graph&quot; to generate the plain text &quot;reference&quot; graph format
+without the need for PyGTK to be installed.
 
 If START is given it overrides &quot;[visualization] initial cycle point&quot; to
 determine the start point of the graph, which defaults to the suite initial
@@ -14534,8 +14563,62 @@ Options:
 </pre></div>
 </div>
 </div>
+<div class="section" id="ref-graph">
+<span id="command-ref-graph"></span><h5>15.6.3.50. ref-graph<a class="headerlink" href="#ref-graph" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: Usage:
+    cylc ref-graph SUITE [START] [STOP]
+
+Implement the old ``cylc graph --reference command`` for producing a
+text-format representation of a suite graph.
+
+The `--reference` flag is optional here.
+
+THIS IS A BACK-PORT OF the Python 3 bin/cylc-graph FOR CYLC 8, TO GENERATE
+TEXT-FORMAT &quot;REFERENCE GRAPHS&quot; WITHOUT THE NEED FOR PYGTK TO BE INSTALLED.
+
+Arguments:
+   [SUITE]               Suite name or path
+   [START]               Initial cycle point (default: suite initial point)
+   [STOP]                Final cycle point (default: initial + 3 points)
+
+Options:
+  -h, --help            show this help message and exit
+  -u, --ungrouped       Start with task families ungrouped (the default is
+                        grouped).
+  -n, --namespaces      Plot the suite namespace inheritance hierarchy (task
+                        run time properties).
+  -r, --reference       Output in a sorted plain text format for comparison
+                        purposes.
+  --show-suicide        Show suicide triggers.  They are not shown by default,
+                        unless toggled on with the tool bar button.
+  --icp=CYCLE_POINT     Set initial cycle point. Required if not defined in
+                        suite.rc.
+  --user=USER           Other user account name. This results in command
+                        reinvocation on the remote account.
+  --host=HOST           Other host name. This results in command reinvocation
+                        on the remote account.
+  -v, --verbose         Verbose output mode.
+  --debug               Output developer information and show exception
+                        tracebacks.
+  --suite-owner=OWNER   Specify suite owner
+  -s NAME=VALUE, --set=NAME=VALUE
+                        Set the value of a Jinja2 template variable in the
+                        suite definition. This option can be used multiple
+                        times on the command line. NOTE: these settings
+                        persist across suite restarts, but can be set again on
+                        the &quot;cylc restart&quot; command line if they need to be
+                        overridden.
+  --set-file=FILE       Set the value of Jinja2 template variables in the
+                        suite definition from a file containing NAME=VALUE
+                        pairs (one per line). NOTE: these settings persist
+                        across suite restarts, but can be set again on the
+                        &quot;cylc restart&quot; command line if they need to be
+                        overridden.
+</pre></div>
+</div>
+</div>
 <div class="section" id="register">
-<span id="command-register"></span><h5>15.6.3.50. register<a class="headerlink" href="#register" title="Permalink to this headline">¶</a></h5>
+<span id="command-register"></span><h5>15.6.3.51. register<a class="headerlink" href="#register" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [prep] register [OPTIONS] [REG] [PATH]
 
 Register the name REG for the suite definition in PATH. The suite server
@@ -14590,7 +14673,7 @@ Options:
 </div>
 </div>
 <div class="section" id="release">
-<span id="command-release"></span><h5>15.6.3.51. release<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h5>
+<span id="command-release"></span><h5>15.6.3.52. release<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] release|unhold [OPTIONS] REG [TASK_GLOB ...]
 
 Release a held suite or tasks.
@@ -14670,7 +14753,7 @@ Options:
 </div>
 </div>
 <div class="section" id="reload">
-<span id="command-reload"></span><h5>15.6.3.52. reload<a class="headerlink" href="#reload" title="Permalink to this headline">¶</a></h5>
+<span id="command-reload"></span><h5>15.6.3.53. reload<a class="headerlink" href="#reload" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] reload [OPTIONS] REG
 
 Tell a suite to reload its definition at run time. All settings
@@ -14733,7 +14816,7 @@ Options:
 </div>
 </div>
 <div class="section" id="remote-init">
-<span id="command-remote-init"></span><h5>15.6.3.53. remote-init<a class="headerlink" href="#remote-init" title="Permalink to this headline">¶</a></h5>
+<span id="command-remote-init"></span><h5>15.6.3.54. remote-init<a class="headerlink" href="#remote-init" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [task] remote-init [--indirect-comm=ssh] UUID RUND
 
 (This command is for internal use.)
@@ -14774,7 +14857,7 @@ Options:
 </div>
 </div>
 <div class="section" id="remote-tidy">
-<span id="command-remote-tidy"></span><h5>15.6.3.54. remote-tidy<a class="headerlink" href="#remote-tidy" title="Permalink to this headline">¶</a></h5>
+<span id="command-remote-tidy"></span><h5>15.6.3.55. remote-tidy<a class="headerlink" href="#remote-tidy" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [task] remote-tidy RUND
 
 (This command is for internal use.)
@@ -14798,7 +14881,7 @@ Options:
 </div>
 </div>
 <div class="section" id="remove">
-<span id="command-remove"></span><h5>15.6.3.55. remove<a class="headerlink" href="#remove" title="Permalink to this headline">¶</a></h5>
+<span id="command-remove"></span><h5>15.6.3.56. remove<a class="headerlink" href="#remove" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] remove [OPTIONS] REG TASK_GLOB [...]
 
 Remove one or more task instances from a running suite.
@@ -14876,7 +14959,7 @@ Options:
 </div>
 </div>
 <div class="section" id="report-timings">
-<span id="command-report-timings"></span><h5>15.6.3.56. report-timings<a class="headerlink" href="#report-timings" title="Permalink to this headline">¶</a></h5>
+<span id="command-report-timings"></span><h5>15.6.3.57. report-timings<a class="headerlink" href="#report-timings" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [util] report-timings [OPTIONS] REG
 
 Retrieve suite timing information for wait and run time performance analysis.
@@ -14930,7 +15013,7 @@ Options:
 </div>
 </div>
 <div class="section" id="reset">
-<span id="command-reset"></span><h5>15.6.3.57. reset<a class="headerlink" href="#reset" title="Permalink to this headline">¶</a></h5>
+<span id="command-reset"></span><h5>15.6.3.58. reset<a class="headerlink" href="#reset" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] reset [OPTIONS] REG [TASK_GLOB ...]
 
 Force task instances to a specified state.
@@ -15022,7 +15105,7 @@ Options:
 </div>
 </div>
 <div class="section" id="restart">
-<span id="command-restart"></span><h5>15.6.3.58. restart<a class="headerlink" href="#restart" title="Permalink to this headline">¶</a></h5>
+<span id="command-restart"></span><h5>15.6.3.59. restart<a class="headerlink" href="#restart" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] restart [OPTIONS] [REG]
 
 Start a suite run from the previous state. To start from scratch (cold or warm
@@ -15104,7 +15187,7 @@ Options:
 </div>
 </div>
 <div class="section" id="review">
-<span id="command-review"></span><h5>15.6.3.59. review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h5>
+<span id="command-review"></span><h5>15.6.3.60. review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [info] review [OPTIONS] [start [PORT]] [stop]
 
 Start/stop ad-hoc Cylc Review web service server for browsing users&#39; suite
@@ -15129,7 +15212,7 @@ Options:
 </div>
 </div>
 <div class="section" id="run">
-<span id="command-run"></span><h5>15.6.3.60. run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h5>
+<span id="command-run"></span><h5>15.6.3.61. run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] run|start [OPTIONS] [[REG] [START_POINT] ]
 
 Start a suite run from scratch, ignoring dependence prior to the start point.
@@ -15223,7 +15306,7 @@ Options:
 </div>
 </div>
 <div class="section" id="scan">
-<span id="command-scan"></span><h5>15.6.3.61. scan<a class="headerlink" href="#scan" title="Permalink to this headline">¶</a></h5>
+<span id="command-scan"></span><h5>15.6.3.62. scan<a class="headerlink" href="#scan" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [discovery] scan [OPTIONS] [HOSTS ...]
 
 Print information about running suites.
@@ -15303,7 +15386,7 @@ Options:
 </div>
 </div>
 <div class="section" id="scp-transfer">
-<span id="command-scp-transfer"></span><h5>15.6.3.62. scp-transfer<a class="headerlink" href="#scp-transfer" title="Permalink to this headline">¶</a></h5>
+<span id="command-scp-transfer"></span><h5>15.6.3.63. scp-transfer<a class="headerlink" href="#scp-transfer" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [util] scp-transfer [OPTIONS]
 
 An scp wrapper for transferring a list of files and/or directories
@@ -15326,7 +15409,7 @@ Options:
 </div>
 </div>
 <div class="section" id="search">
-<span id="command-search"></span><h5>15.6.3.63. search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h5>
+<span id="command-search"></span><h5>15.6.3.64. search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [prep] search|grep [OPTIONS] SUITE PATTERN [PATTERN2...]
 
 Search for pattern matches in suite definitions and any files in the
@@ -15362,7 +15445,7 @@ Options:
 </div>
 </div>
 <div class="section" id="set-verbosity">
-<span id="command-set-verbosity"></span><h5>15.6.3.64. set-verbosity<a class="headerlink" href="#set-verbosity" title="Permalink to this headline">¶</a></h5>
+<span id="command-set-verbosity"></span><h5>15.6.3.65. set-verbosity<a class="headerlink" href="#set-verbosity" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] set-verbosity [OPTIONS] REG LEVEL
 
 Change the logging severity level of a running suite.  Only messages at
@@ -15409,7 +15492,7 @@ Options:
 </div>
 </div>
 <div class="section" id="show">
-<span id="command-show"></span><h5>15.6.3.65. show<a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h5>
+<span id="command-show"></span><h5>15.6.3.66. show<a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [info] show [OPTIONS] REG [TASK_NAME or TASK_GLOB ...]
 
 Query a running suite for:
@@ -15484,7 +15567,7 @@ Options:
 </div>
 </div>
 <div class="section" id="spawn">
-<span id="command-spawn"></span><h5>15.6.3.66. spawn<a class="headerlink" href="#spawn" title="Permalink to this headline">¶</a></h5>
+<span id="command-spawn"></span><h5>15.6.3.67. spawn<a class="headerlink" href="#spawn" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] spawn [OPTIONS] REG [TASK_GLOB ...]
 
 Force task proxies to spawn successors at their own next cycle point.
@@ -15564,7 +15647,7 @@ Options:
 </div>
 </div>
 <div class="section" id="stop">
-<span id="command-stop"></span><h5>15.6.3.67. stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h5>
+<span id="command-stop"></span><h5>15.6.3.68. stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] stop|shutdown [OPTIONS] REG [STOP]
 
 Tell a suite server program to shut down. In order to prevent failures going
@@ -15639,7 +15722,7 @@ Options:
 </div>
 </div>
 <div class="section" id="submit">
-<span id="command-submit"></span><h5>15.6.3.68. submit<a class="headerlink" href="#submit" title="Permalink to this headline">¶</a></h5>
+<span id="command-submit"></span><h5>15.6.3.69. submit<a class="headerlink" href="#submit" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [task] submit|single [OPTIONS] REG TASK [...]
 
 Submit a single task to run just as it would be submitted by its suite.  Task
@@ -15688,7 +15771,7 @@ Options:
 </div>
 </div>
 <div class="section" id="suite-state">
-<span id="command-suite-state"></span><h5>15.6.3.69. suite-state<a class="headerlink" href="#suite-state" title="Permalink to this headline">¶</a></h5>
+<span id="command-suite-state"></span><h5>15.6.3.70. suite-state<a class="headerlink" href="#suite-state" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc suite-state REG [OPTIONS]
 
 Print task states retrieved from a suite database; or (with --task,
@@ -15762,19 +15845,19 @@ Options:
 </div>
 </div>
 <div class="section" id="test-battery">
-<span id="command-test-battery"></span><h5>15.6.3.70. test-battery<a class="headerlink" href="#test-battery" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-none"><div class="highlight"><pre><span></span>   cd &quot;/home/oliverh/cylc/cylc-flow&quot;
+<span id="command-test-battery"></span><h5>15.6.3.71. test-battery<a class="headerlink" href="#test-battery" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-none"><div class="highlight"><pre><span></span>   cd &quot;/home/oliverh/cylc/cylc-flow-7.8.x&quot;
 Usage: cylc test-battery [...]
 
 Run automated Cylc and Parsec tests, under (by default):
-   /home/oliverh/cylc/cylc-flow/tests/.
+   /home/oliverh/cylc/cylc-flow-7.8.x/tests/.
 
 Options and arguments are appended to &quot;prove -j $NPROC -s -r ${@:-tests}&quot;.
 NPROC is the number of concurrent processes to run, which defaults to the
 global config &quot;process pool size&quot; setting.
 
 The tests ignore normal site/user global config and instead use the file:
-   /home/oliverh/cylc/cylc-flow/etc/global-tests.rc
+   /home/oliverh/cylc/cylc-flow-7.8.x/etc/global-tests.rc
 This should specify test job hosts under the [test battery] section, plus any
 other critical settings settings, including [hosts] configuration for test job
 hosts (and special batchview commands like qcat if available). Additional
@@ -15791,14 +15874,14 @@ To change the test file comparision command from &quot;diff -u&quot; do (for exa
 Some test suites submit jobs to the &#39;at&#39; so atd must be up on the job hosts.
 
 Commits or Pull Requests to cylc/cylc-flow on GitHub will trigger Travis CI to
-run generic (non platform-specific) tests - see /home/oliverh/cylc/cylc-flow/.travis.yml.
+run generic (non platform-specific) tests - see /home/oliverh/cylc/cylc-flow-7.8.x/.travis.yml.
 
 By default all tests are executed.  To run just a subset of them:
   * list individual tests or test directories to run on the comand line
   * list individual tests or test directories to skip in $CYLC_TEST_SKIP
   * skip all generic tests with CYLC_TEST_RUN_GENERIC=false
   * skip all platform-specific tests with CYLC_TEST_RUN_PLATFORM=false
-  List specific tests relative to /home/oliverh/cylc/cylc-flow (i.e. starting with &quot;test/&quot;).
+  List specific tests relative to /home/oliverh/cylc/cylc-flow-7.8.x (i.e. starting with &quot;test/&quot;).
 Some platform-specific tests are automatically skipped, depending on platform.
 
 Platform-specific tests must set &quot;CYLC_TEST_IS_GENERIC=false&quot; before sourcing
@@ -15842,7 +15925,7 @@ Re-run failed tests
 </div>
 </div>
 <div class="section" id="trigger">
-<span id="command-trigger"></span><h5>15.6.3.71. trigger<a class="headerlink" href="#trigger" title="Permalink to this headline">¶</a></h5>
+<span id="command-trigger"></span><h5>15.6.3.72. trigger<a class="headerlink" href="#trigger" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [control] trigger [OPTIONS] REG [TASK_GLOB ...]
 
 Manually trigger tasks.
@@ -15929,7 +16012,7 @@ Options:
 </div>
 </div>
 <div class="section" id="upgrade-run-dir">
-<span id="command-upgrade-run-dir"></span><h5>15.6.3.72. upgrade-run-dir<a class="headerlink" href="#upgrade-run-dir" title="Permalink to this headline">¶</a></h5>
+<span id="command-upgrade-run-dir"></span><h5>15.6.3.73. upgrade-run-dir<a class="headerlink" href="#upgrade-run-dir" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [admin] upgrade-run-dir SUITE
 
 For one-off conversion of a suite run directory to cylc-6 format.
@@ -15943,7 +16026,7 @@ Options:
 </div>
 </div>
 <div class="section" id="validate">
-<span id="command-validate"></span><h5>15.6.3.73. validate<a class="headerlink" href="#validate" title="Permalink to this headline">¶</a></h5>
+<span id="command-validate"></span><h5>15.6.3.74. validate<a class="headerlink" href="#validate" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [prep] validate [OPTIONS] SUITE
 
 Validate a suite definition.
@@ -15995,7 +16078,7 @@ Options:
 </div>
 </div>
 <div class="section" id="view">
-<span id="command-view"></span><h5>15.6.3.74. view<a class="headerlink" href="#view" title="Permalink to this headline">¶</a></h5>
+<span id="command-view"></span><h5>15.6.3.75. view<a class="headerlink" href="#view" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [prep] view [OPTIONS] SUITE
 
 View a read-only temporary copy of suite NAME&#39;s suite.rc file, in your
@@ -16060,7 +16143,7 @@ Options:
 </div>
 </div>
 <div class="section" id="warranty">
-<span id="command-warranty"></span><h5>15.6.3.75. warranty<a class="headerlink" href="#warranty" title="Permalink to this headline">¶</a></h5>
+<span id="command-warranty"></span><h5>15.6.3.76. warranty<a class="headerlink" href="#warranty" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-none"><div class="highlight"><pre><span></span>   Usage: cylc [license] warranty [--help]
    Cylc is released under the GNU General Public License v3.0
 This command prints the GPL v3.0 disclaimer of warranty.
@@ -16292,8 +16375,8 @@ and explicit.</p>
 <p>which was in hours (this is a special case discussed below
 in <a class="reference internal" href="#cylc-6-migration-runahead-limit"><span class="std std-ref">Runahead Limit</span></a>).</p>
 <p>See <a class="reference internal" href="#cylc-6-migration-timeout-delays-table"><span class="std std-ref">Table X</span></a>.</p>
-<span id="cylc-6-migration-timeout-delays-table"></span><table border="1" class="docutils" id="id1">
-<caption><span class="caption-number">Table 3 </span><span class="caption-text">Timeout/Delay Syntax Change Examples</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id1">
+<span id="cylc-6-migration-timeout-delays-table"></span><caption><span class="caption-number">Table 3 </span><span class="caption-text">Timeout/Delay Syntax Change Examples</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="63%" />
 <col width="17%" />
@@ -16338,8 +16421,8 @@ configure how many cycle points can run at once (default <code class="docutils l
 <p>See <a class="reference internal" href="index.html#initial-cycle-point"><span class="std std-ref">[scheduling] -&gt; initial cycle point</span></a>.</p>
 <p>The following suite.rc settings have changed name
 (<a class="reference internal" href="#cylc-6-migration-cycle-point-time-table"><span class="std std-ref">Table X</span></a>):</p>
-<span id="cylc-6-migration-cycle-point-time-table"></span><table border="1" class="docutils" id="id2">
-<caption><span class="caption-number">Table 4 </span><span class="caption-text">Cycle Point Renaming</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id2">
+<span id="cylc-6-migration-cycle-point-time-table"></span><caption><span class="caption-number">Table 4 </span><span class="caption-text">Cycle Point Renaming</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="51%" />
 <col width="49%" />
@@ -16372,8 +16455,8 @@ e.g. integers instead of being purely based on date-time.</p>
 the 14th of February 2014.</p>
 <p>Date-times are now required to be ISO 8601 compatible. This can be achieved
 easily enough by inserting a <code class="docutils literal"><span class="pre">T</span></code> between the day and the hour digits.</p>
-<span id="cylc-6-migration-cycle-point-syntax-table"></span><table border="1" class="docutils" id="id3">
-<caption><span class="caption-number">Table 5 </span><span class="caption-text">Cycle Point Syntax Example</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id3">
+<span id="cylc-6-migration-cycle-point-syntax-table"></span><caption><span class="caption-number">Table 5 </span><span class="caption-text">Cycle Point Syntax Example</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="53%" />
 <col width="23%" />
@@ -16420,8 +16503,8 @@ the satellite data processing example documented in <a class="reference internal
 </div>
 <p>Hour-based cycling section names are easy enough to convert, as seen in
 <a class="reference internal" href="#cylc-6-migration-cycling-hours-table"><span class="std std-ref">Table X</span></a>.</p>
-<span id="cylc-6-migration-cycling-hours-table"></span><table border="1" class="docutils" id="id4">
-<caption><span class="caption-number">Table 6 </span><span class="caption-text">Hourly Cycling Sections</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id4">
+<span id="cylc-6-migration-cycling-hours-table"></span><caption><span class="caption-number">Table 6 </span><span class="caption-text">Hourly Cycling Sections</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="49%" />
 <col width="51%" />
@@ -16448,8 +16531,8 @@ the satellite data processing example documented in <a class="reference internal
 </table>
 <p>The graph text in hour-based cycling is also easy to convert, as seen in
 <a class="reference internal" href="#cylc-6-migration-cycling-hours-offset-table"><span class="std std-ref">Table X</span></a>.</p>
-<span id="cylc-6-migration-cycling-hours-offset-table"></span><table border="1" class="docutils" id="id5">
-<caption><span class="caption-number">Table 7 </span><span class="caption-text">Hourly Cycling Offsets</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id5">
+<span id="cylc-6-migration-cycling-hours-offset-table"></span><caption><span class="caption-number">Table 7 </span><span class="caption-text">Hourly Cycling Offsets</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="27%" />
 <col width="73%" />
@@ -17411,13 +17494,13 @@ known numerical instability (e.g. by parsing model job logs) it will succeed,
 triggering a short timestep run. Postprocessing can proceed from either the
 original or the short-step model run, and suicide triggers remove the unused
 path from the workflow:</p>
-<div class="twocol docutils container" id="fig-failure-rec">
-<div class="image docutils container">
+<div class="twocol container" id="fig-failure-rec">
+<div class="image container">
 <div class="figure align-center">
 <img alt="_images/failure-recovery.png" src="_images/failure-recovery.png" />
 </div>
 </div>
-<div class="caption docutils container">
+<div class="caption container">
 <div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[scheduling]</span>
     <span class="nt">[[dependencies]]</span>
         <span class="nv">graph</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -18303,12 +18386,12 @@ suites</em> connected by inter-suite triggering.</p>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
-        <li class="nav-item nav-item-0"><a href="index.html#document-index">The Cylc Suite Engine 7.8.4 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html#document-index">The Cylc Suite Engine 7.8.5 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2008-2019 NIWA &amp; British Crown (Met Office) &amp; Contributors.
-      Last updated on Sep 04, 2019.
+      Last updated on Apr 24, 2020.
     </div>
   </body>
 </html>

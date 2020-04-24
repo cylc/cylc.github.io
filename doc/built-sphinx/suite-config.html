@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>9. Suite Configuration &#8212; The Cylc Suite Engine 7.8.4 documentation</title>
+    <title>9. Suite Configuration &#8212; The Cylc Suite Engine 7.8.5 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '7.8.4',
+        VERSION:     '7.8.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="suite-name-reg.html" title="8. Suite Name Registration"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.4 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.5 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -273,13 +273,13 @@ vary depending on the particular cycle point:</p>
 <p><a class="reference internal" href="#fig-dep-eg-1"><span class="std std-numref">Fig. 22</span></a> shows the complete suite.rc listing alongside
 the suite graph. This is a complete, valid, runnable suite (it will
 use default task runtime properties such as <code class="docutils literal"><span class="pre">script</span></code>).</p>
-<div class="twocol docutils container">
-<div class="image docutils container">
+<div class="twocol container">
+<div class="image container">
 <div class="figure align-center" id="fig-dep-eg-1">
 <img alt="_images/dep-eg-1.png" src="_images/dep-eg-1.png" />
 </div>
 </div>
-<div class="caption docutils container">
+<div class="caption container">
 <p>Example Suite</p>
 <div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[meta]</span>
     <span class="nv">title </span><span class="o">=</span><span class="s"> &quot;Dependency Example 1&quot;</span>
@@ -435,13 +435,13 @@ to generate the final graph.</p>
 tasks; these all share a single cycle point (<code class="docutils literal"><span class="pre">1</span></code>) and don&#8217;t spawn
 successors (once they&#8217;re all finished the suite just exits). The integer
 <code class="docutils literal"><span class="pre">1</span></code> attached to each graph node is just an arbitrary label here.</p>
-<div class="twocol docutils container">
-<div class="image docutils container">
+<div class="twocol container">
+<div class="image container">
 <div class="figure align-center" id="fig-test1">
 <img alt="_images/test1.png" src="_images/test1.png" />
 </div>
 </div>
-<div class="caption docutils container">
+<div class="caption container">
 <p>One-off (Non-Cycling) Tasks.</p>
 <div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[meta]</span>
     <span class="nv">title </span><span class="o">=</span><span class="s"> some one-off tasks</span>
@@ -458,13 +458,13 @@ successors (once they&#8217;re all finished the suite just exits). The integer
 <p>For cycling tasks the graph section heading defines a sequence of cycle points
 for which the subsequent graph section is valid. <a class="reference internal" href="#fig-test2"><span class="std std-numref">Fig. 24</span></a>
 shows a small suite of cycling tasks.</p>
-<div class="twocol docutils container">
-<div class="image docutils container">
+<div class="twocol container">
+<div class="image container">
 <div class="figure align-center" id="fig-test2">
 <img alt="_images/test2.png" src="_images/test2.png" />
 </div>
 </div>
-<div class="caption docutils container">
+<div class="caption container">
 <p>Cycling Tasks.</p>
 <div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[meta]</span>
     <span class="nv">title </span><span class="o">=</span><span class="s"> some cycling tasks</span>
@@ -779,13 +779,13 @@ a single <code class="docutils literal"><span class="pre">prep</span></code> tas
 <p>We can write this using a special case of the <code class="docutils literal"><span class="pre">task[-interval]</span></code> syntax -
 if the interval is null, this implies the task at the initial cycle point.</p>
 <p>For example, we can write our suite like <a class="reference internal" href="#fig-test4"><span class="std std-numref">Fig. 25</span></a>.</p>
-<div class="twocol docutils container">
-<div class="image docutils container">
+<div class="twocol container">
+<div class="image container">
 <div class="figure align-center" id="fig-test4">
 <img alt="_images/test4.png" src="_images/test4.png" />
 </div>
 </div>
-<div class="caption docutils container">
+<div class="caption container">
 <p>Staggered Start Suite</p>
 <div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[cylc]</span>
     <span class="nv">UTC mode </span><span class="o">=</span><span class="s"> True</span>
@@ -819,13 +819,13 @@ if the interval is null, this implies the task at the initial cycle point.</p>
 </div>
 <p>This neatly expresses what we want - a task running at the initial cycle point
 that has one-off dependencies with other task sets at different cycles.</p>
-<div class="twocol docutils container">
-<div class="image docutils container">
+<div class="twocol container">
+<div class="image container">
 <div class="figure align-center" id="fig-test5">
 <img alt="_images/test5.png" src="_images/test5.png" />
 </div>
 </div>
-<div class="caption docutils container">
+<div class="caption container">
 <p>Restricted First Cycle Point Suite</p>
 <div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[cylc]</span>
     <span class="nv">UTC mode </span><span class="o">=</span><span class="s"> True</span>
@@ -1129,13 +1129,13 @@ can only appear on the left <a class="footnote-reference" href="#id11" id="id5">
 triggering requirements, but any valid conditional expression can be
 used, as shown in <a class="reference internal" href="#fig-conditional"><span class="std std-numref">Fig. 28</span></a>
 (conditional triggers are plotted with open arrow heads).</p>
-<div class="twocol docutils container">
-<div class="image docutils container">
+<div class="twocol container">
+<div class="image container">
 <div class="figure align-center" id="fig-conditional">
 <img alt="_images/conditional-triggers.png" src="_images/conditional-triggers.png" />
 </div>
 </div>
-<div class="caption docutils container">
+<div class="caption container">
 <p>Conditional triggers, which are plotted with open arrow heads.</p>
 <div class="highlight-cylc"><div class="highlight"><pre><span></span>        <span class="nv">graph</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="c1"># D triggers if A or (B and C) succeed</span>
@@ -1163,13 +1163,13 @@ suicide triggers, and the open arrowheads indicate conditional triggers
 as usual. Suicide triggers are ignored by default in the graph view, unless
 you toggle them on with <em>View</em> <code class="docutils literal"><span class="pre">-&gt;</span></code> <em>Options</em> <code class="docutils literal"><span class="pre">-&gt;</span></code>
 <em>Ignore Suicide Triggers</em>.</p>
-<div class="twocol docutils container">
-<div class="image docutils container">
+<div class="twocol container">
+<div class="image container">
 <div class="figure align-center" id="fig-suicide">
 <img alt="_images/suicide.png" src="_images/suicide.png" />
 </div>
 </div>
-<div class="caption docutils container">
+<div class="caption container">
 <p>Automated failure recovery via suicide triggers.</p>
 <div class="highlight-cylc"><div class="highlight"><pre><span></span><span class="nt">[meta]</span>
     <span class="nv">title </span><span class="o">=</span><span class="s"> automated failure recovery</span>
@@ -2332,11 +2332,11 @@ considered strings. It is not possible to mix strings with integer ranges.</p>
 </div>
 <p>Then angle brackets denote use of these parameters throughout the suite
 configuration. For the values above, this parameterized name:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>model&lt;run&gt;  # for run = 1..2
+<div class="highlight-none"><div class="highlight"><pre><span></span>model&lt;run&gt;  # for run = 1..5
 </pre></div>
 </div>
 <p>expands to these concrete task names:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>model_run1, model_run2
+<div class="highlight-none"><div class="highlight"><pre><span></span>model_run1, model_run2, model_run3, model_run4, model_run5
 </pre></div>
 </div>
 <p>and this parameterized name:</p>
@@ -3543,12 +3543,12 @@ depend on model background fields generated by the previous forecast.</td></tr>
         <li class="right" >
           <a href="suite-name-reg.html" title="8. Suite Name Registration"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.4 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">The Cylc Suite Engine 7.8.5 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2008-2019 NIWA &amp; British Crown (Met Office) &amp; Contributors.
-      Last updated on Sep 04, 2019.
+      Last updated on Apr 24, 2020.
     </div>
   </body>
 </html>

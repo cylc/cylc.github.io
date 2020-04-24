@@ -15,7 +15,7 @@ Help
    ordinary non-cycling workflows.
    For detailed documentation see the Cylc User Guide (cylc doc --help).
    
-   Version 7.8.4
+   Version 7.8.5
    
    The graphical user interface for cylc is "gcylc" (a.k.a. "cylc gui").
    
@@ -156,6 +156,7 @@ all
      poll ........................................ Poll submitted or running tasks
      print ....................................... Print registered suites
      profile-battery ............................. Run a battery of profiling tests
+     ref-graph ................................... Print text-format "reference graphs" without GTK
      register .................................... Register a suite for use
      release|unhold .............................. Release (unpause) suites or individual tasks
      reload ...................................... Reload the suite definition at run time
@@ -332,6 +333,7 @@ preparation
      jobscript ....... Generate a task job script and print it to stdout
      list|ls ......... List suite tasks and family namespaces
      print ........... Print registered suites
+     ref-graph ....... Print text-format "reference graphs" without GTK
      register ........ Register a suite for use
      search|grep ..... Search in suite definitions
      validate ........ Parse and validate suite definitions
@@ -751,7 +753,7 @@ check-versions
    
    Options:
      -h, --help            show this help message and exit
-     -e, --error           Exit with error status if 7.8.4 is not available on
+     -e, --error           Exit with error status if 7.8.5 is not available on
                            all remote accounts.
      -v, --verbose         Verbose output mode.
      --debug               Output developer information and show exception
@@ -1641,7 +1643,11 @@ graph
         Plot SUITE dependencies to a file FILE with a extension-derived format.
         If FILE endswith ".png", output in PNG format, etc.
    
-   Plot suite dependency graphs in an interactive graph viewer.
+   Plot suite dependency graphs in an interactive graph viewer, or (with
+   "--output-file") directly to image file.
+   
+   See also "cylc ref-graph" to generate the plain text "reference" graph format
+   without the need for PyGTK to be installed.
    
    If START is given it overrides "[visualization] initial cycle point" to
    determine the start point of the graph, which defaults to the suite initial
@@ -2840,6 +2846,64 @@ profile-battery
                            functional changes to an experiment.
      --test                For development purposes, run experiment without
                            saving results and regardless of any prior runs.
+
+
+.. _command-ref-graph:
+
+ref-graph
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: none
+
+      Usage: Usage:
+       cylc ref-graph SUITE [START] [STOP]
+   
+   Implement the old ``cylc graph --reference command`` for producing a
+   text-format representation of a suite graph.
+   
+   The `--reference` flag is optional here.
+   
+   THIS IS A BACK-PORT OF the Python 3 bin/cylc-graph FOR CYLC 8, TO GENERATE
+   TEXT-FORMAT "REFERENCE GRAPHS" WITHOUT THE NEED FOR PYGTK TO BE INSTALLED.
+   
+   Arguments:
+      [SUITE]               Suite name or path
+      [START]               Initial cycle point (default: suite initial point)
+      [STOP]                Final cycle point (default: initial + 3 points)
+   
+   Options:
+     -h, --help            show this help message and exit
+     -u, --ungrouped       Start with task families ungrouped (the default is
+                           grouped).
+     -n, --namespaces      Plot the suite namespace inheritance hierarchy (task
+                           run time properties).
+     -r, --reference       Output in a sorted plain text format for comparison
+                           purposes.
+     --show-suicide        Show suicide triggers.  They are not shown by default,
+                           unless toggled on with the tool bar button.
+     --icp=CYCLE_POINT     Set initial cycle point. Required if not defined in
+                           suite.rc.
+     --user=USER           Other user account name. This results in command
+                           reinvocation on the remote account.
+     --host=HOST           Other host name. This results in command reinvocation
+                           on the remote account.
+     -v, --verbose         Verbose output mode.
+     --debug               Output developer information and show exception
+                           tracebacks.
+     --suite-owner=OWNER   Specify suite owner
+     -s NAME=VALUE, --set=NAME=VALUE
+                           Set the value of a Jinja2 template variable in the
+                           suite definition. This option can be used multiple
+                           times on the command line. NOTE: these settings
+                           persist across suite restarts, but can be set again on
+                           the "cylc restart" command line if they need to be
+                           overridden.
+     --set-file=FILE       Set the value of Jinja2 template variables in the
+                           suite definition from a file containing NAME=VALUE
+                           pairs (one per line). NOTE: these settings persist
+                           across suite restarts, but can be set again on the
+                           "cylc restart" command line if they need to be
+                           overridden.
 
 
 .. _command-register:
@@ -4156,18 +4220,18 @@ test-battery
 
 .. code-block:: none
 
-      cd "/home/oliverh/cylc/cylc-flow"
+      cd "/home/oliverh/cylc/cylc-flow-7.8.x"
    Usage: cylc test-battery [...]
    
    Run automated Cylc and Parsec tests, under (by default):
-      /home/oliverh/cylc/cylc-flow/tests/.
+      /home/oliverh/cylc/cylc-flow-7.8.x/tests/.
    
    Options and arguments are appended to "prove -j $NPROC -s -r ${@:-tests}".
    NPROC is the number of concurrent processes to run, which defaults to the
    global config "process pool size" setting.
    
    The tests ignore normal site/user global config and instead use the file:
-      /home/oliverh/cylc/cylc-flow/etc/global-tests.rc
+      /home/oliverh/cylc/cylc-flow-7.8.x/etc/global-tests.rc
    This should specify test job hosts under the [test battery] section, plus any
    other critical settings settings, including [hosts] configuration for test job
    hosts (and special batchview commands like qcat if available). Additional
@@ -4184,14 +4248,14 @@ test-battery
    Some test suites submit jobs to the 'at' so atd must be up on the job hosts.
    
    Commits or Pull Requests to cylc/cylc-flow on GitHub will trigger Travis CI to
-   run generic (non platform-specific) tests - see /home/oliverh/cylc/cylc-flow/.travis.yml.
+   run generic (non platform-specific) tests - see /home/oliverh/cylc/cylc-flow-7.8.x/.travis.yml.
    
    By default all tests are executed.  To run just a subset of them:
      * list individual tests or test directories to run on the comand line
      * list individual tests or test directories to skip in $CYLC_TEST_SKIP
      * skip all generic tests with CYLC_TEST_RUN_GENERIC=false
      * skip all platform-specific tests with CYLC_TEST_RUN_PLATFORM=false
-     List specific tests relative to /home/oliverh/cylc/cylc-flow (i.e. starting with "test/").
+     List specific tests relative to /home/oliverh/cylc/cylc-flow-7.8.x (i.e. starting with "test/").
    Some platform-specific tests are automatically skipped, depending on platform.
    
    Platform-specific tests must set "CYLC_TEST_IS_GENERIC=false" before sourcing

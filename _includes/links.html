@@ -1,0 +1,7 @@
+<div class="links">
+  {%- for entry in site.menu -%}
+  <div class="link">
+    <a class="page-link" href="{{ entry.url | relative_url }}">{{ entry.text }}</a>
+  </div>
+  {%- endfor -%}
+</div>

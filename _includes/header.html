@@ -1,6 +1,15 @@
-{%- assign default_paths = site.pages | map: "path" -%}
-{%- assign page_paths = site.header_pages | default: default_paths -%}
+{%- comment -%}
+This is the page header, and contains the Cylc logo, and menu.
 
+The menu entries are located in the _config.yml file, in the
+project root.
+
+If you want to add a new menu entry, or modify an existing one,
+change that file and either test locally or in your fork.
+
+The checkbox input elements are used for responsive menu, do
+not remove unless you know what you are doing.
+{%- endcomment -%}
 <header class="flex grow shrink header" role="banner">
   <div class="container jc-space-between header-collapse">
       <div class="flex grow shrink site">
@@ -23,50 +32,12 @@
           </div>
 
           <input type="checkbox" id="toggle-checkbox">
-          <div class="links">
-							<div class="link">
-									<a class="page-link" href="{{ '/' | relative_url }}">(Home)</a>
-							</div>
-							<div class="link">
-									<a class="page-link" href="{{ '/documentation' | relative_url }}">Docs</a>
-							</div>
-							<div class="link">
-									<a class="page-link" href="{{ '/community' | relative_url }}">Sites</a>
-							</div>
-							<div class="link">
-									<a class="page-link" href="{{ '/support' | relative_url }}">Support</a>
-							</div>
-							<div class="link">
-									<a class="page-link" href="{{ '/development' | relative_url }}">Development</a>
-							</div>
-							<div class="link">
-									<a class="page-link" href="{{ '/news' | relative_url }}">News</a>
-							</div>
-          </div>
+          {%- include links.html -%}
         </div>
       </div>
 
     <div class="links">
-				<div class="links">
-						<div class="link">
-								<a class="page-link" href="{{ '/' | relative_url }}">(Home)</a>
-						</div>
-						<div class="link">
-								<a class="page-link" href="{{ '/documentation' | relative_url }}">Docs</a>
-						</div>
-						<div class="link">
-								<a class="page-link" href="{{ '/community' | relative_url }}">Sites</a>
-						</div>
-						<div class="link">
-								<a class="page-link" href="{{ '/support' | relative_url }}">Support</a>
-						</div>
-						<div class="link">
-								<a class="page-link" href="{{ '/development' | relative_url }}">Development</a>
-						</div>
-						<div class="link">
-								<a class="page-link" href="{{ '/news' | relative_url }}">News</a>
-						</div>
-				</div>
+      {%- include links.html -%}
     </div>
   </div>
 </header>

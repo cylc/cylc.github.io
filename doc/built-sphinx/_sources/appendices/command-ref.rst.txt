@@ -15,7 +15,7 @@ Help
    ordinary non-cycling workflows.
    For detailed documentation see the Cylc User Guide (cylc doc --help).
    
-   Version 7.8.5
+   Version 7.8.6
    
    The graphical user interface for cylc is "gcylc" (a.k.a. "cylc gui").
    
@@ -753,7 +753,7 @@ check-versions
    
    Options:
      -h, --help            show this help message and exit
-     -e, --error           Exit with error status if 7.8.5 is not available on
+     -e, --error           Exit with error status if 7.8.6 is not available on
                            all remote accounts.
      -v, --verbose         Verbose output mode.
      --debug               Output developer information and show exception

@@ -41,7 +41,7 @@
       <div class="container herounit">
 
         <div class="flex flex--vertical content">
-				
+
 						<p>Cylc is a <b>general purpose workflow engine</b> that <b>orchestrates
 								cycling workflows very efficiently</b>. It was designed
 							for production weather, climate, and environmental
@@ -146,7 +146,7 @@
 
 						<h3>Why Another Workflow Engine?</h3>
 
-						<p><b>Production Ready:</b> 
+						<p><b>Production Ready:</b>
 						Cylc is not just a research tool. It has been used 24/7 since 2010
 						for production weather forecasting - which is notorious for the size
 						and complexity of its application workflows.</p>
@@ -168,12 +168,12 @@
 						resource and configurable internal constraints.</p>-->
 						<br/>
 
-						<p><b>Open Source:</b> 
+						<p><b>Open Source:</b>
 						Cylc is available on the GPLv3 license and is actively and openly
 						<a href="https://github.com/cylc">developed on GitHub</a>.</p>
 						<br/>
 
-						<p><b>Distributed Architecture:</b> 
+						<p><b>Distributed Architecture:</b>
 						There are no central workflow or database servers to manage, so
 						Cylc has low admin overhead and a small security footprint. Each
 						workflow gets its own ad hoc server program, which runs as the
@@ -185,11 +185,11 @@
 						doesn't even have to be running at the time.</p>
 						<br/>
 
-						<p><b>Distributed Workflows:</b> 
+						<p><b>Distributed Workflows:</b>
 						Cylc easily manages task jobs on multiple remote hosts.</p>
 						<br/>
-						
-						<p><b>Workflow Configuration:</b> 
+
+						<p><b>Workflow Configuration:</b>
 						A human-readable config file, so modest workflows are easy to
 						write, even for non-programmers. This is <b>not</b> <i>"just a
 								static config file"</i> however: efficient programmatic
@@ -209,7 +209,7 @@
 						Cylc is built to transparently use a pool of host VMs, with
 						load balancing at start-up, and it scales arbitrarily well with the
 						number of host VMs. Running workflows can self-migrate to another
-						host at maintenance time. </p> 
+						host at maintenance time. </p>
 						<br/>
 
 						<p><b>Powerful UIs:</b>
@@ -529,29 +529,51 @@
       }
 
       /**
-       * @param {Array} releases - The list of releases.
+       * @param release {{
+       *   name: String,
+       *   published_at: String,
+       *   tag_name: String
+       * }}
+       * @return {string} - Release date formatted as M/D/Y (e.g. 5/14/2020).
+       */
+      function getReleaseDate (release) {
+        return new Date(release.published_at).toLocaleString().split(',')[0]
+      }
+
+      /**
+       * @param {[
+       *   {
+       *     name: String,
+       *     published_at: String,
+       *     tag_name: String
+       *   }
+       * ]} releases - The list of releases.
        */
       function showReleases(releases) {
-        // we only want to iterate over 15 releases...
-        const min = Math.min(releases.length, 15);
-        let foundCylc8Latest = false;
-        let foundCylc7Latest = false;
-        for (let i = 0; i < min; ++i) {
-          const release = releases[i];
-          const name = release.name;
-          const publishedAt = new Date(release.published_at).toLocaleString().split(',')[0];
-          const link = TAGS_URL + release.tag_name;
-          // display latest release metadata
-          if (name.startsWith("cylc-7.9")) {
-            populateLatestReleaseInformation("cylc7", name, link, publishedAt);
-            foundCylc7Latest = true;
-          } else if (name.startsWith("cylc-flow-8")) {
-            populateLatestReleaseInformation("cylc8", name, link, publishedAt);
-            foundCylc8Latest = true;
-          }
-          if (foundCylc7Latest === true && foundCylc8Latest === true) {
-            break;
-          }
+        // show latest Cylc 7 release
+        const latestCylc7 = releases
+          .filter(release => release.name.startsWith("cylc-7.9"))
+          .sort((left, right) => new Date(left.published_at) - new Date(right.published_at))
+          .pop()
+        if (latestCylc7) {
+          populateLatestReleaseInformation(
+            "cylc7",
+            latestCylc7.name,
+            `${TAGS_URL}${latestCylc7.tag_name}`,
+            getReleaseDate(latestCylc7))
+        }
+
+        // show latest Cylc 8 release
+        const latestCylc8 = releases
+          .filter(release => release.name.startsWith("cylc-flow-8"))
+          .sort((left, right) => new Date(left.published_at) - new Date(right.published_at))
+          .pop()
+        if (latestCylc8) {
+          populateLatestReleaseInformation(
+            "cylc8",
+            latestCylc8.name,
+            `${TAGS_URL}${latestCylc8.tag_name}`,
+            getReleaseDate(latestCylc8))
         }
       }
 

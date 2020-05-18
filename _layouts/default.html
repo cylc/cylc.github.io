@@ -542,7 +542,7 @@
           const publishedAt = new Date(release.published_at).toLocaleString().split(',')[0];
           const link = TAGS_URL + release.tag_name;
           // display latest release metadata
-          if (name.startsWith("cylc-7.8")) {
+          if (name.startsWith("cylc-7.9")) {
             populateLatestReleaseInformation("cylc7", name, link, publishedAt);
             foundCylc7Latest = true;
           } else if (name.startsWith("cylc-flow-8")) {

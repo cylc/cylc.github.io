@@ -83,21 +83,46 @@
         padding: 5px;
     }
 
-    .mets, .ncfas, .isenes, .saws {
+    .mets {
        width: 145px;
+       margin-bottom:10px;
     }
 
-    .saws, .agbom, .moes {
+    .isenes {
+       width: 155px;
+       margin-bottom:10px;
+    }
+
+    .ncfas {
+       width: 165px;
+       margin-bottom:10px;
+    }
+
+    .saws {
+       width: 115px;
+    }
+
+    .agbom, .moes {
        width: 105px;
     }
     .nrl, {
        width: 85px;
     }
+
     .coecss, {
-       width: 175px;
+       width: 190px;
+       margin-bottom:10px;
     }
     .korea, .esiwace {
        width: 115px;
+    }
+    .altair {
+       width: 110px;
+       margin-bottom:18px;
+    }
+    .icm {
+       width: 75px;
+       margin-bottom:15px;
     }
 }
 

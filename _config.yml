@@ -63,6 +63,8 @@ menu:
     url: '/community'
   - text: Support
     url: '/support'
+  - text: FAQ
+    url: '/faq'
   - text: Development
     url: '/development'
   - text: News

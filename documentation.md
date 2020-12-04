@@ -16,11 +16,6 @@ Note that **SUITE** is just another word for **WORKFLOW** in Cylc docs
 
 ## The Cylc User Guide
 
-**NOTE** The current online User Guide is for **cylc-7.8.6**. The newer
-**cylc-7.9.1** release is identical except that it bundles a newer version of
-Jinja2 and requires Python 2.7 (cylc-7.8.x is compatible with Python 2.6 and
-2.7; cylc-7.9.x only with Pyton 2.7).
-
 * [User Guide]({{ '/doc/build/7.8.7/html/index.html' | relative_url}})
 
 ## Publications

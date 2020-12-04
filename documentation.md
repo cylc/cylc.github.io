@@ -21,8 +21,7 @@ Note that **SUITE** is just another word for **WORKFLOW** in Cylc docs
 Jinja2 and requires Python 2.7 (cylc-7.8.x is compatible with Python 2.6 and
 2.7; cylc-7.9.x only with Pyton 2.7).
 
-* [Multi-Page version]({{ '/doc/built-sphinx/index.html' | relative_url}}) (with word search box)
-* [Single-Page version]({{ '/doc/built-sphinx-single/index.html' | relative_url}}) (search with browser Ctrl-F)
+* [User Guide]({{ '/doc/build/7.8.7/html/index.html' | relative_url}})
 
 ## Publications
 

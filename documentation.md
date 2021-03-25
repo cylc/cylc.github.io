@@ -16,8 +16,9 @@ Note that **SUITE** is just another word for **WORKFLOW** in Cylc docs
 
 ## The Cylc User Guide
 
-* [User Guide (multi-page)]({{ '/doc/build/7.8.7/html/index.html' | relative_url}})
-* [User Guide (single-page)]({{ '/doc/build/7.8.7/singlehtml/index.html' | relative_url}})
+* [stable release (Cylc 7)](https://cylc.github.io/cylc-doc/stable/html/index.html)
+  * ([single page version]({{ '/doc/build/7.8.7/singlehtml/index.html' | relative_url}}))
+* [latest release (Cylc 8)](https://cylc.github.io/cylc-doc/latest/html/index.html)
 
 ## Publications
 

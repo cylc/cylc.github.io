@@ -58,11 +58,13 @@ menu:
   - text: Home
     url: '/'
   - text: Docs
-    url: '/documentation'
+    url: '/cylc-doc/index.html'
   - text: Sites
     url: '/community'
   - text: Support
     url: '/support'
+  - text: FAQ
+    url: '/faq'
   - text: Development
     url: '/development'
   - text: News

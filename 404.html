@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  </head>
+  <body
+    style="
+      margin: 0;
+      font-family: sans-serif;
+    "
+  >
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      "
+    >
+      <div
+        style="
+          text-align: center;
+        "
+      >
+        <img
+         src="/img/cylc-logo.svg"
+        />
+        <h1
+          id="redirect-notice"
+        >
+          404 - Page Not Found
+        </h1>
+        <a
+          id="redirect"
+          href="http://www.cylc.org"
+          style="
+            font-size: 30px;
+            text-decoration: none;
+            border-radius: 10px;
+            background-color: rgb(78,179,247);
+            padding: 10px;
+            color: white;
+          "
+        >
+          Home
+        </a>
+      </div>
+    </div>
+    <script type="text/javascript">
+      // the new path to the default version & format of the docs
+      const newDocRoot = ['cylc-doc', 'stable', 'html']
+
+      function compareArrays(a1, a2) {
+        if (a1.length != a2.length) {
+          return false;
+        }
+        return a1.every(function(val, ind) {
+          return val === a2[ind];
+        });
+      }
+
+      function getRedirect() {
+        const parts = window.location.pathname.split('/');
+        if (compareArrays(parts, ['', 'documentation', ''])) {
+          // the old documentation landing page
+          return newDocRoot;
+        }
+        if (compareArrays(parts.slice(0, 3), ['', 'cylc.github.io', 'doc'])) {
+          // the old documentation root dir
+          return newDocRoot.concat(parts.slice(4));
+        }
+        return false;
+      }
+
+      const redirect = getRedirect();
+      if (redirect) {
+        // get the redirect url
+        var url = '/' + redirect.join('/');
+        // add the url fragment if present
+        if (window.location.hash) {
+          url = url + window.location.hash;
+        }
+        // change the redirect notice
+        document.getElementById('redirect-notice')
+          .innerText = 'Page Moved';
+        document.getElementById('redirect')
+          .href = url;
+        document.getElementById('redirect')
+          .innerText = url;
+      }
+    </script>
+  </body>
+</html>

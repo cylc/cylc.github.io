@@ -64,9 +64,16 @@
           // the old documentation landing page
           return newDocRoot;
         }
-        if (compareArrays(parts.slice(0, 3), ['', 'cylc.github.io', 'doc'])) {
+        if (
+          compareArrays(parts.slice(0, 3), ['', 'cylc.github.io', 'doc'])
+          || compareArrays(parts.slice(0, 3), ['', 'doc', 'built-sphinx'])
+        ) {
           // the old documentation root dir
           return newDocRoot.concat(parts.slice(4));
+        }
+        if (compareArrays(parts.slice(0, 2), ['', 'doc'])) {
+          // the old documentation landing page
+          return newDocRoot.concat(parts.slice(3));
         }
         return false;
       }

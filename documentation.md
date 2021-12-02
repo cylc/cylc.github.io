@@ -3,13 +3,8 @@ layout: home
 title: Documentation
 permalink: /documentation/
 ---
-# Cylc Documentation
-{:.no_toc}
 
-* replace-me
-{:toc}
-
-## Cylc Online Documentation
+## Published Online Documentation
 
 * [stable release (Cylc 7)](https://cylc.github.io/cylc-doc/stable/html/index.html)
 * [latest release (Cylc 8)](https://cylc.github.io/cylc-doc/latest/html/index.html)

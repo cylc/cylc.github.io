@@ -59,7 +59,7 @@ menu:
   - text: Home
     url: '/'
   - text: Docs
-    url: 'https://cylc.github.io/cylc-doc/stable/html/index.html'
+    url: '/documentation'
   - text: Sites
     url: '/community'
   - text: Support

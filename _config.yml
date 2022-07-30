@@ -69,13 +69,13 @@ sass:
 menu:
   - text: Home
     url: '/'
-  - text: Docs
+  - text: Documentaion
     url: '/cylc-doc/stable/html'
   - text: Sites
     url: '/community'
   - text: Support
     url: '/support'
-  - text: Development
+  - text: Dev
     url: '/development'
   - text: News
     url: '/news'

@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: C Y L C
+title: Cylc
 email: hilary.oliver@niwa.co.nz
 description: >- # this means to ignore newlines until "baseurl:"
   The Cylc Workflow Engine
@@ -59,7 +59,7 @@ menu:
   - text: Home
     url: '/'
   - text: Docs
-    url: '/documentation'
+    url: '/cylc-doc/stable/html'
   - text: Sites
     url: '/community'
   - text: Support

@@ -54,30 +54,31 @@
         </div>
 
         <div class="flex flex--vertical release jc-space-around">
-            <div class="flex flex--vertical">
-          <div class="flex download-buttons">
-            <div class="flex flex--vertical m-r">
-              <label>Production</label>
-              <a class="flex grow" id="cylc7-button">
-                <button class="button flex grow">
-                    <img src={{'/assets/icon-download.svg' | relative_url}} />
-                    <span id="cylc7-latest-release-name"></span>
-                </button>
-              </a>
-              <label id="cylc7-latest-release-pubdate-text"></label>
-            </div>
+          <div class="flex flex--vertical">
+            <div class="flex download-buttons">
 
-            <div class="flex flex--vertical m-l">
-                <label>Preview</label>
-                <a class="flex grow" id="cylc8-button">
-                  <button class="button flex grow">
-                    <img src={{'/assets/icon-download.svg' | relative_url}} />
-                    <span id="cylc8-latest-release-name"></span>
-                  </button>
-                </a>
-                <label id="cylc8-latest-release-pubdate-text"></label>
-              </div>
-          </div>
+                <div class="flex flex--vertical m-r">
+                  <label>Latest (Python 3)</label>
+                  <a class="flex grow" id="cylc8-button">
+                    <button class="button flex grow">
+                      <img src={{'/assets/icon-download.svg' | relative_url}} />
+                      <span id="cylc8-latest-release-name"></span>
+                    </button>
+                  </a>
+                  <label id="cylc8-latest-release-pubdate-text"></label>
+                </div>
+
+                <div class="flex flex--vertical m-l">
+                  <label>Legacy (Python 2)</label>
+                  <a class="flex grow" id="cylc7-button">
+                    <button class="button flex grow">
+                      <img src={{'/assets/icon-download.svg' | relative_url}} />
+                      <span id="cylc7-latest-release-name"></span>
+                    </button>
+                  </a>
+                  <label id="cylc7-latest-release-pubdate-text"></label>
+                </div>
+            </div>
 
               <h3 class="flex jc-center">Next Release:&nbsp;
                 <a class="page-link" id="milestone-url" target="_blank"><span

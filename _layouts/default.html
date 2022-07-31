@@ -46,7 +46,7 @@
               Cylc is a <b>general purpose workflow engine</b> that also
               orchestrates <b>cycling systems</b> very efficiently.
               It is used in production weather, climate, and environmental
-              forecasting but is not specialized to those domains.
+              forecasting on HPC, but is not specialized to those domains.
               </p>
 
               <p>
@@ -116,7 +116,7 @@
                   <ul>
                     <li>Fast catch-up from delays</li>
                     <li>Sustained high throughput off the clock</li>
-                    <li>Seamless transition between fast catch-up and
+                    <li>Seamless transitions between fast catch-up and
                       clock-limited real-time scheduling</li>
                   </ul>
                   </p>
@@ -135,58 +135,73 @@
         <div class="flex">
           <div class="container flex--vertical">
 
-            <h3>Why Another Workflow Engine?</h3>
+            <h3>Why Use Cylc?</h3>
 
             <b>Production Ready</b>
-            <ul style="margin-top:0">
-              <li>Cylc is used 24/7 in production weather forecasting, which is
+            <ul>
+              <li>Cylc is used 24/7 in production weather forecasting,
                 notorious for the size and complexity of its workflows.</li>
             </ul>
 
-            <b>Efficient Cycling</b>
-            <ul style="margin-top:0">
-              <li><i>ISO 8601 date-time cycling</i> for real time cycling applications</li>
-              <li><i>integer cycling</i> for repetitive and iterative workflows</li>
-              <li>At NIWA, Cylc's cycling interleaving cut ~24 hours of
-                catch-up time, after delays, down to ~30 minutes.
-              </li>
-            </ul>
-
-            <b>Scaling</b>
-            <ul style="margin-top:0">
-              <li>Cylc is distributed: each workflow gets its own scheduler
-                that runs as the user and relies only on the filesystem.</li>
-              <li>Schedulers can be spread across a pool of hosts</li>
+            <b>Scales Well</b>
+            <ul>
+              <li>Each workflow gets a scheduler that runs as the user
+                and relies only on the filesystem.</li>
+              <li>Schedulers can be distributed over a pool of hosts, and
+                  jobs over job platforms.</li>
               <li>Individual workflows scale to thousands of tasks per cycle.</li>
-              <li>Cylc has great support for HPC resource managers like PBS and
-                Slurm. It can also manage background jobs on any Linux host.</li>
             </ul>
  
             <b>Powerful UIs</b>
-            <ul style="margin-top:0">
-              <li>A <b>CLI</b> can target many workflows and tasks at once</li>
-              <li>A Terminal UI <b>Tui</b> to monitor and control workflows</li>
-              <li>A <b>web GUI</b> to monitor and control workflows</li>
+            <ul>
+              <li>The <b>CLI</b> can operate on multiple workflows and tasks.</li>
+              <li>The <b>web GUI</b> is a
+                <a href="https://jupyter-server.readthedocs.io/en/latest/">Jupyter
+                  Server</a> extension.</li>
+              <li>The <b>terminal UI</b> has control capability.</li>
+           </ul>
+
+            <b>Ease of Use</b>
+            <ul>
+                <li>Cylc installs from
+                    <a href="https://conda-forge.org/">Conda Forge</a>
+                       or <a href="https://pypi.org/">PyPI</a> and works
+                    "out of the box" on a Linux host.</li>
+                <li>Small workflows are easy. Many features to help with large,
+                    complex workflows.</li>
+              <li>With no central scheduler or database server, Cylc has low
+                  admin overheads and a small security footprint.</li>
+              <li>Built in support for HPC resource managers like PBS and
+                  Slurm.</li>
+            </ul>
+
+            <b>Multi-User Installations</b>
+            <ul>
+              <li><code>cylc hub</code> leverages <a
+                  href="https://jupyter.org/hub">JupyterHub</a> for
+                authentication and to launch Cylc UI Servers.</li>
+              <li>Fine-grained authorization of control by other users.</li>
+              </ul>
+
+            <b>Advanced Scheduling</b>
+            <ul>
+              <li>Graph branching from optional task outputs.</li>
+              <li>Supports multiple flows in the same workflow, e.g. to
+                re-run a past subgraph while the main flow continues.</li>
+              <li> Start a flow from anywhere in the depedency graph.</li>
+              <li>Cycle interleaving: this cut catch-up from delays from ~24
+                  hours to ~30 minutes at NIWA.</li>
             </ul>
 
             <b>Resilience</b>
-            <ul style="margin-top:0">
-              <li> Configurable task retries for failed jobs</li>
-              <li> Trigger other tasks off of failure (and other states)</li>
-              <li> Restarts from from latest state even if the scheduler host
-                went down, and follow up on orphaned jobs</li>
-              <li> Polling to confirm that jobs are still queued or running
-                as expected (if not, job status is updated accordingly)</li>
-              <li> Full manual job control: poll, kill, or retrigger jobs</li>
-              <li> Event handling - run handler scripts after workflow and tasks events
-            </ul>
-
-            <b>Low Admin Overheads</b>
-            <ul style="margin-top:0">
-              <li>With no central workflow or database servers, Cylc has low
-                admin overheads and a small security footprint.</li>
-              <li> For individuals on a Linux VM, Cylc works out of the box
-                after installing from Conda Forge.</li>
+            <ul>
+              <li>Configurable task retries.</li>
+              <li>Triggering off of all fask states.</li>
+              <li>Comprehensive event handling.</li>
+              <li>Manual job control: poll, kill, or retrigger jobs.</li>
+              <li>Restart from latest state even if the scheduler was killed,
+                  and follow up on orphaned jobs.</li>
+              <li>Cylc is cluster-aware: it can interact with jobs via multiple hosts.</li>
             </ul>
 
           </div>
@@ -195,10 +210,10 @@
         <div class="flex usecase bg-grey">
           <div class="container flex--vertical">
             <h3 id="publications">Publications and Reports</h3>
-            <p><b>If you use Cylc</b> please cite it in your
+            <p><kb>If you use Cylc</b> please cite it in your
             publications and <a href="community#user-support">let us
-              know</a> if your organization should be <a
-                                                        href="community#sites-using-cylc">listed on this website</a>.
+              know</a> if your site can be
+          <a href="community#sites-using-cylc">listed on this website</a>.
             </p>
 
             <p style="margin-left:30px">

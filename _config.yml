@@ -31,11 +31,9 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: ""
 url: "https://cylc.github.io" 
 
-# Developer bob's fork, for testing changes:
+# DEVELOPER FORK (GH user "bob") for testing changes:
 # baseurl: "/cylc.github.io"
 # url: "https://bob.github.io/cylc.github.io"
-baseurl: "/cylc.github.io" # the subpath of your site, e.g. /blog (NEEDED FOR DEV FORKS!)
-url: "https://hjoliver.github.io/cylc.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 theme: minima

@@ -23,8 +23,17 @@ email: hilary.oliver@niwa.co.nz
 description: >- # this means to ignore newlines until "baseurl:"
   The Cylc Workflow Engine
   Production workflow orchestration for cycling systems
-baseurl: "" # the subpath of your site, e.g. /blog (NEEDED FOR DEV FORKS!)
-url: "https://cylc.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
+# baseurl:  # the subpath of your site, e.g. /blog
+# url:  # the base hostname & protocol for your site, e.g. http://example.com
+
+# Main repo:
+baseurl: ""
+url: "https://cylc.github.io" 
+
+# DEVELOPER FORK (GH user "bob") for testing changes:
+# baseurl: "/cylc.github.io"
+# url: "https://bob.github.io/cylc.github.io"
 
 # Build settings
 theme: minima
@@ -58,13 +67,13 @@ sass:
 menu:
   - text: Home
     url: '/'
-  - text: Docs
+  - text: Documentaion
     url: '/cylc-doc/stable/html'
   - text: Sites
     url: '/community'
   - text: Support
     url: '/support'
-  - text: Development
+  - text: Dev
     url: '/development'
   - text: News
     url: '/news'

@@ -67,7 +67,7 @@ sass:
 menu:
   - text: Home
     url: '/'
-  - text: Documentaion
+  - text: Documentation
     url: '/cylc-doc/stable/html'
   - text: Sites
     url: '/community'

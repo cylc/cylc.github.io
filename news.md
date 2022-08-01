@@ -9,11 +9,18 @@ permalink: /news/
 * replace-me
 {:toc}
 
+
+## Cylc 8.0.0 Released (29 July 2022)
+
+After ~3.5 years of planning and development, Cylc has been re-engineered from
+top to bottom for Python 3 and modern web technologies. Cylc 8 is now ready for
+action!
+
 ## CylcCon 2020
 
 Held at NIWA in Wellington, New Zealand (February 10-14) CylcCon 2020 was
 focused on assessing progress to date on Cylc 8, and charting the path to
-completion by early 2021. Delegates came from NIWA (NZ), Met Office (UK), BOM
+completion. Delegates attended from NIWA (NZ), Met Office (UK), BOM
 (Australia), and NRL (US).
 
 [CylcCon 2020 Final Report](https://cylc.github.io/cylc-admin/feb2020-workshop-report)

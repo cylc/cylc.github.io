@@ -7,307 +7,302 @@
 
     {%- include header.html -%}
 
-      <div class="flex users">
-          <div class="container flex--vertical">
-            <div class="flex wrap">
-              <div class="flex flex--vertical">
-                <div class="flex item wrap">
-                    <a href={{'/community' | relative_url}}>
-                      <img src={{'/assets/icon-niwa.png' | relative_url}} class="icon-user niwa" alt="NIWA"/>
-                      <img src={{'/assets/icon-metoffice.svg' | relative_url}} class="icon-user met" alt="Met Office"/>
-                      <img src={{'/assets/icon-airforce.png' | relative_url}} class="icon-user airforce" alt="US Air Force"/>
-                      <img src={{'/assets/icon-nrl-small.jpg' | relative_url}} class="icon-user nrl" alt="US Navy"/>
-                      <img src={{'/assets/icon-agbom.jpeg' | relative_url}} class="icon-user agbom" alt="AGBOM"/>
-                      <img src={{'/assets/icon-csiro.png' | relative_url }} class="icon-user csiro" alt="CSIRO"/>
-                      <img src={{'/assets/icon-moes.jpeg' | relative_url}} class="icon-user moes" alt="MOES"/>
-                      <img src={{'/assets/icon-altair.png' | relative_url}} class="icon-user altair" alt="Altair"/>
-                      <img src={{'/assets/icon-icm.png' | relative_url}} class="icon-user icm" alt="ICM"/>
-                      <img src={{'/assets/icon-korea.png' | relative_url}} class="icon-user korea" alt="Korea"/>
-                      <img src={{'/assets/icon-coecss.png' | relative_url}} class="icon-user coecss" alt="COECSS"/>
-                      <img src={{'/assets/icon-mets.png' | relative_url}} class="icon-user mets" alt="METS"/>
-                      <img src={{'/assets/icon-saws.jpeg' | relative_url}} class="icon-user saws" alt="SAWS"/>
-                      <img src={{'/assets/icon-isenes.png' | relative_url}} class="icon-user isenes" alt="ISENES"/>
-                      <img src={{'/assets/icon-ncfas.png' | relative_url}} class="icon-user ncfas" alt="NCFAS"/>
-                      <img src={{'/assets/icon-esiwace.png' | relative_url}} class="icon-user esiwace" alt="ESIWACE"/>
-                    </a>
-                </div>
-              </div>
+    <div class="flex users">
+      <div class="container flex--vertical">
+        <div class="flex wrap">
+          <div class="flex flex--vertical">
+            <div class="flex item wrap">
+              <a href={{'/community' | relative_url}}>
+                <img src={{'/assets/icon-niwa.png' | relative_url}} class="icon-user niwa" alt="NIWA"/>
+                <img src={{'/assets/icon-metoffice.svg' | relative_url}} class="icon-user met" alt="Met Office"/>
+                <img src={{'/assets/icon-airforce.png' | relative_url}} class="icon-user airforce" alt="US Air Force"/>
+                <img src={{'/assets/icon-nrl-small.jpg' | relative_url}} class="icon-user nrl" alt="US Navy"/>
+                <img src={{'/assets/icon-agbom.jpeg' | relative_url}} class="icon-user agbom" alt="AGBOM"/>
+                <img src={{'/assets/icon-csiro.png' | relative_url }} class="icon-user csiro" alt="CSIRO"/>
+                <img src={{'/assets/icon-moes.jpeg' | relative_url}} class="icon-user moes" alt="MOES"/>
+                <img src={{'/assets/icon-altair.png' | relative_url}} class="icon-user altair" alt="Altair"/>
+                <img src={{'/assets/icon-icm.png' | relative_url}} class="icon-user icm" alt="ICM"/>
+                <img src={{'/assets/icon-korea.png' | relative_url}} class="icon-user korea" alt="Korea"/>
+                <img src={{'/assets/icon-coecss.png' | relative_url}} class="icon-user coecss" alt="COECSS"/>
+                <img src={{'/assets/icon-mets.png' | relative_url}} class="icon-user mets" alt="METS"/>
+                <img src={{'/assets/icon-saws.jpeg' | relative_url}} class="icon-user saws" alt="SAWS"/>
+                <img src={{'/assets/icon-isenes.png' | relative_url}} class="icon-user isenes" alt="ISENES"/>
+                <img src={{'/assets/icon-ncfas.png' | relative_url}} class="icon-user ncfas" alt="NCFAS"/>
+                <img src={{'/assets/icon-esiwace.png' | relative_url}} class="icon-user esiwace" alt="ESIWACE"/>
+              </a>
             </div>
           </div>
         </div>
+      </div>
+    </div>
 
 
-        <div class="flex" aria-label="Content">
-          <div class="container herounit">
+    <div class="flex" aria-label="Content">
+      <div class="container herounit">
+        <div class="flex flex--vertical content">
+          <p>
+            Cylc is a <b>general purpose workflow engine</b> that also
+            orchestrates <b>cycling systems</b> very efficiently.
+            It is used in production weather, climate, and environmental
+            forecasting on HPC, but is not specialized to those domains.
+          </p>
 
-            <div class="flex flex--vertical content">
-
-              <p>
-              Cylc is a <b>general purpose workflow engine</b> that also
-              orchestrates <b>cycling systems</b> very efficiently.
-              It is used in production weather, climate, and environmental
-              forecasting on HPC, but is not specialized to those domains.
-              </p>
-
-              <p>
-              Cylc is an active Open Source project
-              <a href="https://github.com/cylc">on GitHub</a>.
-              <br/>
-              See <a href="#publications">Cylc Publications and Reports</a> below. 
-              </p>
-            </div>
-
-            <div class="flex flex--vertical release">
-              <div class="flex flex--vertical">
-                <div class="flex download-buttons">
-
-                  <div class="flex flex--vertical m-r">
-                    <label>Latest (Python 3)</label>
-                    <a class="flex grow" id="cylc8-button">
-                      <button class="button flex grow">
-                        <img src={{'/assets/icon-download.svg' | relative_url}} />
-                        <span id="cylc8-latest-release-name"></span>
-                      </button>
-                    </a>
-                    <label id="cylc8-latest-release-pubdate-text"></label>
-                  </div>
-
-                  <div class="flex flex--vertical m-l">
-                    <label>Legacy (Python 2)</label>
-                    <a class="flex grow" id="cylc7-button">
-                      <button class="button flex grow">
-                        <img src={{'/assets/icon-download.svg' | relative_url}} />
-                        <span id="cylc7-latest-release-name"></span>
-                      </button>
-                    </a>
-                    <label id="cylc7-latest-release-pubdate-text"></label>
-                  </div>
-                </div>
-
-                <h3 class="flex jc-center">Next Release:&nbsp;
-                  <a class="page-link" id="milestone-url" target="_blank"><span
-                                                          id="milestone-version"></span> (<span
-                                                          id="progress-info"></span>)</a>
-                </h3>
-                <div class="flex">
-                  <div class="progressbar" id="milestone-container">
-                    <div class="progress" id="progress"></div>
-                    <div class="flex label jc-space-between">
-                      <span>0%</span>
-                      <span>100%</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <p>
+            Cylc is an active Open Source project
+            <a href="https://github.com/cylc">on GitHub</a>.
+            <br/>
+            See <a href="#publications">Cylc Publications and Reports</a> below.
+          </p>
         </div>
 
-        <div class="flex usecase bg-grey">
-          <div class="container flex--vertical">
-            <div class="flex screenshot wrap">
-              <div class="flex flex--vertical grow shrink desc">
-                <h3 class="flex">Cylc Does Cycling Properly</h3>
-                <div class="flex flex--vertical">
-                  <p>
-                  Cylc unwinds the cycle loop to get a dependency graph with
-                  no barrier between cycles. This allows interleaved cycles
-                  for:
-                  <ul>
-                    <li>Fast catch-up from delays</li>
-                    <li>Sustained high throughput off the clock</li>
-                    <li>Seamless transitions between fast catch-up and
-                      clock-limited real-time scheduling</li>
-                  </ul>
-                  </p>
-                </div>
-              </div>
-              <div class="flex grow shrink image">
-                <a href="{{'/assets/img/cycling.png' | relative_url}}">
-                  <img style="width:100%; margin-top:40px"
-                       src="{{'/assets/img/cycling-trans.png' | relative_url}}">
+        <div class="flex flex--vertical release">
+          <div class="flex flex--vertical">
+            <div class="flex download-buttons">
+              <div class="flex flex--vertical m-r">
+                <label>Latest (Python 3)</label>
+                <a class="flex grow" id="cylc8-button">
+                  <button class="button flex grow">
+                    <img src={{'/assets/icon-download.svg' | relative_url}} />
+                    <span id="cylc8-latest-release-name"></span>
+                  </button>
                 </a>
+                <label id="cylc8-latest-release-pubdate-text"></label>
+              </div>
+
+              <div class="flex flex--vertical m-l">
+                <label>Legacy (Python 2)</label>
+                <a class="flex grow" id="cylc7-button">
+                  <button class="button flex grow">
+                    <img src={{'/assets/icon-download.svg' | relative_url}} />
+                    <span id="cylc7-latest-release-name"></span>
+                  </button>
+                </a>
+                <label id="cylc7-latest-release-pubdate-text"></label>
+              </div>
+            </div>
+
+            <h3 class="flex jc-center">Next Release:&nbsp;
+                <a class="page-link" id="milestone-url" target="_blank"><span id="milestone-version"></span> (<span id="progress-info"></span>)</a>
+            </h3>
+              <div class="flex">
+                <div class="progressbar" id="milestone-container">
+                  <div class="progress" id="progress"></div>
+                  <div class="flex label jc-space-between">
+                    <span>0%</span>
+                    <span>100%</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="flex">
-          <div class="container flex--vertical">
-
-            <h3>Why Use Cylc?</h3>
-
-            <b>Production Ready</b>
-            <ul>
-              <li>Cylc is used 24/7 in production weather forecasting,
-                notorious for the size and complexity of its workflows.</li>
-            </ul>
-
-            <b>Scaling</b>
-            <ul>
-              <li>Each workflow gets a scheduler that runs as the user
-                and relies only on the filesystem.</li>
-              <li>Schedulers can be distributed over a pool of hosts, and
-                  jobs over job platforms.</li>
-              <li>Individual workflows scale to thousands of tasks per cycle.</li>
-            </ul>
- 
-            <b>Powerful UIs</b>
-            <ul>
-              <li>A <b>CLI</b> that can operate on multiple workflows and tasks at once.</li>
-              <li>A <b>web GUI</b>, served by a
-                <a href="https://jupyter-server.readthedocs.io/en/latest/">Jupyter
-                  Server</a> extension.</li>
-              <li>A <b>terminal UI</b> with control capability.</li>
-           </ul>
-
-            <b>Ease of Use</b>
-            <ul>
-                <li>Cylc installs from
-                    <a href="https://conda-forge.org/">Conda Forge</a>
-                       or <a href="https://pypi.org/">PyPI</a> and works
-                    "out of the box" on a Linux host.</li>
-                <li>Small workflows are easy. Many features to help with large,
-                    complex workflows.</li>
-              <li>With no central scheduler or database server, Cylc has low
-                  admin overheads and a small security footprint.</li>
-              <li>Built in support for HPC resource managers like PBS and
-                  Slurm.</li>
-            </ul>
-
-            <b>Multi-User Installations</b>
-            <ul>
-              <li>Cylc leverages
-                  <a href="https://jupyter.org/hub">JupyterHub</a> for
-                authentication and to launch Cylc UI Servers.</li>
-              <li>Fine-grained authorization of control by other users.</li>
-              </ul>
-
-            <b>Advanced Scheduling</b>
-            <ul>
-              <li>Graph branching from optional task outputs.</li>
-              <li>Supports multiple flows in the same workflow, e.g. to
-                re-run a past subgraph while the main flow continues.</li>
-              <li> Start a flow from anywhere in the depedency graph.</li>
-              <li>Cycle interleaving: this cut catch-up from delays from ~24
-                  hours to ~30 minutes at NIWA.</li>
-            </ul>
-
-            <b>Resilience</b>
-            <ul>
-              <li>Configurable task retries.</li>
-              <li>Triggering off of all task states.</li>
-              <li>Comprehensive event handling.</li>
-              <li>Manual job control: poll, kill, or retrigger jobs.</li>
-              <li>Restart from latest state even if the scheduler was killed,
-                  and follow up on orphaned jobs.</li>
-              <li>Cylc is cluster-aware: it can interact with jobs via multiple platform hosts.</li>
-            </ul>
-
+      <div class="flex usecase bg-grey">
+        <div class="container flex--vertical">
+          <div class="flex screenshot wrap">
+            <div class="flex flex--vertical grow shrink desc">
+              <h3 class="flex">Cylc Does Cycling Properly</h3>
+              <div class="flex flex--vertical">
+                <p>
+                Cylc unwinds the cycle loop to get a dependency graph with
+                no barrier between cycles. This allows interleaved cycles
+                for:
+                <ul>
+                  <li>Fast catch-up from delays</li>
+                  <li>Sustained high throughput off the clock</li>
+                  <li>Seamless transitions between fast catch-up and
+                    clock-limited real-time scheduling</li>
+                </ul>
+                </p>
+              </div>
+            </div>
+            <div class="flex grow shrink image">
+              <a href="{{'/assets/img/cycling.png' | relative_url}}">
+                <img style="width:100%; margin-top:40px"
+                     src="{{'/assets/img/cycling-trans.png' | relative_url}}">
+              </a>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="flex usecase bg-grey">
-          <div class="container flex--vertical">
-            <h3 id="publications">Publications and Reports</h3>
-            <p><kb>If you use Cylc</b> please cite it in your
-            publications and <a href="community#user-support">let us
-              know</a> if your site can be
-          <a href="community#sites-using-cylc">listed on this website</a>.
-            </p>
+      <div class="flex">
+        <div class="container flex--vertical">
 
-            <p style="margin-left:30px">
-            <b>
-              Workflow Automation for Cycling Systems: The
-              Cylc Workflow Engine
-            </b>
-            <br />
-            H. Oliver et al
-            <br />
-            <em>
-              Computing in Science & Engineering Vol
-              21, Issue 4, July/Aug 2019. DOI: 10.1109/MCSE.2019.2906593
-            </em>
-            <br />
-            <a
-              href="https://doi.org/10.1109/MCSE.2019.2906593"
-              >
+          <h3>Why Use Cylc?</h3>
 
-              <svg xmlns="http://www.w3.org/2000/svg"
-                   xmlns:xlink="http://www.w3.org/1999/xlink" width="208"
-                                                              height="20" role="img" aria-label="DOI:
-                                                                      10.1109/MCSE.2019.2906593">
-                <title>DOI: 10.1109/MCSE.2019.2906593</title>
-                <linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
-                <stop offset="1" stop-opacity=".1"/></linearGradient>
-                <clipPath id="r"><rect width="208" height="20" rx="3" fill="#fff"/></clipPath>
-                <g clip-path="url(#r)"><rect width="31" height="20" fill="#555"/>
-                <rect x="31" width="177" height="20" fill="#007ec6"/><rect width="208" height="20" fill="url(#s)"/>
-                </g><g fill="#fff" text-anchor="middle"
-                                   font-family="Verdana,Geneva,DejaVu
-                                                Sans,sans-serif"
-                                   text-rendering="geometricPrecision"
-                                   font-size="110">
-                <text aria-hidden="true" x="165" y="150" fill="#010101"
-                                                         fill-opacity=".3"
-                                                         transform="scale(.1)"
-                                                         textLength="210">DOI</text>
-                <text x="165" y="140" transform="scale(.1)" fill="#fff"
-                                                            textLength="210">DOI</text>
-                <text aria-hidden="true" x="1185" y="150" fill="#010101"
-                                                          fill-opacity=".3"
-                                                          transform="scale(.1)"
-                                                          textLength="1670">
-                10.1109/MCSE.2019.2906593</text>
-                <text x="1185" y="140" transform="scale(.1)" fill="#fff"
-                                                             textLength="1670">10.1109/MCSE.2019.2906593</text></g>
-              </svg>
-            </a>
-            </p>
+          <b>Production Ready</b>
+          <ul>
+            <li>Cylc is used 24/7 in production weather forecasting,
+              notorious for the size and complexity of its workflows.</li>
+          </ul>
 
-            <p style="margin-left:30px">
-            <b>
-              Cylc: A Workflow Engine for Cycling Systems
-            </b>
-            <br />
-            Oliver et al., (2018).
-            <br />
-            <em>
-              Journal of Open Source Software, 3(27), 737.
-              DOI: 10.21105/joss.00737
-            </em>
-            <br />
-            <a
-              href="https://doi.org/10.21105/joss.00737"
-              >
-              <img
-                src="http://joss.theoj.org/papers/10.21105/joss.00737/status.svg"
-                style="width:auto" />
-            </a>
-              <br />
-            </p>
+          <b>Scaling</b>
+          <ul>
+            <li>Each workflow gets a scheduler that runs as the user
+              and relies only on the filesystem.</li>
+            <li>Schedulers can be distributed over a pool of hosts, and
+                jobs over job platforms.</li>
+            <li>Individual workflows scale to thousands of tasks per cycle.</li>
+          </ul>
 
-            <p style="margin-left:30px">
-            <b>
-              Citable DOI for Cylc code releases.
-            </b>
-            <br />
-            <a
-              href="https://zenodo.org/badge/latestdoi/1836229"
-              >
-              <img
-                src="https://zenodo.org/badge/1836229.svg"
-                style="width:auto" />
-            </a>
-            </p>
-            <p>
-            Old (2017):
-            <a href="/assets/cylc-autosub-response.pdf">
-              Cylc response to <i>Assessment Report on Autosubmit, Cylc and ecFlow</i>
-            </a>
-            </p>
-          </div>
+          <b>Powerful UIs</b>
+          <ul>
+            <li>A <b>CLI</b> that can operate on multiple workflows and tasks at once.</li>
+            <li>A <b>web GUI</b>, served by a
+              <a href="https://jupyter-server.readthedocs.io/en/latest/">Jupyter
+                Server</a> extension.</li>
+            <li>A <b>terminal UI</b> with control capability.</li>
+         </ul>
+
+          <b>Ease of Use</b>
+          <ul>
+              <li>Cylc installs from
+                  <a href="https://conda-forge.org/">Conda Forge</a>
+                     or <a href="https://pypi.org/">PyPI</a> and works
+                  "out of the box" on a Linux host.</li>
+              <li>Small workflows are easy. Many features to help with large,
+                  complex workflows.</li>
+            <li>With no central scheduler or database server, Cylc has low
+                admin overheads and a small security footprint.</li>
+            <li>Built in support for HPC resource managers like PBS and
+                Slurm.</li>
+          </ul>
+
+          <b>Multi-User Installations</b>
+          <ul>
+            <li>Cylc leverages
+                <a href="https://jupyter.org/hub">JupyterHub</a> for
+              authentication and to launch Cylc UI Servers.</li>
+            <li>Fine-grained authorization of control by other users.</li>
+            </ul>
+
+          <b>Advanced Scheduling</b>
+          <ul>
+            <li>Graph branching from optional task outputs.</li>
+            <li>Supports multiple flows in the same workflow, e.g. to
+              re-run a past subgraph while the main flow continues.</li>
+            <li> Start a flow from anywhere in the depedency graph.</li>
+            <li>Cycle interleaving: this cut catch-up from delays from ~24
+                hours to ~30 minutes at NIWA.</li>
+          </ul>
+
+          <b>Resilience</b>
+          <ul>
+            <li>Configurable task retries.</li>
+            <li>Triggering off of all task states.</li>
+            <li>Comprehensive event handling.</li>
+            <li>Manual job control: poll, kill, or retrigger jobs.</li>
+            <li>Restart from latest state even if the scheduler was killed,
+                and follow up on orphaned jobs.</li>
+            <li>Cylc is cluster-aware: it can interact with jobs via multiple platform hosts.</li>
+          </ul>
+
         </div>
+      </div>
+
+      <div class="flex usecase bg-grey">
+        <div class="container flex--vertical">
+          <h3 id="publications">Publications and Reports</h3>
+          <p><kb>If you use Cylc</b> please cite it in your
+          publications and <a href="community#user-support">let us
+            know</a> if your site can be
+        <a href="community#sites-using-cylc">listed on this website</a>.
+          </p>
+
+          <p style="margin-left:30px">
+          <b>
+            Workflow Automation for Cycling Systems: The
+            Cylc Workflow Engine
+          </b>
+          <br />
+          H. Oliver et al
+          <br />
+          <em>
+            Computing in Science & Engineering Vol
+            21, Issue 4, July/Aug 2019. DOI: 10.1109/MCSE.2019.2906593
+          </em>
+          <br />
+          <a
+            href="https://doi.org/10.1109/MCSE.2019.2906593"
+            >
+
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" width="208"
+                                                            height="20" role="img" aria-label="DOI:
+                                                                    10.1109/MCSE.2019.2906593">
+              <title>DOI: 10.1109/MCSE.2019.2906593</title>
+              <linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+              <stop offset="1" stop-opacity=".1"/></linearGradient>
+              <clipPath id="r"><rect width="208" height="20" rx="3" fill="#fff"/></clipPath>
+              <g clip-path="url(#r)"><rect width="31" height="20" fill="#555"/>
+              <rect x="31" width="177" height="20" fill="#007ec6"/><rect width="208" height="20" fill="url(#s)"/>
+              </g><g fill="#fff" text-anchor="middle"
+                                 font-family="Verdana,Geneva,DejaVu
+                                              Sans,sans-serif"
+                                 text-rendering="geometricPrecision"
+                                 font-size="110">
+              <text aria-hidden="true" x="165" y="150" fill="#010101"
+                                                       fill-opacity=".3"
+                                                       transform="scale(.1)"
+                                                       textLength="210">DOI</text>
+              <text x="165" y="140" transform="scale(.1)" fill="#fff"
+                                                          textLength="210">DOI</text>
+              <text aria-hidden="true" x="1185" y="150" fill="#010101"
+                                                        fill-opacity=".3"
+                                                        transform="scale(.1)"
+                                                        textLength="1670">
+              10.1109/MCSE.2019.2906593</text>
+              <text x="1185" y="140" transform="scale(.1)" fill="#fff"
+                                                           textLength="1670">10.1109/MCSE.2019.2906593</text></g>
+            </svg>
+          </a>
+          </p>
+
+          <p style="margin-left:30px">
+          <b>
+            Cylc: A Workflow Engine for Cycling Systems
+          </b>
+          <br />
+          Oliver et al., (2018).
+          <br />
+          <em>
+            Journal of Open Source Software, 3(27), 737.
+            DOI: 10.21105/joss.00737
+          </em>
+          <br />
+          <a
+            href="https://doi.org/10.21105/joss.00737"
+            >
+            <img
+              src="http://joss.theoj.org/papers/10.21105/joss.00737/status.svg"
+              style="width:auto" />
+          </a>
+            <br />
+          </p>
+
+          <p style="margin-left:30px">
+          <b>
+            Citable DOI for Cylc code releases.
+          </b>
+          <br />
+          <a
+            href="https://zenodo.org/badge/latestdoi/1836229"
+            >
+            <img
+              src="https://zenodo.org/badge/1836229.svg"
+              style="width:auto" />
+          </a>
+          </p>
+          <p>
+          Old (2017):
+          <a href="/assets/cylc-autosub-response.pdf">
+            Cylc response to <i>Assessment Report on Autosubmit, Cylc and ecFlow</i>
+          </a>
+          </p>
+        </div>
+      </div>
 
     {%- include header.html -%}
     <script type="text/javascript">

@@ -7,36 +7,6 @@
 
     {%- include header.html -%}
 
-    <div class="flex users">
-      <div class="container flex--vertical">
-        <div class="flex wrap">
-          <div class="flex flex--vertical">
-            <div class="flex item wrap">
-              <a href={{'/community' | relative_url}}>
-                <img src={{'/assets/icon-niwa.png' | relative_url}} class="icon-user niwa" alt="NIWA"/>
-                <img src={{'/assets/icon-metoffice.svg' | relative_url}} class="icon-user met" alt="Met Office"/>
-                <img src={{'/assets/icon-airforce.png' | relative_url}} class="icon-user airforce" alt="US Air Force"/>
-                <img src={{'/assets/icon-nrl-small.jpg' | relative_url}} class="icon-user nrl" alt="US Navy"/>
-                <img src={{'/assets/icon-agbom.jpeg' | relative_url}} class="icon-user agbom" alt="AGBOM"/>
-                <img src={{'/assets/icon-csiro.png' | relative_url }} class="icon-user csiro" alt="CSIRO"/>
-                <img src={{'/assets/icon-moes.jpeg' | relative_url}} class="icon-user moes" alt="MOES"/>
-                <img src={{'/assets/icon-altair.png' | relative_url}} class="icon-user altair" alt="Altair"/>
-                <img src={{'/assets/icon-icm.png' | relative_url}} class="icon-user icm" alt="ICM"/>
-                <img src={{'/assets/icon-korea.png' | relative_url}} class="icon-user korea" alt="Korea"/>
-                <img src={{'/assets/icon-coecss.png' | relative_url}} class="icon-user coecss" alt="COECSS"/>
-                <img src={{'/assets/icon-mets.png' | relative_url}} class="icon-user mets" alt="METS"/>
-                <img src={{'/assets/icon-saws.jpeg' | relative_url}} class="icon-user saws" alt="SAWS"/>
-                <img src={{'/assets/icon-isenes.png' | relative_url}} class="icon-user isenes" alt="ISENES"/>
-                <img src={{'/assets/icon-ncfas.png' | relative_url}} class="icon-user ncfas" alt="NCFAS"/>
-                <img src={{'/assets/icon-esiwace.png' | relative_url}} class="icon-user esiwace" alt="ESIWACE"/>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
     <div class="flex" aria-label="Content">
       <div class="container herounit">
         <div class="flex flex--vertical content">
@@ -57,30 +27,6 @@
 
         <div class="flex flex--vertical release">
           <div class="flex flex--vertical">
-            <div class="flex download-buttons">
-              <div class="flex flex--vertical m-r">
-                <label>Latest (Python 3)</label>
-                <a class="flex grow" id="cylc8-button">
-                  <button class="button flex grow">
-                    <img src={{'/assets/icon-download.svg' | relative_url}} />
-                    <span id="cylc8-latest-release-name"></span>
-                  </button>
-                </a>
-                <label id="cylc8-latest-release-pubdate-text"></label>
-              </div>
-
-              <div class="flex flex--vertical m-l">
-                <label>Legacy (Python 2)</label>
-                <a class="flex grow" id="cylc7-button">
-                  <button class="button flex grow">
-                    <img src={{'/assets/icon-download.svg' | relative_url}} />
-                    <span id="cylc7-latest-release-name"></span>
-                  </button>
-                </a>
-                <label id="cylc7-latest-release-pubdate-text"></label>
-              </div>
-            </div>
-
             <h3 class="flex jc-center">Next Release:&nbsp;
                 <a class="page-link" id="milestone-url" target="_blank"><span id="milestone-version"></span> (<span id="progress-info"></span>)</a>
             </h3>
@@ -98,7 +44,82 @@
         </div>
       </div>
 
+      <div class="flex users">
+        <div class="container flex--vertical">
+          <div class="flex wrap">
+            <div class="flex flex--vertical">
+              <div class="flex item wrap">
+                <a href={{'/community' | relative_url}}>
+                  <img src={{'/assets/icon-niwa.png' | relative_url}} class="icon-user niwa" alt="NIWA"/>
+                  <img src={{'/assets/icon-metoffice.svg' | relative_url}} class="icon-user met" alt="Met Office"/>
+                  <img src={{'/assets/icon-airforce.png' | relative_url}} class="icon-user airforce" alt="US Air Force"/>
+                  <img src={{'/assets/icon-nrl-small.jpg' | relative_url}} class="icon-user nrl" alt="US Navy"/>
+                  <img src={{'/assets/icon-agbom.jpeg' | relative_url}} class="icon-user agbom" alt="AGBOM"/>
+                  <img src={{'/assets/icon-csiro.png' | relative_url }} class="icon-user csiro" alt="CSIRO"/>
+                  <img src={{'/assets/icon-moes.jpeg' | relative_url}} class="icon-user moes" alt="MOES"/>
+                  <img src={{'/assets/icon-altair.png' | relative_url}} class="icon-user altair" alt="Altair"/>
+                  <img src={{'/assets/icon-icm.png' | relative_url}} class="icon-user icm" alt="ICM"/>
+                  <img src={{'/assets/icon-korea.png' | relative_url}} class="icon-user korea" alt="Korea"/>
+                  <img src={{'/assets/icon-coecss.png' | relative_url}} class="icon-user coecss" alt="COECSS"/>
+                  <img src={{'/assets/icon-mets.png' | relative_url}} class="icon-user mets" alt="METS"/>
+                  <img src={{'/assets/icon-saws.jpeg' | relative_url}} class="icon-user saws" alt="SAWS"/>
+                  <img src={{'/assets/icon-isenes.png' | relative_url}} class="icon-user isenes" alt="ISENES"/>
+                  <img src={{'/assets/icon-ncfas.png' | relative_url}} class="icon-user ncfas" alt="NCFAS"/>
+                  <img src={{'/assets/icon-esiwace.png' | relative_url}} class="icon-user esiwace" alt="ESIWACE"/>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="flex usecase bg-grey">
+        <div class="container flex--vertical">
+          <p>
+            Cylc is a <span style="color: #ff5966;" 
+              >decentralised</span>, <span style="color: #00c697;" 
+              >distributed</span>, <span style="color: #ffcc00;"
+              >D<b>A</b>G</span> / <span style="color: #ffcc00;"
+              >D<b>C</b>G</span> <span style="color: #00b3fd;">scheduler</span>.
+          </p>
+          <dl>
+            <dt style="color: #00b3fd;">Scheduler</dt>
+            <dd>
+              Cylc can schedule inter-dependent collections of tasks
+              (aka workflows) to run on platforms of your choice.
+            </dd>
+            <dt style="color: #ff5966;">Decentralised</dt>
+            <dd>
+              Cylc employs a decentralised architecture where each
+              workflow execution is fully independent. This means that
+              workflows are isolated for robustness and Cylc deployments
+              scale horizontally.
+            </dd>
+            <dt style="color: #00c697;">Distributed</dt>
+            <dd>
+              Cylc workflows can be distributed across a pool of servers to
+              facilitate large multi-user setups. Workflows can distribute
+              their workload across multiple platforms.
+            </dd>
+            <dt style="color: #ffcc00;">DAG</dt>
+            <dd>
+              Cylc can schedule <b>D</b>irected <b>A</b>cyclic <b>G</b>raphs
+              of tasks (i.e. workflows which do not cycle) similar to other
+              tools.
+            </dd>
+            <dt style="color: #ffcc00;">DAG</dt>
+            <dd>
+              Cylc's unique cycling model allows it to run cyclic workflows
+              too. This makes Cylc especially powerful for cases where later
+              repetitions of tasks depend on the output of earlier instances.
+              Tasks can repeat on different intervals within the same workflow
+              and complex inter-cycle dependencies can be defined between them.
+            </dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="flex usecase">
         <div class="container flex--vertical">
           <div class="flex screenshot wrap">
             <div class="flex flex--vertical grow shrink desc">
@@ -127,6 +148,68 @@
         </div>
       </div>
 
+      <div class="flex usecase bg-grey">
+        <div class="container flex--vertical">
+          <h3>Powerful User Interfaces</h3>
+
+          <p>
+            Alongside a powerful command line interface, Cylc has a web-based
+            GUI for monitoring, controlling and analysing workflows.
+          </p>
+
+          <ul>
+            <li>
+              Monitor all your workflows from one place,
+              even in a distributed deployment.
+            </li>
+            <li>
+              Tabbed interface with multiple views catering to different
+              use cases.
+            </li>
+            <li>
+              View workflow logs, task output, timings and more.
+            </li>
+            <li>
+              View the workflow graph live.
+            </li>
+            <li>
+              Edit task definition on-the-fly.
+            </li>
+            <li>
+              Manually intervene with workflow execution at runtime.
+            </li>
+          </ul>
+
+          <img
+            style="width: 60%"
+            src="{{'/assets/ui-screenshot.png' | relative_url}}"
+          />
+
+          <h3>Jupyter Lab Integration</h3>
+
+          Optional Jupyter Lab integration allows you to deploy the Cylc GUI
+          and Jupyter Lab together, providing an all in one research platform
+          ready to be deployed to on premise or cloud systems.
+
+          <h3>Jupyter Hub Integration</h3>
+
+          Deploy the Cylc GUI via Jupyter Hub to unlock institution-scale
+          multi-user deployments with fine-grained authorisation allowing
+          users to be granted permissions to view and control workflows running
+          under other user accounts.
+
+          <ul>
+            <li>
+              Teams can collaborate on shared projects.
+            </li>
+            <li>
+              Different levels of support can be granted different levels
+              of control of production systems.
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <div class="flex">
         <div class="container flex--vertical">
 
@@ -136,6 +219,8 @@
           <ul>
             <li>Cylc is used 24/7 in production weather forecasting,
               notorious for the size and complexity of its workflows.</li>
+            <li>Seamless transition from simulated time to real time
+              for ease of development and testing.</li>
           </ul>
 
           <b>Scaling</b>
@@ -145,14 +230,15 @@
             <li>Schedulers can be distributed over a pool of hosts, and
                 jobs over job platforms.</li>
             <li>Individual workflows scale to thousands of tasks per cycle.</li>
+            <li>Deployments can scale infinitely.</li>
           </ul>
 
           <b>Powerful UIs</b>
           <ul>
             <li>A <b>CLI</b> that can operate on multiple workflows and tasks at once.</li>
-            <li>A <b>web GUI</b>, served by a
+            <li>A <b>web GUI</b> with
               <a href="https://jupyter-server.readthedocs.io/en/latest/">Jupyter
-                Server</a> extension.</li>
+                </a> extension.</li>
             <li>A <b>terminal UI</b> with control capability.</li>
          </ul>
 

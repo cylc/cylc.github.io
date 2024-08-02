@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web&display=swap");
+
+:root {
+    --content-width: 90vw;
+    --max-content-width: 1200px;
+
+    /* logo colours */
+    --red: rgb(255, 89, 102);
+    --yellow: rgb(255, 204, 0);
+    --green: rgb(0, 198, 151);
+    --blue: rgb(0, 179, 253, 255);
+
+    /* theme colours */
+    --yellow-dark: rgb(230, 180, 0);
+    --grey: rgb(220, 220, 220);
+
+    /* font */
+    --font-family: 'Titillium Web';
+    --font-weight-normal: 400;
+    --font-weight-heavy: 800;
+
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* layout */
+
+.content {
+    width: var(--content-width);
+    max-width: var(--max-content-width);
+    margin: 0 auto 0 auto;
+    padding: 1vw 0 1vw 0;
+}
+
+.shaded {
+    width: 100%;
+    background-color: var(--grey);
+}
+
+.grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.logo-grid {
+    height: 3vw;
+    margin: 1vw;
+}
+
+
+/* components */
+
+h2 {
+    font-size: 2em;
+    font-weight: var(--font-weight-normal);
+}
+
+.red {
+    color: var(--red);
+}
+
+.yellow {
+    color: var(--yellow-dark);
+}
+
+.green {
+    color: var(--green);
+}
+
+.blue {
+    color: var(--blue);
+}
+
+ul.nav-bar {
+    margin: 2em;
+}
+
+ul.nav-bar li {
+    display: inline;
+    padding: 0 1em 0 1em;
+}
+
+.chip {
+    border-radius: 1em;
+    padding: 0.25em;
+}
+
+.chip.large {
+    border-radius: 2em;
+    padding: 0.5em 1em 0.5em 1em;
+    font-weight: var(--font-weight-heavy);
+}
+
+.chip.red {
+    color: white;
+    background-color: var(--red);
+}
+
+.chip.yellow {
+    color: white;
+    background-color: var(--yellow-dark);
+}
+
+.chip.green {
+    color: white;
+    background-color: var(--green);
+}
+
+.chip.blue {
+    color: white;
+    background-color: var(--blue);
+}
+
+a.chip {
+    text-decoration: none;
+}
+
+
+/* hero */
+
+.hero {
+    text-align: center;
+    width: 100%;
+}
+
+.hero img {
+    display: block;
+    margin: 0 auto 1vw auto;
+}
+
+
+/* feature */
+
+.feature {
+    width: 40%;
+    padding: 0 1% 0 1%;
+    margin: 1% 1.5% 1% 1.5%;
+}
+
+.feature > :nth-child(1) {
+    width: 20%;
+    float: left;
+    opacity: 0.75;
+    position: relative;
+    top: +1.5em;
+}
+
+.feature > :nth-child(1) > * {
+    width: 100%;
+}
+
+.feature > :nth-child(2) {
+    width: 72%;
+    float: right;
+}
+
+.feature > * > .title {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    display: inline-block;
+}
+
+@media (max-width: 800px) {
+    .feature {
+        width: 100%;
+    }
+}

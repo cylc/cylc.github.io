@@ -1,0 +1,355 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <!-- the header -->
+    <div class="content hero">
+      <h1 style="display: none;">Cylc</h1>
+      <img src="img/logo-cylc-colour.svg" alt="cylc logo" width="50%" />
+
+      <ul class="nav-bar">
+        <li><a class="chip large blue" href="https://cylc.github.io/cylc-doc/stable/html/installation.html">Installation</a></li>
+        <li><a class="chip large green" href="https://cylc.github.io/cylc-doc">Documentation</a></li>
+        <li><a class="chip large yellow" href="https://cylc.discourse.group/">Support</a></li>
+        <li><a class="chip large red" href="https://github.com/cylc">GitHub</a></li>
+      </ul>
+
+      <p style="font-size: 1.4em; width: 80%; padding-left: 10%">
+        Cylc is a general purpose workflow engine with a particular gift for cycling.
+      </p>
+    </div>
+
+    <!-- the description -->
+    <div class="shaded"><div class="content">
+      <h2>What is Cylc?</h2>
+      <p style="font-size: 1.5em">
+        Cylc is a
+        <span class="red">decentralised</span>,
+        <span class="green">distributed</span>,
+        <span class="yellow">DAG/DCG</span>
+        <span class="blue">scheduler</span>.
+      </p>
+
+      <div class="grid">
+        <div class="feature">
+          <div>
+            <img src="img/feature-scheduler.svg" alt="cylc logo" />
+          </div>
+          <div>
+            <p class="title blue">Scheduler</p>
+            <p>
+              Cylc can schedule inter-dependent collections of tasks (aka
+              workflows) to run on platforms of your choice.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div>
+            <img src="img/feature-descentralised.svg" alt="cylc logo" />
+          </div>
+          <div>
+            <p class="title red">Decentralised</p>
+            <p>
+              Cylc employs a decentralised architecture where each workflow
+              execution is fully independent. This means that workflows are
+              isolated for robustness and Cylc deployments scale
+              horizontally.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div>
+            <img src="img/feature-distributed.svg" alt="cylc logo" />
+          </div>
+          <div>
+            <p class="title green">Distributed</p>
+            <p>
+              Cylc workflows can be distributed across a pool of servers to
+              facilitate large multi-user setups. Workflows can distribute
+              their workload across multiple platforms.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div>
+            <img src="img/feature-dcg.svg" alt="cylc logo" />
+          </div>
+          <div>
+            <p class="title yellow">DAG / DCG</p>
+            <p>
+              Cylc can schedule Directed <i>Acyclic</i> Graphs of tasks (i.e.
+              workflows which do not cycle) similar to other tools. 
+            </p>
+            <p>
+              Cylc's unique cycling model allows it to run cyclic workflows
+              too. This makes Cylc especially powerful for cases where later
+              repetitions of tasks depend on the output of earlier instances.
+              Tasks can repeat on different intervals within the same
+              workflow and complex inter-cycle dependencies can be defined
+              between them. 
+            </p>
+          </div>
+        </div>
+      </div>
+    </div></div>
+
+
+    <!-- the features -->
+    <div class="content">
+      <h2>Features</h2>
+
+      <div class="grid">
+
+        <div class="feature">
+          <div>
+            <img src="img/feature-scalable.svg" alt="cylc logo" />
+          </div>
+          <div>
+            <p class="title">Scalable</p>
+            <p>
+              Thanks to Cylc's horizontal architecture, deployments can scale
+              to any number of workflows. Cylc's novel scheduling algorithm
+              allows it to schedule complex and even infinite workflows.
+            <p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div>
+            <img src="img/feature-flexible.svg" alt="cylc logo" />
+          </div>
+          <div>
+            <p class="title">Flexible</p>
+            <p>
+              Start with a simple linear pipeline, grow it into a complex
+              branched cycling workflow.
+            </p></p>
+            <p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div>
+            <img src="img/feature-production.svg" alt="cylc logo" />
+          </div>
+          <div>
+            <p class="title">Production Ready</p>
+            <p>
+              Used in production since 2010, trusted by institutions
+              worldwide.
+            <p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div>
+            <img src="img/feature-cycling.svg" alt="cylc logo" />
+          </div>
+          <div>
+            <p class="title">Cycling</p>
+            <p>
+              Cylc's cycling can do much more than just run a DAG to a
+              schedule.
+            </p><p>
+              Different parts of your workflow can cycle to different
+              schedules, tasks can have inter-cycle dependencies and
+              multiple cycles can run simultaneously.
+            <p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div>
+            <img src="img/feature-advanced-scheduling.svg" alt="cylc logo" />
+          </div>
+          <div>
+            <p class="title">Advanced Scheduling</p>
+            <p>
+              Cylc supports branched graphs where runtime events direct the
+              direction the workflow takes.
+            </p><p>
+              Cycling workflows can run in real-time or simulated time with
+              multiple calendars supported.
+
+              And much more
+            <p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div>
+            <img src="img/feature-uis.svg" alt="cylc logo" />
+          </div>
+          <div>
+            <p class="title">Powerful User Interfaces</p>
+            <p>
+              The Cylc dashboard (the GUI) provides a multi-workflow
+              multi-pane interface for monitoring and controlling workflows.
+            </p><p>
+              View job logs and outputs, re-run subgraphs, modify the
+              workflow configuration on the fly and more.
+            </p><p>
+              Alongside the GUI is a feature complete command line with
+              an interactive in-terminal user interface (the Tui).
+            <p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div>
+            <img src="img/logo-jupyter.svg" alt="cylc logo" />
+          </div>
+          <div>
+            <p class="title">Jupyter Integration</p>
+            <p>
+              Deploy the Cylc dashboard via Jupyter Hub to unlock
+              institution-scale multi-user deployments with fine-grained
+              authorisation allowing users to be granted permissions to view
+              and control workflows running under other user accounts.
+            </p><p>
+              Deploy the Cylc dashboard alongside Jupyter Lab for an
+              all-in-one virtual workstation in the browser.
+            <p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- the references -->
+    <div class="shaded"><div class="content">
+      <h2>Publications</h2>
+
+      <p>If you use Cylc in your work, please consider citing us.</p>
+
+      <p>
+        <b>
+          Workflow Automation for Cycling Systems: The
+          Cylc Workflow Engine
+        </b>
+        <br />
+          H. Oliver et al
+        <br />
+        <em>
+          Computing in Science & Engineering Vol
+          21, Issue 4, July/Aug 2019. DOI: 10.1109/MCSE.2019.2906593
+        </em>
+        <br />
+        <a href="https://doi.org/10.1109/MCSE.2019.2906593">
+          <img src="img/badge-h-et-al-2019.svg" />
+        </a>
+      </p>
+
+      <p>
+        <b>
+          Cylc: A Workflow Engine for Cycling Systems
+        </b>
+        <br />
+          Oliver et al., (2018).
+        <br />
+        <em>
+          Journal of Open Source Software, 3(27), 737.
+          DOI: 10.21105/joss.00737
+        </em>
+        <br />
+        <a href="https://doi.org/10.21105/joss.00737">
+          <img src="https://joss.theoj.org/papers/10.21105/joss.00737/status.svg" style="width:auto" />
+        </a>
+        <br />
+      </p>
+
+      <p>
+        <b>
+          Citable DOI for Cylc code releases.
+        </b>
+        <br />
+        <a href="https://zenodo.org/badge/latestdoi/1836229">
+          <img src="https://zenodo.org/badge/1836229.svg" style="width:auto" />
+        </a>
+      </p>
+      </div>
+    </div></div>
+
+
+    <!-- the users -->
+    <div class="content">
+      <h2>Trusted By Sites Worldwide</h2>
+      <div class="grid" style="width: 100%">
+        <img class="logo-grid" src="img/logo-agbom.jpeg" alt="agbom logo" />
+        <img class="logo-grid" src="img/logo-airforce.png" alt="usaf logo" />
+        <img class="logo-grid" src="img/logo-altair.png" alt="altair logo" />
+        <img class="logo-grid" src="img/logo-coecss.png" alt="coecss logo" />
+        <img class="logo-grid" src="img/logo-csiro.png" alt="csiro logo" />
+        <img class="logo-grid" src="img/logo-esiwace.png" alt="esiwace logo" />
+        <img class="logo-grid" src="img/logo-icm.png" alt="icm logo" />
+        <img class="logo-grid" src="img/logo-isenes.png" alt="isenes logo" />
+        <img class="logo-grid" src="img/logo-korea.png" alt="kma logo" />
+        <img class="logo-grid" src="img/logo-metoffice.svg" alt="metoffice logo" />
+        <img class="logo-grid" src="img/logo-mets.png" alt="mets logo" />
+        <img class="logo-grid" src="img/logo-moes.jpeg" alt="moes logo" />
+        <img class="logo-grid" src="img/logo-ncfas.png" alt="ncfas logo" />
+        <img class="logo-grid" src="img/logo-niwa.png" alt="niwa logo" />
+        <img class="logo-grid" src="img/logo-nrl-small.jpg" alt="nrl logo" />
+        <img class="logo-grid" src="img/logo-saws.jpeg" alt="saws logo" />
+      </div>
+
+    </div>
+
+
+    <!-- the commercial --->
+    <div class="shaded"><div class="content">
+      <h2>Support</h2>
+
+      <p>
+        Community support is available on the
+        <a class="blue" href="https://cylc.discourse.group/">
+          Discourse forum
+        </a>.
+      </p>
+
+      <p>
+        Commercial support for Cylc is available from Altair, a leading provider
+        of workload management and scheduling resources for the weather industry.
+
+        Learn more about the
+        <a class="blue" href="https://web.altair.com/en/cylc-weather-solution">
+          Altair Weather Solution
+        </a>.
+      </p>
+    </div></div>
+
+
+    <!-- the testimony -->
+    <div class="content">
+      <h2>Testimony</h2>
+
+      <p>
+        Cylc has been used to orchestrate all climate, weather, and
+        weather-driven forecasting workflows at NIWA, for research and
+        production, since 2010.
+        <br />
+        On deployment to production at NIWA, Cylc's automatic cycle-interleaving
+        cut catch-up time from serious delays down from ~24 hours to ~30
+        minutes.
+        <br />
+        - Hillary Oliver, NIWA
+      </p>
+
+        
+      <p>
+        Cylc has been used at the Met Office since 2012 and operationally since 2014.
+        <br/>
+        “Every week we have 300+ users who rely on Cylc. At any one time we
+        typically have 700+ active workflows. Of the 11.7 million jobs run on
+        our HPC systems in February 2020, 99.6% of them were submitted by Cylc.”
+        <br />
+        - David Matthews, Met Office
+      </p>
+
+    </div>
+
+  </body>
+</html>

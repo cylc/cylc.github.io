@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 26.19375 26.458333"
+   height="100"
+   width="99">
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0,-270.54167)"
+     id="layer1">
+    <path
+       id="path3153"
+       transform="matrix(0.26458333,0,0,0.26458333,0,270.54167)"
+       d="M 93.738281 5.5019531 C 14.586202 17.865506 23.832031 76.472656 23.832031 76.472656 C 92.897437 71.918892 93.738281 5.5019531 93.738281 5.5019531 z "
+       style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1" />
+    <path
+       id="path3162"
+       d="m 9.6789601,279.52968 -3.6145493,-0.0803 -4.859561,4.85956 h 6.0242491 z"
+       style="fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:0.78431374" />
+    <path
+       id="path3164"
+       d="m 17.349837,286.99975 -0.04016,3.57439 -4.859561,4.93988 v -6.02425 z"
+       style="fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:0.78431374" />
+    <path
+       style="fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:0.39215687"
+       d="m 12.790575,284.17012 c -11.2496412,1.75746 -9.9355599,10.08837 -9.9355599,10.08837 9.8160529,-0.64731 9.9355599,-10.08837 9.9355599,-10.08837 z"
+       id="use3166" />
+  </g>
+</svg>

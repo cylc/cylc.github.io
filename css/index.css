@@ -18,12 +18,14 @@
     --font-family: 'Titillium Web';
     --font-weight-normal: 400;
     --font-weight-heavy: 800;
+    --font-color: black;
 
 }
 
 body {
     font-family: var(--font-family);
     font-size: 18px;
+    color: var(--font-color);
     margin: 0;
     padding: 0;
 }
@@ -121,6 +123,23 @@ ul.nav-bar li {
 
 a.chip {
     text-decoration: none;
+}
+
+a:has(h2) {
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+a > h2:after {
+    font-size: 0.5em;
+    vertical-align: middle;
+    content: ' \01F517';
+    opacity: 0.2;
+}
+
+a > h2:hover:after {
+    opacity: 1;
+    cursor: pointer;
 }
 
 
